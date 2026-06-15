@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PawPal — Rayco González</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0b1e;
+    --panel:#161836;
+    --panel-2:#1d2046;
+    --line:rgba(255,255,255,.08);
+    --line-2:rgba(255,255,255,.14);
+    --text:#f4f3ff;
+    --muted:#9a9ab8;
+    --soft:#cdcbe8;
+    --violet:#8b5cf6;
+    --violet-2:#a78bfa;
+    --pink:#ff5ca8;
+    --lime:#c7f24a;
+    --yellow:#ffd34d;
+    --teal:#5eead4;
+    --blue:#60a5fa;
+    --orange:#ff8a4c;
+    --sidebar:240px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Sora",system-ui,sans-serif;
+    color:var(--text);
+    background:
+      radial-gradient(900px 500px at 80% -10%, rgba(139,92,246,.18), transparent 60%),
+      radial-gradient(700px 400px at 20% 110%, rgba(255,92,168,.10), transparent 60%),
+      var(--bg);
+    min-height:100vh;
+    overflow-x:hidden;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+    background-image:
+      radial-gradient(rgba(255,255,255,.5) 1px, transparent 1.2px),
+      radial-gradient(rgba(199,242,74,.35) 1px, transparent 1.2px);
+    background-size:90px 90px, 140px 140px;
+    background-position:0 0, 45px 60px;
+    opacity:.18;
+    mask-image:linear-gradient(to bottom, black, transparent 85%);
+  }
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+
+  .page{position:relative;z-index:1;display:grid;grid-template-columns:var(--sidebar) minmax(0,1fr);min-height:100vh}
+  .sidebar{
+    position:fixed;top:0;left:0;width:var(--sidebar);height:100vh;
+    padding:30px 22px;border-right:1px solid var(--line);
+    background:rgba(10,11,30,.75);backdrop-filter:blur(20px);
+    display:flex;flex-direction:column;justify-content:space-between;z-index:20;
+  }
+  .logo{display:flex;align-items:center;gap:6px}
+  .logo .mark{
+    width:38px;height:38px;border-radius:11px;display:grid;place-items:center;
+    background:linear-gradient(135deg,#fff,#dcd6ff);color:#0a0b1e;font-weight:900;font-size:18px;
+  }
+  .logo .dot{width:10px;height:10px;border-radius:50%;background:var(--violet-2);margin-top:14px}
+  .nav{display:flex;flex-direction:column;gap:6px;margin-top:38px}
+  .nav a{
+    display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:14px;
+    color:var(--muted);font-weight:600;font-size:15px;transition:.2s ease;border:1px solid transparent;
+  }
+  .nav a:hover{color:var(--text);background:rgba(255,255,255,.04)}
+  .nav a.active{
+    color:var(--text);
+    background:linear-gradient(180deg, rgba(255,138,76,.26), rgba(139,92,246,.18));
+    border-color:rgba(255,138,76,.26);
+  }
+  .nav a .ico{width:18px;height:18px;display:grid;place-items:center;color:inherit}
+  .socials{display:flex;flex-direction:column;gap:14px;color:var(--muted)}
+  .socials a{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;border:1px solid var(--line);transition:.2s}
+  .socials a:hover{color:var(--lime);border-color:rgba(199,242,74,.4)}
+
+  main{grid-column:2;padding:32px clamp(20px,3.5vw,46px) 60px;max-width:1540px}
+  section + section{margin-top:24px}
+  .panel{
+    border:1px solid var(--line);
+    background:linear-gradient(180deg, rgba(22,24,54,.92), rgba(17,19,44,.92));
+    border-radius:28px;
+    padding:clamp(22px,3vw,38px);
+    box-shadow:0 30px 80px rgba(0,0,0,.35);
+    position:relative;overflow:hidden;
+  }
+  .panel.compact{padding:clamp(18px,2.4vw,28px)}
+  .back{
+    display:inline-flex;align-items:center;gap:10px;color:var(--muted);
+    font-size:14px;font-weight:600;padding:8px 14px;border-radius:999px;
+    border:1px solid var(--line);background:rgba(255,255,255,.03);
+    transition:.2s;margin-bottom:18px;
+  }
+  .back:hover{color:var(--text);border-color:var(--line-2);transform:translateX(-3px)}
+  .section-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:22px}
+  .section-kicker{
+    display:inline-flex;align-items:center;gap:8px;color:var(--orange);
+    font-weight:600;font-size:14px;
+  }
+  .section-kicker .badge{
+    width:18px;height:18px;border-radius:5px;
+    background:linear-gradient(135deg,var(--orange),var(--pink));
+    display:grid;place-items:center;color:#fff;font-size:10px;
+  }
+  h1{
+    font-size:clamp(58px,7vw,112px);
+    line-height:.92;letter-spacing:-.05em;font-weight:900;
+  }
+  h1 .grad{
+    background:linear-gradient(90deg,var(--yellow),var(--orange) 40%,var(--pink) 75%,var(--violet-2));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  h2{font-size:clamp(28px,3vw,42px);font-weight:800;letter-spacing:-.04em;line-height:1.05;margin-top:6px}
+
+  .hero{
+    display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.15fr);
+    gap:28px;align-items:center;min-height:720px;
+    background:
+      radial-gradient(600px 260px at 78% 6%, rgba(255,138,76,.16), transparent 60%),
+      radial-gradient(520px 260px at 20% 100%, rgba(94,234,212,.12), transparent 60%),
+      linear-gradient(180deg, rgba(22,24,54,.96), rgba(17,19,44,.96));
+  }
+  .crumbs{
+    display:inline-flex;align-items:center;gap:8px;color:var(--muted);
+    font-size:13px;font-weight:500;margin-bottom:16px;font-family:"JetBrains Mono",monospace;
+  }
+  .crumbs a:hover{color:var(--text)}
+  .crumbs .sep{opacity:.5}
+  .crumbs .now{color:var(--orange)}
+  .status-row{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}
+  .status-pill,.tag-lg{
+    font-size:12px;font-weight:700;padding:7px 12px;border-radius:999px;
+    background:rgba(255,138,76,.14);color:#ffbf98;border:1px solid rgba(255,138,76,.26);
+  }
+  .status-pill.alt,.tag-lg.alt{background:rgba(94,234,212,.1);color:var(--teal);border-color:rgba(94,234,212,.2)}
+  .tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+  .lead{color:var(--soft);font-size:17px;line-height:1.7;max-width:650px;margin:18px 0 10px}
+  .lead.en{font-size:15px;color:var(--muted);max-width:620px}
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 22px;border-radius:999px;
+    font-weight:700;font-size:14px;cursor:pointer;border:1px solid transparent;transition:.22s ease;
+  }
+  .btn-primary{
+    background:linear-gradient(135deg,#dcfa6c,#a8e62e);
+    color:#0a0b1e;box-shadow:0 14px 36px rgba(199,242,74,.22);
+  }
+  .btn-primary:hover{transform:translateY(-2px);filter:brightness(1.05)}
+  .btn-ghost{color:var(--soft);background:rgba(255,255,255,.04);border-color:var(--line-2)}
+  .btn-ghost:hover{color:var(--text);background:rgba(255,255,255,.07)}
+  .btn-soft{color:var(--text);background:rgba(255,138,76,.14);border-color:rgba(255,138,76,.22)}
+  .btn-soft:hover{background:rgba(255,138,76,.22)}
+
+  .hero-art{position:relative;min-height:620px;display:grid;place-items:center}
+  .device{
+    position:relative;width:min(620px,100%);aspect-ratio:16/9;border-radius:38px;
+    background:linear-gradient(180deg,#1a1c3e,#0d1025);border:6px solid #2b2d55;
+    box-shadow:0 40px 80px rgba(0,0,0,.55), inset 0 2px 0 rgba(255,255,255,.08);
+    overflow:hidden;transform:rotate(-5deg);
+  }
+  .device::before{
+    content:"";position:absolute;left:16px;top:50%;transform:translateY(-50%);
+    width:22px;height:112px;border-radius:14px;background:#000;z-index:4;
+  }
+  .screen-main{
+    position:absolute;inset:0;
+    background:
+      radial-gradient(circle at 28% 24%, rgba(255,255,255,.24) 0 6%, transparent 7%),
+      radial-gradient(circle at 72% 20%, rgba(255,255,255,.18) 0 5%, transparent 6%),
+      linear-gradient(180deg,#7dd3fc 0 34%, #f9d5aa 34% 58%, #8ccf5a 58% 100%);
+  }
+  .screen-main img,.float-card img,.gallery-shot img,.mini-media img,.wardrobe-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .float-card{
+    position:absolute;width:180px;border-radius:22px;overflow:hidden;
+    border:1px solid rgba(255,255,255,.12);background:rgba(16,18,44,.92);
+    box-shadow:0 22px 44px rgba(0,0,0,.35);backdrop-filter:blur(12px);
+  }
+  .float-card .media{position:relative;height:108px;background:linear-gradient(135deg, rgba(139,92,246,.34), rgba(255,138,76,.22));overflow:hidden}
+  .float-card .media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, transparent, rgba(10,11,30,.12) 50%, rgba(10,11,30,.45))}
+  .float-card .copy{padding:12px 14px}
+  .float-card strong{display:block;font-size:13px;margin-bottom:4px}
+  .float-card span{display:block;color:var(--muted);font-size:12px;line-height:1.5}
+  .card-main{left:-12px;top:34px}
+  .card-wardrobe{right:-2px;top:22px}
+  .card-daily{left:12px;bottom:40px}
+  .card-minigame{right:-10px;bottom:26px}
+  .bubble-shop{
+    position:absolute;right:186px;bottom:-6px;padding:12px 14px;border-radius:18px;
+    background:rgba(14,16,37,.88);border:1px solid rgba(255,255,255,.12);
+    font-size:12px;color:var(--soft);box-shadow:0 18px 34px rgba(0,0,0,.26);
+  }
+
+  .grid-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+  .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+  .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+  .card{
+    padding:20px;border-radius:20px;background:linear-gradient(180deg, rgba(34,37,75,.58), rgba(22,24,54,.58));
+    border:1px solid var(--line);transition:.22s;
+  }
+  .card:hover{transform:translateY(-3px);border-color:rgba(255,138,76,.24)}
+  .card .ico{
+    width:46px;height:46px;border-radius:12px;display:grid;place-items:center;
+    background:rgba(255,138,76,.16);color:var(--orange);margin-bottom:14px;
+  }
+  .card h3,.card h4{font-size:17px;font-weight:700;letter-spacing:-.02em;margin-bottom:8px}
+  .card p{color:var(--muted);font-size:13.5px;line-height:1.6}
+  .list{display:grid;gap:8px;margin-top:12px}
+  .list span{color:var(--soft);font-size:12.5px;line-height:1.5;padding:8px 10px;border-radius:12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05)}
+
+  .loop{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;position:relative}
+  .loop::before{
+    content:"";position:absolute;left:4%;right:4%;top:42px;height:1px;
+    background:repeating-linear-gradient(90deg,var(--line) 0 10px, transparent 10px 18px);
+  }
+  .loop-step{
+    position:relative;z-index:1;padding:20px 18px;border-radius:20px;
+    background:linear-gradient(180deg, rgba(34,37,75,.64), rgba(22,24,54,.64));border:1px solid var(--line);
+  }
+  .loop-step .ball{
+    width:44px;height:44px;border-radius:50%;display:grid;place-items:center;
+    background:linear-gradient(135deg,var(--orange),var(--pink));color:#fff;margin-bottom:14px;
+    box-shadow:0 10px 24px rgba(255,138,76,.26);
+  }
+  .loop-step h4{font-size:15px;margin-bottom:6px}
+  .loop-step p{color:var(--muted);font-size:13px;line-height:1.55}
+
+  .mini{
+    display:grid;grid-template-columns:1.1fr .9fr;gap:18px;align-items:stretch;padding:18px;border-radius:24px;
+    background:linear-gradient(180deg, rgba(34,37,75,.58), rgba(22,24,54,.58));border:1px solid var(--line);
+  }
+  .mini-media,.wardrobe-media,.gallery-shot{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--line)}
+  .mini-media{
+    min-height:260px;
+    background:
+      radial-gradient(circle at 30% 32%, rgba(255,255,255,.18) 0 10%, transparent 11%),
+      radial-gradient(circle at 70% 68%, rgba(94,234,212,.24) 0 12%, transparent 13%),
+      linear-gradient(135deg, rgba(91,33,182,.42), rgba(255,138,76,.24));
+  }
+  .mini-copy{padding:6px 4px}
+  .mini-copy p{color:var(--muted);font-size:14px;line-height:1.7}
+  .mini-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .mini-meta span{
+    font-size:11px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.04);
+    border:1px solid var(--line);color:var(--soft);font-weight:600;
+  }
+
+  .feature-stack{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+  .wardrobe-media{
+    min-height:380px;
+    background:
+      radial-gradient(circle at 28% 28%, rgba(255,211,77,.2) 0 12%, transparent 13%),
+      radial-gradient(circle at 72% 22%, rgba(255,92,168,.2) 0 10%, transparent 11%),
+      linear-gradient(180deg, #7dd3fc 0 24%, #f8d2a6 24% 54%, #98d36c 54% 100%);
+  }
+  .systems{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+  .sys{
+    padding:18px;border-radius:18px;background:rgba(255,255,255,.03);
+    border:1px solid var(--line);transition:.2s;
+  }
+  .sys:hover{border-color:rgba(167,139,250,.26);transform:translateY(-2px)}
+  .sys strong{display:block;font-size:14px;margin-bottom:6px}
+  .sys span{display:block;color:var(--muted);font-size:12.5px;line-height:1.55}
+
+  .duo{
+    padding:24px;border-radius:22px;background:linear-gradient(180deg, rgba(34,37,75,.56), rgba(22,24,54,.56));
+    border:1px solid var(--line);
+  }
+  .duo h3{font-size:22px;letter-spacing:-.03em;margin-bottom:14px}
+  .duo .list{margin-top:0}
+
+  .gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+  .gallery-shot{
+    aspect-ratio:16/9;
+    background:
+      radial-gradient(circle at 26% 28%, rgba(255,255,255,.18) 0 8%, transparent 9%),
+      radial-gradient(circle at 70% 66%, rgba(94,234,212,.18) 0 10%, transparent 11%),
+      linear-gradient(135deg, rgba(76,29,149,.52), rgba(255,138,76,.2));
+  }
+  .gallery-shot::after{
+    content:"PawPal";position:absolute;left:12px;bottom:12px;color:rgba(255,255,255,.52);
+    font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-family:"JetBrains Mono",monospace;
+  }
+
+  .contact{
+    display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center;
+    padding:24px 28px;border-radius:24px;
+    background:linear-gradient(135deg, rgba(255,138,76,.16), rgba(255,92,168,.10));
+    border:1px solid rgba(255,138,76,.28);
+  }
+  .contact .pad{
+    width:54px;height:54px;border-radius:14px;background:linear-gradient(135deg,var(--orange),#c2410c);
+    display:grid;place-items:center;color:#fff;box-shadow:0 10px 24px rgba(255,138,76,.35);
+  }
+  .contact h3{font-size:20px;font-weight:800;letter-spacing:-.02em}
+  .contact p{color:var(--muted);font-size:13.5px;margin-top:4px}
+  .footer{
+    margin-top:28px;color:var(--muted);
+    display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;padding:0 6px;
+  }
+
+  @media (max-width:1180px){
+    .hero,.mini,.feature-stack,.grid-2{grid-template-columns:1fr}
+    .grid-4,.systems{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .loop{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .loop::before{display:none}
+  }
+  @media (max-width:1100px){
+    :root{--sidebar:0px}
+    .sidebar{position:relative;width:100%;height:auto;flex-direction:row;padding:14px 18px;border-right:none;border-bottom:1px solid var(--line)}
+    .nav{flex-direction:row;margin-top:0;gap:4px;flex-wrap:wrap}
+    .nav a{padding:8px 12px;font-size:13px}
+    .socials{flex-direction:row}
+    .page{grid-template-columns:1fr}
+    main{grid-column:1;padding:20px}
+    .hero{min-height:auto}
+  }
+  @media (max-width:760px){
+    .grid-4,.grid-3,.grid-2,.systems,.gallery,.loop{grid-template-columns:1fr}
+    .contact{grid-template-columns:1fr}
+    .hero-art{min-height:760px}
+    .device{width:min(100%,540px);transform:none}
+    .card-main{left:0;top:22px}
+    .card-wardrobe{right:0;top:160px}
+    .card-daily{left:0;bottom:170px}
+    .card-minigame{right:0;bottom:36px}
+    .bubble-shop{right:26px;bottom:-2px}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <aside class="sidebar">
+    <div>
+      <a href="index.html" class="logo" aria-label="Inicio">
+        <div class="mark">R</div>
+        <span class="dot"></span>
+      </a>
+      <nav class="nav" aria-label="PawPal sections">
+        <a href="#home" class="active"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12 12 4l9 8"/><path d="M5 10v10h14V10"/></svg></span><span>Inicio</span></a>
+        <a href="#role"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg></span><span>Rol</span></a>
+        <a href="#loop"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h5l2-3 4 6 2-3h5"/></svg></span><span>Loop</span></a>
+        <a href="#minigames"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="12" rx="4"/><path d="M8 12h2M9 11v2"/><circle cx="15" cy="12" r="1"/><circle cx="17" cy="14" r="1"/></svg></span><span>Mini-games</span></a>
+        <a href="#systems"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M2 12h4"/><path d="M18 12h4"/><circle cx="12" cy="12" r="3"/></svg></span><span>Sistemas</span></a>
+        <a href="#gallery"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></span><span>Galería</span></a>
+        <a href="#contact"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></span><span>Contacto</span></a>
+      </nav>
+    </div>
+    <div class="socials">
+      <a href="#" aria-label="Discord"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.6 5.5a17 17 0 0 0-4.2-1.3l-.2.4a15.3 15.3 0 0 0-4.4 0l-.2-.4a17 17 0 0 0-4.2 1.3A18 18 0 0 0 3 17.5a17 17 0 0 0 5.2 2.6l.4-.6a11 11 0 0 1-1.7-.8l.4-.3a12 12 0 0 0 9.4 0l.4.3a11 11 0 0 1-1.7.8l.4.6a17 17 0 0 0 5.2-2.6 18 18 0 0 0-1-12zM9 14.5c-.8 0-1.5-.8-1.5-1.7S8.2 11 9 11s1.5.8 1.5 1.7-.7 1.8-1.5 1.8zm6 0c-.8 0-1.5-.8-1.5-1.7S14.2 11 15 11s1.5.8 1.5 1.7-.7 1.8-1.5 1.8z"/></svg></a>
+      <a href="#" aria-label="X"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 3h3l-7.5 8.6L22 21h-6.8l-5.3-6.5L3.8 21H1l8-9.2L1 3h7l4.8 6 5.2-6z"/></svg></a>
+      <a href="#" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3.5C5 4.6 4.1 5.5 3 5.5S1 4.6 1 3.5 1.9 1.5 3 1.5 5 2.4 5 3.5zM1 8h4v14H1V8zm7 0h3.8v2h.05c.5-.95 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V22h-4v-6.2c0-1.5-.05-3.4-2.05-3.4S12 13.8 12 15.7V22H8V8z"/></svg></a>
+    </div>
+  </aside>
+
+  <main>
+    <a href="index.html#games" class="back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      <span>Volver al portfolio</span>
+    </a>
+
+    <section class="panel hero" id="home">
+      <div>
+        <div class="crumbs"><a href="index.html#games">Proyectos</a><span class="sep">/</span><span class="now">PawPal</span></div>
+        <div class="status-row">
+          <span class="status-pill">Available on Google Play</span>
+          <span class="status-pill alt">Currently in development / live iteration</span>
+        </div>
+        <h1><span class="grad">PawPal</span></h1>
+        <p class="lead">Juego mobile de mascota virtual con minijuegos arcade, progresión, personalización y sistemas de retención.</p>
+        <p class="lead en">Virtual pet mobile game with arcade mini-games, progression, customization and retention systems.</p>
+        <div class="tag-row">
+          <span class="tag-lg">Unity</span><span class="tag-lg alt">Android</span><span class="tag-lg">Virtual Pet</span><span class="tag-lg alt">Casual</span><span class="tag-lg">Mobile</span><span class="tag-lg alt">Tech Art</span><span class="tag-lg">Live Ops</span>
+        </div>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#"><span>Ver en Google Play</span><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M3 22V2l18 10z"/></svg></a>
+          <a class="btn btn-ghost" href="#minigames"><span>Ver gameplay</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          <a class="btn btn-soft" href="#systems"><span>Ver sistemas</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="device">
+          <div class="screen-main"><img src="assets/images/pawpal/pawpal-hero.png" alt="Hero PawPal" onerror="this.style.display='none'"></div>
+        </div>
+        <div class="float-card card-main"><div class="media"><img src="assets/images/pawpal/pawpal-screen-main.png" alt="Main room" onerror="this.style.display='none'"></div><div class="copy"><strong>Main room</strong><span>Core care space, pet state and reward-driven daily interaction.</span></div></div>
+        <div class="float-card card-wardrobe"><div class="media"><img src="assets/images/pawpal/pawpal-screen-wardrobe.png" alt="Wardrobe" onerror="this.style.display='none'"></div><div class="copy"><strong>Wardrobe</strong><span>Cosmetic customization prepared for expansion and progression rewards.</span></div></div>
+        <div class="float-card card-daily"><div class="media"><img src="assets/images/pawpal/pawpal-screen-daily.png" alt="Daily rewards" onerror="this.style.display='none'"></div><div class="copy"><strong>Daily rewards</strong><span>Retention touchpoints built around clarity, rhythm and anticipation.</span></div></div>
+        <div class="float-card card-minigame"><div class="media"><img src="assets/images/pawpal/pawpal-screen-minigame.png" alt="Mini-games" onerror="this.style.display='none'"></div><div class="copy"><strong>Mini-games</strong><span>Arcade loops connected to economy, progression and return motivation.</span></div></div>
+        <div class="bubble-shop">Shop / rewards / retention layers</div>
+      </div>
+    </section>
+
+    <section class="panel compact" id="role">
+      <div class="section-head"><div><div class="section-kicker"><span class="badge">01</span><span>My Role</span></div><h2>Proyecto híbrido: diseño, Unity, tech art y publicación</h2></div></div>
+      <div class="grid-4">
+        <article class="card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10"/><path d="m18 20-6-6-6 6"/><path d="M6 4h12"/></svg></div><h3>Game Design & Systems</h3><div class="list"><span>Core loop</span><span>Mini-games</span><span>Economy</span><span>Progression</span><span>Daily/weekly rewards</span></div></article>
+        <article class="card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16"/><path d="M4 12h10"/><path d="M4 17h16"/></svg></div><h3>Unity Development</h3><div class="list"><span>Gameplay systems</span><span>Scene flow</span><span>Save system</span><span>Cloud Save/Auth</span><span>Mobile implementation</span></div></article>
+        <article class="card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M2 12h4"/><path d="M18 12h4"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Visual / Tech Art</h3><div class="list"><span>Character integration</span><span>Animation states</span><span>VFX feedback</span><span>UI polish</span><span>Wardrobe setup</span></div></article>
+        <article class="card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18"/><path d="M7 8h7a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h8"/></svg></div><h3>Product / Launch</h3><div class="list"><span>Play Store preparation</span><span>ASO support</span><span>Analytics</span><span>Ads/consent flow</span><span>Retention features</span></div></article>
+      </div>
+    </section>
+
+    <section class="panel compact" id="loop">
+      <div class="section-head"><div><div class="section-kicker"><span class="badge">02</span><span>Core Experience</span></div><h2>Care → Play → Earn → Customize → Return</h2></div></div>
+      <div class="loop">
+        <article class="loop-step"><div class="ball"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg></div><h4>Care</h4><p>Routine interaction, needs, affection and daily touchpoints around the pet.</p></article>
+        <article class="loop-step"><div class="ball"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="12" rx="4"/><path d="M8 12h2M9 11v2"/><circle cx="15" cy="12" r="1"/><circle cx="17" cy="14" r="1"/></svg></div><h4>Play</h4><p>Arcade mini-games add action, variety and short-session energy to the loop.</p></article>
+        <article class="loop-step"><div class="ball"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><path d="M8 12h8"/><path d="M12 8v8"/></svg></div><h4>Earn</h4><p>Currency, rewards and unlocks reinforce return motivation without overloading the flow.</p></article>
+        <article class="loop-step"><div class="ball"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 20h12"/><path d="M12 4v16"/><path d="M8 8h8"/></svg></div><h4>Customize</h4><p>Wardrobe and visual personalization turn rewards into expression and collection goals.</p></article>
+        <article class="loop-step"><div class="ball"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg></div><h4>Return</h4><p>Retention systems connect care, rewards and progression so the game invites one more session.</p></article>
+      </div>
+    </section>
+
+    <section class="panel compact" id="minigames">
+      <div class="section-head"><div><div class="section-kicker"><span class="badge">03</span><span>Arcade Mini-Games</span></div><h2>Gameplay corto, claro y conectado al progreso principal</h2></div></div>
+      <div class="grid-3">
+        <article class="mini"><div class="mini-media"><img src="assets/images/pawpal/dream-runner.png" alt="Dream Runner" onerror="this.style.display='none'"></div><div class="mini-copy"><h3>Dream Runner</h3><p>Endless runner inside the dog’s dreams: jump fences, dodge obstacles and collect bones.</p><div class="mini-meta"><span>Runner</span><span>Reflexes</span><span>Bones / rewards</span></div></div></article>
+        <article class="mini"><div class="mini-media"><img src="assets/images/pawpal/pigeons-vs-bones.png" alt="Pigeons vs Bones" onerror="this.style.display='none'"></div><div class="mini-copy"><h3>Pigeons vs Bones</h3><p>Fast arcade defense mode where the player protects treats from pigeons.</p><div class="mini-meta"><span>Defense</span><span>Short sessions</span><span>Arcade pressure</span></div></div></article>
+        <article class="mini"><div class="mini-media"><img src="assets/images/pawpal/ball-game.png" alt="Ball Game" onerror="this.style.display='none'"></div><div class="mini-copy"><h3>Ball Game</h3><p>Physics-based fetch mini-game with spin-to-charge throwing, bounces, scoring zones and dog return behavior.</p><div class="mini-meta"><span>Physics</span><span>Scoring</span><span>Character return</span></div></div></article>
+      </div>
+    </section>
+
+    <section class="panel compact" id="character">
+      <div class="section-head"><div><div class="section-kicker"><span class="badge">04</span><span>Character, Animation & Wardrobe</span></div><h2>El personaje es el centro del vínculo con el jugador</h2></div></div>
+      <div class="feature-stack">
+        <div class="wardrobe-media">
+          <img src="assets/images/pawpal/character-wardrobe.png" alt="Character wardrobe" onerror="this.style.display='none'">
+        </div>
+        <div>
+          <p class="lead" style="margin-top:0">PawPal is built around an expressive 3D dog character with animation-driven interactions, gameplay states and a wardrobe system prepared for cosmetic expansion.</p>
+          <div class="grid-3">
+            <article class="card"><h4>3D character integration</h4><p>Setup pensado para gameplay, cámara, claridad de lectura y rendimiento mobile.</p></article>
+            <article class="card"><h4>Animation states</h4><p>Estados dedicados para idle, reacción, juego, retorno y momentos de recompensa.</p></article>
+            <article class="card"><h4>Expressions / feedback</h4><p>El personaje responde con timing visual y emocional a la acción del jugador.</p></article>
+            <article class="card"><h4>Wardrobe anchors</h4><p>Puntos de anclaje preparados para equipables y variantes visuales futuras.</p></article>
+            <article class="card"><h4>Cosmetic categories</h4><p>Separación por tipos de item para simplificar contenido, UI y expansión de catálogo.</p></article>
+            <article class="card"><h4>Future expansion ready</h4><p>Estructura pensada para crecer con nuevos cosméticos, estados y eventos.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel compact" id="uiux">
+      <div class="section-head"><div><div class="section-kicker"><span class="badge">05</span><span>Mobile UI/UX & Retention</span></div><h2>Sistemas de interfaz claros, rápidos y orientados a retorno</h2></div></div>
+      <p class="lead" style="margin-top:0">UI screens are designed around clarity, fast comprehension and reward feedback, with mobile-first flows for retention and monetization.</p>
+      <div class="grid-3">
+        <article class="card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"/><path d="M7 12h10"/><path d="M9 18h6"/></svg></div><h4>Shop</h4><p>Compra clara, foco en valor percibido y reducción de fricción en el flujo.</p></article>
+        <article class="card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l2 2"/><circle cx="12" cy="12" r="9"/></svg></div><h4>Daily Rewards</h4><p>Ritmo de regreso, presentación de premio y anticipación visual.</p></article>
+        <article class="card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 20h12"/><path d="M12 4v16"/><path d="M8 8h8"/></svg></div><h4>Wardrobe</h4><p>Selección de cosméticos con jerarquía visual y comprensión inmediata.</p></article>
+        <article class="card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16"/><path d="M12 4v16"/></svg></div><h4>HUD feedback</h4><p>Respuesta rápida a moneda, energía, score y progreso visible sin ruido.</p></article>
+        <article class="card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><h4>Cloud protection flow</h4><p>Protección de progreso con Auth/Cloud Save explicada sin romper la confianza.</p></article>
+        <article class="card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 22V2l18 10z"/></svg></div><h4>Rewarded ads UX</h4><p>Ads opcionales planteados como intercambio claro, no como fricción encubierta.</p></article>
+      </div>
+    </section>
+
+    <section class="panel compact" id="systems">
+      <div class="section-head"><div><div class="section-kicker"><span class="badge">06</span><span>Technical Systems</span></div><h2>Arquitectura real de producto mobile, no solo prototipo</h2></div></div>
+      <div class="systems">
+        <div class="sys"><strong>Save system + offline decay</strong><span>Persistencia y lógica de retorno conectadas al estado del pet.</span></div>
+        <div class="sys"><strong>Unity Authentication / Cloud Save</strong><span>Protección de progreso y continuidad entre sesiones.</span></div>
+        <div class="sys"><strong>AdMob + UMP consent</strong><span>Flujo de consentimiento y monetización integrado en mobile.</span></div>
+        <div class="sys"><strong>Firebase Analytics</strong><span>Base para entender uso, sesiones y puntos de fricción.</span></div>
+        <div class="sys"><strong>Localization</strong><span>Estructura preparada para idiomas y adaptación de UI.</span></div>
+        <div class="sys"><strong>Scene transitions</strong><span>Navegación fluida entre home, mini-games, rewards y wardrobe.</span></div>
+        <div class="sys"><strong>Reward VFX</strong><span>Feedback visual para monedas, desbloqueos y momentos de premio.</span></div>
+        <div class="sys"><strong>Modular gameplay systems</strong><span>Organización escalable para iterar y seguir ampliando contenido.</span></div>
+      </div>
+    </section>
+
+    <section class="panel compact" id="challenges">
+      <div class="section-head"><div><div class="section-kicker"><span class="badge">07</span><span>Challenges & Solutions</span></div><h2>Diseño, producción y escalabilidad en un proyecto principal</h2></div></div>
+      <div class="grid-2">
+        <div class="duo"><h3>Challenges</h3><div class="list"><span>Making a virtual pet feel alive with limited resources.</span><span>Combining care systems with arcade gameplay.</span><span>Designing monetization without damaging trust.</span><span>Keeping systems scalable while developing as an indie/solo project.</span></div></div>
+        <div class="duo"><h3>Solutions</h3><div class="list"><span>Modular Unity architecture.</span><span>Clear mobile UX.</span><span>Strong visual feedback.</span><span>Reward loops.</span><span>Iterative updates based on testing and store performance.</span></div></div>
+      </div>
+    </section>
+
+    <section class="panel compact" id="gallery">
+      <div class="section-head"><div><div class="section-kicker"><span class="badge">08</span><span>Gallery</span></div><h2>Pantallas, sistemas y tono visual del proyecto</h2></div></div>
+      <div class="gallery">
+        <div class="gallery-shot"><img src="assets/images/pawpal/gallery-1.png" alt="Galería PawPal 1" onerror="this.style.display='none'"></div>
+        <div class="gallery-shot"><img src="assets/images/pawpal/gallery-2.png" alt="Galería PawPal 2" onerror="this.style.display='none'"></div>
+        <div class="gallery-shot"><img src="assets/images/pawpal/gallery-3.png" alt="Galería PawPal 3" onerror="this.style.display='none'"></div>
+        <div class="gallery-shot"><img src="assets/images/pawpal/gallery-4.png" alt="Galería PawPal 4" onerror="this.style.display='none'"></div>
+        <div class="gallery-shot"><img src="assets/images/pawpal/gallery-5.png" alt="Galería PawPal 5" onerror="this.style.display='none'"></div>
+        <div class="gallery-shot"><img src="assets/images/pawpal/gallery-6.png" alt="Galería PawPal 6" onerror="this.style.display='none'"></div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="pad"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></div>
+      <div><h3>¿Quieres crear un juego mobile con este nivel de cuidado?</h3><p>Si buscas alguien capaz de conectar gameplay, sistemas, UX y polish visual, hablemos.</p></div>
+      <!-- Sustituye TU_EMAIL_AQUI por tu correo real antes de publicar -->
+      <a class="btn btn-primary" href="mailto:TU_EMAIL_AQUI"><span>Contactar</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+    </section>
+
+    <footer class="footer">
+      <span>© 2026 Rayco González. Portfolio personal.</span>
+      <span>Unity · Casual Games · Tech Art · Mobile</span>
+    </footer>
+  </main>
+</div>
+
+<script>
+const links = [...document.querySelectorAll(".nav a")];
+const sections = links.map(link => document.querySelector(link.getAttribute("href"))).filter(Boolean);
+function onScroll(){
+  const y = window.scrollY + 200;
+  let current = sections[0]?.id;
+  sections.forEach(section => { if(section.offsetTop <= y) current = section.id; });
+  links.forEach(link => link.classList.toggle("active", link.getAttribute("href") === "#" + current));
+}
+window.addEventListener("scroll", onScroll, {passive:true});
+onScroll();
+</script>
+</body>
+</html>

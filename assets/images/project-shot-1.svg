@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1600" role="img" aria-labelledby="title desc">
+  <title id="title">Placeholder screenshot 1</title>
+  <desc id="desc">Captura vertical de ejemplo para reemplazar con una real del juego.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#4c1d95"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1600" fill="url(#bg)"/>
+  <circle cx="220" cy="310" r="96" fill="#ff5e7e"/>
+  <circle cx="640" cy="370" r="82" fill="#ffd54a"/>
+  <circle cx="310" cy="860" r="88" fill="#5eead4"/>
+  <circle cx="650" cy="980" r="98" fill="#ff8a4c"/>
+  <rect x="110" y="1320" width="680" height="120" rx="28" fill="rgba(10,11,30,.45)"/>
+  <text x="450" y="1395" text-anchor="middle" fill="#f4f3ff" font-family="Arial, sans-serif" font-size="42" font-weight="700">Screenshot de ejemplo 1</text>
+</svg>

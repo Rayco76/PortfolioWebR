@@ -1,0 +1,1117 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rayco González — Casual Game Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0b1e;
+    --bg-2:#11132c;
+    --panel:#161836;
+    --panel-2:#1d2046;
+    --line:rgba(255,255,255,.08);
+    --line-2:rgba(255,255,255,.14);
+    --text:#f4f3ff;
+    --muted:#9a9ab8;
+    --soft:#cdcbe8;
+    --violet:#8b5cf6;
+    --violet-2:#a78bfa;
+    --pink:#ff5ca8;
+    --lime:#c7f24a;
+    --yellow:#ffd34d;
+    --teal:#5eead4;
+    --blue:#60a5fa;
+    --orange:#ff8a4c;
+    --sidebar:240px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Sora",system-ui,sans-serif;
+    color:var(--text);
+    background:
+      radial-gradient(900px 500px at 80% -10%, rgba(139,92,246,.18), transparent 60%),
+      radial-gradient(700px 400px at 20% 110%, rgba(255,92,168,.10), transparent 60%),
+      var(--bg);
+    min-height:100vh;
+    overflow-x:hidden;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+    background-image:
+      radial-gradient(rgba(255,255,255,.5) 1px, transparent 1.2px),
+      radial-gradient(rgba(199,242,74,.35) 1px, transparent 1.2px);
+    background-size:90px 90px, 140px 140px;
+    background-position:0 0, 45px 60px;
+    opacity:.18;
+    mask-image:linear-gradient(to bottom, black, transparent 85%);
+  }
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+
+  .page{position:relative;z-index:1;display:grid;grid-template-columns:var(--sidebar) minmax(0,1fr);min-height:100vh}
+
+  /* SIDEBAR */
+  .sidebar{
+    position:fixed;top:0;left:0;width:var(--sidebar);height:100vh;
+    padding:30px 22px;
+    border-right:1px solid var(--line);
+    background:rgba(10,11,30,.75);
+    backdrop-filter:blur(20px);
+    display:flex;flex-direction:column;justify-content:space-between;
+    z-index:20;
+  }
+  .logo{display:flex;align-items:center;gap:6px;font-weight:900;font-size:30px;letter-spacing:-2px}
+  .logo .dot{width:10px;height:10px;border-radius:50%;background:var(--violet-2);margin-top:14px}
+  .logo .mark{
+    width:38px;height:38px;border-radius:11px;display:grid;place-items:center;
+    background:linear-gradient(135deg,#fff,#dcd6ff);color:#0a0b1e;font-weight:900;font-size:18px;
+  }
+  .nav{display:flex;flex-direction:column;gap:6px;margin-top:46px}
+  .nav a{
+    display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:14px;
+    color:var(--muted);font-weight:600;font-size:15px;transition:.2s ease;
+    border:1px solid transparent;
+  }
+  .nav a .ico{width:18px;height:18px;display:grid;place-items:center;color:var(--muted)}
+  .nav a:hover{color:var(--text);background:rgba(255,255,255,.04)}
+  .nav a.active{
+    color:var(--text);
+    background:linear-gradient(180deg, rgba(139,92,246,.32), rgba(139,92,246,.18));
+    border-color:rgba(167,139,250,.28);
+    box-shadow:0 8px 24px rgba(139,92,246,.18) inset, 0 4px 14px rgba(139,92,246,.18);
+  }
+  .nav a.active .ico{color:var(--violet-2)}
+  .socials{display:flex;flex-direction:column;gap:14px;color:var(--muted)}
+  .socials a{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;border:1px solid var(--line);transition:.2s}
+  .socials a:hover{color:var(--lime);border-color:rgba(199,242,74,.4)}
+
+  main{grid-column:2;padding:32px clamp(20px,3.5vw,46px) 60px;max-width:1480px}
+
+  /* HERO PANEL */
+  .panel{
+    border:1px solid var(--line);
+    background:linear-gradient(180deg, rgba(22,24,54,.92), rgba(17,19,44,.92));
+    border-radius:28px;
+    padding:clamp(22px,3vw,38px);
+    box-shadow:0 30px 80px rgba(0,0,0,.35);
+    position:relative;
+    overflow:hidden;
+  }
+  .panel.glow::before{
+    content:"";position:absolute;inset:-1px;border-radius:inherit;pointer-events:none;
+    background:radial-gradient(600px 240px at 80% 0%, rgba(139,92,246,.18), transparent 60%);
+  }
+
+  .hero{
+    display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);
+    gap:30px;align-items:center;min-height:560px;
+  }
+  .hero-left{position:relative;z-index:2}
+  .greet{
+    display:inline-flex;align-items:center;gap:10px;
+    color:var(--soft);font-size:14px;font-weight:500;
+    margin-bottom:18px;
+  }
+  .greet .wave{font-size:18px}
+  h1{
+    font-size:clamp(50px,6.4vw,92px);
+    line-height:.95;letter-spacing:-.045em;font-weight:800;
+    max-width:680px;
+  }
+  h1 .grad{
+    background:linear-gradient(90deg, var(--violet-2) 0%, var(--pink) 60%, var(--orange) 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    position:relative;display:inline-block;
+  }
+  h1 .grad::after{
+    content:"";position:absolute;left:-6px;right:-6px;bottom:6px;height:10px;
+    background:linear-gradient(90deg, transparent, rgba(255,92,168,.35), transparent);
+    border-radius:999px;filter:blur(8px);z-index:-1;
+  }
+  .accent-marks{
+    display:inline-block;color:var(--yellow);font-weight:900;
+    transform:translateY(-8px);margin-left:6px;
+  }
+  .hero-copy{
+    color:var(--soft);font-size:16px;line-height:1.7;margin-top:22px;max-width:480px;
+  }
+  .cta-row{display:flex;gap:16px;margin-top:30px;align-items:center;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    height:48px;padding:0 22px;border-radius:999px;
+    font-weight:700;font-size:14px;cursor:pointer;
+    border:1px solid transparent;transition:.22s ease;
+  }
+  .btn-primary{
+    background:linear-gradient(135deg,#dcfa6c,#a8e62e);
+    color:#0a0b1e;
+    box-shadow:0 14px 36px rgba(199,242,74,.22);
+  }
+  .btn-primary:hover{transform:translateY(-2px);filter:brightness(1.05)}
+  .btn-ghost{color:var(--soft);background:transparent;border-bottom:1px dashed rgba(255,255,255,.25);border-radius:0;padding:0 0 4px;height:auto}
+  .btn-ghost:hover{color:var(--text)}
+
+  /* HERO ART */
+  .hero-art{
+    min-height:520px;
+    display:grid;place-items:center;
+  }
+  .hero-carousel-shell{
+    width:min(560px,100%);
+    display:grid;
+    gap:18px;
+    justify-items:center;
+  }
+  .hero-carousel{
+    position:relative;
+    width:100%;
+    aspect-ratio:1.02;
+    overflow:hidden;
+    border-radius:30px;
+    border:1px solid var(--line-2);
+    background:
+      radial-gradient(520px 220px at 50% 0%, rgba(249,115,22,.18), transparent 70%),
+      linear-gradient(180deg, rgba(18,21,47,.96), rgba(10,12,30,.98));
+    box-shadow:0 30px 60px rgba(0,0,0,.35);
+  }
+  .hero-slide{
+    position:absolute;inset:0;
+    opacity:0;
+    transform:scale(1.03);
+    transition:opacity .45s ease, transform .7s ease;
+    pointer-events:none;
+  }
+  .hero-slide.is-active{
+    opacity:1;
+    transform:scale(1);
+  }
+  .hero-slide img{
+    width:100%;height:100%;
+    object-fit:cover;
+    object-position:center;
+    display:block;
+  }
+  .hero-slide::after{
+    content:"";
+    position:absolute;inset:auto 0 0 0;height:32%;
+    background:linear-gradient(180deg, transparent, rgba(10,12,30,.42) 60%, rgba(10,12,30,.72));
+  }
+  .hero-dots{
+    display:flex;align-items:center;justify-content:center;gap:10px;
+  }
+  .hero-dot{
+    width:10px;height:10px;border-radius:999px;
+    border:none;padding:0;cursor:pointer;
+    background:rgba(255,255,255,.22);
+    transition:transform .2s ease, background .2s ease, width .2s ease;
+  }
+  .hero-dot:hover{transform:scale(1.08)}
+  .hero-dot.is-active{
+    width:28px;
+    background:linear-gradient(90deg,#dcfa6c,#fbbf24);
+  }
+
+  /* SECTIONS */
+  section + section{margin-top:24px}
+
+  .panel.compact{padding:clamp(18px,2.4vw,28px)}
+
+  .section-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:22px}
+  .section-kicker{
+    display:inline-flex;align-items:center;gap:8px;color:var(--violet-2);
+    font-weight:600;font-size:14px;
+  }
+  .section-kicker .badge{
+    width:18px;height:18px;border-radius:5px;background:linear-gradient(135deg,var(--violet),var(--pink));
+    display:grid;place-items:center;color:#fff;font-size:10px;
+  }
+  .section-head .link{color:var(--soft);font-size:14px;font-weight:500;display:inline-flex;align-items:center;gap:6px}
+  .section-head .link:hover{color:var(--text)}
+
+  /* GAMES GRID */
+  .games{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+  .game-card{
+    border-radius:20px;overflow:hidden;
+    background:linear-gradient(180deg, rgba(34,37,75,.7), rgba(22,24,54,.7));
+    border:1px solid var(--line);
+    transition:.25s ease;
+  }
+  .game-card:hover{transform:translateY(-4px);border-color:rgba(167,139,250,.35);box-shadow:0 18px 40px rgba(139,92,246,.18)}
+  .thumb{aspect-ratio:16/9;position:relative;overflow:hidden;display:grid;place-items:center}
+  .thumb img{
+    position:absolute;inset:0;
+    width:100%;height:100%;
+    object-fit:cover;
+  }
+  .thumb-1{
+    background:
+      radial-gradient(circle at 28% 28%, #ff5e7e 0 14%, transparent 15%),
+      radial-gradient(circle at 70% 22%, #ffd54a 0 12%, transparent 13%),
+      radial-gradient(circle at 22% 72%, #8b5cf6 0 14%, transparent 15%),
+      radial-gradient(circle at 72% 70%, #5eead4 0 12%, transparent 13%),
+      radial-gradient(circle at 50% 50%, #ff8a4c 0 10%, transparent 11%),
+      linear-gradient(135deg, #5b21b6, #7c3aed);
+  }
+  .thumb-2{
+    background:
+      radial-gradient(circle at 50% 30%, rgba(255,255,255,.3) 0 14%, transparent 15%),
+      linear-gradient(180deg, #38bdf8 0 55%, #84cc16 55% 70%, #4d7c0f 70% 100%);
+  }
+  .thumb-2::before{
+    content:"";position:absolute;left:36%;right:32%;top:38%;height:16%;
+    background:linear-gradient(180deg, #ef8b3a, #c14d1e);
+    border-radius:8px 8px 4px 4px;
+    box-shadow:0 4px 0 rgba(0,0,0,.18);
+  }
+  .thumb-3{
+    background:
+      linear-gradient(180deg, #87ceeb 0 60%, #a8e6cf 60% 100%);
+    overflow:hidden;
+  }
+  .thumb-3::before{
+    content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-30%);
+    width:90px;height:120px;
+    background:
+      linear-gradient(180deg, #ef4444 0 16%, transparent 16% 20%, #f59e0b 20% 36%, transparent 36% 40%, #84cc16 40% 56%, transparent 56% 60%, #3b82f6 60% 76%, transparent 76% 80%, #a855f7 80% 100%);
+    border-radius:6px;
+    box-shadow:0 6px 14px rgba(0,0,0,.25);
+  }
+  .game-body{padding:18px 18px 20px}
+  .game-row{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+  .game-icon{
+    width:42px;height:42px;border-radius:12px;display:grid;place-items:center;flex:none;
+    color:#0a0b1e;font-weight:900;font-size:18px;
+  }
+  .game-icon.i1{background:linear-gradient(135deg,#ff5e7e,#ffd54a)}
+  .game-icon.i2{background:linear-gradient(135deg,#fb923c,#f59e0b)}
+  .game-icon.i3{background:linear-gradient(135deg,#fbbf24,#f97316)}
+  .game-title{display:flex;align-items:center;gap:10px;flex:1;min-width:0}
+  .game-title h3{font-size:17px;font-weight:700;letter-spacing:-.02em}
+  .tag{
+    font-size:11px;font-weight:700;padding:4px 9px;border-radius:999px;
+    background:rgba(167,139,250,.18);color:var(--violet-2);border:1px solid rgba(167,139,250,.25);
+  }
+  .tag.farm{background:rgba(132,204,22,.18);color:#bef264;border-color:rgba(132,204,22,.3)}
+  .tag.arcade{background:rgba(251,191,36,.18);color:#fcd34d;border-color:rgba(251,191,36,.3)}
+  .game-card p{color:var(--muted);font-size:13.5px;line-height:1.55;margin-top:4px}
+  .game-card .arrow{
+    width:36px;height:36px;border-radius:50%;border:1px solid var(--line-2);
+    display:grid;place-items:center;color:var(--text);flex:none;margin-left:auto;
+    transition:.22s;
+  }
+  .game-card:hover .arrow{background:var(--violet);border-color:var(--violet)}
+
+  .star-counter{
+    position:absolute;top:12px;left:12px;
+    display:inline-flex;align-items:center;gap:6px;
+    background:rgba(0,0,0,.45);backdrop-filter:blur(8px);
+    border:1px solid rgba(255,255,255,.18);
+    padding:5px 10px;border-radius:999px;
+    color:var(--yellow);font-weight:700;font-size:12px;
+  }
+
+  /* SKILLS */
+  .skills{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+  .skill{
+    padding:18px;border-radius:18px;
+    background:linear-gradient(180deg, rgba(34,37,75,.6), rgba(22,24,54,.6));
+    border:1px solid var(--line);
+    transition:.22s;
+  }
+  .skill:hover{border-color:rgba(167,139,250,.32);transform:translateY(-3px)}
+  .skill .ico{
+    width:44px;height:44px;border-radius:12px;display:grid;place-items:center;
+    background:rgba(139,92,246,.18);color:var(--violet-2);margin-bottom:14px;
+  }
+  .skill h4{font-size:15px;font-weight:700;margin-bottom:6px;letter-spacing:-.01em}
+  .skill p{color:var(--muted);font-size:13px;line-height:1.55}
+
+  /* VISUAL */
+  .visual-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .visual-intro{
+    color:var(--soft);
+    max-width:760px;
+    font-size:14px;
+    line-height:1.7;
+    margin:-6px 0 22px;
+  }
+  .visual-card{
+    position:relative;
+    border-radius:22px;
+    overflow:hidden;
+    background:linear-gradient(180deg, rgba(37,40,82,.72), rgba(20,22,50,.78));
+    border:1px solid var(--line);
+    transition:.24s ease;
+    min-height:280px;
+  }
+  .visual-card:hover{
+    transform:translateY(-4px);
+    border-color:rgba(94,234,212,.28);
+    box-shadow:0 22px 46px rgba(0,0,0,.28);
+  }
+  .visual-media{
+    position:relative;
+    height:138px;
+    overflow:hidden;
+    background:
+      radial-gradient(260px 120px at 20% 10%, rgba(94,234,212,.14), transparent 60%),
+      radial-gradient(280px 140px at 80% 20%, rgba(255,92,168,.16), transparent 60%),
+      linear-gradient(135deg, rgba(124,58,237,.28), rgba(17,19,44,.3));
+  }
+  .visual-media::after{
+    content:"";
+    position:absolute;inset:0;
+    background:linear-gradient(180deg, transparent, rgba(10,11,30,.22) 50%, rgba(10,11,30,.58));
+    pointer-events:none;
+  }
+  .visual-media img{
+    position:absolute;inset:0;
+    width:100%;height:100%;
+    object-fit:cover;
+  }
+  .visual-card[data-tone="characters"] .visual-media{
+    background:
+      radial-gradient(circle at 24% 28%, rgba(255,211,77,.24) 0 14%, transparent 15%),
+      radial-gradient(circle at 72% 26%, rgba(255,92,168,.28) 0 12%, transparent 13%),
+      linear-gradient(135deg, rgba(91,33,182,.52), rgba(124,58,237,.32));
+  }
+  .visual-card[data-tone="ui"] .visual-media{
+    background:
+      linear-gradient(180deg, rgba(96,165,250,.22), transparent),
+      repeating-linear-gradient(180deg, rgba(255,255,255,.08) 0 18px, transparent 18px 36px),
+      linear-gradient(135deg, rgba(30,64,175,.54), rgba(15,23,42,.3));
+  }
+  .visual-card[data-tone="anim"] .visual-media{
+    background:
+      radial-gradient(circle at 26% 50%, rgba(255,138,76,.28) 0 16%, transparent 17%),
+      radial-gradient(circle at 66% 42%, rgba(199,242,74,.24) 0 14%, transparent 15%),
+      linear-gradient(135deg, rgba(190,24,93,.38), rgba(124,58,237,.28));
+  }
+  .visual-card[data-tone="tech"] .visual-media{
+    background:
+      linear-gradient(90deg, rgba(94,234,212,.14) 0 1px, transparent 1px 32px),
+      linear-gradient(180deg, rgba(94,234,212,.14) 0 1px, transparent 1px 32px),
+      linear-gradient(135deg, rgba(8,145,178,.34), rgba(15,23,42,.34));
+    background-size:32px 32px, 32px 32px, auto;
+  }
+  .visual-stamp{
+    position:absolute;left:16px;top:16px;z-index:2;
+    width:46px;height:46px;border-radius:14px;
+    display:grid;place-items:center;
+    background:rgba(10,11,30,.5);
+    border:1px solid rgba(255,255,255,.12);
+    backdrop-filter:blur(8px);
+    color:#fff;
+  }
+  .visual-body{padding:18px 18px 20px}
+  .visual-label{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--teal);margin-bottom:12px;
+    font-family:"JetBrains Mono",monospace;
+  }
+  .visual-label .dot{
+    width:7px;height:7px;border-radius:50%;background:currentColor;
+    box-shadow:0 0 0 6px rgba(94,234,212,.08);
+  }
+  .visual-card h4{font-size:18px;font-weight:700;letter-spacing:-.02em;margin-bottom:8px}
+  .visual-card p{color:var(--muted);font-size:13.5px;line-height:1.65}
+
+  /* TIMELINE */
+  .timeline{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+  .tl{
+    padding:20px;border-radius:18px;
+    background:linear-gradient(180deg, rgba(34,37,75,.55), rgba(22,24,54,.55));
+    border:1px solid var(--line);
+  }
+  .tl .date{color:var(--teal);font-weight:700;font-size:12px;margin-bottom:8px;font-family:"JetBrains Mono",monospace}
+  .tl h4{font-size:16px;letter-spacing:-.01em;margin-bottom:8px}
+  .tl p{color:var(--muted);font-size:13px;line-height:1.55}
+
+  /* ABOUT */
+  .about{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+  .about-card{padding:24px;border-radius:18px;background:linear-gradient(180deg, rgba(34,37,75,.55), rgba(22,24,54,.55));border:1px solid var(--line)}
+  .about-card h3{font-size:22px;letter-spacing:-.03em;margin-bottom:12px}
+  .about-card p{color:var(--muted);font-size:14px;line-height:1.7}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
+  .stat{padding:14px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid var(--line)}
+  .stat strong{display:block;font-size:22px;color:var(--yellow);letter-spacing:-.03em;font-weight:800}
+  .stat span{color:var(--muted);font-size:12px;font-weight:500}
+
+  /* CONTACT STRIP */
+  .contact{
+    display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center;
+    padding:22px 26px;border-radius:24px;
+    background:linear-gradient(135deg, rgba(139,92,246,.16), rgba(255,92,168,.10));
+    border:1px solid rgba(167,139,250,.28);
+  }
+  .contact .pad{
+    width:54px;height:54px;border-radius:14px;
+    background:linear-gradient(135deg,#7c3aed,#5b21b6);
+    display:grid;place-items:center;color:#fff;font-size:24px;
+    box-shadow:0 10px 24px rgba(124,58,237,.35);
+  }
+  .contact h3{font-size:18px;font-weight:700;letter-spacing:-.01em}
+  .contact p{color:var(--muted);font-size:13.5px;margin-top:2px}
+
+  .footer{
+    margin-top:28px;color:var(--muted);
+    display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;
+    padding:0 6px;
+  }
+
+  /* animations */
+  @keyframes float{
+    0%,100%{transform:translateX(-50%) translateY(0)}
+    50%{transform:translateX(-50%) translateY(-12px)}
+  }
+  .gem,.coin{animation-name:floatY}
+  @keyframes floatY{
+    0%,100%{transform:translateY(0) rotate(-12deg)}
+    50%{transform:translateY(-10px) rotate(-12deg)}
+  }
+  .coin{animation-name:floatYc}
+  @keyframes floatYc{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-10px)}
+  }
+  @keyframes twinkle{
+    0%,100%{transform:scale(1) rotate(0)}
+    50%{transform:scale(1.15) rotate(10deg)}
+  }
+  @keyframes bounce{
+    0%,100%{transform:translateY(0) scale(1)}
+    50%{transform:translateY(-8px) scale(1.06)}
+  }
+
+  /* RESPONSIVE */
+  @media (max-width:1100px){
+    :root{--sidebar:0px}
+    .sidebar{position:relative;width:100%;height:auto;flex-direction:row;padding:14px 18px;border-right:none;border-bottom:1px solid var(--line)}
+    .nav{flex-direction:row;margin-top:0;gap:4px}
+    .nav a{padding:8px 12px;font-size:13px}
+    .socials{flex-direction:row}
+    .page{grid-template-columns:1fr}
+    main{grid-column:1;padding:20px}
+    .hero{grid-template-columns:1fr;min-height:auto}
+    .hero-art{min-height:420px}
+    .games,.skills,.timeline,.about,.visual-grid{grid-template-columns:1fr}
+    .contact{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <aside class="sidebar">
+    <div>
+      <div class="logo">
+        <div class="mark">R</div>
+        <span class="dot"></span>
+      </div>
+      <nav class="nav" aria-label="Main">
+        <a href="#home" class="active" data-i18n="nav_home">
+          <span class="ico">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12 12 4l9 8"/><path d="M5 10v10h14V10"/></svg>
+          </span>
+          <span class="lbl">Inicio</span>
+        </a>
+        <a href="#about" data-i18n="nav_about">
+          <span class="ico">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg>
+          </span>
+          <span class="lbl">Sobre mí</span>
+        </a>
+        <a href="#games" data-i18n="nav_games">
+          <span class="ico">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="12" rx="4"/><path d="M8 12h2M9 11v2"/><circle cx="15" cy="12" r="1"/><circle cx="17" cy="14" r="1"/></svg>
+          </span>
+          <span class="lbl">Juegos</span>
+        </a>
+        <a href="#visual" data-i18n="nav_visual">
+          <span class="ico">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v6c0 5 3.4 7.8 8 8 4.6-.2 8-3 8-8V7l-8-4Z"/><path d="m9 12 2 2 4-4"/></svg>
+          </span>
+          <span class="lbl">Visual</span>
+        </a>
+        <a href="#process" data-i18n="nav_process">
+          <span class="ico">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h10M4 18h16"/></svg>
+          </span>
+          <span class="lbl">Proceso</span>
+        </a>
+        <a href="#contact" data-i18n="nav_contact">
+          <span class="ico">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg>
+          </span>
+          <span class="lbl">Contacto</span>
+        </a>
+      </nav>
+    </div>
+    <div class="socials">
+      <a href="#" aria-label="Discord">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.6 5.5a17 17 0 0 0-4.2-1.3l-.2.4a15.3 15.3 0 0 0-4.4 0l-.2-.4a17 17 0 0 0-4.2 1.3A18 18 0 0 0 3 17.5a17 17 0 0 0 5.2 2.6l.4-.6a11 11 0 0 1-1.7-.8l.4-.3a12 12 0 0 0 9.4 0l.4.3a11 11 0 0 1-1.7.8l.4.6a17 17 0 0 0 5.2-2.6 18 18 0 0 0-1-12zM9 14.5c-.8 0-1.5-.8-1.5-1.7S8.2 11 9 11s1.5.8 1.5 1.7-.7 1.8-1.5 1.8zm6 0c-.8 0-1.5-.8-1.5-1.7S14.2 11 15 11s1.5.8 1.5 1.7-.7 1.8-1.5 1.8z"/></svg>
+      </a>
+      <a href="#" aria-label="X">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 3h3l-7.5 8.6L22 21h-6.8l-5.3-6.5L3.8 21H1l8-9.2L1 3h7l4.8 6 5.2-6z"/></svg>
+      </a>
+      <a href="#" aria-label="LinkedIn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3.5C5 4.6 4.1 5.5 3 5.5S1 4.6 1 3.5 1.9 1.5 3 1.5 5 2.4 5 3.5zM1 8h4v14H1V8zm7 0h3.8v2h.05c.5-.95 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V22h-4v-6.2c0-1.5-.05-3.4-2.05-3.4S12 13.8 12 15.7V22H8V8z"/></svg>
+      </a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- HERO -->
+    <section class="panel glow hero" id="home">
+      <div class="hero-left">
+        <div class="greet"><span data-i18n="hello">¡Hola! Soy Rayco</span> <span class="wave">👋</span></div>
+        <h1>
+          <span data-i18n="h1_a">Diseño juegos</span><br/>
+          <span data-i18n="h1_b">casual que</span><br/>
+          <span class="grad" data-i18n="h1_c">enganchan</span><span class="accent-marks">´</span>
+        </h1>
+        <p class="hero-copy" data-i18n="hero_copy">
+          Creo experiencias divertidas, accesibles y pensadas para conectar con millones de jugadores cada día.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#games">
+            <span data-i18n="cta_primary">Ver mis juegos</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#about">
+            <span data-i18n="cta_secondary">Conocer más sobre mí</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="hero-carousel-shell" data-hero-carousel>
+          <div class="hero-carousel">
+            <figure class="hero-slide is-active">
+              <img src="assets/images/hero-profile-placeholder.png" alt="Imagen principal destacada para la portada">
+            </figure>
+            <figure class="hero-slide">
+              <img src="assets/images/hero-slide-2.png" alt="Segunda imagen destacada de la portada">
+            </figure>
+            <figure class="hero-slide">
+              <img src="assets/images/hero-slide-3.png" alt="Tercera imagen destacada de la portada">
+            </figure>
+          </div>
+          <div class="hero-dots" aria-label="Selector de imágenes destacadas">
+            <button class="hero-dot is-active" type="button" aria-label="Ver imagen 1" aria-current="true"></button>
+            <button class="hero-dot" type="button" aria-label="Ver imagen 2" aria-current="false"></button>
+            <button class="hero-dot" type="button" aria-label="Ver imagen 3" aria-current="false"></button>
+          </div>
+        </div>
+      </div>
+
+    </section>
+    <!-- GAMES -->
+    <section class="panel compact" id="games">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">
+            <span class="badge">★</span>
+            <span data-i18n="games_kicker">Proyectos destacados</span>
+          </div>
+        </div>
+        <a class="link" href="#">
+          <span data-i18n="games_all">Ver todos los proyectos</span>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="games">
+        <a class="game-card" href="pawpal.html" style="display:block">
+          <div class="thumb thumb-1">
+            <img src="assets/images/pawpal/pawpal-card.png" alt="Imagen de ejemplo del proyecto PawPal" onerror="this.style.display='none'">
+            <div class="star-counter">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 14.5 9 22 10 16.5 14.5 18 22 12 18 6 22 7.5 14.5 2 10 9.5 9z"/></svg>
+              <span>Main Project</span>
+            </div>
+          </div>
+          <div class="game-body">
+            <div class="game-row">
+              <div class="game-icon i1">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4" fill="#0a0b1e"/></svg>
+              </div>
+              <div class="game-title">
+                <h3 data-i18n="g1_title">PawPal</h3>
+                <span class="tag" data-i18n="g1_tag">Virtual Pet</span>
+              </div>
+              <span class="arrow">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+              </span>
+            </div>
+            <p data-i18n="g1_copy">Mascota virtual mobile con minijuegos arcade, personalización y sistemas de progresión orientados a retención.</p>
+          </div>
+        </a>
+
+        <a class="game-card" href="pocoyo-party.html" style="display:block">
+          <div class="thumb thumb-2">
+            <img src="assets/images/pocoyo-party/pocoyo-party-card.png" alt="Pocoyo Party project card" onerror="this.style.display='none'">
+          </div>
+          <div class="game-body">
+            <div class="game-row">
+              <div class="game-icon i2">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c-1 4-3 5-6 6 2 1 4 3 5 6h2c1-3 3-5 5-6-3-1-5-2-6-6h-0z"/></svg>
+              </div>
+              <div class="game-title">
+                <h3>Pocoyo Party</h3>
+                <span class="tag farm">3D / Tech Art</span>
+              </div>
+              <span class="arrow">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+              </span>
+            </div>
+            <p>Educational kids game based on the Pocoyo universe. 3D art, Unity integration, lighting, materials and VFX support.</p>
+          </div>
+        </a>
+
+        <a class="game-card" href="talking-pocoyo-2.html" style="display:block">
+          <div class="thumb thumb-3">
+            <img src="assets/images/Talking2/talking-pocoyo-2-card.png" alt="Talking Pocoyo 2 project card" onerror="this.style.display='none'">
+          </div>
+          <div class="game-body">
+            <div class="game-row">
+              <div class="game-icon i3">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="4" y="4" width="16" height="4" rx="1"/><rect x="6" y="10" width="12" height="4" rx="1"/><rect x="4" y="16" width="16" height="4" rx="1"/></svg>
+              </div>
+              <div class="game-title">
+                <h3>Talking Pocoyo 2</h3>
+                <span class="tag arcade">Animation / Tech Art</span>
+              </div>
+              <span class="arrow">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+              </span>
+            </div>
+            <p>Licensed character app where I coordinated animation requests, adapted animation content and handled Unity technical art implementation including VFX, lighting, camera, UI and audio setup.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="panel compact" id="skills">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">
+            <span class="badge">✦</span>
+            <span data-i18n="skills_kicker">Capacidades</span>
+          </div>
+        </div>
+      </div>
+      <div class="skills">
+        <div class="skill">
+          <div class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="12" rx="4"/><path d="M8 12h2M9 11v2"/><circle cx="15" cy="12" r="1"/><circle cx="17" cy="14" r="1"/></svg>
+          </div>
+          <h4 data-i18n="sk1_t">Game Systems</h4>
+          <p data-i18n="sk1_c">Loops, progresión, economía y minijuegos pulidos.</p>
+        </div>
+        <div class="skill">
+          <div class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 1 1-14 0 7 7 0 0 1 14 0z"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+          </div>
+          <h4 data-i18n="sk2_t">Unity / C#</h4>
+          <p data-i18n="sk2_c">Arquitectura modular y gameplay para mobile.</p>
+        </div>
+        <div class="skill">
+          <div class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M12 16v6M2 12h6M16 12h6M5 5l4 4M15 15l4 4M5 19l4-4M15 9l4-4"/></svg>
+          </div>
+          <h4 data-i18n="sk3_t">Tech Art</h4>
+          <p data-i18n="sk3_c">VFX, animación y feedback visual con peso.</p>
+        </div>
+        <div class="skill">
+          <div class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>
+          </div>
+          <h4 data-i18n="sk4_t">Mobile UX</h4>
+          <p data-i18n="sk4_c">Interacción táctil clara, ritmo y recompensa.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- VISUAL -->
+    <section class="panel compact" id="visual">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">
+            <span class="badge">V</span>
+            <span data-i18n="visual_kicker">Visual Craft</span>
+          </div>
+          <h2 data-i18n="visual_t">Personajes, UI y Tech Art</h2>
+        </div>
+      </div>
+      <p class="visual-intro" data-i18n="visual_intro">Una parte importante de mi trabajo está en conectar gameplay, arte y feedback visual: personajes expresivos, interfaces claras y sistemas visuales que hacen que el juego se sienta mejor.</p>
+      <div class="visual-grid">
+        <article class="visual-card" data-tone="characters">
+          <div class="visual-media">
+            <img src="assets/images/visual-character-1.jpg" alt="Placeholder para personajes y criaturas" onerror="this.style.display='none'">
+            <div class="visual-stamp">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3.9 0 7 2.9 7 6.6 0 2.2-1.1 4.2-2.9 5.4V18a1 1 0 0 1-1.7.7l-1.8-1.8c-.2 0-.4.1-.6.1-3.9 0-7-2.9-7-6.4S8.1 3 12 3Z"/><circle cx="9.5" cy="10" r="1"/><circle cx="14.5" cy="10" r="1"/></svg>
+            </div>
+          </div>
+          <div class="visual-body">
+            <div class="visual-label"><span class="dot"></span><span>3D / Stylized</span></div>
+            <h4 data-i18n="visual_1_t">Personajes y criaturas</h4>
+            <p data-i18n="visual_1_c">Personajes stylized, mascotas y criaturas preparadas para gameplay, animación y rendimiento mobile.</p>
+          </div>
+        </article>
+        <article class="visual-card" data-tone="ui">
+          <div class="visual-media">
+            <img src="assets/images/visual-ui-1.jpg" alt="Placeholder para UI y UX mobile" onerror="this.style.display='none'">
+            <div class="visual-stamp">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M8 6h8M8 10h5M8 14h8"/><circle cx="12" cy="18" r="1"/></svg>
+            </div>
+          </div>
+          <div class="visual-body">
+            <div class="visual-label"><span class="dot"></span><span>HUD / Flows</span></div>
+            <h4 data-i18n="visual_2_t">UI / UX Mobile</h4>
+            <p data-i18n="visual_2_c">Pantallas de shop, recompensas, HUDs y flujos de interacción pensados para claridad, ritmo y retención.</p>
+          </div>
+        </article>
+        <article class="visual-card" data-tone="anim">
+          <div class="visual-media">
+            <img src="assets/images/visual-animation-1.jpg" alt="Placeholder para animación y game feel" onerror="this.style.display='none'">
+            <div class="visual-stamp">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m4 14 4-4 4 4 8-8"/><path d="M20 10v6h-6"/></svg>
+            </div>
+          </div>
+          <div class="visual-body">
+            <div class="visual-label"><span class="dot"></span><span>Polish / Feedback</span></div>
+            <h4 data-i18n="visual_3_t">Animación y game feel</h4>
+            <p data-i18n="visual_3_c">Estados de personaje, polish de animación, feedback visual, timing de impacto y momentos de recompensa.</p>
+          </div>
+        </article>
+        <article class="visual-card" data-tone="tech">
+          <div class="visual-media">
+            <img src="assets/images/visual-techart-1.jpg" alt="Placeholder para technical art" onerror="this.style.display='none'">
+            <div class="visual-stamp">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.9 4.9l2.8 2.8"/><path d="m16.3 16.3 2.8 2.8"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="m4.9 19.1 2.8-2.8"/><path d="m16.3 7.7 2.8-2.8"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+          </div>
+          <div class="visual-body">
+            <div class="visual-label"><span class="dot"></span><span>Unity / VFX</span></div>
+            <h4 data-i18n="visual_4_t">Tech Art</h4>
+            <p data-i18n="visual_4_c">Integración en Unity, VFX, partículas, materiales y sistemas visuales reutilizables.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="panel compact" id="process">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">
+            <span class="badge">▣</span>
+            <span data-i18n="proc_kicker">Mi proceso</span>
+          </div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="tl">
+          <div class="date" data-i18n="t1_date">01 — IDEA</div>
+          <h4 data-i18n="t1_t">Concepto y prototipo</h4>
+          <p data-i18n="t1_c">De una mecánica core a un prototipo jugable en días, con foco en lo divertido.</p>
+        </div>
+        <div class="tl">
+          <div class="date" data-i18n="t2_date">02 — BUILD</div>
+          <h4 data-i18n="t2_t">Sistemas y polish</h4>
+          <p data-i18n="t2_c">Arquitectura modular, feedback visual, animación y UI pensada para móvil.</p>
+        </div>
+        <div class="tl">
+          <div class="date" data-i18n="t3_date">03 — LAUNCH</div>
+          <h4 data-i18n="t3_t">Live ops y retención</h4>
+          <p data-i18n="t3_c">Daily rewards, ads, economía y telemetría para crecer sin romper la experiencia.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="panel compact" id="about">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">
+            <span class="badge">☻</span>
+            <span data-i18n="about_kicker">Sobre mí</span>
+          </div>
+        </div>
+      </div>
+      <div class="about">
+        <div class="about-card">
+          <h3 data-i18n="about_t">Perfil híbrido: dev, diseño y tech art</h3>
+          <p data-i18n="about_c">Construyo juegos casual con mentalidad de producto. Me interesa la parte donde gameplay, arte, UX y negocio se cruzan: experiencias accesibles, pulidas y con sistemas que escalan.</p>
+          <div class="stats">
+            <div class="stat"><strong>5+</strong><span data-i18n="stat1">Juegos enviados</span></div>
+            <div class="stat"><strong>2M+</strong><span data-i18n="stat2">Descargas combinadas</span></div>
+            <div class="stat"><strong>7</strong><span data-i18n="stat3">Años en mobile</span></div>
+          </div>
+        </div>
+        <div class="about-card">
+          <h3 data-i18n="cv_t">CV y disponibilidad</h3>
+          <p data-i18n="cv_c">Disponible para colaboraciones, freelance o posiciones relacionadas con Unity, casual games y mobile UX.</p>
+          <div class="cta-row" style="margin-top:18px">
+            <a class="btn btn-primary" href="#"><span data-i18n="cv_btn">Descargar CV</span></a>
+            <a class="btn btn-ghost" href="#contact"><span data-i18n="cv_btn2">Escríbeme</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+      <div class="pad">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="12" rx="4"/><path d="M8 12h2M9 11v2"/><circle cx="15" cy="12" r="1"/><circle cx="17" cy="14" r="1"/></svg>
+      </div>
+      <div>
+        <h3 data-i18n="contact_t">¿Tienes una idea en mente?</h3>
+        <p data-i18n="contact_c">Hablemos y hagamos un juego increíble juntos.</p>
+      </div>
+      <!-- Sustituye TU_EMAIL_AQUI por tu correo real antes de publicar -->
+      <a class="btn btn-primary" href="mailto:TU_EMAIL_AQUI">
+        <span data-i18n="contact_btn">Contactar</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </section>
+
+    <footer class="footer">
+      <span>© 2026 Rayco González. Portfolio personal.</span>
+      <span>Unity · Casual Games · Tech Art · Mobile</span>
+    </footer>
+  </main>
+</div>
+
+<script>
+const I18N = {
+  es: {
+    nav_home:"Inicio", nav_about:"Sobre mí", nav_games:"Juegos", nav_visual:"Visual", nav_process:"Proceso", nav_contact:"Contacto",
+    hello:"¡Hola! Soy Rayco",
+    h1_a:"Diseño juegos", h1_b:"casual que", h1_c:"enganchan",
+    hero_copy:"Creo experiencias divertidas, accesibles y pensadas para conectar con millones de jugadores cada día.",
+    cta_primary:"Ver mis juegos", cta_secondary:"Conocer más sobre mí",
+    quote:"Me apasionan los juegos casual: mecánicas simples, retos bien pensados y recompensas que generan enganche y satisfacción.",
+    games_kicker:"Proyectos destacados", games_all:"Ver todos los proyectos",
+    g1_title:"PawPal", g1_tag:"Virtual Pet", g1_copy:"Mascota virtual mobile con minijuegos arcade, personalización y sistemas de progresión orientados a retención.",
+    g2_title:"Happy Harvest", g2_tag:"Farm", g2_copy:"Construye tu granja, cultiva y expande tu pueblo paso a paso.",
+    g3_title:"Stack It Up", g3_tag:"Arcade", g3_copy:"Apila, equilibra y supera tu mejor puntuación en este arcade adictivo.",
+    skills_kicker:"Capacidades",
+    sk1_t:"Game Systems", sk1_c:"Loops, progresión, economía y minijuegos pulidos.",
+    sk2_t:"Unity / C#", sk2_c:"Arquitectura modular y gameplay para mobile.",
+    sk3_t:"Tech Art", sk3_c:"VFX, animación y feedback visual con peso.",
+    sk4_t:"Mobile UX", sk4_c:"Interacción táctil clara, ritmo y recompensa.",
+    visual_kicker:"Visual Craft",
+    visual_t:"Personajes, UI y Tech Art",
+    visual_intro:"Una parte importante de mi trabajo está en conectar gameplay, arte y feedback visual: personajes expresivos, interfaces claras y sistemas visuales que hacen que el juego se sienta mejor.",
+    visual_1_t:"Personajes y criaturas",
+    visual_1_c:"Personajes stylized, mascotas y criaturas preparadas para gameplay, animación y rendimiento mobile.",
+    visual_2_t:"UI / UX Mobile",
+    visual_2_c:"Pantallas de shop, recompensas, HUDs y flujos de interacción pensados para claridad, ritmo y retención.",
+    visual_3_t:"Animación y game feel",
+    visual_3_c:"Estados de personaje, polish de animación, feedback visual, timing de impacto y momentos de recompensa.",
+    visual_4_t:"Tech Art",
+    visual_4_c:"Integración en Unity, VFX, partículas, materiales y sistemas visuales reutilizables.",
+    proc_kicker:"Mi proceso",
+    t1_date:"01 — IDEA", t1_t:"Concepto y prototipo", t1_c:"De una mecánica core a un prototipo jugable en días, con foco en lo divertido.",
+    t2_date:"02 — BUILD", t2_t:"Sistemas y polish", t2_c:"Arquitectura modular, feedback visual, animación y UI pensada para móvil.",
+    t3_date:"03 — LAUNCH", t3_t:"Live ops y retención", t3_c:"Daily rewards, ads, economía y telemetría para crecer sin romper la experiencia.",
+    about_kicker:"Sobre mí",
+    about_t:"Perfil híbrido: dev, diseño y tech art",
+    about_c:"Construyo juegos casual con mentalidad de producto y perfil híbrido. Me interesa la parte donde gameplay, arte, UX y negocio se cruzan: personajes expresivos, sistemas visuales claros y experiencias accesibles que se sienten bien desde el primer toque.",
+    stat1:"Juegos enviados", stat2:"Descargas combinadas", stat3:"Años en mobile",
+    cv_t:"CV y disponibilidad",
+    cv_c:"Disponible para colaboraciones, freelance o posiciones relacionadas con Unity, casual games y mobile UX.",
+    cv_btn:"Descargar CV", cv_btn2:"Escríbeme",
+    contact_t:"¿Tienes una idea en mente?",
+    contact_c:"Hablemos y hagamos un juego increíble juntos.",
+    contact_btn:"Contactar"
+  },
+  en: {
+    nav_home:"Home", nav_about:"About", nav_games:"Games", nav_visual:"Visual", nav_process:"Process", nav_contact:"Contact",
+    hello:"Hi! I'm Rayco",
+    h1_a:"I design casual", h1_b:"games that", h1_c:"hook you",
+    hero_copy:"I build fun, accessible experiences crafted to connect with millions of players every day.",
+    cta_primary:"See my games", cta_secondary:"More about me",
+    quote:"I love casual games: simple mechanics, well-thought challenges, and rewards that create engagement and satisfaction.",
+    games_kicker:"Featured projects", games_all:"View all projects",
+    g1_title:"PawPal", g1_tag:"Virtual Pet", g1_copy:"Virtual pet mobile game with arcade mini-games, customization and progression systems designed for retention.",
+    g2_title:"Happy Harvest", g2_tag:"Farm", g2_copy:"Build your farm, grow crops and expand your town step by step.",
+    g3_title:"Stack It Up", g3_tag:"Arcade", g3_copy:"Stack, balance and beat your high score in this addictive arcade.",
+    skills_kicker:"Capabilities",
+    sk1_t:"Game Systems", sk1_c:"Loops, progression, economy and polished mini-games.",
+    sk2_t:"Unity / C#", sk2_c:"Modular architecture and gameplay for mobile.",
+    sk3_t:"Tech Art", sk3_c:"VFX, animation and visual feedback with weight.",
+    sk4_t:"Mobile UX", sk4_c:"Clear touch interaction, rhythm and reward.",
+    visual_kicker:"Visual Craft",
+    visual_t:"Characters, UI and Tech Art",
+    visual_intro:"A big part of my work is connecting gameplay, art and visual feedback: expressive characters, clear interfaces and visual systems that make the game feel better.",
+    visual_1_t:"Characters & Creatures",
+    visual_1_c:"Stylized characters, pets and creatures prepared for gameplay, animation and mobile performance.",
+    visual_2_t:"UI / UX Mobile",
+    visual_2_c:"Shop screens, reward panels, HUDs and mobile-first interaction flows focused on clarity and retention.",
+    visual_3_t:"Animation & Game Feel",
+    visual_3_c:"Character states, animation polish, visual feedback, impact timing and reward moments.",
+    visual_4_t:"Technical Art",
+    visual_4_c:"Unity integration, VFX, particles, shaders/material setup and reusable visual systems.",
+    proc_kicker:"My process",
+    t1_date:"01 — IDEA", t1_t:"Concept & prototype", t1_c:"From a core mechanic to a playable prototype in days, focused on what's fun.",
+    t2_date:"02 — BUILD", t2_t:"Systems & polish", t2_c:"Modular architecture, visual feedback, animation and mobile-first UI.",
+    t3_date:"03 — LAUNCH", t3_t:"Live ops & retention", t3_c:"Daily rewards, ads, economy and telemetry to grow without breaking UX.",
+    about_kicker:"About me",
+    about_t:"Hybrid profile: dev, design & tech art",
+    about_c:"I build casual games with a product mindset and a hybrid profile. I enjoy the space where gameplay, art, UX and business meet: expressive characters, clear visual systems and accessible experiences that feel good from the first tap.",
+    stat1:"Games shipped", stat2:"Combined downloads", stat3:"Years in mobile",
+    cv_t:"CV & availability",
+    cv_c:"Available for collaborations, freelance or positions related to Unity, casual games and mobile UX.",
+    cv_btn:"Download CV", cv_btn2:"Email me",
+    contact_t:"Got an idea in mind?",
+    contact_c:"Let's talk and make an incredible game together.",
+    contact_btn:"Get in touch"
+  }
+};
+
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "lang": "es",
+  "accent": "sunset"
+}/*EDITMODE-END*/;
+
+function applyLang(lang){
+  const dict = I18N[lang] || I18N.es;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const key = el.getAttribute("data-i18n");
+    if(dict[key]) el.textContent = dict[key];
+  });
+  document.documentElement.lang = lang;
+}
+
+function applyAccent(name){
+  const map = {
+    violet:{a:"#8b5cf6",b:"#a78bfa",c:"#ff5ca8"},
+    teal:  {a:"#14b8a6",b:"#5eead4",c:"#60a5fa"},
+    sunset:{a:"#f97316",b:"#fbbf24",c:"#ef4444"}
+  };
+  const c = map[name] || map.violet;
+  document.documentElement.style.setProperty("--violet", c.a);
+  document.documentElement.style.setProperty("--violet-2", c.b);
+  document.documentElement.style.setProperty("--pink", c.c);
+}
+
+let state = {...TWEAK_DEFAULTS};
+applyLang(state.lang);
+applyAccent(state.accent);
+
+const heroCarousel = document.querySelector("[data-hero-carousel]");
+if(heroCarousel){
+  const slides = [...heroCarousel.querySelectorAll(".hero-slide")];
+  const dots = [...heroCarousel.querySelectorAll(".hero-dot")];
+  let activeIndex = 0;
+  let autoplayId = null;
+
+  function showHeroSlide(nextIndex){
+    activeIndex = (nextIndex + slides.length) % slides.length;
+    slides.forEach((slide, index)=> slide.classList.toggle("is-active", index === activeIndex));
+    dots.forEach((dot, index)=>{
+      const isActive = index === activeIndex;
+      dot.classList.toggle("is-active", isActive);
+      dot.setAttribute("aria-current", String(isActive));
+    });
+  }
+
+  function stopHeroAutoplay(){
+    window.clearInterval(autoplayId);
+  }
+
+  function startHeroAutoplay(){
+    if(slides.length < 2) return;
+    stopHeroAutoplay();
+    autoplayId = window.setInterval(()=> showHeroSlide(activeIndex + 1), 4500);
+  }
+
+  dots.forEach((dot, index)=>{
+    dot.addEventListener("click", ()=>{
+      showHeroSlide(index);
+      startHeroAutoplay();
+    });
+  });
+
+  heroCarousel.addEventListener("mouseenter", stopHeroAutoplay);
+  heroCarousel.addEventListener("mouseleave", startHeroAutoplay);
+  heroCarousel.addEventListener("focusin", stopHeroAutoplay);
+  heroCarousel.addEventListener("focusout", startHeroAutoplay);
+
+  showHeroSlide(0);
+  startHeroAutoplay();
+}
+
+// active nav on scroll
+const links = [...document.querySelectorAll(".nav a")];
+const sections = links.map(l=>document.querySelector(l.getAttribute("href"))).filter(Boolean);
+function onScroll(){
+  const y = window.scrollY + 200;
+  let cur = sections[0]?.id;
+  sections.forEach(s=>{ if(s.offsetTop <= y) cur = s.id; });
+  links.forEach(l=> l.classList.toggle("active", l.getAttribute("href") === "#"+cur));
+}
+window.addEventListener("scroll", onScroll, {passive:true});
+onScroll();
+
+// TWEAKS protocol
+let panelOpen = false;
+window.addEventListener("message", (e)=>{
+  if(!e.data) return;
+  if(e.data.type === "__activate_edit_mode"){ panelOpen = true; renderPanel(); }
+  if(e.data.type === "__deactivate_edit_mode"){ panelOpen = false; renderPanel(); }
+});
+window.parent.postMessage({type:"__edit_mode_available"}, "*");
+
+function setKey(k, v){
+  state[k] = v;
+  if(k === "lang") applyLang(v);
+  if(k === "accent") applyAccent(v);
+  window.parent.postMessage({type:"__edit_mode_set_keys", edits:{[k]:v}}, "*");
+  renderPanel();
+}
+
+function renderPanel(){
+  let p = document.getElementById("__tweaks");
+  if(!panelOpen){ if(p) p.remove(); return; }
+  if(!p){
+    p = document.createElement("div");
+    p.id = "__tweaks";
+    p.style.cssText = `position:fixed;right:18px;bottom:18px;z-index:9999;width:240px;
+      background:rgba(15,17,40,.95);backdrop-filter:blur(16px);
+      border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:16px;
+      color:#f4f3ff;font-family:Sora,system-ui;box-shadow:0 20px 60px rgba(0,0,0,.5)`;
+    document.body.appendChild(p);
+  }
+  p.innerHTML = `
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+      <strong style="font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:#a78bfa">Tweaks</strong>
+      <button id="__close" style="background:none;border:none;color:#9a9ab8;cursor:pointer;font-size:16px">×</button>
+    </div>
+    <div style="font-size:11px;color:#9a9ab8;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">Idioma</div>
+    <div style="display:flex;gap:6px;margin-bottom:14px">
+      ${["es","en"].map(l=>`<button data-lang="${l}" style="flex:1;padding:8px;border-radius:8px;border:1px solid ${state.lang===l?"#a78bfa":"rgba(255,255,255,.1)"};background:${state.lang===l?"rgba(139,92,246,.25)":"transparent"};color:#f4f3ff;cursor:pointer;font-size:12px;font-weight:600;text-transform:uppercase">${l}</button>`).join("")}
+    </div>
+    <div style="font-size:11px;color:#9a9ab8;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">Acento</div>
+    <div style="display:flex;gap:6px">
+      ${[["violet","#a78bfa"],["teal","#5eead4"],["sunset","#fbbf24"]].map(([k,col])=>`<button data-accent="${k}" style="flex:1;height:34px;border-radius:8px;border:2px solid ${state.accent===k?"#fff":"rgba(255,255,255,.1)"};background:${col};cursor:pointer"></button>`).join("")}
+    </div>
+  `;
+  p.querySelector("#__close").onclick = ()=>{
+    panelOpen = false; renderPanel();
+    window.parent.postMessage({type:"__edit_mode_dismissed"},"*");
+  };
+  p.querySelectorAll("[data-lang]").forEach(b=> b.onclick = ()=> setKey("lang", b.dataset.lang));
+  p.querySelectorAll("[data-accent]").forEach(b=> b.onclick = ()=> setKey("accent", b.dataset.accent));
+}
+</script>
+</body>
+</html>
+
