@@ -331,6 +331,235 @@
   .skill h4{font-size:15px;font-weight:700;margin-bottom:6px;letter-spacing:-.01em}
   .skill p{color:var(--muted);font-size:13px;line-height:1.55}
 
+  /* ANIMATION */
+  .animation-section{
+    display:grid;
+    grid-template-columns:minmax(0,1.1fr) minmax(320px,.9fr);
+    gap:18px;
+    align-items:stretch;
+  }
+  .animation-copy{
+    padding:24px;
+    border-radius:22px;
+    background:linear-gradient(180deg, rgba(34,37,75,.58), rgba(22,24,54,.62));
+    border:1px solid var(--line);
+  }
+  .animation-copy h2{
+    font-size:clamp(28px,3.4vw,42px);
+    line-height:1.02;
+    letter-spacing:-.04em;
+    margin-bottom:14px;
+    max-width:12ch;
+  }
+  .animation-copy p{
+    color:var(--soft);
+    font-size:15px;
+    line-height:1.7;
+    max-width:58ch;
+  }
+  .animation-highlights{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:12px;
+    margin-top:22px;
+  }
+  .animation-pill{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:13px 14px;
+    border-radius:16px;
+    background:rgba(255,255,255,.035);
+    border:1px solid var(--line);
+    color:var(--soft);
+    font-size:13px;
+    line-height:1.45;
+  }
+  .animation-pill .dot{
+    width:9px;
+    height:9px;
+    border-radius:50%;
+    flex:0 0 auto;
+    background:linear-gradient(135deg, var(--orange), var(--yellow));
+    box-shadow:0 0 0 6px rgba(255,138,76,.08);
+  }
+  .animation-actions{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-top:24px;
+  }
+  .btn-outline{
+    color:var(--soft);
+    border-color:rgba(255,255,255,.16);
+    background:rgba(255,255,255,.03);
+  }
+  .btn-outline:hover{
+    transform:translateY(-2px);
+    border-color:rgba(255,255,255,.28);
+    color:var(--text);
+  }
+  .animation-preview{
+    position:relative;
+    overflow:hidden;
+    border-radius:22px;
+    padding:24px;
+    border:1px solid var(--line);
+    background:
+      radial-gradient(220px 160px at 20% 20%, rgba(255,138,76,.18), transparent 60%),
+      radial-gradient(240px 180px at 82% 18%, rgba(94,234,212,.14), transparent 60%),
+      linear-gradient(180deg, rgba(24,27,58,.92), rgba(12,14,34,.96));
+    min-height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    box-shadow:0 24px 50px rgba(0,0,0,.26);
+  }
+  .animation-preview::after{
+    content:"";
+    position:absolute;
+    inset:auto -40px -70px auto;
+    width:190px;
+    height:190px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(139,92,246,.24), transparent 68%);
+    pointer-events:none;
+  }
+  .animation-preview-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+    margin-bottom:18px;
+  }
+  .animation-mini-label{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--teal);
+    font-family:"JetBrains Mono",monospace;
+  }
+  .animation-mini-label .dot{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:currentColor;
+    box-shadow:0 0 0 6px rgba(94,234,212,.08);
+  }
+  .animation-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:9px 12px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,.12);
+    background:rgba(255,255,255,.04);
+    color:var(--soft);
+    font-size:12px;
+    font-weight:600;
+  }
+  .animation-reel-card{
+    position:relative;
+    overflow:hidden;
+    border-radius:24px;
+    padding:22px;
+    min-height:270px;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)),
+      radial-gradient(240px 140px at 18% 24%, rgba(255,138,76,.20), transparent 60%),
+      radial-gradient(220px 140px at 82% 22%, rgba(94,234,212,.18), transparent 60%),
+      linear-gradient(145deg, rgba(91,33,182,.28), rgba(10,11,30,.24));
+    border:1px solid rgba(255,255,255,.09);
+  }
+  .animation-reel-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(135deg, rgba(255,255,255,.05) 0 1px, transparent 1px 36px),
+      linear-gradient(225deg, rgba(255,255,255,.04) 0 1px, transparent 1px 36px);
+    background-size:36px 36px;
+    opacity:.32;
+    pointer-events:none;
+  }
+  .animation-play{
+    position:relative;
+    z-index:1;
+    width:78px;
+    height:78px;
+    border-radius:24px;
+    display:grid;
+    place-items:center;
+    background:linear-gradient(135deg, rgba(199,242,74,.95), rgba(255,211,77,.92));
+    color:#0a0b1e;
+    box-shadow:0 18px 40px rgba(199,242,74,.18);
+  }
+  .animation-reel-body{
+    position:relative;
+    z-index:1;
+    margin-top:26px;
+    max-width:360px;
+  }
+  .animation-reel-body h3{
+    font-size:32px;
+    line-height:.98;
+    letter-spacing:-.045em;
+    margin-bottom:12px;
+  }
+  .animation-reel-body p{
+    color:var(--soft);
+    font-size:14px;
+    line-height:1.7;
+  }
+  .animation-reel-meta{
+    position:relative;
+    z-index:1;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:18px;
+  }
+  .animation-meta-pill{
+    display:inline-flex;
+    align-items:center;
+    padding:9px 12px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,.12);
+    background:rgba(10,11,30,.46);
+    color:var(--soft);
+    font-size:12px;
+    font-weight:600;
+    backdrop-filter:blur(8px);
+  }
+  .animation-preview-footer{
+    position:relative;
+    z-index:1;
+    display:flex;
+    align-items:end;
+    justify-content:space-between;
+    gap:16px;
+    margin-top:22px;
+  }
+  .animation-preview-note{
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.6;
+    max-width:250px;
+  }
+  .animation-preview-cta{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    color:var(--text);
+    font-size:13px;
+    font-weight:700;
+  }
+  .animation-preview-cta svg{flex:0 0 auto}
+
   /* VISUAL */
   .visual-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
   .visual-intro{
@@ -500,8 +729,16 @@
     main{grid-column:1;padding:20px}
     .hero{grid-template-columns:1fr;min-height:auto}
     .hero-art{min-height:420px}
+    .animation-section{grid-template-columns:1fr}
     .games,.skills,.timeline,.about,.visual-grid{grid-template-columns:1fr}
     .contact{grid-template-columns:1fr}
+  }
+  @media (max-width:720px){
+    .animation-highlights{grid-template-columns:1fr}
+    .animation-copy,.animation-preview{padding:20px}
+    .animation-reel-card{min-height:240px;padding:18px}
+    .animation-reel-body h3{font-size:28px}
+    .animation-preview-footer{align-items:start;flex-direction:column}
   }
 </style>
 </head>
@@ -692,6 +929,67 @@
             <p>Licensed character app where I coordinated animation requests, adapted animation content and handled Unity technical art implementation including VFX, lighting, camera, UI and audio setup.</p>
           </div>
         </a>
+      </div>
+    </section>
+
+    <!-- ANIMATION -->
+    <section class="panel compact" id="animation-work">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">
+            <span class="badge">A</span>
+            <span data-i18n="anim_kicker">Animation Focus</span>
+          </div>
+        </div>
+      </div>
+      <div class="animation-section">
+        <div class="animation-copy">
+          <h2 data-i18n="anim_title">Animation & Character Work</h2>
+          <p data-i18n="anim_copy">Stylized character animation, creature behaviours and Unity-ready animation systems for mobile games and character-driven apps.</p>
+          <div class="animation-highlights">
+            <div class="animation-pill"><span class="dot"></span><span data-i18n="anim_h1">Stylized character animation</span></div>
+            <div class="animation-pill"><span class="dot"></span><span data-i18n="anim_h2">Pet and creature behaviours</span></div>
+            <div class="animation-pill"><span class="dot"></span><span data-i18n="anim_h3">Unity animation integration</span></div>
+            <div class="animation-pill"><span class="dot"></span><span data-i18n="anim_h4">Animation timing for gameplay</span></div>
+            <div class="animation-pill"><span class="dot"></span><span data-i18n="anim_h5">VFX and reward feedback</span></div>
+            <div class="animation-pill"><span class="dot"></span><span data-i18n="anim_h6">Character-driven mobile experiences</span></div>
+          </div>
+          <div class="animation-actions">
+            <a class="btn btn-primary" href="https://www.youtube.com/watch?v=wQGzyj0aMR4" target="_blank" rel="noopener noreferrer">
+              <span data-i18n="anim_btn_reel">Watch full reel</span>
+            </a>
+            <a class="btn btn-outline" href="https://rayco76.artstation.com/" target="_blank" rel="noopener noreferrer">
+              <span data-i18n="anim_btn_art">View ArtStation</span>
+            </a>
+          </div>
+        </div>
+        <div class="animation-preview" aria-hidden="true">
+          <div class="animation-preview-top">
+            <div class="animation-mini-label"><span class="dot"></span><span data-i18n="anim_preview_label">Character pipeline</span></div>
+            <div class="animation-badge" data-i18n="anim_preview_badge">Unity Ready</div>
+          </div>
+          <div class="animation-reel-card">
+            <div class="animation-play">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 6.5v11l9-5.5-9-5.5Z"/></svg>
+            </div>
+            <div class="animation-reel-body">
+              <h3 data-i18n="anim_core_t">Animation reel for expressive characters</h3>
+              <p data-i18n="anim_core_c">A focused look at stylized character work, pet interactions, gameplay timing and Unity-ready implementation.</p>
+            </div>
+            <div class="animation-reel-meta">
+              <span class="animation-meta-pill" data-i18n="anim_tag_1">Stylized motion</span>
+              <span class="animation-meta-pill" data-i18n="anim_tag_2">Gameplay timing</span>
+              <span class="animation-meta-pill" data-i18n="anim_tag_3">Reward feedback</span>
+            </div>
+            <div class="animation-preview-footer">
+              <p class="animation-preview-note" data-i18n="anim_preview_note">Built to support mobile characters that need personality, readability and production-ready animation setup.</p>
+              <div class="animation-preview-cta">
+                <span data-i18n="anim_preview_cta">Open full reel</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -898,6 +1196,26 @@ const I18N = {
     cta_primary:"Ver mis juegos", cta_secondary:"Conocer más sobre mí",
     quote:"Me apasionan los juegos casual: mecánicas simples, retos bien pensados y recompensas que generan enganche y satisfacción.",
     games_kicker:"Proyectos destacados", games_all:"Ver todos los proyectos",
+    anim_kicker:"Animation Focus",
+    anim_title:"Animation & Character Work",
+    anim_copy:"Animación stylized de personajes, comportamientos de criaturas y sistemas de animación listos para Unity para juegos mobile y apps centradas en personajes.",
+    anim_h1:"Animación stylized de personajes",
+    anim_h2:"Comportamientos de mascotas y criaturas",
+    anim_h3:"Integración de animación en Unity",
+    anim_h4:"Timing de animación para gameplay",
+    anim_h5:"VFX y feedback de recompensa",
+    anim_h6:"Experiencias mobile centradas en personajes",
+    anim_btn_reel:"Ver reel completo",
+    anim_btn_art:"Ver ArtStation",
+    anim_preview_label:"Pipeline de personaje",
+    anim_preview_badge:"Preparado para Unity",
+    anim_tag_1:"Movimiento stylized",
+    anim_tag_2:"Timing de gameplay",
+    anim_tag_3:"Feedback de recompensa",
+    anim_core_t:"Reel de animación para personajes expresivos",
+    anim_core_c:"Una mirada centrada en trabajo de personaje stylized, interacciones de mascotas, timing de gameplay e implementación lista para Unity.",
+    anim_preview_note:"Pensado para personajes mobile con personalidad, legibilidad y una integración de animación preparada para producción.",
+    anim_preview_cta:"Abrir reel completo",
     g1_title:"PawPal", g1_tag:"Virtual Pet", g1_copy:"Mascota virtual mobile con minijuegos arcade, personalización y sistemas de progresión orientados a retención.",
     g2_title:"Happy Harvest", g2_tag:"Farm", g2_copy:"Construye tu granja, cultiva y expande tu pueblo paso a paso.",
     g3_title:"Stack It Up", g3_tag:"Arcade", g3_copy:"Apila, equilibra y supera tu mejor puntuación en este arcade adictivo.",
@@ -940,6 +1258,26 @@ const I18N = {
     cta_primary:"See my games", cta_secondary:"More about me",
     quote:"I love casual games: simple mechanics, well-thought challenges, and rewards that create engagement and satisfaction.",
     games_kicker:"Featured projects", games_all:"View all projects",
+    anim_kicker:"Animation Focus",
+    anim_title:"Animation & Character Work",
+    anim_copy:"Stylized character animation, creature behaviours and Unity-ready animation systems for mobile games and character-driven apps.",
+    anim_h1:"Stylized character animation",
+    anim_h2:"Pet and creature behaviours",
+    anim_h3:"Unity animation integration",
+    anim_h4:"Animation timing for gameplay",
+    anim_h5:"VFX and reward feedback",
+    anim_h6:"Character-driven mobile experiences",
+    anim_btn_reel:"Watch full reel",
+    anim_btn_art:"View ArtStation",
+    anim_preview_label:"Character pipeline",
+    anim_preview_badge:"Unity Ready",
+    anim_tag_1:"Stylized motion",
+    anim_tag_2:"Gameplay timing",
+    anim_tag_3:"Reward feedback",
+    anim_core_t:"Animation reel for expressive characters",
+    anim_core_c:"A focused look at stylized character work, pet interactions, gameplay timing and Unity-ready implementation.",
+    anim_preview_note:"Built to support mobile characters that need personality, readability and production-ready animation setup.",
+    anim_preview_cta:"Open full reel",
     g1_title:"PawPal", g1_tag:"Virtual Pet", g1_copy:"Virtual pet mobile game with arcade mini-games, customization and progression systems designed for retention.",
     g2_title:"Happy Harvest", g2_tag:"Farm", g2_copy:"Build your farm, grow crops and expand your town step by step.",
     g3_title:"Stack It Up", g3_tag:"Arcade", g3_copy:"Stack, balance and beat your high score in this addictive arcade.",
