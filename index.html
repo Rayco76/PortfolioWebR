@@ -3,7 +3,21 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Rayco González — Casual Game Developer</title>
+<title>Rayco González — Technical Artist · Unity · VFX · Shaders</title>
+<meta name="description" content="Rayco González — Technical Artist para juegos casual. Conecto arte y motor en Unity: materiales, VFX, iluminación, render y pipeline para móvil. Proyectos: Pocoyo Party, Talking Pocoyo 2, PawPal." />
+<meta name="author" content="Rayco González" />
+<link rel="canonical" href="https://raycogonzalez.com/" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 38 38'%3E%3Crect width='38' height='38' rx='11' fill='%23a78bfa'/%3E%3Ctext x='19' y='27' font-family='sans-serif' font-size='22' font-weight='900' fill='%230a0b1e' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E" />
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Rayco González — Technical Artist · Unity · VFX · Shaders" />
+<meta property="og:description" content="Technical Artist para juegos casual. Materiales, VFX, iluminación, render y pipeline en Unity para móvil." />
+<meta property="og:url" content="https://raycogonzalez.com/" />
+<meta property="og:image" content="https://raycogonzalez.com/assets/images/hero-profile-placeholder.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Rayco González — Technical Artist · Unity · VFX · Shaders" />
+<meta name="twitter:description" content="Technical Artist para juegos casual. Materiales, VFX, iluminación, render y pipeline en Unity para móvil." />
+<meta name="twitter:image" content="https://raycogonzalez.com/assets/images/hero-profile-placeholder.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -86,6 +100,11 @@
     box-shadow:0 8px 24px rgba(139,92,246,.18) inset, 0 4px 14px rgba(139,92,246,.18);
   }
   .nav a.active .ico{color:var(--violet-2)}
+  .sidebar-bottom{display:flex;flex-direction:column;gap:18px}
+  .lang-switch{display:inline-flex;gap:4px;padding:4px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.03);width:max-content}
+  .lang-switch button{padding:6px 13px;border-radius:8px;border:none;background:transparent;color:var(--muted);font-family:inherit;font-weight:700;font-size:12px;letter-spacing:.04em;cursor:pointer;transition:.2s ease}
+  .lang-switch button:hover{color:var(--text)}
+  .lang-switch button.active{background:linear-gradient(180deg,rgba(139,92,246,.34),rgba(139,92,246,.18));color:var(--text);box-shadow:0 4px 12px rgba(139,92,246,.18)}
   .socials{display:flex;flex-direction:column;gap:14px;color:var(--muted)}
   .socials a{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;border:1px solid var(--line);transition:.2s}
   .socials a:hover{color:var(--lime);border-color:rgba(199,242,74,.4)}
@@ -330,6 +349,22 @@
   }
   .skill h4{font-size:15px;font-weight:700;margin-bottom:6px;letter-spacing:-.01em}
   .skill p{color:var(--muted);font-size:13px;line-height:1.55}
+  .tech-stack{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+  .tech-stack .chip{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:9px 14px;border-radius:999px;
+    background:rgba(255,255,255,.04);border:1px solid var(--line);
+    color:var(--soft);font-size:12.5px;font-weight:600;
+    font-family:"JetBrains Mono",monospace;
+    transition:.2s ease;
+  }
+  .tech-stack .chip:hover{border-color:rgba(167,139,250,.32);color:var(--text)}
+  .tech-stack .chip::before{content:"";width:7px;height:7px;border-radius:50%;flex:none;background:linear-gradient(135deg,var(--violet),var(--pink))}
+  .stack-block{margin-top:22px;display:grid;gap:18px}
+  .stack-group{display:grid;gap:11px}
+  .stack-group .tech-stack{margin-top:0}
+  .stack-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-family:"JetBrains Mono",monospace}
+  .tech-stack .chip.soft::before{background:linear-gradient(135deg,var(--teal),var(--blue))}
 
   /* ANIMATION */
   .animation-section{
@@ -667,7 +702,7 @@
   .about-card{padding:24px;border-radius:18px;background:linear-gradient(180deg, rgba(34,37,75,.55), rgba(22,24,54,.55));border:1px solid var(--line)}
   .about-card h3{font-size:22px;letter-spacing:-.03em;margin-bottom:12px}
   .about-card p{color:var(--muted);font-size:14px;line-height:1.7}
-  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:20px}
   .stat{padding:14px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid var(--line)}
   .stat strong{display:block;font-size:22px;color:var(--yellow);letter-spacing:-.03em;font-weight:800}
   .stat span{color:var(--muted);font-size:12px;font-weight:500}
@@ -724,6 +759,7 @@
     .sidebar{position:relative;width:100%;height:auto;flex-direction:row;padding:14px 18px;border-right:none;border-bottom:1px solid var(--line)}
     .nav{flex-direction:row;margin-top:0;gap:4px}
     .nav a{padding:8px 12px;font-size:13px}
+    .sidebar-bottom{flex-direction:row;align-items:center;gap:12px}
     .socials{flex-direction:row}
     .page{grid-template-columns:1fr}
     main{grid-column:1;padding:20px}
@@ -789,16 +825,19 @@
         </a>
       </nav>
     </div>
+    <div class="sidebar-bottom">
+    <div class="lang-switch" role="group" aria-label="Idioma / Language">
+      <button type="button" data-lang-btn="es">ES</button>
+      <button type="button" data-lang-btn="en">EN</button>
+    </div>
     <div class="socials">
-      <a href="#" aria-label="Discord">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.6 5.5a17 17 0 0 0-4.2-1.3l-.2.4a15.3 15.3 0 0 0-4.4 0l-.2-.4a17 17 0 0 0-4.2 1.3A18 18 0 0 0 3 17.5a17 17 0 0 0 5.2 2.6l.4-.6a11 11 0 0 1-1.7-.8l.4-.3a12 12 0 0 0 9.4 0l.4.3a11 11 0 0 1-1.7.8l.4.6a17 17 0 0 0 5.2-2.6 18 18 0 0 0-1-12zM9 14.5c-.8 0-1.5-.8-1.5-1.7S8.2 11 9 11s1.5.8 1.5 1.7-.7 1.8-1.5 1.8zm6 0c-.8 0-1.5-.8-1.5-1.7S14.2 11 15 11s1.5.8 1.5 1.7-.7 1.8-1.5 1.8z"/></svg>
-      </a>
-      <a href="#" aria-label="X">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 3h3l-7.5 8.6L22 21h-6.8l-5.3-6.5L3.8 21H1l8-9.2L1 3h7l4.8 6 5.2-6z"/></svg>
-      </a>
-      <a href="#" aria-label="LinkedIn">
+      <a href="https://www.linkedin.com/in/raycogonzalez76" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3.5C5 4.6 4.1 5.5 3 5.5S1 4.6 1 3.5 1.9 1.5 3 1.5 5 2.4 5 3.5zM1 8h4v14H1V8zm7 0h3.8v2h.05c.5-.95 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V22h-4v-6.2c0-1.5-.05-3.4-2.05-3.4S12 13.8 12 15.7V22H8V8z"/></svg>
       </a>
+      <a href="https://www.artstation.com/rayco76" target="_blank" rel="noopener noreferrer" aria-label="ArtStation">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M0 17.7l2.3 4a1.6 1.6 0 0 0 1.4.8h12.9l-2.8-4.8H0zM24 17.7c0-.3-.1-.6-.2-.9L17.3 5.4a1.6 1.6 0 0 0-1.4-.8h-4.6l9.9 17.1 2.4-4.1c.3-.4.4-.6.4-.9zM13.5 14.4L8.9 6.5 4.3 14.4h9.2z"/></svg>
+      </a>
+    </div>
     </div>
   </aside>
 
@@ -808,12 +847,12 @@
       <div class="hero-left">
         <div class="greet"><span data-i18n="hello">¡Hola! Soy Rayco</span> <span class="wave">👋</span></div>
         <h1>
-          <span data-i18n="h1_a">Diseño juegos</span><br/>
-          <span data-i18n="h1_b">casual que</span><br/>
-          <span class="grad" data-i18n="h1_c">enganchan</span><span class="accent-marks">´</span>
+          <span data-i18n="h1_a">Technical Artist</span><br/>
+          <span data-i18n="h1_b">para juegos casual</span><br/>
+          <span class="grad" data-i18n="h1_c">que enganchan</span><span class="accent-marks">´</span>
         </h1>
         <p class="hero-copy" data-i18n="hero_copy">
-          Creo experiencias divertidas, accesibles y pensadas para conectar con millones de jugadores cada día.
+          Conecto arte y motor en Unity: materiales, VFX, iluminación, render y pipeline que hacen que los juegos casual se vean bien y rindan en móvil.
         </p>
         <div class="cta-row">
           <a class="btn btn-primary" href="#games">
@@ -838,11 +877,15 @@
             <figure class="hero-slide">
               <img src="assets/images/hero-slide-3.png" alt="Tercera imagen destacada de la portada">
             </figure>
+            <figure class="hero-slide">
+              <img src="assets/images/hero-slide-4.png" alt="Cuarta imagen destacada de la portada">
+            </figure>
           </div>
           <div class="hero-dots" aria-label="Selector de imágenes destacadas">
             <button class="hero-dot is-active" type="button" aria-label="Ver imagen 1" aria-current="true"></button>
             <button class="hero-dot" type="button" aria-label="Ver imagen 2" aria-current="false"></button>
             <button class="hero-dot" type="button" aria-label="Ver imagen 3" aria-current="false"></button>
+            <button class="hero-dot" type="button" aria-label="Ver imagen 4" aria-current="false"></button>
           </div>
         </div>
       </div>
@@ -857,7 +900,7 @@
             <span data-i18n="games_kicker">Proyectos destacados</span>
           </div>
         </div>
-        <a class="link" href="#">
+        <a class="link" href="#games">
           <span data-i18n="games_all">Ver todos los proyectos</span>
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
@@ -899,13 +942,13 @@
               </div>
               <div class="game-title">
                 <h3>Pocoyo Party</h3>
-                <span class="tag farm">3D / Tech Art</span>
+                <span class="tag farm" data-i18n="g2_tag">3D / Tech Art</span>
               </div>
               <span class="arrow">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
               </span>
             </div>
-            <p>Educational kids game based on the Pocoyo universe. 3D art, Unity integration, lighting, materials and VFX support.</p>
+            <p data-i18n="g2_copy">Juego educativo infantil basado en el universo Pocoyo. Arte 3D, integración en Unity, iluminación, materiales y soporte de VFX.</p>
           </div>
         </a>
 
@@ -920,13 +963,13 @@
               </div>
               <div class="game-title">
                 <h3>Talking Pocoyo 2</h3>
-                <span class="tag arcade">Animation / Tech Art</span>
+                <span class="tag arcade" data-i18n="g3_tag">Animation / Tech Art</span>
               </div>
               <span class="arrow">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
               </span>
             </div>
-            <p>Licensed character app where I coordinated animation requests, adapted animation content and handled Unity technical art implementation including VFX, lighting, camera, UI and audio setup.</p>
+            <p data-i18n="g3_copy">App de personaje licenciado donde coordiné las peticiones de animación, adapté contenido de animación y me encargué de la implementación de technical art en Unity: VFX, iluminación, cámara, UI y configuración de audio.</p>
           </div>
         </a>
       </div>
@@ -993,44 +1036,78 @@
       </div>
     </section>
 
-    <!-- SKILLS -->
+    <!-- SKILLS / TECH STACK -->
     <section class="panel compact" id="skills">
       <div class="section-head">
         <div>
           <div class="section-kicker">
             <span class="badge">✦</span>
-            <span data-i18n="skills_kicker">Capacidades</span>
+            <span data-i18n="skills_kicker">Stack técnico</span>
           </div>
+          <h2 data-i18n="skills_t">Lo que aporto como Technical Artist</h2>
         </div>
       </div>
       <div class="skills">
         <div class="skill">
           <div class="ico">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="12" rx="4"/><path d="M8 12h2M9 11v2"/><circle cx="15" cy="12" r="1"/><circle cx="17" cy="14" r="1"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18M3 12h18"/></svg>
           </div>
-          <h4 data-i18n="sk1_t">Game Systems</h4>
-          <p data-i18n="sk1_c">Loops, progresión, economía y minijuegos pulidos.</p>
-        </div>
-        <div class="skill">
-          <div class="ico">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 1 1-14 0 7 7 0 0 1 14 0z"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
-          </div>
-          <h4 data-i18n="sk2_t">Unity / C#</h4>
-          <p data-i18n="sk2_c">Arquitectura modular y gameplay para mobile.</p>
+          <h4 data-i18n="sk1_t">Shaders &amp; Materiales</h4>
+          <p data-i18n="sk1_c">Setup de materiales, look dev e iluminación consistente y legible en Unity.</p>
         </div>
         <div class="skill">
           <div class="ico">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M12 16v6M2 12h6M16 12h6M5 5l4 4M15 15l4 4M5 19l4-4M15 9l4-4"/></svg>
           </div>
-          <h4 data-i18n="sk3_t">Tech Art</h4>
-          <p data-i18n="sk3_c">VFX, animación y feedback visual con peso.</p>
+          <h4 data-i18n="sk2_t">VFX &amp; Game Feel</h4>
+          <p data-i18n="sk2_c">Partículas, feedback visual e impacto que dan vida y peso a cada interacción.</p>
         </div>
         <div class="skill">
           <div class="ico">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 1 1-14 0 7 7 0 0 1 14 0z"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
           </div>
-          <h4 data-i18n="sk4_t">Mobile UX</h4>
-          <p data-i18n="sk4_c">Interacción táctil clara, ritmo y recompensa.</p>
+          <h4 data-i18n="sk3_t">Unity &amp; Pipeline</h4>
+          <p data-i18n="sk3_c">Integración de assets, render, cámara, C# y optimización para móvil.</p>
+        </div>
+        <div class="skill">
+          <div class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5v10l-9 5-9-5V7z"/><path d="m12 12 9-5M12 12v10M12 12 3 7"/></svg>
+          </div>
+          <h4 data-i18n="sk4_t">3D &amp; DCC</h4>
+          <p data-i18n="sk4_c">Modelado de props, cleanup de librerías y environment art listo para engine.</p>
+        </div>
+      </div>
+      <div class="stack-block">
+        <div class="stack-group">
+          <span class="stack-label" data-i18n="ts_software">Software &amp; herramientas</span>
+          <div class="tech-stack" aria-label="Software y herramientas">
+            <span class="chip">Unity</span>
+            <span class="chip">C#</span>
+            <span class="chip">Shader Graph</span>
+            <span class="chip">HLSL</span>
+            <span class="chip">VFX Graph</span>
+            <span class="chip">Substance</span>
+            <span class="chip">ZBrush</span>
+            <span class="chip">Blender</span>
+            <span class="chip">Maya</span>
+            <span class="chip">Python</span>
+            <span class="chip">Git</span>
+          </div>
+        </div>
+        <div class="stack-group">
+          <span class="stack-label" data-i18n="ts_areas">Áreas</span>
+          <div class="tech-stack" aria-label="Áreas de trabajo">
+            <span class="chip soft" data-i18n="st_materials">Materiales</span>
+            <span class="chip soft" data-i18n="st_lighting">Iluminación</span>
+            <span class="chip soft" data-i18n="st_vfx">VFX / Partículas</span>
+            <span class="chip soft" data-i18n="st_render">Render &amp; Cámara</span>
+            <span class="chip soft" data-i18n="st_assets">Integración de assets</span>
+            <span class="chip soft" data-i18n="st_opt">Optimización móvil</span>
+            <span class="chip soft" data-i18n="st_props">Modelado de props</span>
+            <span class="chip soft">Environment Art</span>
+            <span class="chip soft" data-i18n="st_anim">Animación en engine</span>
+            <span class="chip soft" data-i18n="st_ip">IP licenciada</span>
+          </div>
         </div>
       </div>
     </section>
@@ -1144,19 +1221,20 @@
       </div>
       <div class="about">
         <div class="about-card">
-          <h3 data-i18n="about_t">Perfil híbrido: dev, diseño y tech art</h3>
-          <p data-i18n="about_c">Construyo juegos casual con mentalidad de producto. Me interesa la parte donde gameplay, arte, UX y negocio se cruzan: experiencias accesibles, pulidas y con sistemas que escalan.</p>
+          <h3 data-i18n="about_t">Technical Artist con perfil híbrido: arte + motor</h3>
+          <p data-i18n="about_c">Trabajo en el puente entre arte y programación: llevo materiales, iluminación, VFX y animación a Unity y los dejo listos para producción, optimizados y consistentes en móvil. Vengo del mundo del arte 3D, así que cuido tanto cómo se ve como cómo rinde.</p>
           <div class="stats">
-            <div class="stat"><strong>5+</strong><span data-i18n="stat1">Juegos enviados</span></div>
-            <div class="stat"><strong>2M+</strong><span data-i18n="stat2">Descargas combinadas</span></div>
-            <div class="stat"><strong>7</strong><span data-i18n="stat3">Años en mobile</span></div>
+            <div class="stat"><strong>+30</strong><span data-i18n="stat1">Apps publicadas</span></div>
+            <div class="stat"><strong>+50M</strong><span data-i18n="stat2">Descargas combinadas</span></div>
+            <div class="stat"><strong>1</strong><span data-i18n="stat3">Juego en Switch / PlayStation</span></div>
+            <div class="stat"><strong>10</strong><span data-i18n="stat4">Años en la industria</span></div>
           </div>
         </div>
         <div class="about-card">
           <h3 data-i18n="cv_t">CV y disponibilidad</h3>
           <p data-i18n="cv_c">Disponible para colaboraciones, freelance o posiciones relacionadas con Unity, casual games y mobile UX.</p>
           <div class="cta-row" style="margin-top:18px">
-            <a class="btn btn-primary" href="#"><span data-i18n="cv_btn">Descargar CV</span></a>
+            <a class="btn btn-primary" href="assets/docs/CV_RaycoGonzalez_2026.pdf" download="CV_RaycoGonzalez_2026.pdf" target="_blank" rel="noopener"><span data-i18n="cv_btn">Descargar CV</span></a>
             <a class="btn btn-ghost" href="#contact"><span data-i18n="cv_btn2">Escríbeme</span></a>
           </div>
         </div>
@@ -1172,8 +1250,7 @@
         <h3 data-i18n="contact_t">¿Tienes una idea en mente?</h3>
         <p data-i18n="contact_c">Hablemos y hagamos un juego increíble juntos.</p>
       </div>
-      <!-- Sustituye TU_EMAIL_AQUI por tu correo real antes de publicar -->
-      <a class="btn btn-primary" href="mailto:TU_EMAIL_AQUI">
+      <a class="btn btn-primary" href="mailto:river.3D@proton.me">
         <span data-i18n="contact_btn">Contactar</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
@@ -1181,7 +1258,7 @@
 
     <footer class="footer">
       <span>© 2026 Rayco González. Portfolio personal.</span>
-      <span>Unity · Casual Games · Tech Art · Mobile</span>
+      <span>Technical Artist · Unity · VFX · Shaders · Mobile</span>
     </footer>
   </main>
 </div>
@@ -1191,8 +1268,8 @@ const I18N = {
   es: {
     nav_home:"Inicio", nav_about:"Sobre mí", nav_games:"Juegos", nav_visual:"Visual", nav_process:"Proceso", nav_contact:"Contacto",
     hello:"¡Hola! Soy Rayco",
-    h1_a:"Diseño juegos", h1_b:"casual que", h1_c:"enganchan",
-    hero_copy:"Creo experiencias divertidas, accesibles y pensadas para conectar con millones de jugadores cada día.",
+    h1_a:"Technical Artist", h1_b:"para juegos casual", h1_c:"que enganchan",
+    hero_copy:"Conecto arte y motor en Unity: materiales, VFX, iluminación, render y pipeline que hacen que los juegos casual se vean bien y rindan en móvil.",
     cta_primary:"Ver mis juegos", cta_secondary:"Conocer más sobre mí",
     quote:"Me apasionan los juegos casual: mecánicas simples, retos bien pensados y recompensas que generan enganche y satisfacción.",
     games_kicker:"Proyectos destacados", games_all:"Ver todos los proyectos",
@@ -1217,13 +1294,18 @@ const I18N = {
     anim_preview_note:"Pensado para personajes mobile con personalidad, legibilidad y una integración de animación preparada para producción.",
     anim_preview_cta:"Abrir reel completo",
     g1_title:"PawPal", g1_tag:"Virtual Pet", g1_copy:"Mascota virtual mobile con minijuegos arcade, personalización y sistemas de progresión orientados a retención.",
-    g2_title:"Happy Harvest", g2_tag:"Farm", g2_copy:"Construye tu granja, cultiva y expande tu pueblo paso a paso.",
-    g3_title:"Stack It Up", g3_tag:"Arcade", g3_copy:"Apila, equilibra y supera tu mejor puntuación en este arcade adictivo.",
-    skills_kicker:"Capacidades",
-    sk1_t:"Game Systems", sk1_c:"Loops, progresión, economía y minijuegos pulidos.",
-    sk2_t:"Unity / C#", sk2_c:"Arquitectura modular y gameplay para mobile.",
-    sk3_t:"Tech Art", sk3_c:"VFX, animación y feedback visual con peso.",
-    sk4_t:"Mobile UX", sk4_c:"Interacción táctil clara, ritmo y recompensa.",
+    g2_tag:"3D / Tech Art", g2_copy:"Juego educativo infantil basado en el universo Pocoyo. Arte 3D, integración en Unity, iluminación, materiales y soporte de VFX.",
+    g3_tag:"Animación / Tech Art", g3_copy:"App de personaje licenciado donde coordiné las peticiones de animación, adapté contenido de animación y me encargué de la implementación de technical art en Unity: VFX, iluminación, cámara, UI y configuración de audio.",
+    skills_kicker:"Stack técnico",
+    skills_t:"Lo que aporto como Technical Artist",
+    sk1_t:"Shaders & Materiales", sk1_c:"Setup de materiales, look dev e iluminación consistente y legible en Unity.",
+    sk2_t:"VFX & Game Feel", sk2_c:"Partículas, feedback visual e impacto que dan vida y peso a cada interacción.",
+    sk3_t:"Unity & Pipeline", sk3_c:"Integración de assets, render, cámara, C# y optimización para móvil.",
+    sk4_t:"3D & DCC", sk4_c:"Modelado de props, cleanup de librerías y environment art listo para engine.",
+    ts_software:"Software & herramientas", ts_areas:"Áreas",
+    st_materials:"Materiales", st_lighting:"Iluminación", st_vfx:"VFX / Partículas", st_render:"Render & Cámara",
+    st_assets:"Integración de assets", st_opt:"Optimización móvil", st_props:"Modelado de props",
+    st_anim:"Animación en engine", st_ip:"IP licenciada",
     visual_kicker:"Visual Craft",
     visual_t:"Personajes, UI y Tech Art",
     visual_intro:"Una parte importante de mi trabajo está en conectar gameplay, arte y feedback visual: personajes expresivos, interfaces claras y sistemas visuales que hacen que el juego se sienta mejor.",
@@ -1240,9 +1322,9 @@ const I18N = {
     t2_date:"02 — BUILD", t2_t:"Sistemas y polish", t2_c:"Arquitectura modular, feedback visual, animación y UI pensada para móvil.",
     t3_date:"03 — LAUNCH", t3_t:"Live ops y retención", t3_c:"Daily rewards, ads, economía y telemetría para crecer sin romper la experiencia.",
     about_kicker:"Sobre mí",
-    about_t:"Perfil híbrido: dev, diseño y tech art",
-    about_c:"Construyo juegos casual con mentalidad de producto y perfil híbrido. Me interesa la parte donde gameplay, arte, UX y negocio se cruzan: personajes expresivos, sistemas visuales claros y experiencias accesibles que se sienten bien desde el primer toque.",
-    stat1:"Juegos enviados", stat2:"Descargas combinadas", stat3:"Años en mobile",
+    about_t:"Technical Artist con perfil híbrido: arte + motor",
+    about_c:"Trabajo en el puente entre arte y programación: llevo materiales, iluminación, VFX y animación a Unity y los dejo listos para producción, optimizados y consistentes en móvil. Vengo del mundo del arte 3D, así que cuido tanto cómo se ve como cómo rinde.",
+    stat1:"Apps publicadas", stat2:"Descargas combinadas", stat3:"Juego en Switch / PlayStation", stat4:"Años en la industria",
     cv_t:"CV y disponibilidad",
     cv_c:"Disponible para colaboraciones, freelance o posiciones relacionadas con Unity, casual games y mobile UX.",
     cv_btn:"Descargar CV", cv_btn2:"Escríbeme",
@@ -1253,8 +1335,8 @@ const I18N = {
   en: {
     nav_home:"Home", nav_about:"About", nav_games:"Games", nav_visual:"Visual", nav_process:"Process", nav_contact:"Contact",
     hello:"Hi! I'm Rayco",
-    h1_a:"I design casual", h1_b:"games that", h1_c:"hook you",
-    hero_copy:"I build fun, accessible experiences crafted to connect with millions of players every day.",
+    h1_a:"Technical Artist", h1_b:"for casual games", h1_c:"that hook you",
+    hero_copy:"I connect art and engine in Unity: materials, VFX, lighting, render and pipeline that make casual games look great and run well on mobile.",
     cta_primary:"See my games", cta_secondary:"More about me",
     quote:"I love casual games: simple mechanics, well-thought challenges, and rewards that create engagement and satisfaction.",
     games_kicker:"Featured projects", games_all:"View all projects",
@@ -1279,13 +1361,18 @@ const I18N = {
     anim_preview_note:"Built to support mobile characters that need personality, readability and production-ready animation setup.",
     anim_preview_cta:"Open full reel",
     g1_title:"PawPal", g1_tag:"Virtual Pet", g1_copy:"Virtual pet mobile game with arcade mini-games, customization and progression systems designed for retention.",
-    g2_title:"Happy Harvest", g2_tag:"Farm", g2_copy:"Build your farm, grow crops and expand your town step by step.",
-    g3_title:"Stack It Up", g3_tag:"Arcade", g3_copy:"Stack, balance and beat your high score in this addictive arcade.",
-    skills_kicker:"Capabilities",
-    sk1_t:"Game Systems", sk1_c:"Loops, progression, economy and polished mini-games.",
-    sk2_t:"Unity / C#", sk2_c:"Modular architecture and gameplay for mobile.",
-    sk3_t:"Tech Art", sk3_c:"VFX, animation and visual feedback with weight.",
-    sk4_t:"Mobile UX", sk4_c:"Clear touch interaction, rhythm and reward.",
+    g2_tag:"3D / Tech Art", g2_copy:"Educational kids game based on the Pocoyo universe. 3D art, Unity integration, lighting, materials and VFX support.",
+    g3_tag:"Animation / Tech Art", g3_copy:"Licensed character app where I coordinated animation requests, adapted animation content and handled Unity technical art implementation including VFX, lighting, camera, UI and audio setup.",
+    skills_kicker:"Tech stack",
+    skills_t:"What I bring as a Technical Artist",
+    sk1_t:"Shaders & Materials", sk1_c:"Material setup, look dev and consistent, readable lighting in Unity.",
+    sk2_t:"VFX & Game Feel", sk2_c:"Particles, visual feedback and impact that give life and weight to every interaction.",
+    sk3_t:"Unity & Pipeline", sk3_c:"Asset integration, render, camera, C# and mobile optimization.",
+    sk4_t:"3D & DCC", sk4_c:"Prop modelling, asset-library cleanup and engine-ready environment art.",
+    ts_software:"Software & tools", ts_areas:"Areas",
+    st_materials:"Materials", st_lighting:"Lighting", st_vfx:"VFX / Particles", st_render:"Render & Camera",
+    st_assets:"Asset Integration", st_opt:"Mobile Optimization", st_props:"Prop Modelling",
+    st_anim:"In-engine Animation", st_ip:"Licensed IP",
     visual_kicker:"Visual Craft",
     visual_t:"Characters, UI and Tech Art",
     visual_intro:"A big part of my work is connecting gameplay, art and visual feedback: expressive characters, clear interfaces and visual systems that make the game feel better.",
@@ -1302,9 +1389,9 @@ const I18N = {
     t2_date:"02 — BUILD", t2_t:"Systems & polish", t2_c:"Modular architecture, visual feedback, animation and mobile-first UI.",
     t3_date:"03 — LAUNCH", t3_t:"Live ops & retention", t3_c:"Daily rewards, ads, economy and telemetry to grow without breaking UX.",
     about_kicker:"About me",
-    about_t:"Hybrid profile: dev, design & tech art",
-    about_c:"I build casual games with a product mindset and a hybrid profile. I enjoy the space where gameplay, art, UX and business meet: expressive characters, clear visual systems and accessible experiences that feel good from the first tap.",
-    stat1:"Games shipped", stat2:"Combined downloads", stat3:"Years in mobile",
+    about_t:"Technical Artist with a hybrid profile: art + engine",
+    about_c:"I work at the bridge between art and programming: I bring materials, lighting, VFX and animation into Unity and make them production-ready, optimized and consistent on mobile. I come from a 3D art background, so I care as much about how it looks as how it performs.",
+    stat1:"Apps shipped", stat2:"Combined downloads", stat3:"Switch / PlayStation game", stat4:"Years in the industry",
     cv_t:"CV & availability",
     cv_c:"Available for collaborations, freelance or positions related to Unity, casual games and mobile UX.",
     cv_btn:"Download CV", cv_btn2:"Email me",
@@ -1341,8 +1428,17 @@ function applyAccent(name){
 }
 
 let state = {...TWEAK_DEFAULTS};
+try{ const saved = localStorage.getItem("lang"); if(saved && I18N[saved]) state.lang = saved; }catch(e){}
 applyLang(state.lang);
 applyAccent(state.accent);
+
+// visible language switcher
+const langButtons = [...document.querySelectorAll("[data-lang-btn]")];
+function updateLangButtons(){
+  langButtons.forEach(b=> b.classList.toggle("active", b.dataset.langBtn === state.lang));
+}
+langButtons.forEach(b=> b.addEventListener("click", ()=> setKey("lang", b.dataset.langBtn)));
+updateLangButtons();
 
 const heroCarousel = document.querySelector("[data-hero-carousel]");
 if(heroCarousel){
@@ -1410,7 +1506,7 @@ window.parent.postMessage({type:"__edit_mode_available"}, "*");
 
 function setKey(k, v){
   state[k] = v;
-  if(k === "lang") applyLang(v);
+  if(k === "lang"){ applyLang(v); try{ localStorage.setItem("lang", v); }catch(e){} updateLangButtons(); }
   if(k === "accent") applyAccent(v);
   window.parent.postMessage({type:"__edit_mode_set_keys", edits:{[k]:v}}, "*");
   renderPanel();
