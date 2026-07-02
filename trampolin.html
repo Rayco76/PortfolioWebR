@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Trampolín — AI-first product &amp; UX case study · Rayco González</title>
+<meta name="description" content="Trampolín: orientación legal laboral con IA. Búsqueda en lenguaje natural sobre la Sede Electrónica de la Seguridad Social, sin scraping. Por Rayco González." />
+<meta name="author" content="Rayco González" />
+<link rel="canonical" href="https://raycogonzalez.com/trampolin.html" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Trampolín — AI-first product &amp; UX case study · Rayco González" />
+<meta property="og:description" content="Trampolín convierte la Sede Electrónica de la Seguridad Social en una interfaz conversacional con IA." />
+<meta property="og:url" content="https://raycogonzalez.com/trampolin.html" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 38 38'%3E%3Crect width='38' height='38' rx='11' fill='%23a78bfa'/%3E%3Ctext x='19' y='27' font-family='sans-serif' font-size='22' font-weight='900' fill='%230a0b1e' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0b1e;--panel:#161836;--line:rgba(255,255,255,.08);--line-2:rgba(255,255,255,.14);
+    --text:#f4f3ff;--muted:#9a9ab8;--soft:#cdcbe8;--violet:#8b5cf6;--violet-2:#a78bfa;
+    --pink:#ff5ca8;--lime:#c7f24a;--yellow:#ffd34d;--teal:#5eead4;--blue:#60a5fa;--orange:#ff8a4c;
+    --sidebar:240px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Sora",system-ui,sans-serif;color:var(--text);background:radial-gradient(900px 500px at 80% -10%,rgba(94,234,212,.16),transparent 60%),radial-gradient(700px 400px at 20% 110%,rgba(96,165,250,.12),transparent 60%),var(--bg);min-height:100vh;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background-image:radial-gradient(rgba(255,255,255,.5) 1px,transparent 1.2px),radial-gradient(rgba(94,234,212,.4) 1px,transparent 1.2px);background-size:90px 90px,140px 140px;background-position:0 0,45px 60px;opacity:.18;mask-image:linear-gradient(to bottom,black,transparent 85%)}
+  a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+  .page{position:relative;z-index:1;display:grid;grid-template-columns:var(--sidebar) minmax(0,1fr);min-height:100vh}
+  .sidebar{position:fixed;top:0;left:0;width:var(--sidebar);height:100vh;padding:30px 22px;border-right:1px solid var(--line);background:rgba(10,11,30,.75);backdrop-filter:blur(20px);display:flex;flex-direction:column;justify-content:space-between;z-index:20}
+  .logo{display:flex;align-items:center;gap:6px}
+  .logo .mark{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(135deg,#fff,#dcd6ff);color:#0a0b1e;font-weight:900;font-size:18px}
+  .logo .dot{width:10px;height:10px;border-radius:50%;background:var(--teal);margin-top:14px}
+  .nav{display:flex;flex-direction:column;gap:6px;margin-top:38px}
+  .nav a{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:14px;color:var(--muted);font-weight:600;font-size:15px;transition:.2s ease;border:1px solid transparent}
+  .nav a:hover{color:var(--text);background:rgba(255,255,255,.04)}
+  .nav a.active{color:var(--text);background:linear-gradient(180deg,rgba(94,234,212,.26),rgba(96,165,250,.18));border-color:rgba(94,234,212,.26)}
+  .nav a .ico{width:18px;height:18px;display:grid;place-items:center;color:inherit}
+  .socials{display:flex;flex-direction:column;gap:14px;color:var(--muted)}
+  .socials a{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;border:1px solid var(--line);transition:.2s}
+  .socials a:hover{color:var(--lime);border-color:rgba(199,242,74,.4)}
+  main{grid-column:2;padding:32px clamp(20px,3.5vw,46px) 60px;max-width:1540px}
+  section+section{margin-top:24px}
+  .panel{border:1px solid var(--line);background:linear-gradient(180deg,rgba(22,24,54,.92),rgba(17,19,44,.92));border-radius:28px;padding:clamp(22px,3vw,38px);box-shadow:0 30px 80px rgba(0,0,0,.35);position:relative;overflow:hidden}
+  .panel.compact{padding:clamp(18px,2.4vw,28px)}
+  .back{display:inline-flex;align-items:center;gap:10px;color:var(--muted);font-size:14px;font-weight:600;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.03);transition:.2s;margin-bottom:18px}
+  .back:hover{color:var(--text);border-color:var(--line-2);transform:translateX(-3px)}
+  .section-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:22px}
+  .section-kicker{display:inline-flex;align-items:center;gap:8px;color:var(--teal);font-weight:600;font-size:14px}
+  .section-kicker .badge{width:18px;height:18px;border-radius:5px;background:linear-gradient(135deg,var(--teal),var(--blue));display:grid;place-items:center;color:#0a0b1e;font-size:10px;font-weight:900}
+  h1{font-size:clamp(58px,7vw,112px);line-height:.92;letter-spacing:-.05em;font-weight:900}
+  h1 .grad{background:linear-gradient(90deg,var(--teal) 0%,var(--blue) 60%,var(--violet-2) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  h2{font-size:clamp(26px,3vw,40px);font-weight:800;letter-spacing:-.04em;line-height:1.05;margin-top:6px}
+  .crumbs{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:13px;font-weight:500;margin-bottom:16px;font-family:"JetBrains Mono",monospace}
+  .crumbs a:hover{color:var(--text)}.crumbs .sep{opacity:.5}.crumbs .now{color:var(--teal)}
+  .status-row{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}
+  .status-pill{font-size:12px;font-weight:700;padding:7px 12px;border-radius:999px;background:rgba(94,234,212,.12);color:var(--teal);border:1px solid rgba(94,234,212,.24)}
+  .status-pill.alt{background:rgba(96,165,250,.1);color:var(--blue);border-color:rgba(96,165,250,.2)}
+  .tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+  .tag-lg{font-size:12px;font-weight:700;padding:7px 12px;border-radius:999px;background:rgba(94,234,212,.12);color:var(--teal);border:1px solid rgba(94,234,212,.24)}
+  .tag-lg.alt{background:rgba(167,139,250,.14);color:#c4b5fd;border-color:rgba(167,139,250,.26)}
+  .lead{color:var(--soft);font-size:17px;line-height:1.7;max-width:650px;margin:18px 0 10px}
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+  .btn{display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 22px;border-radius:999px;font-weight:700;font-size:14px;cursor:pointer;border:1px solid transparent;transition:.22s ease}
+  .btn-primary{background:linear-gradient(135deg,#dcfa6c,#a8e62e);color:#0a0b1e;box-shadow:0 14px 36px rgba(199,242,74,.22)}
+  .btn-primary:hover{transform:translateY(-2px);filter:brightness(1.05)}
+  .btn-ghost{color:var(--soft);background:rgba(255,255,255,.04);border-color:var(--line-2)}
+  .btn-ghost:hover{color:var(--text);background:rgba(255,255,255,.07)}
+  .btn-teal{color:var(--text);background:rgba(94,234,212,.14);border-color:rgba(94,234,212,.24)}
+  .btn-teal:hover{background:rgba(94,234,212,.22)}
+  .hero-split{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.15fr);gap:28px;align-items:center;min-height:620px}
+  .hero-visual{position:relative;min-height:440px;display:grid;place-items:center}
+  .chat-mock{width:min(460px,100%);border-radius:26px;background:rgba(22,24,54,.9);border:1px solid rgba(94,234,212,.22);padding:22px;box-shadow:0 40px 80px rgba(0,0,0,.45)}
+  .chat-header{display:flex;align-items:center;gap:10px;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+  .chat-header .icon{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--teal),var(--blue));display:grid;place-items:center;color:#0a0b1e}
+  .chat-header strong{font-size:15px;font-weight:700}
+  .chat-header span{color:var(--muted);font-size:12px;display:block}
+  .chat-msg{margin-bottom:14px;display:flex;flex-direction:column;gap:6px}
+  .chat-msg.user{align-items:flex-end}
+  .chat-msg.bot{align-items:flex-start}
+  .bubble{padding:12px 16px;border-radius:16px;font-size:13px;line-height:1.55;max-width:86%}
+  .bubble.user{background:linear-gradient(135deg,rgba(94,234,212,.26),rgba(96,165,250,.2));border-bottom-right-radius:4px;color:var(--text)}
+  .bubble.bot{background:rgba(255,255,255,.06);border-bottom-left-radius:4px;color:var(--soft)}
+  .bubble.bot strong{color:var(--teal)}
+  .chat-tag{font-size:11px;color:var(--muted);font-family:"JetBrains Mono",monospace}
+  .grid-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+  .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+  .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+  .card{padding:20px;border-radius:20px;background:linear-gradient(180deg,rgba(34,37,75,.58),rgba(22,24,54,.58));border:1px solid var(--line);transition:.22s}
+  .card:hover{transform:translateY(-3px);border-color:rgba(94,234,212,.24)}
+  .card .ico{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:rgba(94,234,212,.14);color:var(--teal);margin-bottom:14px}
+  .card h3,.card h4{font-size:17px;font-weight:700;letter-spacing:-.02em;margin-bottom:8px}
+  .card p{color:var(--muted);font-size:13.5px;line-height:1.6}
+  .stack-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .stack-chip{font-size:11.5px;font-weight:700;padding:6px 12px;border-radius:999px;font-family:"JetBrains Mono",monospace;background:rgba(255,255,255,.05);border:1px solid var(--line);color:var(--soft)}
+  .constraint-block{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .constraint{padding:22px;border-radius:22px;background:rgba(255,255,255,.03);border:1px solid var(--line)}
+  .constraint h4{font-size:16px;font-weight:700;margin-bottom:10px}
+  .constraint p{color:var(--muted);font-size:13.5px;line-height:1.6}
+  .constraint.problem{border-color:rgba(255,138,76,.18)}
+  .constraint.solution{border-color:rgba(94,234,212,.18);background:rgba(94,234,212,.04)}
+  .constraint .label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px;font-family:"JetBrains Mono",monospace}
+  .constraint.problem .label{color:var(--orange)}
+  .constraint.solution .label{color:var(--teal)}
+  .flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;position:relative}
+  .flow::before{content:"";position:absolute;left:6%;right:6%;top:36px;height:1px;background:repeating-linear-gradient(90deg,rgba(94,234,212,.26) 0 10px,transparent 10px 18px)}
+  .flow-step{position:relative;z-index:1;padding:20px 18px;border-radius:20px;background:linear-gradient(180deg,rgba(34,37,75,.64),rgba(22,24,54,.64));border:1px solid var(--line)}
+  .flow-step .ball{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--teal),var(--blue));color:#0a0b1e;margin-bottom:14px;box-shadow:0 10px 24px rgba(94,234,212,.24);font-size:12px;font-weight:900;font-family:"JetBrains Mono",monospace}
+  .flow-step h4{font-size:14px;font-weight:700;margin-bottom:6px}
+  .flow-step p{color:var(--muted);font-size:12.5px;line-height:1.55}
+  .insight-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:6px}
+  .insight{padding:20px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid var(--line)}
+  .insight .num{font-size:28px;font-weight:800;letter-spacing:-.04em;color:var(--teal);display:block;margin-bottom:4px}
+  .insight p{color:var(--muted);font-size:13px;line-height:1.55}
+  .gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+  .gallery-shot{aspect-ratio:16/9;border-radius:16px;overflow:hidden;position:relative;border:1px solid var(--line);background:radial-gradient(circle at 26% 28%,rgba(94,234,212,.18) 0 8%,transparent 9%),radial-gradient(circle at 70% 66%,rgba(96,165,250,.14) 0 10%,transparent 11%),linear-gradient(135deg,rgba(14,116,144,.42),rgba(37,99,235,.2))}
+  .gallery-shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .contact{display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center;padding:24px 28px;border-radius:24px;background:linear-gradient(135deg,rgba(94,234,212,.14),rgba(96,165,250,.10));border:1px solid rgba(94,234,212,.26)}
+  .contact .pad{width:54px;height:54px;border-radius:14px;background:linear-gradient(135deg,var(--teal),var(--blue));display:grid;place-items:center;color:#0a0b1e;box-shadow:0 10px 24px rgba(94,234,212,.3)}
+  .contact h3{font-size:20px;font-weight:800;letter-spacing:-.02em}
+  .contact p{color:var(--muted);font-size:13.5px;margin-top:4px}
+  .footer{margin-top:28px;color:var(--muted);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;padding:0 6px}
+  @media(max-width:1180px){.hero-split,.constraint-block,.grid-2{grid-template-columns:1fr}.grid-4,.flow{grid-template-columns:repeat(2,minmax(0,1fr))}.flow::before{display:none}.insight-row{grid-template-columns:1fr}}
+  @media(max-width:1100px){:root{--sidebar:0px}.sidebar{position:relative;width:100%;height:auto;flex-direction:row;padding:14px 18px;border-right:none;border-bottom:1px solid var(--line)}.nav{flex-direction:row;margin-top:0;gap:4px;flex-wrap:wrap}.nav a{padding:8px 12px;font-size:13px}.socials{flex-direction:row}.page{grid-template-columns:1fr}main{grid-column:1;padding:20px}.hero-split{min-height:auto}}
+  @media(max-width:760px){.grid-4,.grid-3,.flow,.gallery{grid-template-columns:1fr}.contact{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="page">
+  <aside class="sidebar">
+    <div>
+      <a href="index.html" class="logo" aria-label="Inicio">
+        <div class="mark">R</div>
+        <span class="dot"></span>
+      </a>
+      <nav class="nav" aria-label="Trampolín sections">
+        <a href="#home" class="active"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12 12 4l9 8"/><path d="M5 10v10h14V10"/></svg></span><span>Inicio</span></a>
+        <a href="#problem"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg></span><span>Problema</span></a>
+        <a href="#decision"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></span><span>Decisión</span></a>
+        <a href="#ai"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0 1 10 10v4a6 6 0 0 1-6 6H8a6 6 0 0 1-6-6v-4A10 10 0 0 1 12 2z"/><path d="M8 11h.01M12 11h.01M16 11h.01"/></svg></span><span>IA</span></a>
+        <a href="#stack"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/></svg></span><span>Stack</span></a>
+        <a href="#contact"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></span><span>Contacto</span></a>
+      </nav>
+    </div>
+    <div class="socials">
+      <a href="https://www.linkedin.com/in/raycogonzalez76" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3.5C5 4.6 4.1 5.5 3 5.5S1 4.6 1 3.5 1.9 1.5 3 1.5 5 2.4 5 3.5zM1 8h4v14H1V8zm7 0h3.8v2h.05c.5-.95 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V22h-4v-6.2c0-1.5-.05-3.4-2.05-3.4S12 13.8 12 15.7V22H8V8z"/></svg></a>
+      <a href="https://www.artstation.com/rayco76" target="_blank" rel="noopener noreferrer" aria-label="ArtStation"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M0 17.7l2.3 4a1.6 1.6 0 0 0 1.4.8h12.9l-2.8-4.8H0zM24 17.7c0-.3-.1-.6-.2-.9L17.3 5.4a1.6 1.6 0 0 0-1.4-.8h-4.6l9.9 17.1 2.4-4.1c.3-.4.4-.6.4-.9zM13.5 14.4L8.9 6.5 4.3 14.4h9.2z"/></svg></a>
+    </div>
+  </aside>
+
+  <main>
+    <a href="index.html#games" class="back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      <span>Volver al portfolio</span>
+    </a>
+
+    <!-- HERO -->
+    <section class="panel hero-split" id="home" style="background:radial-gradient(600px 280px at 80% 0%,rgba(94,234,212,.14),transparent 60%),radial-gradient(500px 240px at 20% 100%,rgba(96,165,250,.10),transparent 60%),linear-gradient(180deg,rgba(22,24,54,.96),rgba(17,19,44,.96))">
+      <div>
+        <div class="crumbs"><a href="index.html#games">Proyectos</a><span class="sep">/</span><span class="now">Trampolín</span></div>
+        <div class="status-row">
+          <span class="status-pill">Live · Vercel</span>
+          <span class="status-pill alt">AI · Producto · UX</span>
+        </div>
+        <h1><span class="grad">Trampolín</span></h1>
+        <h2 style="margin-top:10px;font-size:clamp(18px,2vw,26px);color:var(--soft);font-weight:600">Orientación laboral con IA, sin scraping</h2>
+        <p class="lead">La Sede Electrónica de la Seguridad Social es un laberinto. Trampolín la convierte en una interfaz conversacional: el usuario pregunta en lenguaje natural y obtiene orientación legal verificada.</p>
+        <div class="tag-row">
+          <span class="tag-lg">AI · Producto</span><span class="tag-lg alt">UX</span><span class="tag-lg">Anthropic API</span><span class="tag-lg alt">Vercel</span><span class="tag-lg">Node.js serverless</span>
+        </div>
+        <div class="cta-row">
+          <a class="btn btn-teal" href="https://trampolin-psi.vercel.app/" target="_blank" rel="noopener noreferrer"><span>Ver demo live</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg></a>
+          <a class="btn btn-ghost" href="#ai"><span>Ver cómo funciona la IA</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="chat-mock">
+          <div class="chat-header">
+            <div class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2a10 10 0 0 1 10 10v4a6 6 0 0 1-6 6H8a6 6 0 0 1-6-6v-4A10 10 0 0 1 12 2z"/><path d="M8 11h.01M12 11h.01M16 11h.01"/></svg></div>
+            <div><strong>Trampolín</strong><span>Orientación laboral · SS España</span></div>
+          </div>
+          <div class="chat-msg user">
+            <div class="bubble user">¿Cuánto tiempo tengo para reclamar un ERE injustificado?</div>
+            <span class="chat-tag">usuario · es</span>
+          </div>
+          <div class="chat-msg bot">
+            <div class="bubble bot">El plazo para impugnar un despido colectivo (ERE) es de <strong>20 días hábiles</strong> desde la fecha de efectividad del despido (art. 59.3 ET). Para acciones colectivas, el sindicato o representantes tienen <strong>20 días</strong> desde la notificación del acuerdo o de la decisión empresarial.</div>
+            <span class="chat-tag">trampolín · base verificada · AEAT/SEPE</span>
+          </div>
+          <div class="chat-msg user">
+            <div class="bubble user">¿Y si ya pasó ese plazo?</div>
+          </div>
+          <div class="chat-msg bot">
+            <div class="bubble bot">Si expiró el plazo individual, hay opciones colectivas o vías administrativas complementarias. <strong>Consulta con un asesor laboral</strong> para evaluar tu caso específico.</div>
+            <span class="chat-tag">trampolín · orientación general</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 PROBLEMA -->
+    <section class="panel compact" id="problem">
+      <div class="section-head"><div><div class="section-kicker"><span class="badge">01</span><span>El problema</span></div><h2>La Sede Electrónica existe — pero nadie sabe navegar por ella</h2></div></div>
+      <div class="constraint-block">
+        <div class="constraint problem">
+          <div class="label">Problema</div>
+          <h4>Información fragmentada, sin orientación</h4>
+          <p>La Sede Electrónica de la Seguridad Social contiene información completa y pública sobre derechos laborales, plazos y procedimientos. El problema: está fragmentada en miles de páginas sin jerarquía clara, con lenguaje legal denso y sin responder a preguntas naturales del usuario.</p>
+          <p style="margin-top:12px;color:var(--muted);font-size:13px">El resultado: personas con derechos legítimos no saben que los tienen, o se pierden en el laberinto burocrático antes de encontrar la respuesta correcta.</p>
+        </div>
+        <div class="constraint solution">
+          <div class="label">Enfoque de diseño</div>
+          <h4>Capa de orientación, no de automatización</h4>
+          <p>El producto no promete hacer el trámite por ti. Promete ayudarte a entender qué trámite necesitas, si tienes derecho a hacerlo y dónde ir a hacerlo. Esto es orientación, no asesoría jurídica.</p>
+          <p style="margin-top:12px;color:var(--muted);font-size:13px">La distinción es clave: un asistente de orientación legal puede operar en público sobre información pública, sin asumir responsabilidades de un abogado.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 DECISIÓN DE DISEÑO: NO SCRAPING -->
+    <section class="panel compact" id="decision">
+      <div class="section-head"><div><div class="section-kicker"><span class="badge">02</span><span>Decisión de diseño clave</span></div><h2>Sin scraping — knowledge base verificada</h2></div></div>
+      <p class="lead" style="margin-top:0">La restricción legal es el diseño. No se puede hacer scraping de la Sede Electrónica de la Seguridad Social para alimentar un LLM en tiempo real — habría problemas de precisión, cache y responsabilidad. La solución es una base de conocimiento curada manualmente.</p>
+      <div class="grid-3">
+        <article class="card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><path d="M5 7l.47-.47A5 5 0 0 1 12 5a5 5 0 0 1 6.53 6.53l-.47.47M19 19l-3-3"/></svg></div><h4>Base de conocimiento curada</h4><p>Información extraída manualmente de la SEPE, AEAT y SS, estructurada en chunks semánticos con metadatos de fuente y fecha de actualización.</p></article>
+        <article class="card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 10h16M4 14h10M4 18h6"/></svg></div><h4>Contexto inyectado al LLM</h4><p>La pregunta del usuario triggea una búsqueda vectorial sobre la base. Los fragmentos relevantes se inyectan como contexto al prompt de Anthropic API.</p></article>
+        <article class="card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg></div><h4>Disclaimer explícito</h4><p>La respuesta siempre incluye que es orientación general, no asesoría. La UX hace visible la fuente y recomienda consultar a un profesional para casos complejos.</p></article>
+      </div>
+    </section>
+
+    <!-- 03 FLUJO DE USUARIO -->
+    <section class="panel compact" id="flow">
+      <div class="section-head"><div><div class="section-kicker"><span class="badge">03</span><span>Flujo de usuario</span></div><h2>De duda a respuesta en cuatro pasos</h2></div></div>
+      <div class="flow">
+        <div class="flow-step"><div class="ball">01</div><h4>Pregunta natural</h4><p>El usuario escribe su duda en lenguaje cotidiano. No necesita saber el nombre del trámite ni el artículo.</p></div>
+        <div class="flow-step"><div class="ball">02</div><h4>Búsqueda semántica</h4><p>La pregunta se convierte en embedding. Upstash Vector busca los fragmentos más relevantes de la base.</p></div>
+        <div class="flow-step"><div class="ball">03</div><h4>Síntesis con IA</h4><p>Anthropic API (Claude) sintetiza la respuesta a partir de los fragmentos recuperados, sin inventar datos.</p></div>
+        <div class="flow-step"><div class="ball">04</div><h4>Respuesta con fuente</h4><p>La respuesta incluye referencia a la fuente legal, disclaimer de orientación y siguiente paso recomendado.</p></div>
+      </div>
+    </section>
+
+    <!-- 04 IA: DECISIONES DE PROMPT Y ARQUITECTURA -->
+    <section class="panel compact" id="ai">
+      <div class="section-head"><div><div class="section-kicker"><span class="badge">04</span><span>IA · Anthropic API</span></div><h2>El diseño del prompt es diseño de producto</h2></div></div>
+      <p class="lead" style="margin-top:0">Con LLMs, el prompt engineering no es una capa técnica — es donde se define el comportamiento del producto, el tono del asistente, los límites de lo que puede decir y cómo gestiona la incertidumbre.</p>
+      <div class="grid-4">
+        <article class="card"><h4>Instrucción de rol</h4><p>El sistema establece que Claude actúa como asistente de orientación legal general, no como abogado, y que siempre debe indicar sus limitaciones.</p></article>
+        <article class="card"><h4>Grounding en contexto</h4><p>El modelo solo responde basándose en los fragmentos recuperados. Si la información no está en la base, responde que no dispone de datos fiables y recomienda fuente oficial.</p></article>
+        <article class="card"><h4>Tono accesible</h4><p>El prompt instruye a usar lenguaje claro, evitar jerga legal cuando sea posible, y siempre dar un próximo paso concreto al usuario.</p></article>
+        <article class="card"><h4>Manejo de incertidumbre</h4><p>Cuando la pregunta está fuera del scope o requiere asesoría individual, el asistente lo dice explícitamente y no intenta responder con confianza artificiosa.</p></article>
+      </div>
+    </section>
+
+    <!-- 05 STACK -->
+    <section class="panel compact" id="stack">
+      <div class="section-head"><div><div class="section-kicker"><span class="badge">05</span><span>Stack técnico</span></div><h2>Producto funcional desplegado en producción</h2></div></div>
+      <div class="grid-2">
+        <div>
+          <p class="lead" style="margin-top:0;font-size:15px">Un stack ajustado para un producto indie de lado de UX: todo serverless, sin base de datos relacional, con coste operativo mínimo.</p>
+          <div class="stack-row">
+            <span class="stack-chip">HTML · CSS · JS</span><span class="stack-chip">Vercel serverless</span><span class="stack-chip">Node.js</span><span class="stack-chip">Anthropic API</span><span class="stack-chip">Upstash Redis</span><span class="stack-chip">Upstash Vector</span><span class="stack-chip">Ko-fi (donaciones)</span>
+          </div>
+        </div>
+        <div class="grid-2" style="gap:12px">
+          <article class="card"><h4>Frontend estático</h4><p>HTML/CSS/JS sin framework. Desplegado en Vercel con dominio custom. Carga instantánea.</p></article>
+          <article class="card"><h4>Functions serverless</h4><p>Endpoints Node.js en Vercel Functions para el pipeline de búsqueda y llamada a la API.</p></article>
+          <article class="card"><h4>Vector search</h4><p>Upstash Vector almacena los embeddings de la base de conocimiento. Búsqueda semántica en cada query.</p></article>
+          <article class="card"><h4>Rate limiting</h4><p>Upstash Redis para rate limiting por IP y gestión de sesiones. Protección contra abuso sin coste de infraestructura.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 UX DECISIONS -->
+    <section class="panel compact" id="uxd">
+      <div class="section-head"><div><div class="section-kicker"><span class="badge">06</span><span>Decisiones de UX</span></div><h2>Diseñar confianza en un producto de orientación legal</h2></div></div>
+      <div class="grid-3">
+        <article class="card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><rect x="3" y="3" width="18" height="18" rx="3"/></svg></div><h4>Transparencia de fuente</h4><p>Cada respuesta muestra la fuente de información (SEPE, SS, AEAT). El usuario sabe en qué se basa la respuesta.</p></article>
+        <article class="card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg></div><h4>Límites visibles</h4><p>El producto no finge saber más de lo que sabe. Los disclaimers no son letra pequeña — son parte del tono del asistente.</p></article>
+        <article class="card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div><h4>Próximo paso siempre presente</h4><p>Cada respuesta termina con qué hacer a continuación: un enlace a la sede oficial, un número de teléfono o una recomendación de consulta.</p></article>
+      </div>
+    </section>
+
+    <!-- 07 MÉTRICAS -->
+    <section class="panel compact" id="metrics">
+      <div class="section-head"><div><div class="section-kicker"><span class="badge">07</span><span>Métricas &amp; aprendizajes</span></div><h2>Producto en producción, iteración continua</h2></div></div>
+      <div class="insight-row">
+        <div class="insight"><strong class="num">Live</strong><p>Desplegado en Vercel con dominio custom y acceso público desde el primer día.</p></div>
+        <div class="insight"><strong class="num">RAG</strong><p>Retrieval-Augmented Generation sobre base verificada — las respuestas están ancladas en fuentes reales, no en hallucinations del modelo.</p></div>
+        <div class="insight"><strong class="num">0€</strong><p>Coste de infraestructura en tier gratuito. El modelo de negocio es donaciones vía Ko-fi para usuarios que encuentren valor.</p></div>
+      </div>
+    </section>
+
+    <!-- GALERÍA -->
+    <section class="panel compact" id="gallery">
+      <div class="section-head"><div><div class="section-kicker"><span class="badge">08</span><span>Gallery</span></div><h2>Interfaz y flujos del producto</h2></div></div>
+      <div class="gallery">
+        <div class="gallery-shot"><img src="assets/images/trampolin/screen-1.png" alt="Trampolín screenshot" onerror="this.style.display='none'"></div>
+        <div class="gallery-shot"><img src="assets/images/trampolin/screen-2.png" alt="Trampolín screenshot" onerror="this.style.display='none'"></div>
+        <div class="gallery-shot"><img src="assets/images/trampolin/screen-3.png" alt="Trampolín screenshot" onerror="this.style.display='none'"></div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="pad"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></div>
+      <div><h3>¿Construyes un producto que combina IA y UX?</h3><p>Diseño y construyo productos digitales que usan IA con responsabilidad y claridad de propósito.</p></div>
+      <a class="btn btn-primary" href="mailto:river.3D@proton.me"><span>Contactar</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+    </section>
+    <footer class="footer">
+      <span>© 2026 Rayco González. Portfolio personal.</span>
+      <span>AI · Product · UX · Serverless</span>
+    </footer>
+  </main>
+</div>
+<script>
+const links=[...document.querySelectorAll(".nav a")];
+const sections=links.map(l=>document.querySelector(l.getAttribute("href"))).filter(Boolean);
+function onScroll(){const y=window.scrollY+200;let cur=sections[0]?.id;sections.forEach(s=>{if(s.offsetTop<=y)cur=s.id});links.forEach(l=>l.classList.toggle("active",l.getAttribute("href")==="#"+cur))}
+window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+</script>
+</body>
+</html>

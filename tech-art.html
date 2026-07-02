@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Technical Art &amp; 3D production across 30+ titles · Rayco González</title>
+<meta name="description" content="30+ títulos publicados — Technical Art y producción 3D para Nintendo Switch, PlayStation, iOS y Android: pipeline, VFX, Unity, animación y consola. Rayco González." />
+<meta name="author" content="Rayco González" />
+<link rel="canonical" href="https://raycogonzalez.com/tech-art.html" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Technical Art &amp; 3D production across 30+ titles · Rayco González" />
+<meta property="og:description" content="Technical Artist con 30+ títulos publicados en Switch, PlayStation, iOS y Android. Unity, 3D, VFX, pipeline." />
+<meta property="og:url" content="https://raycogonzalez.com/tech-art.html" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 38 38'%3E%3Crect width='38' height='38' rx='11' fill='%23a78bfa'/%3E%3Ctext x='19' y='27' font-family='sans-serif' font-size='22' font-weight='900' fill='%230a0b1e' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0b1e;--panel:#161836;--line:rgba(255,255,255,.08);--line-2:rgba(255,255,255,.14);
+    --text:#f4f3ff;--muted:#9a9ab8;--soft:#cdcbe8;--violet:#8b5cf6;--violet-2:#a78bfa;
+    --pink:#ff5ca8;--lime:#c7f24a;--yellow:#ffd34d;--teal:#5eead4;--blue:#60a5fa;--orange:#ff8a4c;
+    --sidebar:240px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Sora",system-ui,sans-serif;color:var(--text);background:radial-gradient(900px 500px at 80% -10%,rgba(255,138,76,.18),transparent 60%),radial-gradient(700px 400px at 10% 110%,rgba(94,234,212,.12),transparent 60%),var(--bg);min-height:100vh;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background-image:radial-gradient(rgba(255,255,255,.5) 1px,transparent 1.2px),radial-gradient(rgba(199,242,74,.35) 1px,transparent 1.2px);background-size:90px 90px,140px 140px;background-position:0 0,45px 60px;opacity:.18;mask-image:linear-gradient(to bottom,black,transparent 85%)}
+  a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+  .page{position:relative;z-index:1;display:grid;grid-template-columns:var(--sidebar) minmax(0,1fr);min-height:100vh}
+  .sidebar{position:fixed;top:0;left:0;width:var(--sidebar);height:100vh;padding:30px 22px;border-right:1px solid var(--line);background:rgba(10,11,30,.75);backdrop-filter:blur(20px);display:flex;flex-direction:column;justify-content:space-between;z-index:20}
+  .logo{display:flex;align-items:center;gap:6px}
+  .logo .mark{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(135deg,#fff,#dcd6ff);color:#0a0b1e;font-weight:900;font-size:18px}
+  .logo .dot{width:10px;height:10px;border-radius:50%;background:var(--orange);margin-top:14px}
+  .nav{display:flex;flex-direction:column;gap:6px;margin-top:38px}
+  .nav a{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:14px;color:var(--muted);font-weight:600;font-size:15px;transition:.2s ease;border:1px solid transparent}
+  .nav a:hover{color:var(--text);background:rgba(255,255,255,.04)}
+  .nav a.active{color:var(--text);background:linear-gradient(180deg,rgba(255,138,76,.26),rgba(139,92,246,.18));border-color:rgba(255,138,76,.26)}
+  .nav a .ico{width:18px;height:18px;display:grid;place-items:center;color:inherit}
+  .socials{display:flex;flex-direction:column;gap:14px;color:var(--muted)}
+  .socials a{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;border:1px solid var(--line);transition:.2s}
+  .socials a:hover{color:var(--lime);border-color:rgba(199,242,74,.4)}
+  main{grid-column:2;padding:32px clamp(20px,3.5vw,46px) 60px;max-width:1540px}
+  section+section{margin-top:24px}
+  .panel{border:1px solid var(--line);background:linear-gradient(180deg,rgba(22,24,54,.92),rgba(17,19,44,.92));border-radius:28px;padding:clamp(22px,3vw,38px);box-shadow:0 30px 80px rgba(0,0,0,.35);position:relative;overflow:hidden}
+  .panel.compact{padding:clamp(18px,2.4vw,28px)}
+  .back{display:inline-flex;align-items:center;gap:10px;color:var(--muted);font-size:14px;font-weight:600;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.03);transition:.2s;margin-bottom:18px}
+  .back:hover{color:var(--text);border-color:var(--line-2);transform:translateX(-3px)}
+  .section-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:22px}
+  .section-kicker{display:inline-flex;align-items:center;gap:8px;color:var(--orange);font-weight:600;font-size:14px}
+  .section-kicker .badge{width:18px;height:18px;border-radius:5px;background:linear-gradient(135deg,var(--orange),var(--pink));display:grid;place-items:center;color:#fff;font-size:10px;font-weight:900}
+  h1{font-size:clamp(48px,5.5vw,86px);line-height:.92;letter-spacing:-.05em;font-weight:900}
+  h1 .grad{background:linear-gradient(90deg,var(--orange) 0%,var(--yellow) 40%,var(--lime) 80%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  h2{font-size:clamp(26px,3vw,40px);font-weight:800;letter-spacing:-.04em;line-height:1.05;margin-top:6px}
+  .crumbs{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:13px;font-weight:500;margin-bottom:16px;font-family:"JetBrains Mono",monospace}
+  .crumbs a:hover{color:var(--text)}.crumbs .sep{opacity:.5}.crumbs .now{color:var(--orange)}
+  .status-row{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}
+  .status-pill{font-size:12px;font-weight:700;padding:7px 12px;border-radius:999px;background:rgba(255,138,76,.14);color:#ffbf98;border:1px solid rgba(255,138,76,.26)}
+  .status-pill.alt{background:rgba(94,234,212,.1);color:var(--teal);border-color:rgba(94,234,212,.2)}
+  .status-pill.sw{background:rgba(228,0,15,.12);color:#ff6b70;border-color:rgba(228,0,15,.22)}
+  .tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+  .tag-lg{font-size:12px;font-weight:700;padding:7px 12px;border-radius:999px;background:rgba(255,138,76,.14);color:#ffbf98;border:1px solid rgba(255,138,76,.26)}
+  .tag-lg.alt{background:rgba(94,234,212,.1);color:var(--teal);border-color:rgba(94,234,212,.2)}
+  .tag-lg.lime{background:rgba(199,242,74,.12);color:var(--lime);border-color:rgba(199,242,74,.22)}
+  .lead{color:var(--soft);font-size:17px;line-height:1.7;max-width:650px;margin:18px 0 10px}
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+  .btn{display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 22px;border-radius:999px;font-weight:700;font-size:14px;cursor:pointer;border:1px solid transparent;transition:.22s ease}
+  .btn-primary{background:linear-gradient(135deg,#dcfa6c,#a8e62e);color:#0a0b1e;box-shadow:0 14px 36px rgba(199,242,74,.22)}
+  .btn-primary:hover{transform:translateY(-2px);filter:brightness(1.05)}
+  .btn-ghost{color:var(--soft);background:rgba(255,255,255,.04);border-color:var(--line-2)}
+  .btn-ghost:hover{color:var(--text);background:rgba(255,255,255,.07)}
+  .btn-lime{color:#0a0b1e;background:rgba(199,242,74,.9);border-color:transparent;font-weight:800}
+  .btn-lime:hover{background:var(--lime);transform:translateY(-2px)}
+  .hero-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:center;min-height:580px}
+  .platforms-art{display:grid;gap:12px;width:min(460px,100%)}
+  .plat-row{display:flex;gap:12px}
+  .plat-card{flex:1;padding:18px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid var(--line);position:relative;overflow:hidden}
+  .plat-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px}
+  .plat-card.sw::before{background:#e4000f}
+  .plat-card.ps::before{background:#0070cc}
+  .plat-card.mob::before{background:linear-gradient(90deg,var(--orange),var(--teal))}
+  .plat-card .plat-label{font-size:11px;font-weight:700;font-family:"JetBrains Mono",monospace;margin-bottom:8px;color:var(--muted)}
+  .plat-card.sw .plat-label{color:#ff6b70}
+  .plat-card.ps .plat-label{color:#69b2ff}
+  .plat-card.mob .plat-label{color:var(--orange)}
+  .plat-card strong{display:block;font-size:18px;font-weight:800;letter-spacing:-.02em;margin-bottom:4px}
+  .plat-card span{font-size:12px;color:var(--muted)}
+  .grid-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+  .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+  .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+  .card{padding:20px;border-radius:20px;background:linear-gradient(180deg,rgba(34,37,75,.58),rgba(22,24,54,.58));border:1px solid var(--line);transition:.22s}
+  .card:hover{transform:translateY(-3px);border-color:rgba(255,138,76,.24)}
+  .card .ico{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:rgba(255,138,76,.16);color:var(--orange);margin-bottom:14px}
+  .card h3,.card h4{font-size:17px;font-weight:700;letter-spacing:-.02em;margin-bottom:8px}
+  .card p{color:var(--muted);font-size:13.5px;line-height:1.6}
+  .list{display:grid;gap:8px;margin-top:12px}
+  .list span{color:var(--soft);font-size:12.5px;line-height:1.5;padding:8px 10px;border-radius:12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05)}
+  .disc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+  .disc-card{padding:22px;border-radius:22px;border:1px solid var(--line);background:rgba(255,255,255,.03);position:relative;overflow:hidden}
+  .disc-card::before{content:"";position:absolute;top:0;left:0;bottom:0;width:3px;border-radius:22px 0 0 22px}
+  .disc-card.orange::before{background:var(--orange)}
+  .disc-card.teal::before{background:var(--teal)}
+  .disc-card.lime::before{background:var(--lime)}
+  .disc-card.violet::before{background:var(--violet-2)}
+  .disc-card.yellow::before{background:var(--yellow)}
+  .disc-card.pink::before{background:var(--pink)}
+  .disc-card h4{font-size:16px;font-weight:700;margin-bottom:8px;margin-left:10px}
+  .disc-card p{color:var(--muted);font-size:13px;line-height:1.6;margin-left:10px}
+  .example-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+  .example{padding:22px;border-radius:22px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(34,37,75,.64),rgba(22,24,54,.64))}
+  .example .eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--orange);font-family:"JetBrains Mono",monospace;margin-bottom:12px}
+  .example h4{font-size:18px;font-weight:700;letter-spacing:-.02em;margin-bottom:12px}
+  .example p{color:var(--muted);font-size:13.5px;line-height:1.6}
+  .example a{display:inline-flex;align-items:center;gap:6px;color:var(--teal);font-size:13px;font-weight:600;margin-top:14px}
+  .stat-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+  .stat{padding:22px;border-radius:20px;border:1px solid var(--line);background:rgba(255,255,255,.03)}
+  .stat .num{font-size:36px;font-weight:900;letter-spacing:-.06em;color:var(--orange);display:block;margin-bottom:4px}
+  .stat p{color:var(--muted);font-size:13px;line-height:1.5}
+  .gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+  .gallery-shot{aspect-ratio:16/9;border-radius:16px;overflow:hidden;position:relative;border:1px solid var(--line);background:radial-gradient(circle at 30% 30%,rgba(255,138,76,.2) 0 8%,transparent 9%),radial-gradient(circle at 70% 70%,rgba(94,234,212,.14) 0 10%,transparent 11%),linear-gradient(135deg,rgba(180,83,9,.42),rgba(6,78,59,.3))}
+  .gallery-shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .contact{display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center;padding:24px 28px;border-radius:24px;background:linear-gradient(135deg,rgba(255,138,76,.16),rgba(199,242,74,.10));border:1px solid rgba(255,138,76,.28)}
+  .contact .pad{width:54px;height:54px;border-radius:14px;background:linear-gradient(135deg,var(--orange),var(--yellow));display:grid;place-items:center;color:#0a0b1e;box-shadow:0 10px 24px rgba(255,138,76,.3)}
+  .contact h3{font-size:20px;font-weight:800;letter-spacing:-.02em}
+  .contact p{color:var(--muted);font-size:13.5px;margin-top:4px}
+  .footer{margin-top:28px;color:var(--muted);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;padding:0 6px}
+  @media(max-width:1180px){.hero-split,.grid-2{grid-template-columns:1fr}.grid-4,.stat-strip,.disc-grid,.example-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:1100px){:root{--sidebar:0px}.sidebar{position:relative;width:100%;height:auto;flex-direction:row;padding:14px 18px;border-right:none;border-bottom:1px solid var(--line)}.nav{flex-direction:row;margin-top:0;gap:4px;flex-wrap:wrap}.nav a{padding:8px 12px;font-size:13px}.socials{flex-direction:row}.page{grid-template-columns:1fr}main{grid-column:1;padding:20px}.hero-split{min-height:auto}}
+  @media(max-width:760px){.grid-4,.grid-3,.disc-grid,.example-grid,.gallery,.stat-strip{grid-template-columns:1fr}.contact{grid-template-columns:1fr}.plat-row{flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="page">
+  <aside class="sidebar">
+    <div>
+      <a href="technical-artist.html" class="logo" aria-label="Inicio Technical Artist">
+        <div class="mark">R</div>
+        <span class="dot"></span>
+      </a>
+      <nav class="nav" aria-label="Tech Art sections">
+        <a href="#home" class="active"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12 12 4l9 8"/><path d="M5 10v10h14V10"/></svg></span><span>Inicio</span></a>
+        <a href="#stats"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18V9l5-4 4 3 5-5v15"/></svg></span><span>Cifras</span></a>
+        <a href="#disciplines"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6M12 16v6M2 12h6M16 12h6"/></svg></span><span>Disciplinas</span></a>
+        <a href="#examples"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg></span><span>Ejemplos</span></a>
+        <a href="#gallery"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></span><span>Galería</span></a>
+        <a href="#contact"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></span><span>Contacto</span></a>
+      </nav>
+    </div>
+    <div class="socials">
+      <a href="https://www.linkedin.com/in/raycogonzalez76" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3.5C5 4.6 4.1 5.5 3 5.5S1 4.6 1 3.5 1.9 1.5 3 1.5 5 2.4 5 3.5zM1 8h4v14H1V8zm7 0h3.8v2h.05c.5-.95 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V22h-4v-6.2c0-1.5-.05-3.4-2.05-3.4S12 13.8 12 15.7V22H8V8z"/></svg></a>
+      <a href="https://www.artstation.com/rayco76" target="_blank" rel="noopener noreferrer" aria-label="ArtStation"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M0 17.7l2.3 4a1.6 1.6 0 0 0 1.4.8h12.9l-2.8-4.8H0zM24 17.7c0-.3-.1-.6-.2-.9L17.3 5.4a1.6 1.6 0 0 0-1.4-.8h-4.6l9.9 17.1 2.4-4.1c.3-.4.4-.6.4-.9zM13.5 14.4L8.9 6.5 4.3 14.4h9.2z"/></svg></a>
+    </div>
+  </aside>
+
+  <main>
+    <a href="technical-artist.html#games" class="back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      <span>Volver al portfolio</span>
+    </a>
+
+    <!-- HERO -->
+    <section class="panel hero-split" id="home" style="background:radial-gradient(600px 280px at 78% 0%,rgba(255,138,76,.18),transparent 60%),radial-gradient(520px 240px at 16% 100%,rgba(94,234,212,.12),transparent 60%),linear-gradient(180deg,rgba(22,24,54,.96),rgba(17,19,44,.96))">
+      <div>
+        <div class="crumbs"><a href="technical-artist.html#games">Proyectos</a><span class="sep">/</span><span class="now">Tech Art · 30+ títulos</span></div>
+        <div class="status-row">
+          <span class="status-pill">30+ títulos publicados</span>
+          <span class="status-pill sw">Nintendo Switch</span>
+          <span class="status-pill alt">PlayStation</span>
+        </div>
+        <h1><span class="grad">Tech Art</span></h1>
+        <h2 style="margin-top:10px;font-size:clamp(18px,2vw,26px);color:var(--soft);font-weight:600">30+ títulos · Switch · PlayStation · Mobile</h2>
+        <p class="lead">Producción 3D y Technical Art a escala industrial: pipeline de assets, personajes, VFX, animación y trabajo en Unity para proyectos que llegan a Switch, PlayStation, iOS y Android.</p>
+        <div class="tag-row">
+          <span class="tag-lg">Unity · VFX · 3D</span><span class="tag-lg alt">Switch · PS</span><span class="tag-lg lime">Pipeline</span><span class="tag-lg">Animación</span><span class="tag-lg alt">Shader Graph</span>
+        </div>
+        <div class="cta-row">
+          <a class="btn btn-lime" href="#disciplines"><span>Ver disciplinas</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          <a class="btn btn-ghost" href="https://www.artstation.com/rayco76" target="_blank" rel="noopener noreferrer"><span>ArtStation</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg></a>
+        </div>
+      </div>
+      <div style="display:grid;place-items:center">
+        <div class="platforms-art">
+          <div class="plat-row">
+            <div class="plat-card sw">
+              <div class="plat-label">Nintendo Switch</div>
+              <strong>Consola portátil</strong>
+              <span>Pocoyo Party · Pocoyo Racing</span>
+            </div>
+            <div class="plat-card ps">
+              <div class="plat-label">PlayStation</div>
+              <strong>Consola hogar</strong>
+              <span>Talking Pocoyo 1 &amp; 2</span>
+            </div>
+          </div>
+          <div class="plat-card mob" style="padding:18px">
+            <div class="plat-label">iOS · Android</div>
+            <strong>Mobile — 30+ apps publicadas</strong>
+            <span>Talking Pocoyo · PawPal · Apps educativas · Juegos arcade</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 CIFRAS -->
+    <section class="panel compact" id="stats">
+      <div class="section-head"><div><div class="section-kicker"><span class="badge">01</span><span>En números</span></div><h2>Producción real en plataformas reales</h2></div></div>
+      <div class="stat-strip">
+        <div class="stat"><span class="num">30+</span><p>Títulos publicados entre mobile, consola y web a lo largo de más de una década de producción.</p></div>
+        <div class="stat"><span class="num">3</span><p>Plataformas de consola con certificación completada: Nintendo Switch, PlayStation 3/4, y plataformas digitales.</p></div>
+        <div class="stat"><span class="num">0</span><p>Assets rechazados en certificación de plataforma. El pipeline de validación técnica se diseñó para ello.</p></div>
+        <div class="stat"><span class="num">∞</span><p>Iteraciones de pipeline. Cada proyecto mejora los specs del siguiente.</p></div>
+      </div>
+    </section>
+
+    <!-- 02 DISCIPLINAS -->
+    <section class="panel compact" id="disciplines">
+      <div class="section-head"><div><div class="section-kicker"><span class="badge">02</span><span>Disciplinas</span></div><h2>Lo que cubro como Technical Artist</h2></div></div>
+      <div class="disc-grid">
+        <div class="disc-card orange">
+          <h4>Producción 3D</h4>
+          <p>Modelado, UV unwrap, bake, retopología. Assets que llegan a producción sin deuda técnica: nomenclatura correcta, pivots en origen, escala de mundo definida.</p>
+        </div>
+        <div class="disc-card teal">
+          <h4>Rigging &amp; Animación</h4>
+          <p>Rigs funcionales para motor de juego con presupuesto de bones controlado. Blend shapes para expresiones. Animaciones estado por estado según el Animator Controller.</p>
+        </div>
+        <div class="disc-card lime">
+          <h4>VFX &amp; Partículas</h4>
+          <p>Sistemas de partículas en Unity con presupuesto de GPU calibrado para cada plataforma. Efectos de reward, impacto, ambiente y feedback de gameplay.</p>
+        </div>
+        <div class="disc-card violet">
+          <h4>Shaders &amp; Materiales</h4>
+          <p>Shader Graph en Unity para materiales de estilo toon, outlines, efectos de UI animados y materiales PBR optimizados para mobile y consola.</p>
+        </div>
+        <div class="disc-card yellow">
+          <h4>Pipeline &amp; Tools</h4>
+          <p>Scripts de validación de assets, specs de importación, nomenclatura y configuraciones de Unity. El pipeline se construye para que el siguiente title tarde menos en producción.</p>
+        </div>
+        <div class="disc-card pink">
+          <h4>Optimización de plataforma</h4>
+          <p>Presupuesto de drawcalls, LODs, atlas de texturas, occlusion culling. El mismo juego tiene que funcionar bien en Switch portátil y en TV 4K.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 EJEMPLOS EN PROFUNDIDAD -->
+    <section class="panel compact" id="examples">
+      <div class="section-head"><div><div class="section-kicker"><span class="badge">03</span><span>Proyectos en profundidad</span></div><h2>Casos que ilustran el trabajo técnico real</h2></div></div>
+      <div class="example-grid">
+        <div class="example">
+          <div class="eyebrow">Switch · Plataforma</div>
+          <h4>Pocoyo Party</h4>
+          <p>Juego de fiesta para 4 jugadores en Switch. El reto técnico: mantener 30fps estables en modo portátil con 4 personajes 3D en pantalla simultáneamente, escenarios dinámicos y efectos de gameplay.</p>
+          <p style="margin-top:10px;color:var(--muted);font-size:13px">Pipeline de LOD por personaje, atlas de texturas unificado para la sesión y presupuesto de partículas por minijuego.</p>
+        </div>
+        <div class="example">
+          <div class="eyebrow">Mobile · Live Game</div>
+          <h4>PawPal</h4>
+          <p>Juego mobile con mascota 3D, sistema de wardrobe de cosméticos y VFX de reward. Technical Art completo: rigging, animación, Shader Graph y sistema de equipables escalable.</p>
+          <p style="margin-top:10px"><a href="pawpal-tech.html">Ver caso técnico completo →</a></p>
+        </div>
+        <div class="example">
+          <div class="eyebrow">Switch · PS · Mobile</div>
+          <h4>Universo Pocoyó</h4>
+          <p>Franquicia con identidad visual fuerte y múltiples plataformas. Personajes, escenarios y pipelines de assets que mantienen el look de la IP mientras respetan los presupuestos de cada plataforma.</p>
+          <p style="margin-top:10px"><a href="pocoyo.html">Ver caso Pocoyó completo →</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 UNITY EN PROFUNDIDAD -->
+    <section class="panel compact" id="unity">
+      <div class="section-head"><div><div class="section-kicker"><span class="badge">04</span><span>Unity en producción</span></div><h2>Motor principal en todos los proyectos de consola y mobile</h2></div></div>
+      <div class="grid-4">
+        <article class="card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="3"/></svg></div><h4>Animator Controllers</h4><p>Árboles de estado complejos con blend trees, transiciones con exit time y parametrización para gameplay dinámico.</p></article>
+        <article class="card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6M12 16v6M2 12h6M16 12h6M5 5l4 4M15 15l4 4M5 19l4-4M15 9l4-4"/></svg></div><h4>Shader Graph</h4><p>Shaders personalizados sin HLSL: toon shading, outlines, efectos de dissolve, materiales de UI animados y look de franquicia.</p></article>
+        <article class="card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg></div><h4>ScriptableObjects</h4><p>Configuración de sistemas de juego — cosméticos, economía, parámetros de gameplay — en assets editables sin tocar código.</p></article>
+        <article class="card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M7 12h10M9 18h6"/></svg></div><h4>Build pipelines</h4><p>Configuraciones de build por plataforma: Switch, PlayStation, Android, iOS. Optimizaciones de textura, compresión y entrega para certificación.</p></article>
+      </div>
+    </section>
+
+    <!-- GALERÍA -->
+    <section class="panel compact" id="gallery">
+      <div class="section-head"><div><div class="section-kicker"><span class="badge">05</span><span>Gallery</span></div><h2>Assets, plataformas y producción</h2></div></div>
+      <div class="gallery">
+        <div class="gallery-shot"><img src="assets/images/tech-art/gallery-1.png" alt="Tech Art" onerror="this.style.display='none'"></div>
+        <div class="gallery-shot"><img src="assets/images/tech-art/gallery-2.png" alt="Tech Art" onerror="this.style.display='none'"></div>
+        <div class="gallery-shot"><img src="assets/images/tech-art/gallery-3.png" alt="Tech Art" onerror="this.style.display='none'"></div>
+        <div class="gallery-shot"><img src="assets/images/tech-art/gallery-4.avif" alt="Tech Art" onerror="this.style.display='none'"></div>
+        <div class="gallery-shot"><img src="assets/images/tech-art/gallery-5.png" alt="Tech Art" onerror="this.style.display='none'"></div>
+        <div class="gallery-shot"><img src="assets/images/tech-art/gallery-6.png" alt="Tech Art" onerror="this.style.display='none'"></div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="pad"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></div>
+      <div><h3>¿Tu proyecto necesita Technical Art con experiencia en consola?</h3><p>30+ títulos publicados, pipeline probado, certificación en Switch y PlayStation.</p></div>
+      <a class="btn btn-primary" href="mailto:river.3D@proton.me"><span>Contactar</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+    </section>
+    <footer class="footer">
+      <span>© 2026 Rayco González. Portfolio personal.</span>
+      <span>Technical Art · 3D · Unity · Switch · PlayStation · Mobile</span>
+    </footer>
+  </main>
+</div>
+<script>
+const links=[...document.querySelectorAll(".nav a")];
+const sections=links.map(l=>document.querySelector(l.getAttribute("href"))).filter(Boolean);
+function onScroll(){const y=window.scrollY+200;let cur=sections[0]?.id;sections.forEach(s=>{if(s.offsetTop<=y)cur=s.id});links.forEach(l=>l.classList.toggle("active",l.getAttribute("href")==="#"+cur))}
+window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+</script>
+</body>
+</html>

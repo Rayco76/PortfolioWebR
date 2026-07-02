@@ -1,0 +1,1566 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rayco González — Technical Artist · Unity · VFX · Shaders</title>
+<meta name="description" content="Rayco González — Technical Artist para juegos casual. Conecto arte y motor en Unity: materiales, VFX, iluminación, render y pipeline para móvil. Proyectos: Pocoyo Party, Talking Pocoyo 2, PawPal." />
+<meta name="author" content="Rayco González" />
+<link rel="canonical" href="https://raycogonzalez.com/technical-artist.html" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 38 38'%3E%3Crect width='38' height='38' rx='11' fill='%23a78bfa'/%3E%3Ctext x='19' y='27' font-family='sans-serif' font-size='22' font-weight='900' fill='%230a0b1e' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E" />
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Rayco González — Technical Artist · Unity · VFX · Shaders" />
+<meta property="og:description" content="Technical Artist para juegos casual. Materiales, VFX, iluminación, render y pipeline en Unity para móvil." />
+<meta property="og:url" content="https://raycogonzalez.com/technical-artist.html" />
+<meta property="og:image" content="https://raycogonzalez.com/assets/images/hero-techart-1.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Rayco González — Technical Artist · Unity · VFX · Shaders" />
+<meta name="twitter:description" content="Technical Artist para juegos casual. Materiales, VFX, iluminación, render y pipeline en Unity para móvil." />
+<meta name="twitter:image" content="https://raycogonzalez.com/assets/images/hero-techart-1.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0b1e;
+    --bg-2:#11132c;
+    --panel:#161836;
+    --panel-2:#1d2046;
+    --line:rgba(255,255,255,.08);
+    --line-2:rgba(255,255,255,.14);
+    --text:#f4f3ff;
+    --muted:#9a9ab8;
+    --soft:#cdcbe8;
+    --violet:#8b5cf6;
+    --violet-2:#a78bfa;
+    --pink:#ff5ca8;
+    --lime:#c7f24a;
+    --yellow:#ffd34d;
+    --teal:#5eead4;
+    --blue:#60a5fa;
+    --orange:#ff8a4c;
+    --sidebar:240px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Sora",system-ui,sans-serif;
+    color:var(--text);
+    background:
+      radial-gradient(900px 500px at 80% -10%, rgba(139,92,246,.18), transparent 60%),
+      radial-gradient(700px 400px at 20% 110%, rgba(255,92,168,.10), transparent 60%),
+      var(--bg);
+    min-height:100vh;
+    overflow-x:hidden;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+    background-image:
+      radial-gradient(rgba(255,255,255,.5) 1px, transparent 1.2px),
+      radial-gradient(rgba(199,242,74,.35) 1px, transparent 1.2px);
+    background-size:90px 90px, 140px 140px;
+    background-position:0 0, 45px 60px;
+    opacity:.18;
+    mask-image:linear-gradient(to bottom, black, transparent 85%);
+  }
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+
+  .page{position:relative;z-index:1;display:grid;grid-template-columns:var(--sidebar) minmax(0,1fr);min-height:100vh}
+
+  /* SIDEBAR */
+  .sidebar{
+    position:fixed;top:0;left:0;width:var(--sidebar);height:100vh;
+    padding:30px 22px;
+    border-right:1px solid var(--line);
+    background:rgba(10,11,30,.75);
+    backdrop-filter:blur(20px);
+    display:flex;flex-direction:column;justify-content:space-between;
+    z-index:20;
+  }
+  .logo{display:flex;align-items:center;gap:6px;font-weight:900;font-size:30px;letter-spacing:-2px}
+  .logo .dot{width:10px;height:10px;border-radius:50%;background:var(--violet-2);margin-top:14px}
+  .logo .mark{
+    width:38px;height:38px;border-radius:11px;display:grid;place-items:center;
+    background:linear-gradient(135deg,#fff,#dcd6ff);color:#0a0b1e;font-weight:900;font-size:18px;
+  }
+  .nav{display:flex;flex-direction:column;gap:6px;margin-top:46px}
+  .nav a{
+    display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:14px;
+    color:var(--muted);font-weight:600;font-size:15px;transition:.2s ease;
+    border:1px solid transparent;
+  }
+  .nav a .ico{width:18px;height:18px;display:grid;place-items:center;color:var(--muted)}
+  .nav a:hover{color:var(--text);background:rgba(255,255,255,.04)}
+  .nav a.active{
+    color:var(--text);
+    background:linear-gradient(180deg, rgba(139,92,246,.32), rgba(139,92,246,.18));
+    border-color:rgba(167,139,250,.28);
+    box-shadow:0 8px 24px rgba(139,92,246,.18) inset, 0 4px 14px rgba(139,92,246,.18);
+  }
+  .nav a.active .ico{color:var(--violet-2)}
+  .sidebar-bottom{display:flex;flex-direction:column;gap:18px}
+  .lang-switch{display:inline-flex;gap:4px;padding:4px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.03);width:max-content}
+  .lang-switch button{padding:6px 13px;border-radius:8px;border:none;background:transparent;color:var(--muted);font-family:inherit;font-weight:700;font-size:12px;letter-spacing:.04em;cursor:pointer;transition:.2s ease}
+  .lang-switch button:hover{color:var(--text)}
+  .lang-switch button.active{background:linear-gradient(180deg,rgba(139,92,246,.34),rgba(139,92,246,.18));color:var(--text);box-shadow:0 4px 12px rgba(139,92,246,.18)}
+  .socials{display:flex;flex-direction:column;gap:14px;color:var(--muted)}
+  .socials a{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;border:1px solid var(--line);transition:.2s}
+  .socials a:hover{color:var(--lime);border-color:rgba(199,242,74,.4)}
+
+  main{grid-column:2;padding:32px clamp(20px,3.5vw,46px) 60px;max-width:1480px}
+
+  /* HERO PANEL */
+  .panel{
+    border:1px solid var(--line);
+    background:linear-gradient(180deg, rgba(22,24,54,.92), rgba(17,19,44,.92));
+    border-radius:28px;
+    padding:clamp(22px,3vw,38px);
+    box-shadow:0 30px 80px rgba(0,0,0,.35);
+    position:relative;
+    overflow:hidden;
+  }
+  .panel.glow::before{
+    content:"";position:absolute;inset:-1px;border-radius:inherit;pointer-events:none;
+    background:radial-gradient(600px 240px at 80% 0%, rgba(139,92,246,.18), transparent 60%);
+  }
+
+  .hero{
+    display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);
+    gap:30px;align-items:center;min-height:560px;
+  }
+  .hero-left{position:relative;z-index:2}
+  .greet{
+    display:inline-flex;align-items:center;gap:10px;
+    color:var(--soft);font-size:14px;font-weight:500;
+    margin-bottom:18px;
+  }
+  .greet .wave{font-size:18px}
+  h1{
+    font-size:clamp(50px,6.4vw,92px);
+    line-height:.95;letter-spacing:-.045em;font-weight:800;
+    max-width:680px;
+  }
+  h1 .grad{
+    background:linear-gradient(90deg, var(--violet-2) 0%, var(--pink) 60%, var(--orange) 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    position:relative;display:inline-block;
+  }
+  h1 .grad::after{
+    content:"";position:absolute;left:-6px;right:-6px;bottom:6px;height:10px;
+    background:linear-gradient(90deg, transparent, rgba(255,92,168,.35), transparent);
+    border-radius:999px;filter:blur(8px);z-index:-1;
+  }
+  .accent-marks{
+    display:inline-block;color:var(--yellow);font-weight:900;
+    transform:translateY(-8px);margin-left:6px;
+  }
+  .hero-copy{
+    color:var(--soft);font-size:16px;line-height:1.7;margin-top:22px;max-width:480px;
+  }
+  .cta-row{display:flex;gap:16px;margin-top:30px;align-items:center;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    height:48px;padding:0 22px;border-radius:999px;
+    font-weight:700;font-size:14px;cursor:pointer;
+    border:1px solid transparent;transition:.22s ease;
+  }
+  .btn-primary{
+    background:linear-gradient(135deg,#dcfa6c,#a8e62e);
+    color:#0a0b1e;
+    box-shadow:0 14px 36px rgba(199,242,74,.22);
+  }
+  .btn-primary:hover{transform:translateY(-2px);filter:brightness(1.05)}
+  .btn-ghost{color:var(--soft);background:transparent;border-bottom:1px dashed rgba(255,255,255,.25);border-radius:0;padding:0 0 4px;height:auto}
+  .btn-ghost:hover{color:var(--text)}
+
+  /* HERO ART */
+  .hero-art{
+    min-height:520px;
+    display:grid;place-items:center;
+  }
+  .hero-carousel-shell{
+    width:min(560px,100%);
+    display:grid;
+    gap:18px;
+    justify-items:center;
+  }
+  .hero-carousel{
+    position:relative;
+    width:100%;
+    aspect-ratio:1.02;
+    overflow:hidden;
+    border-radius:30px;
+    border:1px solid var(--line-2);
+    background:
+      radial-gradient(520px 220px at 50% 0%, rgba(249,115,22,.18), transparent 70%),
+      linear-gradient(180deg, rgba(18,21,47,.96), rgba(10,12,30,.98));
+    box-shadow:0 30px 60px rgba(0,0,0,.35);
+  }
+  .hero-slide{
+    position:absolute;inset:0;
+    opacity:0;
+    transform:scale(1.03);
+    transition:opacity .45s ease, transform .7s ease;
+    pointer-events:none;
+  }
+  .hero-slide.is-active{
+    opacity:1;
+    transform:scale(1);
+  }
+  .hero-slide img{
+    width:100%;height:100%;
+    object-fit:cover;
+    object-position:center;
+    display:block;
+  }
+  .hero-slide::after{
+    content:"";
+    position:absolute;inset:auto 0 0 0;height:32%;
+    background:linear-gradient(180deg, transparent, rgba(10,12,30,.42) 60%, rgba(10,12,30,.72));
+  }
+  .hero-dots{
+    display:flex;align-items:center;justify-content:center;gap:10px;
+  }
+  .hero-dot{
+    width:10px;height:10px;border-radius:999px;
+    border:none;padding:0;cursor:pointer;
+    background:rgba(255,255,255,.22);
+    transition:transform .2s ease, background .2s ease, width .2s ease;
+  }
+  .hero-dot:hover{transform:scale(1.08)}
+  .hero-dot.is-active{
+    width:28px;
+    background:linear-gradient(90deg,#dcfa6c,#fbbf24);
+  }
+
+  /* SECTIONS */
+  section + section{margin-top:24px}
+
+  .panel.compact{padding:clamp(18px,2.4vw,28px)}
+
+  .section-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:22px}
+  .section-kicker{
+    display:inline-flex;align-items:center;gap:8px;color:var(--violet-2);
+    font-weight:600;font-size:14px;
+  }
+  .section-kicker .badge{
+    width:18px;height:18px;border-radius:5px;background:linear-gradient(135deg,var(--violet),var(--pink));
+    display:grid;place-items:center;color:#fff;font-size:10px;
+  }
+  .section-head .link{color:var(--soft);font-size:14px;font-weight:500;display:inline-flex;align-items:center;gap:6px}
+  .section-head .link:hover{color:var(--text)}
+
+  /* GAMES GRID */
+  .games{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+  .game-card{
+    border-radius:20px;overflow:hidden;
+    background:linear-gradient(180deg, rgba(34,37,75,.7), rgba(22,24,54,.7));
+    border:1px solid var(--line);
+    transition:.25s ease;
+  }
+  .game-card:hover{transform:translateY(-4px);border-color:rgba(167,139,250,.35);box-shadow:0 18px 40px rgba(139,92,246,.18)}
+  .thumb{aspect-ratio:16/9;position:relative;overflow:hidden;display:grid;place-items:center}
+  .thumb img{
+    position:absolute;inset:0;
+    width:100%;height:100%;
+    object-fit:cover;
+  }
+  .thumb-1{
+    background:
+      radial-gradient(circle at 28% 28%, #ff5e7e 0 14%, transparent 15%),
+      radial-gradient(circle at 70% 22%, #ffd54a 0 12%, transparent 13%),
+      radial-gradient(circle at 22% 72%, #8b5cf6 0 14%, transparent 15%),
+      radial-gradient(circle at 72% 70%, #5eead4 0 12%, transparent 13%),
+      radial-gradient(circle at 50% 50%, #ff8a4c 0 10%, transparent 11%),
+      linear-gradient(135deg, #5b21b6, #7c3aed);
+  }
+  .thumb-2{
+    background:
+      radial-gradient(circle at 50% 30%, rgba(255,255,255,.3) 0 14%, transparent 15%),
+      linear-gradient(180deg, #38bdf8 0 55%, #84cc16 55% 70%, #4d7c0f 70% 100%);
+  }
+  .thumb-2::before{
+    content:"";position:absolute;left:36%;right:32%;top:38%;height:16%;
+    background:linear-gradient(180deg, #ef8b3a, #c14d1e);
+    border-radius:8px 8px 4px 4px;
+    box-shadow:0 4px 0 rgba(0,0,0,.18);
+  }
+  .thumb-3{
+    background:
+      linear-gradient(180deg, #87ceeb 0 60%, #a8e6cf 60% 100%);
+    overflow:hidden;
+  }
+  .thumb-3::before{
+    content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-30%);
+    width:90px;height:120px;
+    background:
+      linear-gradient(180deg, #ef4444 0 16%, transparent 16% 20%, #f59e0b 20% 36%, transparent 36% 40%, #84cc16 40% 56%, transparent 56% 60%, #3b82f6 60% 76%, transparent 76% 80%, #a855f7 80% 100%);
+    border-radius:6px;
+    box-shadow:0 6px 14px rgba(0,0,0,.25);
+  }
+  .game-body{padding:18px 18px 20px}
+  .game-row{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+  .game-icon{
+    width:42px;height:42px;border-radius:12px;display:grid;place-items:center;flex:none;
+    color:#0a0b1e;font-weight:900;font-size:18px;
+  }
+  .game-icon.i1{background:linear-gradient(135deg,#ff5e7e,#ffd54a)}
+  .game-icon.i2{background:linear-gradient(135deg,#fb923c,#f59e0b)}
+  .game-icon.i3{background:linear-gradient(135deg,#fbbf24,#f97316)}
+  .game-title{display:flex;align-items:center;gap:10px;flex:1;min-width:0}
+  .game-title h3{font-size:17px;font-weight:700;letter-spacing:-.02em}
+  .tag{
+    font-size:11px;font-weight:700;padding:4px 9px;border-radius:999px;
+    background:rgba(167,139,250,.18);color:var(--violet-2);border:1px solid rgba(167,139,250,.25);
+  }
+  .tag.farm{background:rgba(132,204,22,.18);color:#bef264;border-color:rgba(132,204,22,.3)}
+  .tag.arcade{background:rgba(251,191,36,.18);color:#fcd34d;border-color:rgba(251,191,36,.3)}
+  .game-card p{color:var(--muted);font-size:13.5px;line-height:1.55;margin-top:4px}
+  .game-card .arrow{
+    width:36px;height:36px;border-radius:50%;border:1px solid var(--line-2);
+    display:grid;place-items:center;color:var(--text);flex:none;margin-left:auto;
+    transition:.22s;
+  }
+  .game-card:hover .arrow{background:var(--violet);border-color:var(--violet)}
+
+  .star-counter{
+    position:absolute;top:12px;left:12px;
+    display:inline-flex;align-items:center;gap:6px;
+    background:rgba(0,0,0,.45);backdrop-filter:blur(8px);
+    border:1px solid rgba(255,255,255,.18);
+    padding:5px 10px;border-radius:999px;
+    color:var(--yellow);font-weight:700;font-size:12px;
+  }
+
+  /* SKILLS */
+  .skills{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+  .skill{
+    padding:18px;border-radius:18px;
+    background:linear-gradient(180deg, rgba(34,37,75,.6), rgba(22,24,54,.6));
+    border:1px solid var(--line);
+    transition:.22s;
+  }
+  .skill:hover{border-color:rgba(167,139,250,.32);transform:translateY(-3px)}
+  .skill .ico{
+    width:44px;height:44px;border-radius:12px;display:grid;place-items:center;
+    background:rgba(139,92,246,.18);color:var(--violet-2);margin-bottom:14px;
+  }
+  .skill h4{font-size:15px;font-weight:700;margin-bottom:6px;letter-spacing:-.01em}
+  .skill p{color:var(--muted);font-size:13px;line-height:1.55}
+  .tech-stack{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+  .tech-stack .chip{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:9px 14px;border-radius:999px;
+    background:rgba(255,255,255,.04);border:1px solid var(--line);
+    color:var(--soft);font-size:12.5px;font-weight:600;
+    font-family:"JetBrains Mono",monospace;
+    transition:.2s ease;
+  }
+  .tech-stack .chip:hover{border-color:rgba(167,139,250,.32);color:var(--text)}
+  .tech-stack .chip::before{content:"";width:7px;height:7px;border-radius:50%;flex:none;background:linear-gradient(135deg,var(--violet),var(--pink))}
+  .stack-block{margin-top:22px;display:grid;gap:18px}
+  .stack-group{display:grid;gap:11px}
+  .stack-group .tech-stack{margin-top:0}
+  .stack-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-family:"JetBrains Mono",monospace}
+  .tech-stack .chip.soft::before{background:linear-gradient(135deg,var(--teal),var(--blue))}
+
+  /* ANIMATION */
+  .animation-section{
+    display:grid;
+    grid-template-columns:minmax(0,1.1fr) minmax(320px,.9fr);
+    gap:18px;
+    align-items:stretch;
+  }
+  .animation-copy{
+    padding:24px;
+    border-radius:22px;
+    background:linear-gradient(180deg, rgba(34,37,75,.58), rgba(22,24,54,.62));
+    border:1px solid var(--line);
+  }
+  .animation-copy h2{
+    font-size:clamp(28px,3.4vw,42px);
+    line-height:1.02;
+    letter-spacing:-.04em;
+    margin-bottom:14px;
+    max-width:12ch;
+  }
+  .animation-copy p{
+    color:var(--soft);
+    font-size:15px;
+    line-height:1.7;
+    max-width:58ch;
+  }
+  .animation-highlights{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:12px;
+    margin-top:22px;
+  }
+  .animation-pill{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:13px 14px;
+    border-radius:16px;
+    background:rgba(255,255,255,.035);
+    border:1px solid var(--line);
+    color:var(--soft);
+    font-size:13px;
+    line-height:1.45;
+  }
+  .animation-pill .dot{
+    width:9px;
+    height:9px;
+    border-radius:50%;
+    flex:0 0 auto;
+    background:linear-gradient(135deg, var(--orange), var(--yellow));
+    box-shadow:0 0 0 6px rgba(255,138,76,.08);
+  }
+  .animation-actions{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-top:24px;
+  }
+  .btn-outline{
+    color:var(--soft);
+    border-color:rgba(255,255,255,.16);
+    background:rgba(255,255,255,.03);
+  }
+  .btn-outline:hover{
+    transform:translateY(-2px);
+    border-color:rgba(255,255,255,.28);
+    color:var(--text);
+  }
+  .animation-preview{
+    position:relative;
+    overflow:hidden;
+    border-radius:22px;
+    padding:24px;
+    border:1px solid var(--line);
+    background:
+      radial-gradient(220px 160px at 20% 20%, rgba(255,138,76,.18), transparent 60%),
+      radial-gradient(240px 180px at 82% 18%, rgba(94,234,212,.14), transparent 60%),
+      linear-gradient(180deg, rgba(24,27,58,.92), rgba(12,14,34,.96));
+    min-height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    box-shadow:0 24px 50px rgba(0,0,0,.26);
+  }
+  .animation-preview::after{
+    content:"";
+    position:absolute;
+    inset:auto -40px -70px auto;
+    width:190px;
+    height:190px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(139,92,246,.24), transparent 68%);
+    pointer-events:none;
+  }
+  .animation-preview-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+    margin-bottom:18px;
+  }
+  .animation-mini-label{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--teal);
+    font-family:"JetBrains Mono",monospace;
+  }
+  .animation-mini-label .dot{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:currentColor;
+    box-shadow:0 0 0 6px rgba(94,234,212,.08);
+  }
+  .animation-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:9px 12px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,.12);
+    background:rgba(255,255,255,.04);
+    color:var(--soft);
+    font-size:12px;
+    font-weight:600;
+  }
+  .animation-reel-card{
+    position:relative;
+    overflow:hidden;
+    border-radius:24px;
+    padding:22px;
+    min-height:270px;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)),
+      radial-gradient(240px 140px at 18% 24%, rgba(255,138,76,.20), transparent 60%),
+      radial-gradient(220px 140px at 82% 22%, rgba(94,234,212,.18), transparent 60%),
+      linear-gradient(145deg, rgba(91,33,182,.28), rgba(10,11,30,.24));
+    border:1px solid rgba(255,255,255,.09);
+  }
+  .animation-reel-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(135deg, rgba(255,255,255,.05) 0 1px, transparent 1px 36px),
+      linear-gradient(225deg, rgba(255,255,255,.04) 0 1px, transparent 1px 36px);
+    background-size:36px 36px;
+    opacity:.32;
+    pointer-events:none;
+  }
+  .animation-play{
+    position:relative;
+    z-index:1;
+    width:78px;
+    height:78px;
+    border-radius:24px;
+    display:grid;
+    place-items:center;
+    background:linear-gradient(135deg, rgba(199,242,74,.95), rgba(255,211,77,.92));
+    color:#0a0b1e;
+    box-shadow:0 18px 40px rgba(199,242,74,.18);
+  }
+  .animation-reel-body{
+    position:relative;
+    z-index:1;
+    margin-top:26px;
+    max-width:360px;
+  }
+  .animation-reel-body h3{
+    font-size:32px;
+    line-height:.98;
+    letter-spacing:-.045em;
+    margin-bottom:12px;
+  }
+  .animation-reel-body p{
+    color:var(--soft);
+    font-size:14px;
+    line-height:1.7;
+  }
+  .animation-reel-meta{
+    position:relative;
+    z-index:1;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:18px;
+  }
+  .animation-meta-pill{
+    display:inline-flex;
+    align-items:center;
+    padding:9px 12px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,.12);
+    background:rgba(10,11,30,.46);
+    color:var(--soft);
+    font-size:12px;
+    font-weight:600;
+    backdrop-filter:blur(8px);
+  }
+  .animation-preview-footer{
+    position:relative;
+    z-index:1;
+    display:flex;
+    align-items:end;
+    justify-content:space-between;
+    gap:16px;
+    margin-top:22px;
+  }
+  .animation-preview-note{
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.6;
+    max-width:250px;
+  }
+  .animation-preview-cta{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    color:var(--text);
+    font-size:13px;
+    font-weight:700;
+  }
+  .animation-preview-cta svg{flex:0 0 auto}
+
+  /* VISUAL */
+  .visual-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .visual-intro{
+    color:var(--soft);
+    max-width:760px;
+    font-size:14px;
+    line-height:1.7;
+    margin:-6px 0 22px;
+  }
+  .visual-card{
+    position:relative;
+    border-radius:22px;
+    overflow:hidden;
+    background:linear-gradient(180deg, rgba(37,40,82,.72), rgba(20,22,50,.78));
+    border:1px solid var(--line);
+    transition:.24s ease;
+    min-height:280px;
+  }
+  .visual-card:hover{
+    transform:translateY(-4px);
+    border-color:rgba(94,234,212,.28);
+    box-shadow:0 22px 46px rgba(0,0,0,.28);
+  }
+  .visual-media{
+    position:relative;
+    height:138px;
+    overflow:hidden;
+    background:
+      radial-gradient(260px 120px at 20% 10%, rgba(94,234,212,.14), transparent 60%),
+      radial-gradient(280px 140px at 80% 20%, rgba(255,92,168,.16), transparent 60%),
+      linear-gradient(135deg, rgba(124,58,237,.28), rgba(17,19,44,.3));
+  }
+  .visual-media::after{
+    content:"";
+    position:absolute;inset:0;
+    background:linear-gradient(180deg, transparent, rgba(10,11,30,.22) 50%, rgba(10,11,30,.58));
+    pointer-events:none;
+  }
+  .visual-media img{
+    position:absolute;inset:0;
+    width:100%;height:100%;
+    object-fit:cover;
+  }
+  .visual-card[data-tone="characters"] .visual-media{
+    background:
+      radial-gradient(circle at 24% 28%, rgba(255,211,77,.24) 0 14%, transparent 15%),
+      radial-gradient(circle at 72% 26%, rgba(255,92,168,.28) 0 12%, transparent 13%),
+      linear-gradient(135deg, rgba(91,33,182,.52), rgba(124,58,237,.32));
+  }
+  .visual-card[data-tone="ui"] .visual-media{
+    background:
+      linear-gradient(180deg, rgba(96,165,250,.22), transparent),
+      repeating-linear-gradient(180deg, rgba(255,255,255,.08) 0 18px, transparent 18px 36px),
+      linear-gradient(135deg, rgba(30,64,175,.54), rgba(15,23,42,.3));
+  }
+  .visual-card[data-tone="anim"] .visual-media{
+    background:
+      radial-gradient(circle at 26% 50%, rgba(255,138,76,.28) 0 16%, transparent 17%),
+      radial-gradient(circle at 66% 42%, rgba(199,242,74,.24) 0 14%, transparent 15%),
+      linear-gradient(135deg, rgba(190,24,93,.38), rgba(124,58,237,.28));
+  }
+  .visual-card[data-tone="tech"] .visual-media{
+    background:
+      linear-gradient(90deg, rgba(94,234,212,.14) 0 1px, transparent 1px 32px),
+      linear-gradient(180deg, rgba(94,234,212,.14) 0 1px, transparent 1px 32px),
+      linear-gradient(135deg, rgba(8,145,178,.34), rgba(15,23,42,.34));
+    background-size:32px 32px, 32px 32px, auto;
+  }
+  .visual-stamp{
+    position:absolute;left:16px;top:16px;z-index:2;
+    width:46px;height:46px;border-radius:14px;
+    display:grid;place-items:center;
+    background:rgba(10,11,30,.5);
+    border:1px solid rgba(255,255,255,.12);
+    backdrop-filter:blur(8px);
+    color:#fff;
+  }
+  .visual-body{padding:18px 18px 20px}
+  .visual-label{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--teal);margin-bottom:12px;
+    font-family:"JetBrains Mono",monospace;
+  }
+  .visual-label .dot{
+    width:7px;height:7px;border-radius:50%;background:currentColor;
+    box-shadow:0 0 0 6px rgba(94,234,212,.08);
+  }
+  .visual-card h4{font-size:18px;font-weight:700;letter-spacing:-.02em;margin-bottom:8px}
+  .visual-card p{color:var(--muted);font-size:13.5px;line-height:1.65}
+
+  /* TIMELINE */
+  .timeline{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+  .tl{
+    padding:20px;border-radius:18px;
+    background:linear-gradient(180deg, rgba(34,37,75,.55), rgba(22,24,54,.55));
+    border:1px solid var(--line);
+  }
+  .tl .date{color:var(--teal);font-weight:700;font-size:12px;margin-bottom:8px;font-family:"JetBrains Mono",monospace}
+  .tl h4{font-size:16px;letter-spacing:-.01em;margin-bottom:8px}
+  .tl p{color:var(--muted);font-size:13px;line-height:1.55}
+
+  /* ABOUT */
+  .about{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+  .about-card{padding:24px;border-radius:18px;background:linear-gradient(180deg, rgba(34,37,75,.55), rgba(22,24,54,.55));border:1px solid var(--line)}
+  .about-card h3{font-size:22px;letter-spacing:-.03em;margin-bottom:12px}
+  .about-card p{color:var(--muted);font-size:14px;line-height:1.7}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:20px}
+  .stat{padding:14px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid var(--line)}
+  .stat strong{display:block;font-size:22px;color:var(--yellow);letter-spacing:-.03em;font-weight:800}
+  .stat span{color:var(--muted);font-size:12px;font-weight:500}
+
+  /* CONTACT STRIP */
+  .contact{
+    display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center;
+    padding:22px 26px;border-radius:24px;
+    background:linear-gradient(135deg, rgba(139,92,246,.16), rgba(255,92,168,.10));
+    border:1px solid rgba(167,139,250,.28);
+  }
+  .contact .pad{
+    width:54px;height:54px;border-radius:14px;
+    background:linear-gradient(135deg,#7c3aed,#5b21b6);
+    display:grid;place-items:center;color:#fff;font-size:24px;
+    box-shadow:0 10px 24px rgba(124,58,237,.35);
+  }
+  .contact h3{font-size:18px;font-weight:700;letter-spacing:-.01em}
+  .contact p{color:var(--muted);font-size:13.5px;margin-top:2px}
+
+  .footer{
+    margin-top:28px;color:var(--muted);
+    display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;
+    padding:0 6px;
+  }
+
+  /* animations */
+  @keyframes float{
+    0%,100%{transform:translateX(-50%) translateY(0)}
+    50%{transform:translateX(-50%) translateY(-12px)}
+  }
+  .gem,.coin{animation-name:floatY}
+  @keyframes floatY{
+    0%,100%{transform:translateY(0) rotate(-12deg)}
+    50%{transform:translateY(-10px) rotate(-12deg)}
+  }
+  .coin{animation-name:floatYc}
+  @keyframes floatYc{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-10px)}
+  }
+  @keyframes twinkle{
+    0%,100%{transform:scale(1) rotate(0)}
+    50%{transform:scale(1.15) rotate(10deg)}
+  }
+  @keyframes bounce{
+    0%,100%{transform:translateY(0) scale(1)}
+    50%{transform:translateY(-8px) scale(1.06)}
+  }
+
+  /* RESPONSIVE */
+  @media (max-width:1100px){
+    :root{--sidebar:0px}
+    .sidebar{position:relative;width:100%;height:auto;flex-direction:row;padding:14px 18px;border-right:none;border-bottom:1px solid var(--line)}
+    .nav{flex-direction:row;margin-top:0;gap:4px}
+    .nav a{padding:8px 12px;font-size:13px}
+    .sidebar-bottom{flex-direction:row;align-items:center;gap:12px}
+    .socials{flex-direction:row}
+    .page{grid-template-columns:1fr}
+    main{grid-column:1;padding:20px}
+    .hero{grid-template-columns:1fr;min-height:auto}
+    .hero-art{min-height:420px}
+    .animation-section{grid-template-columns:1fr}
+    .games,.skills,.timeline,.about,.visual-grid{grid-template-columns:1fr}
+    .contact{grid-template-columns:1fr}
+  }
+  @media (max-width:720px){
+    .animation-highlights{grid-template-columns:1fr}
+    .animation-copy,.animation-preview{padding:20px}
+    .animation-reel-card{min-height:240px;padding:18px}
+    .animation-reel-body h3{font-size:28px}
+    .animation-preview-footer{align-items:start;flex-direction:column}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <aside class="sidebar">
+    <div>
+      <div class="logo">
+        <div class="mark">R</div>
+        <span class="dot"></span>
+      </div>
+      <nav class="nav" aria-label="Main">
+        <a href="#home" class="active" data-i18n="nav_home">
+          <span class="ico">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12 12 4l9 8"/><path d="M5 10v10h14V10"/></svg>
+          </span>
+          <span class="lbl">Inicio</span>
+        </a>
+        <a href="#about" data-i18n="nav_about">
+          <span class="ico">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg>
+          </span>
+          <span class="lbl">Sobre mí</span>
+        </a>
+        <a href="tech-art.html" data-i18n="nav_cases">
+          <span class="ico">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h11l5 5v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/><path d="M14 5v6h6"/><path d="M8 14h6M8 17h4"/></svg>
+          </span>
+          <span class="lbl">Trabajo</span>
+        </a>
+        <a href="#games" data-i18n="nav_games">
+          <span class="ico">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="12" rx="4"/><path d="M8 12h2M9 11v2"/><circle cx="15" cy="12" r="1"/><circle cx="17" cy="14" r="1"/></svg>
+          </span>
+          <span class="lbl">Juegos</span>
+        </a>
+        <a href="#visual" data-i18n="nav_visual">
+          <span class="ico">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v6c0 5 3.4 7.8 8 8 4.6-.2 8-3 8-8V7l-8-4Z"/><path d="m9 12 2 2 4-4"/></svg>
+          </span>
+          <span class="lbl">Visual</span>
+        </a>
+        <a href="#process" data-i18n="nav_process">
+          <span class="ico">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h10M4 18h16"/></svg>
+          </span>
+          <span class="lbl">Proceso</span>
+        </a>
+        <a href="#contact" data-i18n="nav_contact">
+          <span class="ico">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg>
+          </span>
+          <span class="lbl">Contacto</span>
+        </a>
+      </nav>
+    </div>
+    <div class="sidebar-bottom">
+    <a href="index.html" style="color:var(--muted);font-size:12px;font-weight:500;white-space:nowrap;text-decoration:none">UX &amp; Product profile →</a>
+    <div class="lang-switch" role="group" aria-label="Idioma / Language">
+      <button type="button" data-lang-btn="es">ES</button>
+      <button type="button" data-lang-btn="en">EN</button>
+    </div>
+    <div class="socials">
+      <a href="https://www.linkedin.com/in/raycogonzalez76" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3.5C5 4.6 4.1 5.5 3 5.5S1 4.6 1 3.5 1.9 1.5 3 1.5 5 2.4 5 3.5zM1 8h4v14H1V8zm7 0h3.8v2h.05c.5-.95 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V22h-4v-6.2c0-1.5-.05-3.4-2.05-3.4S12 13.8 12 15.7V22H8V8z"/></svg>
+      </a>
+      <a href="https://www.artstation.com/rayco76" target="_blank" rel="noopener noreferrer" aria-label="ArtStation">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M0 17.7l2.3 4a1.6 1.6 0 0 0 1.4.8h12.9l-2.8-4.8H0zM24 17.7c0-.3-.1-.6-.2-.9L17.3 5.4a1.6 1.6 0 0 0-1.4-.8h-4.6l9.9 17.1 2.4-4.1c.3-.4.4-.6.4-.9zM13.5 14.4L8.9 6.5 4.3 14.4h9.2z"/></svg>
+      </a>
+    </div>
+    </div>
+  </aside>
+
+  <main>
+    <!-- HERO -->
+    <section class="panel glow hero" id="home">
+      <div class="hero-left">
+        <div class="greet"><span data-i18n="hello">¡Hola! Soy Rayco</span> <span class="wave">👋</span></div>
+        <h1>
+          <span data-i18n="h1_a">Technical Artist</span><br/>
+          <span data-i18n="h1_b">para juegos casual</span><br/>
+          <span class="grad" data-i18n="h1_c">que enganchan</span><span class="accent-marks">´</span>
+        </h1>
+        <p class="hero-copy" data-i18n="hero_copy">
+          Conecto arte y motor en Unity: materiales, VFX, iluminación, render y pipeline que hacen que los juegos casual se vean bien y rindan en móvil.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#games">
+            <span data-i18n="cta_primary">Ver mis juegos</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#about">
+            <span data-i18n="cta_secondary">Conocer más sobre mí</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="hero-carousel-shell" data-hero-carousel>
+          <div class="hero-carousel">
+            <figure class="hero-slide is-active">
+              <img src="assets/images/hero-techart-1.png" alt="Imagen destacada Tech Art portada 1" onerror="this.style.display='none'">
+            </figure>
+            <figure class="hero-slide">
+              <img src="assets/images/hero-techart-2.png" alt="Imagen destacada Tech Art portada 2" onerror="this.style.display='none'">
+            </figure>
+            <figure class="hero-slide">
+              <img src="assets/images/hero-techart-3.png" alt="Imagen destacada Tech Art portada 3" onerror="this.style.display='none'">
+            </figure>
+            <figure class="hero-slide">
+              <img src="assets/images/hero-techart-4.png" alt="Imagen destacada Tech Art portada 4" onerror="this.style.display='none'">
+            </figure>
+          </div>
+          <div class="hero-dots" aria-label="Selector de imágenes destacadas">
+            <button class="hero-dot is-active" type="button" aria-label="Ver imagen 1" aria-current="true"></button>
+            <button class="hero-dot" type="button" aria-label="Ver imagen 2" aria-current="false"></button>
+            <button class="hero-dot" type="button" aria-label="Ver imagen 3" aria-current="false"></button>
+            <button class="hero-dot" type="button" aria-label="Ver imagen 4" aria-current="false"></button>
+          </div>
+        </div>
+      </div>
+
+    </section>
+    <!-- GAMES -->
+    <section class="panel compact" id="games">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">
+            <span class="badge">★</span>
+            <span data-i18n="games_kicker">Proyectos destacados</span>
+          </div>
+        </div>
+        <a class="link" href="tech-art.html">
+          <span data-i18n="games_all">Ver todo el trabajo</span>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="games">
+        <a class="game-card" href="pawpal-tech.html" style="display:block">
+          <div class="thumb thumb-1">
+            <img src="assets/images/pawpal/pawpal-card.png" alt="Imagen de ejemplo del proyecto PawPal" onerror="this.style.display='none'">
+            <div class="star-counter">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 14.5 9 22 10 16.5 14.5 18 22 12 18 6 22 7.5 14.5 2 10 9.5 9z"/></svg>
+              <span>Main Project</span>
+            </div>
+          </div>
+          <div class="game-body">
+            <div class="game-row">
+              <div class="game-icon i1">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4" fill="#0a0b1e"/></svg>
+              </div>
+              <div class="game-title">
+                <h3 data-i18n="g1_title">PawPal</h3>
+                <span class="tag" data-i18n="g1_tag">Tech Art</span>
+              </div>
+              <span class="arrow">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+              </span>
+            </div>
+            <p data-i18n="g1_copy">Personaje 3D, animación, VFX, wardrobe system e integración completa en Unity. Arquitectura de arte escalable para un live game mobile.</p>
+          </div>
+        </a>
+
+        <a class="game-card" href="tech-art.html" style="display:block">
+          <div class="thumb thumb-2">
+            <img src="assets/images/tech-art/tech-art-card.png" alt="Tech Art 30+ títulos" onerror="this.style.display='none'">
+            <div class="star-counter">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 14.5 9 22 10 16.5 14.5 18 22 12 18 6 22 7.5 14.5 2 10 9.5 9z"/></svg>
+              <span>30+ títulos</span>
+            </div>
+          </div>
+          <div class="game-body">
+            <div class="game-row">
+              <div class="game-icon i2">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8m8.5 8.5 2.8 2.8M2 12h4m14 0h4M4.9 19.1l2.8-2.8m8.5-8.5 2.8-2.8"/><circle cx="12" cy="12" r="3"/></svg>
+              </div>
+              <div class="game-title">
+                <h3 data-i18n="g2_title">Technical Art</h3>
+                <span class="tag farm" data-i18n="g2_tag">Unity · VFX · 3D</span>
+              </div>
+              <span class="arrow">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+              </span>
+            </div>
+            <p data-i18n="g2_copy">Materiales, shaders, VFX, iluminación, animación y pipeline de assets en Unity. 30+ títulos, IPs licenciadas, Switch y PlayStation.</p>
+          </div>
+        </a>
+
+        <a class="game-card" href="pocoyo.html" style="display:block">
+          <div class="thumb thumb-3">
+            <img src="assets/images/pocoyo/pocoyo-card.png" alt="Pocoyó Switch y PlayStation" onerror="this.style.display='none'">
+            <div class="star-counter">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 14.5 9 22 10 16.5 14.5 18 22 12 18 6 22 7.5 14.5 2 10 9.5 9z"/></svg>
+              <span>Switch · PS</span>
+            </div>
+          </div>
+          <div class="game-body">
+            <div class="game-row">
+              <div class="game-icon i3">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c-1 4-3 5-6 6 2 1 4 3 5 6h2c1-3 3-5 5-6-3-1-5-2-6-6z"/></svg>
+              </div>
+              <div class="game-title">
+                <h3 data-i18n="g3_title">Pocoyó</h3>
+                <span class="tag arcade" data-i18n="g3_tag">3D · Tech Art · Switch/PS</span>
+              </div>
+              <span class="arrow">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+              </span>
+            </div>
+            <p data-i18n="g3_copy">IP licenciada global. Arte 3D, animación, integración Unity, VFX e iluminación para apps y el único título shipeado en Switch y PlayStation.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ANIMATION -->
+    <section class="panel compact" id="animation-work">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">
+            <span class="badge">A</span>
+            <span data-i18n="anim_kicker">Animation Focus</span>
+          </div>
+        </div>
+      </div>
+      <div class="animation-section">
+        <div class="animation-copy">
+          <h2 data-i18n="anim_title">Animation & Character Work</h2>
+          <p data-i18n="anim_copy">Stylized character animation, creature behaviours and Unity-ready animation systems for mobile games and character-driven apps.</p>
+          <div class="animation-highlights">
+            <div class="animation-pill"><span class="dot"></span><span data-i18n="anim_h1">Stylized character animation</span></div>
+            <div class="animation-pill"><span class="dot"></span><span data-i18n="anim_h2">Pet and creature behaviours</span></div>
+            <div class="animation-pill"><span class="dot"></span><span data-i18n="anim_h3">Unity animation integration</span></div>
+            <div class="animation-pill"><span class="dot"></span><span data-i18n="anim_h4">Animation timing for gameplay</span></div>
+            <div class="animation-pill"><span class="dot"></span><span data-i18n="anim_h5">VFX and reward feedback</span></div>
+            <div class="animation-pill"><span class="dot"></span><span data-i18n="anim_h6">Character-driven mobile experiences</span></div>
+          </div>
+          <div class="animation-actions">
+            <a class="btn btn-primary" href="https://www.youtube.com/watch?v=ldr6JnGce1M" target="_blank" rel="noopener noreferrer">
+              <span data-i18n="anim_btn_reel">Watch full reel</span>
+            </a>
+            <a class="btn btn-outline" href="https://rayco76.artstation.com/" target="_blank" rel="noopener noreferrer">
+              <span data-i18n="anim_btn_art">View ArtStation</span>
+            </a>
+          </div>
+        </div>
+        <div class="animation-preview" aria-hidden="true">
+          <div class="animation-preview-top">
+            <div class="animation-mini-label"><span class="dot"></span><span data-i18n="anim_preview_label">Character pipeline</span></div>
+            <div class="animation-badge" data-i18n="anim_preview_badge">Unity Ready</div>
+          </div>
+          <div class="animation-reel-card">
+            <a class="animation-play" href="https://www.youtube.com/watch?v=ldr6JnGce1M" target="_blank" rel="noopener noreferrer" aria-label="Ver reel de animación completo">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 6.5v11l9-5.5-9-5.5Z"/></svg>
+            </a>
+            <div class="animation-reel-body">
+              <h3 data-i18n="anim_core_t">Animation reel for expressive characters</h3>
+              <p data-i18n="anim_core_c">A focused look at stylized character work, pet interactions, gameplay timing and Unity-ready implementation.</p>
+            </div>
+            <div class="animation-reel-meta">
+              <span class="animation-meta-pill" data-i18n="anim_tag_1">Stylized motion</span>
+              <span class="animation-meta-pill" data-i18n="anim_tag_2">Gameplay timing</span>
+              <span class="animation-meta-pill" data-i18n="anim_tag_3">Reward feedback</span>
+            </div>
+            <div class="animation-preview-footer">
+              <p class="animation-preview-note" data-i18n="anim_preview_note">Built to support mobile characters that need personality, readability and production-ready animation setup.</p>
+              <div class="animation-preview-cta">
+                <span data-i18n="anim_preview_cta">Open full reel</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS / TECH STACK -->
+    <section class="panel compact" id="skills">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">
+            <span class="badge">✦</span>
+            <span data-i18n="skills_kicker">Stack técnico</span>
+          </div>
+          <h2 data-i18n="skills_t">Lo que aporto como Technical Artist</h2>
+        </div>
+      </div>
+      <div class="skills">
+        <div class="skill">
+          <div class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18M3 12h18"/></svg>
+          </div>
+          <h4 data-i18n="sk1_t">Shaders &amp; Materiales</h4>
+          <p data-i18n="sk1_c">Setup de materiales, look dev e iluminación consistente y legible en Unity.</p>
+        </div>
+        <div class="skill">
+          <div class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M12 16v6M2 12h6M16 12h6M5 5l4 4M15 15l4 4M5 19l4-4M15 9l4-4"/></svg>
+          </div>
+          <h4 data-i18n="sk2_t">VFX &amp; Game Feel</h4>
+          <p data-i18n="sk2_c">Partículas, feedback visual e impacto que dan vida y peso a cada interacción.</p>
+        </div>
+        <div class="skill">
+          <div class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 1 1-14 0 7 7 0 0 1 14 0z"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+          </div>
+          <h4 data-i18n="sk3_t">Unity &amp; Pipeline</h4>
+          <p data-i18n="sk3_c">Integración de assets, render, cámara, C# y optimización para móvil.</p>
+        </div>
+        <div class="skill">
+          <div class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5v10l-9 5-9-5V7z"/><path d="m12 12 9-5M12 12v10M12 12 3 7"/></svg>
+          </div>
+          <h4 data-i18n="sk4_t">3D &amp; DCC</h4>
+          <p data-i18n="sk4_c">Modelado de props, cleanup de librerías y environment art listo para engine.</p>
+        </div>
+      </div>
+      <div class="stack-block">
+        <div class="stack-group">
+          <span class="stack-label" data-i18n="ts_software">Software &amp; herramientas</span>
+          <div class="tech-stack" aria-label="Software y herramientas">
+            <span class="chip">Unity</span>
+            <span class="chip">C#</span>
+            <span class="chip">Shader Graph</span>
+            <span class="chip">HLSL</span>
+            <span class="chip">VFX Graph</span>
+            <span class="chip">Substance</span>
+            <span class="chip">ZBrush</span>
+            <span class="chip">Blender</span>
+            <span class="chip">Maya</span>
+            <span class="chip">Python</span>
+            <span class="chip">Git</span>
+          </div>
+        </div>
+        <div class="stack-group">
+          <span class="stack-label" data-i18n="ts_areas">Áreas</span>
+          <div class="tech-stack" aria-label="Áreas de trabajo">
+            <span class="chip soft" data-i18n="st_materials">Materiales</span>
+            <span class="chip soft" data-i18n="st_lighting">Iluminación</span>
+            <span class="chip soft" data-i18n="st_vfx">VFX / Partículas</span>
+            <span class="chip soft" data-i18n="st_render">Render &amp; Cámara</span>
+            <span class="chip soft" data-i18n="st_assets">Integración de assets</span>
+            <span class="chip soft" data-i18n="st_opt">Optimización móvil</span>
+            <span class="chip soft" data-i18n="st_props">Modelado de props</span>
+            <span class="chip soft">Environment Art</span>
+            <span class="chip soft" data-i18n="st_anim">Animación en engine</span>
+            <span class="chip soft" data-i18n="st_ip">IP licenciada</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VISUAL -->
+    <section class="panel compact" id="visual">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">
+            <span class="badge">V</span>
+            <span data-i18n="visual_kicker">Visual Craft</span>
+          </div>
+          <h2 data-i18n="visual_t">Personajes, UI y Tech Art</h2>
+        </div>
+      </div>
+      <p class="visual-intro" data-i18n="visual_intro">Una parte importante de mi trabajo está en conectar gameplay, arte y feedback visual: personajes expresivos, interfaces claras y sistemas visuales que hacen que el juego se sienta mejor.</p>
+      <div class="visual-grid">
+        <article class="visual-card" data-tone="characters">
+          <div class="visual-media">
+            <img src="assets/images/visual-character-1.jpg" alt="Placeholder para personajes y criaturas" onerror="this.style.display='none'">
+            <div class="visual-stamp">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3.9 0 7 2.9 7 6.6 0 2.2-1.1 4.2-2.9 5.4V18a1 1 0 0 1-1.7.7l-1.8-1.8c-.2 0-.4.1-.6.1-3.9 0-7-2.9-7-6.4S8.1 3 12 3Z"/><circle cx="9.5" cy="10" r="1"/><circle cx="14.5" cy="10" r="1"/></svg>
+            </div>
+          </div>
+          <div class="visual-body">
+            <div class="visual-label"><span class="dot"></span><span>3D / Stylized</span></div>
+            <h4 data-i18n="visual_1_t">Personajes y criaturas</h4>
+            <p data-i18n="visual_1_c">Personajes stylized, mascotas y criaturas preparadas para gameplay, animación y rendimiento mobile.</p>
+          </div>
+        </article>
+        <article class="visual-card" data-tone="ui">
+          <div class="visual-media">
+            <img src="assets/images/visual-ui-1.jpg" alt="Placeholder para UI y UX mobile" onerror="this.style.display='none'">
+            <div class="visual-stamp">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M8 6h8M8 10h5M8 14h8"/><circle cx="12" cy="18" r="1"/></svg>
+            </div>
+          </div>
+          <div class="visual-body">
+            <div class="visual-label"><span class="dot"></span><span>HUD / Flows</span></div>
+            <h4 data-i18n="visual_2_t">UI / UX Mobile</h4>
+            <p data-i18n="visual_2_c">Pantallas de shop, recompensas, HUDs y flujos de interacción pensados para claridad, ritmo y retención.</p>
+          </div>
+        </article>
+        <article class="visual-card" data-tone="anim">
+          <div class="visual-media">
+            <img src="assets/images/visual-animation-1.jpg" alt="Placeholder para animación y game feel" onerror="this.style.display='none'">
+            <div class="visual-stamp">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m4 14 4-4 4 4 8-8"/><path d="M20 10v6h-6"/></svg>
+            </div>
+          </div>
+          <div class="visual-body">
+            <div class="visual-label"><span class="dot"></span><span>Polish / Feedback</span></div>
+            <h4 data-i18n="visual_3_t">Animación y game feel</h4>
+            <p data-i18n="visual_3_c">Estados de personaje, polish de animación, feedback visual, timing de impacto y momentos de recompensa.</p>
+          </div>
+        </article>
+        <article class="visual-card" data-tone="tech">
+          <div class="visual-media">
+            <img src="assets/images/visual-techart-1.jpg" alt="Placeholder para technical art" onerror="this.style.display='none'">
+            <div class="visual-stamp">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.9 4.9l2.8 2.8"/><path d="m16.3 16.3 2.8 2.8"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="m4.9 19.1 2.8-2.8"/><path d="m16.3 7.7 2.8-2.8"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+          </div>
+          <div class="visual-body">
+            <div class="visual-label"><span class="dot"></span><span>Unity / VFX</span></div>
+            <h4 data-i18n="visual_4_t">Tech Art</h4>
+            <p data-i18n="visual_4_c">Integración en Unity, VFX, partículas, materiales y sistemas visuales reutilizables.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="panel compact" id="process">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">
+            <span class="badge">▣</span>
+            <span data-i18n="proc_kicker">Mi proceso</span>
+          </div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="tl">
+          <div class="date" data-i18n="t1_date">01 — IDEA</div>
+          <h4 data-i18n="t1_t">Concepto y prototipo</h4>
+          <p data-i18n="t1_c">De una mecánica core a un prototipo jugable en días, con foco en lo divertido.</p>
+        </div>
+        <div class="tl">
+          <div class="date" data-i18n="t2_date">02 — BUILD</div>
+          <h4 data-i18n="t2_t">Sistemas y polish</h4>
+          <p data-i18n="t2_c">Arquitectura modular, feedback visual, animación y UI pensada para móvil.</p>
+        </div>
+        <div class="tl">
+          <div class="date" data-i18n="t3_date">03 — LAUNCH</div>
+          <h4 data-i18n="t3_t">Live ops y retención</h4>
+          <p data-i18n="t3_c">Daily rewards, ads, economía y telemetría para crecer sin romper la experiencia.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="panel compact" id="about">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">
+            <span class="badge">☻</span>
+            <span data-i18n="about_kicker">Sobre mí</span>
+          </div>
+        </div>
+      </div>
+      <div class="about">
+        <div class="about-card">
+          <h3 data-i18n="about_t">Technical Artist con perfil híbrido: arte + motor</h3>
+          <p data-i18n="about_c">Trabajo en el puente entre arte y programación: llevo materiales, iluminación, VFX y animación a Unity y los dejo listos para producción, optimizados y consistentes en móvil. Vengo del mundo del arte 3D, así que cuido tanto cómo se ve como cómo rinde.</p>
+          <div class="stats">
+            <div class="stat"><strong>+30</strong><span data-i18n="stat1">Apps publicadas</span></div>
+            <div class="stat"><strong>+50M</strong><span data-i18n="stat2">Descargas combinadas</span></div>
+            <div class="stat"><strong>1</strong><span data-i18n="stat3">Juego en Switch / PlayStation</span></div>
+            <div class="stat"><strong>10</strong><span data-i18n="stat4">Años en la industria</span></div>
+          </div>
+        </div>
+        <div class="about-card">
+          <h3 data-i18n="cv_t">CV y disponibilidad</h3>
+          <p data-i18n="cv_c">Disponible para colaboraciones, freelance o posiciones relacionadas con Unity, casual games y mobile UX.</p>
+          <div class="cta-row" style="margin-top:18px">
+            <a class="btn btn-primary" href="assets/docs/CV_RaycoGonzalez_2026.pdf" download="CV_RaycoGonzalez_2026.pdf" target="_blank" rel="noopener"><span data-i18n="cv_btn">Descargar CV</span></a>
+            <a class="btn btn-ghost" href="#contact"><span data-i18n="cv_btn2">Escríbeme</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+      <div class="pad">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="12" rx="4"/><path d="M8 12h2M9 11v2"/><circle cx="15" cy="12" r="1"/><circle cx="17" cy="14" r="1"/></svg>
+      </div>
+      <div>
+        <h3 data-i18n="contact_t">¿Tienes una idea en mente?</h3>
+        <p data-i18n="contact_c">Hablemos y hagamos un juego increíble juntos.</p>
+      </div>
+      <a class="btn btn-primary" href="mailto:river.3D@proton.me">
+        <span data-i18n="contact_btn">Contactar</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </section>
+
+    <footer class="footer">
+      <span>© 2026 Rayco González. Portfolio personal.</span>
+      <span>Technical Artist · Unity · VFX · Shaders · Mobile</span>
+    </footer>
+  </main>
+</div>
+
+<script>
+const I18N = {
+  es: {
+    nav_home:"Inicio", nav_about:"Sobre mí", nav_cases:"Case Studies", nav_games:"Juegos", nav_visual:"Visual", nav_process:"Proceso", nav_contact:"Contacto",
+    hello:"¡Hola! Soy Rayco",
+    h1_a:"Technical Artist", h1_b:"para juegos casual", h1_c:"que enganchan",
+    hero_copy:"Conecto arte y motor en Unity: materiales, VFX, iluminación, render y pipeline que hacen que los juegos casual se vean bien y rindan en móvil.",
+    cta_primary:"Ver mis juegos", cta_secondary:"Conocer más sobre mí",
+    quote:"Me apasionan los juegos casual: mecánicas simples, retos bien pensados y recompensas que generan enganche y satisfacción.",
+    games_kicker:"Proyectos destacados", games_all:"Ver case studies",
+    anim_kicker:"Animation Focus",
+    anim_title:"Animation & Character Work",
+    anim_copy:"Animación stylized de personajes, comportamientos de criaturas y sistemas de animación listos para Unity para juegos mobile y apps centradas en personajes.",
+    anim_h1:"Animación stylized de personajes",
+    anim_h2:"Comportamientos de mascotas y criaturas",
+    anim_h3:"Integración de animación en Unity",
+    anim_h4:"Timing de animación para gameplay",
+    anim_h5:"VFX y feedback de recompensa",
+    anim_h6:"Experiencias mobile centradas en personajes",
+    anim_btn_reel:"Ver reel completo",
+    anim_btn_art:"Ver ArtStation",
+    anim_preview_label:"Pipeline de personaje",
+    anim_preview_badge:"Preparado para Unity",
+    anim_tag_1:"Movimiento stylized",
+    anim_tag_2:"Timing de gameplay",
+    anim_tag_3:"Feedback de recompensa",
+    anim_core_t:"Reel de animación para personajes expresivos",
+    anim_core_c:"Una mirada centrada en trabajo de personaje stylized, interacciones de mascotas, timing de gameplay e implementación lista para Unity.",
+    anim_preview_note:"Pensado para personajes mobile con personalidad, legibilidad y una integración de animación preparada para producción.",
+    anim_preview_cta:"Abrir reel completo",
+    g1_title:"PawPal", g1_tag:"Virtual Pet", g1_copy:"Mascota virtual mobile con minijuegos arcade, personalización y sistemas de progresión orientados a retención.",
+    g2_tag:"3D / Tech Art", g2_copy:"Juego educativo infantil basado en el universo Pocoyo. Arte 3D, integración en Unity, iluminación, materiales y soporte de VFX.",
+    g3_tag:"Animación / Tech Art", g3_copy:"App de personaje licenciado donde coordiné las peticiones de animación, adapté contenido de animación y me encargué de la implementación de technical art en Unity: VFX, iluminación, cámara, UI y configuración de audio.",
+    skills_kicker:"Stack técnico",
+    skills_t:"Lo que aporto como Technical Artist",
+    sk1_t:"Shaders & Materiales", sk1_c:"Setup de materiales, look dev e iluminación consistente y legible en Unity.",
+    sk2_t:"VFX & Game Feel", sk2_c:"Partículas, feedback visual e impacto que dan vida y peso a cada interacción.",
+    sk3_t:"Unity & Pipeline", sk3_c:"Integración de assets, render, cámara, C# y optimización para móvil.",
+    sk4_t:"3D & DCC", sk4_c:"Modelado de props, cleanup de librerías y environment art listo para engine.",
+    ts_software:"Software & herramientas", ts_areas:"Áreas",
+    st_materials:"Materiales", st_lighting:"Iluminación", st_vfx:"VFX / Partículas", st_render:"Render & Cámara",
+    st_assets:"Integración de assets", st_opt:"Optimización móvil", st_props:"Modelado de props",
+    st_anim:"Animación en engine", st_ip:"IP licenciada",
+    visual_kicker:"Visual Craft",
+    visual_t:"Personajes, UI y Tech Art",
+    visual_intro:"Una parte importante de mi trabajo está en conectar gameplay, arte y feedback visual: personajes expresivos, interfaces claras y sistemas visuales que hacen que el juego se sienta mejor.",
+    visual_1_t:"Personajes y criaturas",
+    visual_1_c:"Personajes stylized, mascotas y criaturas preparadas para gameplay, animación y rendimiento mobile.",
+    visual_2_t:"UI / UX Mobile",
+    visual_2_c:"Pantallas de shop, recompensas, HUDs y flujos de interacción pensados para claridad, ritmo y retención.",
+    visual_3_t:"Animación y game feel",
+    visual_3_c:"Estados de personaje, polish de animación, feedback visual, timing de impacto y momentos de recompensa.",
+    visual_4_t:"Tech Art",
+    visual_4_c:"Integración en Unity, VFX, partículas, materiales y sistemas visuales reutilizables.",
+    proc_kicker:"Mi proceso",
+    t1_date:"01 — IDEA", t1_t:"Concepto y prototipo", t1_c:"De una mecánica core a un prototipo jugable en días, con foco en lo divertido.",
+    t2_date:"02 — BUILD", t2_t:"Sistemas y polish", t2_c:"Arquitectura modular, feedback visual, animación y UI pensada para móvil.",
+    t3_date:"03 — LAUNCH", t3_t:"Live ops y retención", t3_c:"Daily rewards, ads, economía y telemetría para crecer sin romper la experiencia.",
+    about_kicker:"Sobre mí",
+    about_t:"Technical Artist con perfil híbrido: arte + motor",
+    about_c:"Trabajo en el puente entre arte y programación: llevo materiales, iluminación, VFX y animación a Unity y los dejo listos para producción, optimizados y consistentes en móvil. Vengo del mundo del arte 3D, así que cuido tanto cómo se ve como cómo rinde.",
+    stat1:"Apps publicadas", stat2:"Descargas combinadas", stat3:"Juego en Switch / PlayStation", stat4:"Años en la industria",
+    cv_t:"CV y disponibilidad",
+    cv_c:"Disponible para colaboraciones, freelance o posiciones relacionadas con Unity, casual games y mobile UX.",
+    cv_btn:"Descargar CV", cv_btn2:"Escríbeme",
+    contact_t:"¿Tienes una idea en mente?",
+    contact_c:"Hablemos y hagamos un juego increíble juntos.",
+    contact_btn:"Contactar"
+  },
+  en: {
+    nav_home:"Home", nav_about:"About", nav_cases:"Case Studies", nav_games:"Games", nav_visual:"Visual", nav_process:"Process", nav_contact:"Contact",
+    hello:"Hi! I'm Rayco",
+    h1_a:"Technical Artist", h1_b:"for casual games", h1_c:"that hook you",
+    hero_copy:"I connect art and engine in Unity: materials, VFX, lighting, render and pipeline that make casual games look great and run well on mobile.",
+    cta_primary:"See my games", cta_secondary:"More about me",
+    quote:"I love casual games: simple mechanics, well-thought challenges, and rewards that create engagement and satisfaction.",
+    games_kicker:"Featured projects", games_all:"View case studies",
+    anim_kicker:"Animation Focus",
+    anim_title:"Animation & Character Work",
+    anim_copy:"Stylized character animation, creature behaviours and Unity-ready animation systems for mobile games and character-driven apps.",
+    anim_h1:"Stylized character animation",
+    anim_h2:"Pet and creature behaviours",
+    anim_h3:"Unity animation integration",
+    anim_h4:"Animation timing for gameplay",
+    anim_h5:"VFX and reward feedback",
+    anim_h6:"Character-driven mobile experiences",
+    anim_btn_reel:"Watch full reel",
+    anim_btn_art:"View ArtStation",
+    anim_preview_label:"Character pipeline",
+    anim_preview_badge:"Unity Ready",
+    anim_tag_1:"Stylized motion",
+    anim_tag_2:"Gameplay timing",
+    anim_tag_3:"Reward feedback",
+    anim_core_t:"Animation reel for expressive characters",
+    anim_core_c:"A focused look at stylized character work, pet interactions, gameplay timing and Unity-ready implementation.",
+    anim_preview_note:"Built to support mobile characters that need personality, readability and production-ready animation setup.",
+    anim_preview_cta:"Open full reel",
+    g1_title:"PawPal", g1_tag:"Virtual Pet", g1_copy:"Virtual pet mobile game with arcade mini-games, customization and progression systems designed for retention.",
+    g2_tag:"3D / Tech Art", g2_copy:"Educational kids game based on the Pocoyo universe. 3D art, Unity integration, lighting, materials and VFX support.",
+    g3_tag:"Animation / Tech Art", g3_copy:"Licensed character app where I coordinated animation requests, adapted animation content and handled Unity technical art implementation including VFX, lighting, camera, UI and audio setup.",
+    skills_kicker:"Tech stack",
+    skills_t:"What I bring as a Technical Artist",
+    sk1_t:"Shaders & Materials", sk1_c:"Material setup, look dev and consistent, readable lighting in Unity.",
+    sk2_t:"VFX & Game Feel", sk2_c:"Particles, visual feedback and impact that give life and weight to every interaction.",
+    sk3_t:"Unity & Pipeline", sk3_c:"Asset integration, render, camera, C# and mobile optimization.",
+    sk4_t:"3D & DCC", sk4_c:"Prop modelling, asset-library cleanup and engine-ready environment art.",
+    ts_software:"Software & tools", ts_areas:"Areas",
+    st_materials:"Materials", st_lighting:"Lighting", st_vfx:"VFX / Particles", st_render:"Render & Camera",
+    st_assets:"Asset Integration", st_opt:"Mobile Optimization", st_props:"Prop Modelling",
+    st_anim:"In-engine Animation", st_ip:"Licensed IP",
+    visual_kicker:"Visual Craft",
+    visual_t:"Characters, UI and Tech Art",
+    visual_intro:"A big part of my work is connecting gameplay, art and visual feedback: expressive characters, clear interfaces and visual systems that make the game feel better.",
+    visual_1_t:"Characters & Creatures",
+    visual_1_c:"Stylized characters, pets and creatures prepared for gameplay, animation and mobile performance.",
+    visual_2_t:"UI / UX Mobile",
+    visual_2_c:"Shop screens, reward panels, HUDs and mobile-first interaction flows focused on clarity and retention.",
+    visual_3_t:"Animation & Game Feel",
+    visual_3_c:"Character states, animation polish, visual feedback, impact timing and reward moments.",
+    visual_4_t:"Technical Art",
+    visual_4_c:"Unity integration, VFX, particles, shaders/material setup and reusable visual systems.",
+    proc_kicker:"My process",
+    t1_date:"01 — IDEA", t1_t:"Concept & prototype", t1_c:"From a core mechanic to a playable prototype in days, focused on what's fun.",
+    t2_date:"02 — BUILD", t2_t:"Systems & polish", t2_c:"Modular architecture, visual feedback, animation and mobile-first UI.",
+    t3_date:"03 — LAUNCH", t3_t:"Live ops & retention", t3_c:"Daily rewards, ads, economy and telemetry to grow without breaking UX.",
+    about_kicker:"About me",
+    about_t:"Technical Artist with a hybrid profile: art + engine",
+    about_c:"I work at the bridge between art and programming: I bring materials, lighting, VFX and animation into Unity and make them production-ready, optimized and consistent on mobile. I come from a 3D art background, so I care as much about how it looks as how it performs.",
+    stat1:"Apps shipped", stat2:"Combined downloads", stat3:"Switch / PlayStation game", stat4:"Years in the industry",
+    cv_t:"CV & availability",
+    cv_c:"Available for collaborations, freelance or positions related to Unity, casual games and mobile UX.",
+    cv_btn:"Download CV", cv_btn2:"Email me",
+    contact_t:"Got an idea in mind?",
+    contact_c:"Let's talk and make an incredible game together.",
+    contact_btn:"Get in touch"
+  }
+};
+
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "lang": "es",
+  "accent": "sunset"
+}/*EDITMODE-END*/;
+
+function applyLang(lang){
+  const dict = I18N[lang] || I18N.es;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const key = el.getAttribute("data-i18n");
+    if(dict[key]) el.textContent = dict[key];
+  });
+  document.documentElement.lang = lang;
+}
+
+function applyAccent(name){
+  const map = {
+    violet:{a:"#8b5cf6",b:"#a78bfa",c:"#ff5ca8"},
+    teal:  {a:"#14b8a6",b:"#5eead4",c:"#60a5fa"},
+    sunset:{a:"#f97316",b:"#fbbf24",c:"#ef4444"}
+  };
+  const c = map[name] || map.violet;
+  document.documentElement.style.setProperty("--violet", c.a);
+  document.documentElement.style.setProperty("--violet-2", c.b);
+  document.documentElement.style.setProperty("--pink", c.c);
+}
+
+let state = {...TWEAK_DEFAULTS};
+try{ const saved = localStorage.getItem("lang"); if(saved && I18N[saved]) state.lang = saved; }catch(e){}
+applyLang(state.lang);
+applyAccent(state.accent);
+
+// visible language switcher
+const langButtons = [...document.querySelectorAll("[data-lang-btn]")];
+function updateLangButtons(){
+  langButtons.forEach(b=> b.classList.toggle("active", b.dataset.langBtn === state.lang));
+}
+langButtons.forEach(b=> b.addEventListener("click", ()=> setKey("lang", b.dataset.langBtn)));
+updateLangButtons();
+
+const heroCarousel = document.querySelector("[data-hero-carousel]");
+if(heroCarousel){
+  const slides = [...heroCarousel.querySelectorAll(".hero-slide")];
+  const dots = [...heroCarousel.querySelectorAll(".hero-dot")];
+  let activeIndex = 0;
+  let autoplayId = null;
+
+  function showHeroSlide(nextIndex){
+    activeIndex = (nextIndex + slides.length) % slides.length;
+    slides.forEach((slide, index)=> slide.classList.toggle("is-active", index === activeIndex));
+    dots.forEach((dot, index)=>{
+      const isActive = index === activeIndex;
+      dot.classList.toggle("is-active", isActive);
+      dot.setAttribute("aria-current", String(isActive));
+    });
+  }
+
+  function stopHeroAutoplay(){
+    window.clearInterval(autoplayId);
+  }
+
+  function startHeroAutoplay(){
+    if(slides.length < 2) return;
+    stopHeroAutoplay();
+    autoplayId = window.setInterval(()=> showHeroSlide(activeIndex + 1), 4500);
+  }
+
+  dots.forEach((dot, index)=>{
+    dot.addEventListener("click", ()=>{
+      showHeroSlide(index);
+      startHeroAutoplay();
+    });
+  });
+
+  heroCarousel.addEventListener("mouseenter", stopHeroAutoplay);
+  heroCarousel.addEventListener("mouseleave", startHeroAutoplay);
+  heroCarousel.addEventListener("focusin", stopHeroAutoplay);
+  heroCarousel.addEventListener("focusout", startHeroAutoplay);
+
+  showHeroSlide(0);
+  startHeroAutoplay();
+}
+
+// active nav on scroll
+const links = [...document.querySelectorAll(".nav a")];
+const sections = links.map(l=>document.querySelector(l.getAttribute("href"))).filter(Boolean);
+function onScroll(){
+  const y = window.scrollY + 200;
+  let cur = sections[0]?.id;
+  sections.forEach(s=>{ if(s.offsetTop <= y) cur = s.id; });
+  links.forEach(l=> l.classList.toggle("active", l.getAttribute("href") === "#"+cur));
+}
+window.addEventListener("scroll", onScroll, {passive:true});
+onScroll();
+
+// TWEAKS protocol
+let panelOpen = false;
+window.addEventListener("message", (e)=>{
+  if(!e.data) return;
+  if(e.data.type === "__activate_edit_mode"){ panelOpen = true; renderPanel(); }
+  if(e.data.type === "__deactivate_edit_mode"){ panelOpen = false; renderPanel(); }
+});
+window.parent.postMessage({type:"__edit_mode_available"}, "*");
+
+function setKey(k, v){
+  state[k] = v;
+  if(k === "lang"){ applyLang(v); try{ localStorage.setItem("lang", v); }catch(e){} updateLangButtons(); }
+  if(k === "accent") applyAccent(v);
+  window.parent.postMessage({type:"__edit_mode_set_keys", edits:{[k]:v}}, "*");
+  renderPanel();
+}
+
+function renderPanel(){
+  let p = document.getElementById("__tweaks");
+  if(!panelOpen){ if(p) p.remove(); return; }
+  if(!p){
+    p = document.createElement("div");
+    p.id = "__tweaks";
+    p.style.cssText = `position:fixed;right:18px;bottom:18px;z-index:9999;width:240px;
+      background:rgba(15,17,40,.95);backdrop-filter:blur(16px);
+      border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:16px;
+      color:#f4f3ff;font-family:Sora,system-ui;box-shadow:0 20px 60px rgba(0,0,0,.5)`;
+    document.body.appendChild(p);
+  }
+  p.innerHTML = `
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+      <strong style="font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:#a78bfa">Tweaks</strong>
+      <button id="__close" style="background:none;border:none;color:#9a9ab8;cursor:pointer;font-size:16px">×</button>
+    </div>
+    <div style="font-size:11px;color:#9a9ab8;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">Idioma</div>
+    <div style="display:flex;gap:6px;margin-bottom:14px">
+      ${["es","en"].map(l=>`<button data-lang="${l}" style="flex:1;padding:8px;border-radius:8px;border:1px solid ${state.lang===l?"#a78bfa":"rgba(255,255,255,.1)"};background:${state.lang===l?"rgba(139,92,246,.25)":"transparent"};color:#f4f3ff;cursor:pointer;font-size:12px;font-weight:600;text-transform:uppercase">${l}</button>`).join("")}
+    </div>
+    <div style="font-size:11px;color:#9a9ab8;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">Acento</div>
+    <div style="display:flex;gap:6px">
+      ${[["violet","#a78bfa"],["teal","#5eead4"],["sunset","#fbbf24"]].map(([k,col])=>`<button data-accent="${k}" style="flex:1;height:34px;border-radius:8px;border:2px solid ${state.accent===k?"#fff":"rgba(255,255,255,.1)"};background:${col};cursor:pointer"></button>`).join("")}
+    </div>
+  `;
+  p.querySelector("#__close").onclick = ()=>{
+    panelOpen = false; renderPanel();
+    window.parent.postMessage({type:"__edit_mode_dismissed"},"*");
+  };
+  p.querySelectorAll("[data-lang]").forEach(b=> b.onclick = ()=> setKey("lang", b.dataset.lang));
+  p.querySelectorAll("[data-accent]").forEach(b=> b.onclick = ()=> setKey("accent", b.dataset.accent));
+}
+</script>
+</body>
+</html>
+

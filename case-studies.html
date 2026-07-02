@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Selected Case Studies — Rayco González</title>
+<meta name="description" content="Selected case studies by Rayco González: PawPal, The Book of Sounds and Pocoyó / Kids games & character work. A hybrid profile across mobile games, UX research, product design and character-driven experiences for kids, families and casual players." />
+<meta name="author" content="Rayco González" />
+<link rel="canonical" href="https://raycogonzalez.com/case-studies.html" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 38 38'%3E%3Crect width='38' height='38' rx='11' fill='%23a78bfa'/%3E%3Ctext x='19' y='27' font-family='sans-serif' font-size='22' font-weight='900' fill='%230a0b1e' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E" />
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Selected Case Studies — Rayco González" />
+<meta property="og:description" content="Mobile games, UX research and character-driven experiences for kids and casual audiences." />
+<meta property="og:url" content="https://raycogonzalez.com/case-studies.html" />
+<meta property="og:image" content="https://raycogonzalez.com/assets/images/hero-profile-placeholder.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Selected Case Studies — Rayco González" />
+<meta name="twitter:description" content="Mobile games, UX research and character-driven experiences for kids and casual audiences." />
+<meta name="twitter:image" content="https://raycogonzalez.com/assets/images/hero-profile-placeholder.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0b1e;
+    --bg-2:#11132c;
+    --panel:#161836;
+    --panel-2:#1d2046;
+    --line:rgba(255,255,255,.08);
+    --line-2:rgba(255,255,255,.14);
+    --text:#f4f3ff;
+    --muted:#9a9ab8;
+    --soft:#cdcbe8;
+    --violet:#8b5cf6;
+    --violet-2:#a78bfa;
+    --pink:#ff5ca8;
+    --lime:#c7f24a;
+    --yellow:#ffd34d;
+    --teal:#5eead4;
+    --blue:#60a5fa;
+    --orange:#ff8a4c;
+    --sidebar:240px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Sora",system-ui,sans-serif;
+    color:var(--text);
+    background:
+      radial-gradient(900px 500px at 80% -10%, rgba(139,92,246,.18), transparent 60%),
+      radial-gradient(700px 400px at 20% 110%, rgba(255,92,168,.10), transparent 60%),
+      var(--bg);
+    min-height:100vh;
+    overflow-x:hidden;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+    background-image:
+      radial-gradient(rgba(255,255,255,.5) 1px, transparent 1.2px),
+      radial-gradient(rgba(199,242,74,.35) 1px, transparent 1.2px);
+    background-size:90px 90px, 140px 140px;
+    background-position:0 0, 45px 60px;
+    opacity:.18;
+    mask-image:linear-gradient(to bottom, black, transparent 85%);
+  }
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+
+  .page{position:relative;z-index:1;display:grid;grid-template-columns:var(--sidebar) minmax(0,1fr);min-height:100vh}
+
+  /* SIDEBAR */
+  .sidebar{
+    position:fixed;top:0;left:0;width:var(--sidebar);height:100vh;
+    padding:30px 22px;
+    border-right:1px solid var(--line);
+    background:rgba(10,11,30,.75);
+    backdrop-filter:blur(20px);
+    display:flex;flex-direction:column;justify-content:space-between;
+    z-index:20;
+  }
+  .logo{display:flex;align-items:center;gap:6px;font-weight:900;font-size:30px;letter-spacing:-2px}
+  .logo .dot{width:10px;height:10px;border-radius:50%;background:var(--violet-2);margin-top:14px}
+  .logo .mark{
+    width:38px;height:38px;border-radius:11px;display:grid;place-items:center;
+    background:linear-gradient(135deg,#fff,#dcd6ff);color:#0a0b1e;font-weight:900;font-size:18px;
+  }
+  .nav{display:flex;flex-direction:column;gap:6px;margin-top:46px}
+  .nav a{
+    display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:14px;
+    color:var(--muted);font-weight:600;font-size:15px;transition:.2s ease;
+    border:1px solid transparent;
+  }
+  .nav a .ico{width:18px;height:18px;display:grid;place-items:center;color:var(--muted)}
+  .nav a:hover{color:var(--text);background:rgba(255,255,255,.04)}
+  .nav a.active{
+    color:var(--text);
+    background:linear-gradient(180deg, rgba(139,92,246,.32), rgba(139,92,246,.18));
+    border-color:rgba(167,139,250,.28);
+    box-shadow:0 8px 24px rgba(139,92,246,.18) inset, 0 4px 14px rgba(139,92,246,.18);
+  }
+  .nav a.active .ico{color:var(--violet-2)}
+  .socials{display:flex;flex-direction:column;gap:14px;color:var(--muted)}
+  .socials a{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;border:1px solid var(--line);transition:.2s}
+  .socials a:hover{color:var(--lime);border-color:rgba(199,242,74,.4)}
+
+  main{grid-column:2;padding:32px clamp(20px,3.5vw,46px) 60px;max-width:1480px}
+
+  .back{
+    display:inline-flex;align-items:center;gap:10px;color:var(--muted);
+    font-size:14px;font-weight:600;padding:8px 14px;border-radius:999px;
+    border:1px solid var(--line);background:rgba(255,255,255,.03);
+    transition:.2s;margin-bottom:18px;
+  }
+  .back:hover{color:var(--text);border-color:var(--line-2);transform:translateX(-3px)}
+
+  /* PANEL */
+  .panel{
+    border:1px solid var(--line);
+    background:linear-gradient(180deg, rgba(22,24,54,.92), rgba(17,19,44,.92));
+    border-radius:28px;
+    padding:clamp(22px,3vw,38px);
+    box-shadow:0 30px 80px rgba(0,0,0,.35);
+    position:relative;
+    overflow:hidden;
+  }
+  .panel.compact{padding:clamp(18px,2.4vw,28px)}
+  .panel.glow::before{
+    content:"";position:absolute;inset:-1px;border-radius:inherit;pointer-events:none;
+    background:radial-gradient(600px 240px at 80% 0%, rgba(139,92,246,.18), transparent 60%);
+  }
+  section + section{margin-top:24px}
+
+  .crumbs{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted);margin-bottom:18px}
+  .crumbs a{color:var(--soft)}
+  .crumbs a:hover{color:var(--text)}
+  .crumbs .sep{opacity:.5}
+  .crumbs .now{color:var(--violet-2);font-weight:700}
+
+  /* HERO */
+  .hero{
+    display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);
+    gap:30px;align-items:center;
+  }
+  .hero-left{position:relative;z-index:2}
+  .kicker{
+    display:inline-flex;align-items:center;gap:8px;color:var(--violet-2);
+    font-weight:600;font-size:14px;margin-bottom:16px;
+  }
+  .kicker .badge{
+    width:18px;height:18px;border-radius:5px;background:linear-gradient(135deg,var(--violet),var(--pink));
+    display:grid;place-items:center;color:#fff;font-size:10px;
+  }
+  h1{
+    font-size:clamp(40px,5.4vw,76px);
+    line-height:.96;letter-spacing:-.045em;font-weight:800;
+    max-width:680px;
+  }
+  h1 .grad{
+    background:linear-gradient(90deg, var(--violet-2) 0%, var(--pink) 60%, var(--orange) 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero-sub{color:var(--soft);font-size:clamp(16px,1.6vw,19px);font-weight:600;line-height:1.5;margin-top:18px;max-width:520px}
+  .hero-copy{color:var(--muted);font-size:15px;line-height:1.7;margin-top:14px;max-width:520px}
+  .tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+  .tag-lg{
+    font-size:12px;font-weight:700;padding:7px 13px;border-radius:999px;
+    background:rgba(167,139,250,.16);color:var(--violet-2);border:1px solid rgba(167,139,250,.26);
+  }
+  .tag-lg.alt{background:rgba(94,234,212,.14);color:var(--teal);border-color:rgba(94,234,212,.26)}
+  .cta-row{display:flex;gap:14px;margin-top:28px;align-items:center;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    height:48px;padding:0 22px;border-radius:999px;
+    font-weight:700;font-size:14px;cursor:pointer;
+    border:1px solid transparent;transition:.22s ease;
+  }
+  .btn-primary{
+    background:linear-gradient(135deg,#dcfa6c,#a8e62e);
+    color:#0a0b1e;
+    box-shadow:0 14px 36px rgba(199,242,74,.22);
+  }
+  .btn-primary:hover{transform:translateY(-2px);filter:brightness(1.05)}
+  .btn-soft{
+    color:var(--text);
+    background:linear-gradient(135deg, rgba(139,92,246,.28), rgba(255,92,168,.18));
+    border-color:rgba(167,139,250,.3);
+  }
+  .btn-soft:hover{transform:translateY(-2px);border-color:rgba(167,139,250,.5)}
+  .btn-outline{
+    color:var(--soft);
+    border-color:rgba(255,255,255,.16);
+    background:rgba(255,255,255,.03);
+  }
+  .btn-outline:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.28);color:var(--text)}
+  .btn-ghost{color:var(--soft);background:transparent;border-bottom:1px dashed rgba(255,255,255,.25);border-radius:0;padding:0 0 4px;height:auto}
+  .btn-ghost:hover{color:var(--text)}
+
+  /* HERO ART */
+  .hero-art{
+    position:relative;
+    border-radius:28px;
+    overflow:hidden;
+    min-height:360px;
+    border:1px solid var(--line-2);
+    background:
+      radial-gradient(420px 200px at 30% 10%, rgba(139,92,246,.30), transparent 70%),
+      radial-gradient(420px 220px at 80% 90%, rgba(255,92,168,.22), transparent 70%),
+      linear-gradient(180deg, rgba(18,21,47,.96), rgba(10,12,30,.98));
+    display:grid;place-items:center;
+  }
+  .hero-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .hero-art-fallback{
+    position:relative;z-index:1;display:grid;gap:14px;justify-items:center;text-align:center;padding:30px;
+  }
+  .hero-art-fallback .orbs{display:flex;gap:14px}
+  .hero-art-fallback .orb{width:54px;height:54px;border-radius:18px;display:grid;place-items:center;color:#0a0b1e;font-weight:900;box-shadow:0 12px 30px rgba(0,0,0,.3)}
+  .orb.o1{background:linear-gradient(135deg,#ff5e7e,#ffd54a)}
+  .orb.o2{background:linear-gradient(135deg,#a78bfa,#60a5fa)}
+  .orb.o3{background:linear-gradient(135deg,#5eead4,#84cc16)}
+  .hero-art-fallback p{color:var(--soft);font-size:13px;max-width:240px;line-height:1.6}
+
+  /* SECTION HEADS */
+  .section-kicker{
+    display:inline-flex;align-items:center;gap:8px;color:var(--violet-2);
+    font-weight:600;font-size:14px;
+  }
+  .section-kicker .badge{
+    width:18px;height:18px;border-radius:5px;background:linear-gradient(135deg,var(--violet),var(--pink));
+    display:grid;place-items:center;color:#fff;font-size:10px;
+  }
+  .section-title{font-size:clamp(26px,3vw,38px);line-height:1.05;letter-spacing:-.035em;margin:14px 0 12px;max-width:20ch}
+  .section-sub{color:var(--soft);font-size:15px;line-height:1.7;max-width:70ch}
+
+  /* INTRO / POSITIONING CARDS */
+  .pos-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:24px}
+  .pos-card{
+    padding:20px;border-radius:18px;
+    background:linear-gradient(180deg, rgba(34,37,75,.6), rgba(22,24,54,.6));
+    border:1px solid var(--line);transition:.22s;
+  }
+  .pos-card:hover{border-color:rgba(167,139,250,.32);transform:translateY(-3px)}
+  .pos-card .ico{
+    width:44px;height:44px;border-radius:12px;display:grid;place-items:center;
+    background:rgba(139,92,246,.18);color:var(--violet-2);margin-bottom:14px;
+  }
+  .pos-card h4{font-size:15.5px;font-weight:700;margin-bottom:6px;letter-spacing:-.01em}
+  .pos-card p{color:var(--muted);font-size:13px;line-height:1.55}
+
+  /* CASE STUDY GRID */
+  .cases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+  .case-card{
+    display:flex;flex-direction:column;
+    border-radius:24px;overflow:hidden;
+    background:linear-gradient(180deg, rgba(34,37,75,.7), rgba(22,24,54,.7));
+    border:1px solid var(--line);
+    transition:.25s ease;
+  }
+  .case-card:hover{transform:translateY(-4px);border-color:rgba(167,139,250,.35);box-shadow:0 22px 48px rgba(139,92,246,.18)}
+  .case-media{position:relative;aspect-ratio:16/10;overflow:hidden;display:grid;place-items:center}
+  .case-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .case-media .fallback{
+    position:relative;z-index:0;display:grid;place-items:center;width:100%;height:100%;
+    color:#0a0b1e;font-weight:900;font-size:30px;letter-spacing:-.04em;
+  }
+  .case-media.tone-pawpal .fallback{background:
+    radial-gradient(circle at 28% 28%, #ff5e7e 0 14%, transparent 15%),
+    radial-gradient(circle at 72% 24%, #ffd54a 0 12%, transparent 13%),
+    radial-gradient(circle at 24% 74%, #8b5cf6 0 14%, transparent 15%),
+    linear-gradient(135deg, #5b21b6, #7c3aed)}
+  .case-media.tone-sounds .fallback{background:
+    radial-gradient(circle at 30% 30%, #ffd54a 0 14%, transparent 15%),
+    radial-gradient(circle at 70% 30%, #5eead4 0 13%, transparent 14%),
+    linear-gradient(135deg, #2563eb, #38bdf8)}
+  .case-media.tone-pocoyo .fallback{background:
+    radial-gradient(circle at 50% 32%, rgba(255,255,255,.4) 0 12%, transparent 13%),
+    linear-gradient(135deg, #f59e0b, #fb923c)}
+  .case-media .pill{
+    position:absolute;top:12px;left:12px;z-index:2;
+    display:inline-flex;align-items:center;gap:6px;
+    background:rgba(0,0,0,.45);backdrop-filter:blur(8px);
+    border:1px solid rgba(255,255,255,.18);
+    padding:5px 11px;border-radius:999px;
+    color:var(--yellow);font-weight:700;font-size:11px;
+  }
+  .case-body{padding:20px 20px 22px;display:flex;flex-direction:column;flex:1}
+  .case-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+  .case-tags .t{
+    font-size:10.5px;font-weight:700;padding:4px 9px;border-radius:999px;
+    background:rgba(167,139,250,.16);color:var(--violet-2);border:1px solid rgba(167,139,250,.22);
+  }
+  .case-body h3{font-size:21px;font-weight:800;letter-spacing:-.02em;margin-bottom:8px}
+  .case-desc{color:var(--soft);font-size:13.5px;line-height:1.6}
+  .case-block{margin-top:16px}
+  .case-block .label{
+    font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--teal);font-family:"JetBrains Mono",monospace;margin-bottom:8px;
+  }
+  .case-block .role-label{color:var(--orange)}
+  .impact{list-style:none;display:grid;gap:7px}
+  .impact li{display:flex;gap:9px;align-items:flex-start;color:var(--muted);font-size:12.5px;line-height:1.45}
+  .impact li::before{content:"";width:7px;height:7px;border-radius:50%;flex:none;margin-top:5px;background:linear-gradient(135deg,var(--lime),var(--yellow))}
+  .case-role{color:var(--muted);font-size:12.5px;line-height:1.55}
+  .case-actions{margin-top:auto;padding-top:18px;display:flex;flex-direction:column;gap:9px}
+  .case-actions .btn{height:44px;justify-content:center;width:100%}
+
+  /* DETAILED SECTION */
+  .detail-head{margin-bottom:24px}
+  .detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .detail-card{
+    padding:24px;border-radius:20px;
+    background:linear-gradient(180deg, rgba(34,37,75,.55), rgba(22,24,54,.55));
+    border:1px solid var(--line);
+  }
+  .detail-card h4{font-size:17px;letter-spacing:-.02em;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+  .detail-card h4 .n{
+    width:26px;height:26px;border-radius:8px;flex:none;display:grid;place-items:center;
+    background:rgba(139,92,246,.2);color:var(--violet-2);font-size:12px;font-weight:800;
+    font-family:"JetBrains Mono",monospace;
+  }
+  .detail-card p{color:var(--muted);font-size:13.5px;line-height:1.7}
+  .detail-card ul{list-style:none;display:grid;gap:9px;margin-top:4px}
+  .detail-card ul li{display:flex;gap:10px;align-items:flex-start;color:var(--muted);font-size:13.5px;line-height:1.5}
+  .detail-card ul li::before{content:"";width:7px;height:7px;border-radius:50%;flex:none;margin-top:6px;background:linear-gradient(135deg,var(--teal),var(--blue))}
+  .detail-card.span-2{grid-column:span 2}
+
+  /* UX PROCESS TIMELINE */
+  .ux-steps{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin-top:6px}
+  .ux-step{
+    position:relative;padding:18px 14px;border-radius:16px;
+    background:rgba(255,255,255,.035);border:1px solid var(--line);
+  }
+  .ux-step .num{
+    font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;color:var(--teal);
+    margin-bottom:8px;
+  }
+  .ux-step h5{font-size:13.5px;letter-spacing:-.01em;line-height:1.25}
+  .ux-step::after{
+    content:"";position:absolute;top:50%;right:-7px;width:14px;height:2px;
+    background:linear-gradient(90deg,var(--violet),transparent);
+  }
+  .ux-step:last-child::after{display:none}
+
+  /* SIGNAL CARDS */
+  .signal-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:6px}
+  .signal{
+    display:flex;gap:14px;align-items:flex-start;
+    padding:18px;border-radius:16px;
+    background:linear-gradient(180deg, rgba(34,37,75,.55), rgba(22,24,54,.55));
+    border:1px solid var(--line);transition:.22s;
+  }
+  .signal:hover{border-color:rgba(94,234,212,.3);transform:translateY(-3px)}
+  .signal .check{
+    width:30px;height:30px;border-radius:9px;flex:none;display:grid;place-items:center;
+    background:rgba(94,234,212,.16);color:var(--teal);
+  }
+  .signal p{font-size:13.5px;line-height:1.5;color:var(--soft);font-weight:600}
+
+  /* FOOTER CTA */
+  .footer-cta{
+    display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;
+    padding:30px clamp(22px,3vw,40px);border-radius:28px;
+    background:linear-gradient(135deg, rgba(139,92,246,.18), rgba(255,92,168,.12));
+    border:1px solid rgba(167,139,250,.28);
+  }
+  .footer-cta h3{font-size:clamp(22px,2.6vw,30px);letter-spacing:-.03em;margin-bottom:10px;max-width:18ch}
+  .footer-cta p{color:var(--soft);font-size:14.5px;line-height:1.65;max-width:54ch}
+
+  .footer{
+    margin-top:28px;color:var(--muted);
+    display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;
+    padding:0 6px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width:1100px){
+    :root{--sidebar:0px}
+    .sidebar{position:relative;width:100%;height:auto;flex-direction:row;padding:14px 18px;border-right:none;border-bottom:1px solid var(--line)}
+    .nav{flex-direction:row;margin-top:0;gap:4px;flex-wrap:wrap}
+    .nav a{padding:8px 12px;font-size:13px}
+    .nav a .lbl-full{display:none}
+    .socials{flex-direction:row}
+    .page{grid-template-columns:1fr}
+    main{grid-column:1;padding:20px}
+    .hero{grid-template-columns:1fr}
+    .hero-art{min-height:300px}
+    .pos-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .cases{grid-template-columns:1fr}
+    .ux-steps{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .signal-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  }
+  @media (max-width:720px){
+    .pos-grid{grid-template-columns:1fr}
+    .detail-grid{grid-template-columns:1fr}
+    .detail-card.span-2{grid-column:auto}
+    .ux-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .ux-step::after{display:none}
+    .signal-grid{grid-template-columns:1fr}
+    .footer-cta{grid-template-columns:1fr}
+    .cta-row .btn{width:100%;justify-content:center}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <aside class="sidebar">
+    <div>
+      <a href="index.html" class="logo" aria-label="Home">
+        <div class="mark">R</div>
+        <span class="dot"></span>
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="index.html#home">
+          <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12 12 4l9 8"/><path d="M5 10v10h14V10"/></svg></span>
+          <span class="lbl-full">Home</span>
+        </a>
+        <a href="index.html#about">
+          <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg></span>
+          <span class="lbl-full">About</span>
+        </a>
+        <a href="case-studies.html" class="active">
+          <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h11l5 5v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/><path d="M14 5v6h6"/><path d="M8 14h6M8 17h4"/></svg></span>
+          <span>Case Studies</span>
+        </a>
+        <a href="index.html#games">
+          <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="12" rx="4"/><path d="M8 12h2M9 11v2"/><circle cx="15" cy="12" r="1"/><circle cx="17" cy="14" r="1"/></svg></span>
+          <span class="lbl-full">Games</span>
+        </a>
+        <a href="index.html#visual">
+          <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v6c0 5 3.4 7.8 8 8 4.6-.2 8-3 8-8V7l-8-4Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+          <span class="lbl-full">Visual</span>
+        </a>
+        <a href="index.html#contact">
+          <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></span>
+          <span class="lbl-full">Contact</span>
+        </a>
+      </nav>
+    </div>
+    <div class="socials">
+      <a href="https://www.linkedin.com/in/raycogonzalez76" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3.5C5 4.6 4.1 5.5 3 5.5S1 4.6 1 3.5 1.9 1.5 3 1.5 5 2.4 5 3.5zM1 8h4v14H1V8zm7 0h3.8v2h.05c.5-.95 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V22h-4v-6.2c0-1.5-.05-3.4-2.05-3.4S12 13.8 12 15.7V22H8V8z"/></svg></a>
+      <a href="https://www.artstation.com/rayco76" target="_blank" rel="noopener noreferrer" aria-label="ArtStation"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M0 17.7l2.3 4a1.6 1.6 0 0 0 1.4.8h12.9l-2.8-4.8H0zM24 17.7c0-.3-.1-.6-.2-.9L17.3 5.4a1.6 1.6 0 0 0-1.4-.8h-4.6l9.9 17.1 2.4-4.1c.3-.4.4-.6.4-.9zM13.5 14.4L8.9 6.5 4.3 14.4h9.2z"/></svg></a>
+    </div>
+  </aside>
+
+  <main>
+    <a href="index.html#games" class="back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      <span>Back to portfolio</span>
+    </a>
+
+    <!-- 1. HERO -->
+    <section class="panel glow hero" id="home">
+      <div class="hero-left">
+        <div class="crumbs"><a href="index.html#home">Home</a><span class="sep">/</span><span class="now">Case Studies</span></div>
+        <div class="kicker"><span class="badge">★</span><span>Selected work</span></div>
+        <h1>Selected <span class="grad">Case Studies</span></h1>
+        <p class="hero-sub">Mobile games, UX research and character-driven experiences for kids and casual audiences.</p>
+        <p class="hero-copy">A curated selection of projects that connect product thinking, Unity development, visual craft, UX design and playful experiences for children, families and casual players.</p>
+        <div class="tag-row">
+          <span class="tag-lg">Unity</span>
+          <span class="tag-lg alt">Mobile Games</span>
+          <span class="tag-lg">UX/UI</span>
+          <span class="tag-lg alt">Product Design</span>
+          <span class="tag-lg">Kids Apps</span>
+          <span class="tag-lg alt">Tech Art</span>
+          <span class="tag-lg">Character Work</span>
+        </div>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="pawpal-ux.html"><span>View PawPal</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          <a class="btn btn-soft" href="assets/docs/the-book-of-sounds-ux-case-study.pdf" target="_blank" rel="noopener"><span>Download UX Case Study PDF</span></a>
+          <a class="btn btn-ghost" href="index.html#contact"><span>Contact</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <img src="assets/images/pawpal/pawpal-hero.png" alt="Selected case studies cover" onerror="this.style.display='none'">
+        <div class="hero-art-fallback">
+          <div class="orbs">
+            <span class="orb o1">P</span>
+            <span class="orb o2">B</span>
+            <span class="orb o3">K</span>
+          </div>
+          <p>PawPal · The Book of Sounds · Kids Games &amp; Character Work</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. INTRO / POSITIONING -->
+    <section class="panel compact" id="positioning">
+      <div class="section-kicker"><span class="badge">◆</span><span>Positioning</span></div>
+      <h2 class="section-title">A hybrid profile across product, gameplay and visual craft</h2>
+      <p class="section-sub">I design and build playful mobile experiences from both a product and production perspective: defining the user problem, designing the interaction, creating visual feedback, integrating characters and systems in Unity, and preparing products for real users and stores.</p>
+      <div class="pos-grid">
+        <div class="pos-card">
+          <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
+          <h4>Product Thinking</h4>
+          <p>Research, user needs, business goals and learning outcomes.</p>
+        </div>
+        <div class="pos-card">
+          <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5v10l-9 5-9-5V7z"/><path d="m12 12 9-5M12 12v10M12 12 3 7"/></svg></div>
+          <h4>Unity Development</h4>
+          <p>Mobile gameplay, UI systems, save systems, analytics and publishing.</p>
+        </div>
+        <div class="pos-card">
+          <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3.9 0 7 2.9 7 6.6 0 2.2-1.1 4.2-2.9 5.4V18a1 1 0 0 1-1.7.7l-1.8-1.8c-.2 0-.4.1-.6.1-3.9 0-7-2.9-7-6.4S8.1 3 12 3Z"/><circle cx="9.5" cy="10" r="1"/><circle cx="14.5" cy="10" r="1"/></svg></div>
+          <h4>Visual &amp; Character Craft</h4>
+          <p>Stylized characters, animation, VFX and UI polish.</p>
+        </div>
+        <div class="pos-card">
+          <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v6c0 5 3.4 7.8 8 8 4.6-.2 8-3 8-8V7l-8-4Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+          <h4>Kids &amp; Family UX</h4>
+          <p>Safety, clarity, parent trust and accessible interactions.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. CASE STUDY GRID -->
+    <section class="panel compact" id="case-grid">
+      <div class="section-kicker"><span class="badge">▣</span><span>Case studies</span></div>
+      <h2 class="section-title">Three projects, one hybrid story</h2>
+      <div class="cases">
+
+        <!-- CARD 1 — PawPal -->
+        <article class="case-card">
+          <div class="case-media tone-pawpal">
+            <img src="assets/images/pawpal/pawpal-card.png" alt="PawPal — virtual pet mobile game" onerror="this.style.display='none'">
+            <div class="fallback">PawPal</div>
+            <span class="pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 14.5 9 22 10 16.5 14.5 18 22 12 18 6 22 7.5 14.5 2 10 9.5 9z"/></svg>Live Product</span>
+          </div>
+          <div class="case-body">
+            <div class="case-tags">
+              <span class="t">Virtual Pet</span><span class="t">Unity</span><span class="t">Mobile</span><span class="t">Retention</span><span class="t">Live Product</span>
+            </div>
+            <h3>PawPal</h3>
+            <p class="case-desc">A virtual pet mobile game built around care routines, arcade mini-games, customization, rewards and retention systems.</p>
+            <div class="case-block">
+              <div class="label">Impact</div>
+              <ul class="impact">
+                <li>Live mobile product</li>
+                <li>Google Play release pipeline</li>
+                <li>Ads, IAP, analytics and cloud systems</li>
+                <li>Daily rewards, wardrobe and mini-games</li>
+              </ul>
+            </div>
+            <div class="case-block">
+              <div class="label role-label">My role</div>
+              <p class="case-role">Game design, Unity development, UI/UX, tech art, VFX, economy, retention systems and publishing.</p>
+            </div>
+            <div class="case-actions">
+              <a class="btn btn-primary" href="pawpal-ux.html"><span>View full case study</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 2 — The Book of Sounds -->
+        <article class="case-card">
+          <div class="case-media tone-sounds">
+            <img src="assets/images/book-of-sounds/BookSounds-card.png" alt="The Book of Sounds — educational app for toddlers" onerror="this.style.display='none'">
+            <div class="fallback">Book of Sounds</div>
+            <span class="pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 14.5 9 22 10 16.5 14.5 18 22 12 18 6 22 7.5 14.5 2 10 9.5 9z"/></svg>10K+ downloads</span>
+          </div>
+          <div class="case-body">
+            <div class="case-tags">
+              <span class="t">UX Case Study</span><span class="t">Kids App</span><span class="t">Education</span><span class="t">Google Play</span><span class="t">Unity</span>
+            </div>
+            <h3>The Book of Sounds</h3>
+            <p class="case-desc">A free educational app for toddlers designed to help very young children discover everyday sounds through colorful characters, simple interactions and a safe, distraction-free experience.</p>
+            <div class="case-block">
+              <div class="label">Impact</div>
+              <ul class="impact">
+                <li>10K+ downloads</li>
+                <li>Around 700 active users</li>
+                <li>Published on Google Play</li>
+                <li>Free educational project</li>
+              </ul>
+            </div>
+            <div class="case-block">
+              <div class="label role-label">My role</div>
+              <p class="case-role">Product definition, UX research, information architecture, interaction design, UI design, character-driven visual direction, Unity implementation and Google Play publishing.</p>
+            </div>
+            <div class="case-actions">
+              <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.ImagineStudios.TheBookofSounds" target="_blank" rel="noopener noreferrer"><span>View on Google Play</span><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M3 22V2l18 10z"/></svg></a>
+              <a class="btn btn-soft" href="assets/docs/the-book-of-sounds-ux-case-study.pdf" target="_blank" rel="noopener"><span>Download UX Case Study PDF</span></a>
+              <a class="btn btn-outline" href="https://thebookofsoundsima.wixsite.com/thebookofsounds" target="_blank" rel="noopener noreferrer"><span>Landing / Privacy page</span></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 3 — Pocoyó / Kids Games & Character Work -->
+        <article class="case-card">
+          <div class="case-media tone-pocoyo">
+            <img src="assets/images/pocoyo/pocoyo-card.png" alt="Pocoyó — kids games and character work" onerror="this.style.display='none'">
+            <div class="fallback">Pocoyó</div>
+            <span class="pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 14.5 9 22 10 16.5 14.5 18 22 12 18 6 22 7.5 14.5 2 10 9.5 9z"/></svg>Studio work</span>
+          </div>
+          <div class="case-body">
+            <div class="case-tags">
+              <span class="t">Professional Work</span><span class="t">Kids Entertainment</span><span class="t">3D</span><span class="t">Unity</span><span class="t">Animation</span><span class="t">Tech Art</span>
+            </div>
+            <h3>Pocoyó / Kids Games &amp; Character Work</h3>
+            <p class="case-desc">Professional experience creating and integrating stylized 3D assets, characters, props, animations, VFX and Unity-ready content for children's games and family entertainment products.</p>
+            <div class="case-block">
+              <div class="label">Impact</div>
+              <ul class="impact">
+                <li>Professional studio experience</li>
+                <li>Children's entertainment IP</li>
+                <li>3D production and Unity integration</li>
+                <li>Character, props, animation and VFX support</li>
+              </ul>
+            </div>
+            <div class="case-block">
+              <div class="label role-label">My role</div>
+              <p class="case-role">3D artist / technical artist, character and prop production, animation support, Unity integration, visual polish and gameplay-ready assets.</p>
+            </div>
+            <div class="case-actions">
+              <a class="btn btn-primary" href="#pocoyo-work"><span>View selected work</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 4. DETAILED SECTION — THE BOOK OF SOUNDS -->
+    <section class="panel compact" id="book-of-sounds">
+      <div class="detail-head">
+        <div class="section-kicker"><span class="badge">B</span><span>Deep dive</span></div>
+        <h2 class="section-title">The Book of Sounds — UX case study for toddlers</h2>
+        <p class="section-sub">Designing a safe, simple and character-focused sound discovery app for very young children.</p>
+      </div>
+
+      <div class="detail-grid">
+        <!-- A) Problem -->
+        <div class="detail-card">
+          <h4><span class="n">A</span>Problem</h4>
+          <p>Many children face barriers when accessing safe, high-quality educational apps. The project focused on four main concerns: advertising, accidental interactions, one-size-fits-all design for young users, and the lack of visibility for parents about what their children are learning.</p>
+        </div>
+
+        <!-- B) Product decisions -->
+        <div class="detail-card">
+          <h4><span class="n">B</span>Product decisions</h4>
+          <ul>
+            <li>Separate child and parent areas.</li>
+            <li>Keep advertising away from the child-facing experience.</li>
+            <li>Use large, colorful characters as the main focus.</li>
+            <li>Reduce UI noise and distractions.</li>
+            <li>Create simple flows for very young users.</li>
+            <li>Support learning through discovery, reinforcement and test modes.</li>
+          </ul>
+        </div>
+
+        <!-- C) UX Process -->
+        <div class="detail-card span-2">
+          <h4><span class="n">C</span>UX Process</h4>
+          <div class="ux-steps">
+            <div class="ux-step"><div class="num">01</div><h5>Product Definition</h5></div>
+            <div class="ux-step"><div class="num">02</div><h5>User Research</h5></div>
+            <div class="ux-step"><div class="num">03</div><h5>Information Architecture</h5></div>
+            <div class="ux-step"><div class="num">04</div><h5>Interaction Design</h5></div>
+            <div class="ux-step"><div class="num">05</div><h5>User Testing</h5></div>
+            <div class="ux-step"><div class="num">06</div><h5>Launch</h5></div>
+          </div>
+        </div>
+
+        <!-- D) User Testing / Learnings -->
+        <div class="detail-card">
+          <h4><span class="n">D</span>User Testing &amp; Learnings</h4>
+          <p>Testing validated that navigation was easy and onboarding was quick to understand, but also revealed areas to improve: onboarding subtitles were not engaging enough and the parental help system needed to become more interactive.</p>
+        </div>
+
+        <!-- E) Outcome -->
+        <div class="detail-card">
+          <h4><span class="n">E</span>Outcome</h4>
+          <p>The app was released for free on Google Play and reached more than 10,000 downloads. Although it was not designed as a monetized product, it became a valuable learning project around UX, publishing, kids apps and real mobile users.</p>
+        </div>
+
+        <!-- Screens -->
+        <div class="detail-card span-2">
+          <h4><span class="n">★</span>Selected screens</h4>
+          <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:6px">
+            <div class="case-media tone-sounds" style="border-radius:14px;aspect-ratio:16/9;min-height:0;border:1px solid var(--line)">
+              <img src="assets/images/book-of-sounds/gallery-1.png" alt="The Book of Sounds — screen 1" onerror="this.style.display='none'">
+              <div class="fallback" style="font-size:16px">Screen 1</div>
+            </div>
+            <div class="case-media tone-sounds" style="border-radius:14px;aspect-ratio:16/9;min-height:0;border:1px solid var(--line)">
+              <img src="assets/images/book-of-sounds/gallery-2.png" alt="The Book of Sounds — screen 2" onerror="this.style.display='none'">
+              <div class="fallback" style="font-size:16px">Screen 2</div>
+            </div>
+            <div class="case-media tone-sounds" style="border-radius:14px;aspect-ratio:16/9;min-height:0;border:1px solid var(--line)">
+              <img src="assets/images/book-of-sounds/gallery-3.png" alt="The Book of Sounds — screen 3" onerror="this.style.display='none'">
+              <div class="fallback" style="font-size:16px">Screen 3</div>
+            </div>
+          </div>
+          <div class="case-media tone-sounds" style="border-radius:14px;aspect-ratio:16/9;min-height:0;border:1px solid var(--line);margin-top:12px">
+            <img src="assets/images/book-of-sounds/BookSounds-hero.png" alt="The Book of Sounds — hero" onerror="this.style.display='none'">
+            <div class="fallback" style="font-size:16px">Hero</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn btn-primary" href="assets/docs/the-book-of-sounds-ux-case-study.pdf" target="_blank" rel="noopener"><span>Download full UX presentation PDF</span></a>
+        <a class="btn btn-soft" href="https://play.google.com/store/apps/details?id=com.ImagineStudios.TheBookofSounds" target="_blank" rel="noopener noreferrer"><span>View on Google Play</span><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M3 22V2l18 10z"/></svg></a>
+      </div>
+    </section>
+
+    <!-- 5. WHAT THIS SHOWS / HIRING SIGNAL -->
+    <section class="panel compact" id="pocoyo-work">
+      <div class="section-kicker"><span class="badge">✦</span><span>Hiring signal</span></div>
+      <h2 class="section-title">What these projects show</h2>
+      <div class="signal-grid">
+        <div class="signal"><span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><p>I can define a product from user needs.</p></div>
+        <div class="signal"><span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><p>I can build and ship mobile experiences in Unity.</p></div>
+        <div class="signal"><span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><p>I understand kids/family UX and safety constraints.</p></div>
+        <div class="signal"><span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><p>I can connect characters, animation and gameplay feel.</p></div>
+        <div class="signal"><span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><p>I can work across product, art, UI and implementation.</p></div>
+        <div class="signal"><span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><p>I can learn from metrics, testing and real users.</p></div>
+      </div>
+    </section>
+
+    <!-- 6. FOOTER CTA -->
+    <section class="footer-cta" id="contact">
+      <div>
+        <h3>Looking for a hybrid Product / Unity / UX profile?</h3>
+        <p>I can help teams connect gameplay, product thinking, visual craft and mobile UX into polished experiences for real users.</p>
+      </div>
+      <a class="btn btn-primary" href="mailto:river.3D@proton.me"><span>Contact me</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+    </section>
+
+    <footer class="footer">
+      <span>© 2026 Rayco González. Personal portfolio.</span>
+      <span>Product · Unity · UX · Kids &amp; Casual Experiences</span>
+    </footer>
+  </main>
+</div>
+</body>
+</html>

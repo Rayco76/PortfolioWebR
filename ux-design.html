@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>UI Design across 30+ apps · Rayco González</title>
+<meta name="description" content="UI Design a través de 30+ apps: sistemas de diseño, ergonomía, accesibilidad y trabajo de interfaz consolidado en proyectos de consola, mobile y web. Por Rayco González." />
+<meta name="author" content="Rayco González" />
+<link rel="canonical" href="https://raycogonzalez.com/ux-design.html" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="UI Design across 30+ apps · Rayco González" />
+<meta property="og:description" content="30+ apps: sistemas de diseño, ergonomía, accesibilidad y craft de interfaz mobile, consola y web." />
+<meta property="og:url" content="https://raycogonzalez.com/ux-design.html" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 38 38'%3E%3Crect width='38' height='38' rx='11' fill='%23a78bfa'/%3E%3Ctext x='19' y='27' font-family='sans-serif' font-size='22' font-weight='900' fill='%230a0b1e' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0b1e;--panel:#161836;--line:rgba(255,255,255,.08);--line-2:rgba(255,255,255,.14);
+    --text:#f4f3ff;--muted:#9a9ab8;--soft:#cdcbe8;--violet:#8b5cf6;--violet-2:#a78bfa;
+    --pink:#ff5ca8;--lime:#c7f24a;--yellow:#ffd34d;--teal:#5eead4;--blue:#60a5fa;--orange:#ff8a4c;
+    --sidebar:240px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Sora",system-ui,sans-serif;color:var(--text);background:radial-gradient(900px 500px at 80% -10%,rgba(96,165,250,.16),transparent 60%),radial-gradient(700px 400px at 20% 110%,rgba(167,139,250,.12),transparent 60%),var(--bg);min-height:100vh;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background-image:radial-gradient(rgba(255,255,255,.5) 1px,transparent 1.2px),radial-gradient(rgba(96,165,250,.35) 1px,transparent 1.2px);background-size:90px 90px,140px 140px;background-position:0 0,45px 60px;opacity:.18;mask-image:linear-gradient(to bottom,black,transparent 85%)}
+  a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+  .page{position:relative;z-index:1;display:grid;grid-template-columns:var(--sidebar) minmax(0,1fr);min-height:100vh}
+  .sidebar{position:fixed;top:0;left:0;width:var(--sidebar);height:100vh;padding:30px 22px;border-right:1px solid var(--line);background:rgba(10,11,30,.75);backdrop-filter:blur(20px);display:flex;flex-direction:column;justify-content:space-between;z-index:20}
+  .logo{display:flex;align-items:center;gap:6px}
+  .logo .mark{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(135deg,#fff,#dcd6ff);color:#0a0b1e;font-weight:900;font-size:18px}
+  .logo .dot{width:10px;height:10px;border-radius:50%;background:var(--blue);margin-top:14px}
+  .nav{display:flex;flex-direction:column;gap:6px;margin-top:38px}
+  .nav a{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:14px;color:var(--muted);font-weight:600;font-size:15px;transition:.2s ease;border:1px solid transparent}
+  .nav a:hover{color:var(--text);background:rgba(255,255,255,.04)}
+  .nav a.active{color:var(--text);background:linear-gradient(180deg,rgba(96,165,250,.26),rgba(167,139,250,.18));border-color:rgba(96,165,250,.26)}
+  .nav a .ico{width:18px;height:18px;display:grid;place-items:center;color:inherit}
+  .socials{display:flex;flex-direction:column;gap:14px;color:var(--muted)}
+  .socials a{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;border:1px solid var(--line);transition:.2s}
+  .socials a:hover{color:var(--lime);border-color:rgba(199,242,74,.4)}
+  main{grid-column:2;padding:32px clamp(20px,3.5vw,46px) 60px;max-width:1540px}
+  section+section{margin-top:24px}
+  .panel{border:1px solid var(--line);background:linear-gradient(180deg,rgba(22,24,54,.92),rgba(17,19,44,.92));border-radius:28px;padding:clamp(22px,3vw,38px);box-shadow:0 30px 80px rgba(0,0,0,.35);position:relative;overflow:hidden}
+  .panel.compact{padding:clamp(18px,2.4vw,28px)}
+  .back{display:inline-flex;align-items:center;gap:10px;color:var(--muted);font-size:14px;font-weight:600;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.03);transition:.2s;margin-bottom:18px}
+  .back:hover{color:var(--text);border-color:var(--line-2);transform:translateX(-3px)}
+  .section-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:22px}
+  .section-kicker{display:inline-flex;align-items:center;gap:8px;color:var(--blue);font-weight:600;font-size:14px}
+  .section-kicker .badge{width:18px;height:18px;border-radius:5px;background:linear-gradient(135deg,var(--blue),var(--violet-2));display:grid;place-items:center;color:#fff;font-size:10px;font-weight:900}
+  h1{font-size:clamp(52px,6vw,96px);line-height:.92;letter-spacing:-.05em;font-weight:900}
+  h1 .grad{background:linear-gradient(90deg,var(--blue) 0%,var(--violet-2) 50%,var(--pink) 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  h2{font-size:clamp(26px,3vw,40px);font-weight:800;letter-spacing:-.04em;line-height:1.05;margin-top:6px}
+  .crumbs{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:13px;font-weight:500;margin-bottom:16px;font-family:"JetBrains Mono",monospace}
+  .crumbs a:hover{color:var(--text)}.crumbs .sep{opacity:.5}.crumbs .now{color:var(--blue)}
+  .status-row{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}
+  .status-pill{font-size:12px;font-weight:700;padding:7px 12px;border-radius:999px;background:rgba(96,165,250,.12);color:var(--blue);border:1px solid rgba(96,165,250,.22)}
+  .status-pill.alt{background:rgba(167,139,250,.14);color:#c4b5fd;border-color:rgba(167,139,250,.26)}
+  .tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+  .tag-lg{font-size:12px;font-weight:700;padding:7px 12px;border-radius:999px;background:rgba(96,165,250,.12);color:var(--blue);border:1px solid rgba(96,165,250,.22)}
+  .tag-lg.alt{background:rgba(167,139,250,.14);color:#c4b5fd;border-color:rgba(167,139,250,.26)}
+  .lead{color:var(--soft);font-size:17px;line-height:1.7;max-width:650px;margin:18px 0 10px}
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+  .btn{display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 22px;border-radius:999px;font-weight:700;font-size:14px;cursor:pointer;border:1px solid transparent;transition:.22s ease}
+  .btn-primary{background:linear-gradient(135deg,#dcfa6c,#a8e62e);color:#0a0b1e;box-shadow:0 14px 36px rgba(199,242,74,.22)}
+  .btn-primary:hover{transform:translateY(-2px);filter:brightness(1.05)}
+  .btn-ghost{color:var(--soft);background:rgba(255,255,255,.04);border-color:var(--line-2)}
+  .btn-ghost:hover{color:var(--text);background:rgba(255,255,255,.07)}
+  .hero-split{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.15fr);gap:28px;align-items:center;min-height:560px}
+  .hero-grid-art{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(3,56px);gap:8px;width:min(420px,100%)}
+  .hero-cell{border-radius:12px;border:1px solid var(--line);position:relative;overflow:hidden;transition:.2s}
+  .hero-cell:hover{transform:scale(1.04)}
+  .c1{grid-column:1/3;grid-row:1/3;background:linear-gradient(135deg,rgba(96,165,250,.26),rgba(139,92,246,.22))}
+  .c2{background:linear-gradient(135deg,rgba(255,92,168,.2),rgba(255,138,76,.14))}
+  .c3{background:linear-gradient(135deg,rgba(94,234,212,.18),rgba(96,165,250,.14))}
+  .c4{grid-column:3/5;background:linear-gradient(135deg,rgba(167,139,250,.22),rgba(96,165,250,.18))}
+  .c5{grid-row:2/4;background:linear-gradient(135deg,rgba(255,211,77,.16),rgba(255,138,76,.14))}
+  .c6{grid-column:2/4;background:linear-gradient(135deg,rgba(199,242,74,.18),rgba(94,234,212,.14))}
+  .c7{background:linear-gradient(135deg,rgba(139,92,246,.22),rgba(255,92,168,.18))}
+  .grid-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+  .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+  .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+  .card{padding:20px;border-radius:20px;background:linear-gradient(180deg,rgba(34,37,75,.58),rgba(22,24,54,.58));border:1px solid var(--line);transition:.22s}
+  .card:hover{transform:translateY(-3px);border-color:rgba(96,165,250,.24)}
+  .card .ico{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:rgba(96,165,250,.14);color:var(--blue);margin-bottom:14px}
+  .card h3,.card h4{font-size:17px;font-weight:700;letter-spacing:-.02em;margin-bottom:8px}
+  .card p{color:var(--muted);font-size:13.5px;line-height:1.6}
+  .depth-block{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;align-items:stretch}
+  .depth-main{padding:26px;border-radius:22px;border:1px solid rgba(96,165,250,.22);background:linear-gradient(180deg,rgba(34,37,75,.7),rgba(22,24,54,.7));position:relative;overflow:hidden}
+  .depth-main::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--violet-2))}
+  .depth-main .eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--blue);font-family:"JetBrains Mono",monospace;margin-bottom:14px}
+  .depth-main h3{font-size:22px;letter-spacing:-.03em;margin-bottom:12px}
+  .depth-main p{color:var(--muted);font-size:13.5px;line-height:1.6}
+  .depth-side{display:grid;gap:12px}
+  .ergonomics-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .erg{padding:18px;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.03)}
+  .erg .label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--blue);font-family:"JetBrains Mono",monospace;margin-bottom:10px}
+  .erg h4{font-size:15px;font-weight:700;margin-bottom:8px}
+  .erg p{color:var(--muted);font-size:13px;line-height:1.55}
+  .breadth-strip{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+  .breadth-item{padding:14px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.03);text-align:center}
+  .breadth-item .b-icon{font-size:22px;margin-bottom:8px}
+  .breadth-item span{display:block;font-size:11.5px;color:var(--muted);font-weight:600;line-height:1.4}
+  .stat-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+  .stat{padding:22px;border-radius:20px;border:1px solid var(--line);background:rgba(255,255,255,.03)}
+  .stat .num{font-size:36px;font-weight:900;letter-spacing:-.06em;color:var(--blue);display:block;margin-bottom:4px}
+  .stat p{color:var(--muted);font-size:13px;line-height:1.5}
+  .gallery{columns:3;gap:12px;column-gap:12px}
+  .gallery-shot{break-inside:avoid;border-radius:16px;overflow:hidden;margin-bottom:12px;border:1px solid var(--line);background:radial-gradient(circle at 30% 30%,rgba(96,165,250,.18) 0 8%,transparent 9%),radial-gradient(circle at 70% 70%,rgba(167,139,250,.14) 0 10%,transparent 11%),linear-gradient(135deg,rgba(29,78,216,.38),rgba(109,40,217,.2))}
+  .gallery-shot img{width:100%;height:auto;display:block}
+  .contact{display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center;padding:24px 28px;border-radius:24px;background:linear-gradient(135deg,rgba(96,165,250,.14),rgba(167,139,250,.10));border:1px solid rgba(96,165,250,.26)}
+  .contact .pad{width:54px;height:54px;border-radius:14px;background:linear-gradient(135deg,var(--blue),var(--violet));display:grid;place-items:center;color:#fff;box-shadow:0 10px 24px rgba(96,165,250,.3)}
+  .contact h3{font-size:20px;font-weight:800;letter-spacing:-.02em}
+  .contact p{color:var(--muted);font-size:13.5px;margin-top:4px}
+  .footer{margin-top:28px;color:var(--muted);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;padding:0 6px}
+  @media(max-width:1180px){.hero-split,.depth-block,.grid-2{grid-template-columns:1fr}.grid-4,.stat-strip,.breadth-strip{grid-template-columns:repeat(2,minmax(0,1fr))}.ergonomics-grid{grid-template-columns:1fr}}
+  @media(max-width:1100px){:root{--sidebar:0px}.sidebar{position:relative;width:100%;height:auto;flex-direction:row;padding:14px 18px;border-right:none;border-bottom:1px solid var(--line)}.nav{flex-direction:row;margin-top:0;gap:4px;flex-wrap:wrap}.nav a{padding:8px 12px;font-size:13px}.socials{flex-direction:row}.page{grid-template-columns:1fr}main{grid-column:1;padding:20px}.hero-split{min-height:auto}}
+  @media(max-width:760px){.grid-4,.grid-3,.breadth-strip,.stat-strip{grid-template-columns:1fr}.gallery{columns:1}.contact{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="page">
+  <aside class="sidebar">
+    <div>
+      <a href="index.html" class="logo" aria-label="Inicio">
+        <div class="mark">R</div>
+        <span class="dot"></span>
+      </a>
+      <nav class="nav" aria-label="UI Design sections">
+        <a href="#home" class="active"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12 12 4l9 8"/><path d="M5 10v10h14V10"/></svg></span><span>Inicio</span></a>
+        <a href="#stats"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18V9l5-4 4 3 5-5v15"/></svg></span><span>Cifras</span></a>
+        <a href="#depth"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span><span>Profundidad</span></a>
+        <a href="#ergonomics"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 7c.6-1.2 2-2 3.5-2S11.4 5.8 12 7s2 2 3.5 2 2.9-.8 3.5-2"/><path d="M5 17c.6-1.2 2-2 3.5-2s2.9.8 3.5 2 2 2 3.5 2 2.9-.8 3.5-2"/></svg></span><span>Ergonomía</span></a>
+        <a href="#breadth"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 2a15 15 0 0 1 0 20M2 12h20"/></svg></span><span>Breadth</span></a>
+        <a href="#contact"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></span><span>Contacto</span></a>
+      </nav>
+    </div>
+    <div class="socials">
+      <a href="https://www.linkedin.com/in/raycogonzalez76" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3.5C5 4.6 4.1 5.5 3 5.5S1 4.6 1 3.5 1.9 1.5 3 1.5 5 2.4 5 3.5zM1 8h4v14H1V8zm7 0h3.8v2h.05c.5-.95 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V22h-4v-6.2c0-1.5-.05-3.4-2.05-3.4S12 13.8 12 15.7V22H8V8z"/></svg></a>
+      <a href="https://www.artstation.com/rayco76" target="_blank" rel="noopener noreferrer" aria-label="ArtStation"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M0 17.7l2.3 4a1.6 1.6 0 0 0 1.4.8h12.9l-2.8-4.8H0zM24 17.7c0-.3-.1-.6-.2-.9L17.3 5.4a1.6 1.6 0 0 0-1.4-.8h-4.6l9.9 17.1 2.4-4.1c.3-.4.4-.6.4-.9zM13.5 14.4L8.9 6.5 4.3 14.4h9.2z"/></svg></a>
+    </div>
+  </aside>
+
+  <main>
+    <a href="index.html#games" class="back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      <span>Volver al portfolio</span>
+    </a>
+
+    <!-- HERO -->
+    <section class="panel hero-split" id="home" style="background:radial-gradient(600px 280px at 78% 0%,rgba(96,165,250,.14),transparent 60%),radial-gradient(520px 240px at 16% 100%,rgba(167,139,250,.10),transparent 60%),linear-gradient(180deg,rgba(22,24,54,.96),rgba(17,19,44,.96))">
+      <div>
+        <div class="crumbs"><a href="index.html#games">Proyectos</a><span class="sep">/</span><span class="now">UI Design</span></div>
+        <div class="status-row">
+          <span class="status-pill">30+ Apps publicadas</span>
+          <span class="status-pill alt">Mobile · Consola · Web</span>
+        </div>
+        <h1><span class="grad">UI Design</span></h1>
+        <h2 style="margin-top:10px;font-size:clamp(18px,2vw,26px);color:var(--soft);font-weight:600">30+ aplicaciones · craft, sistemas y ergonomía</h2>
+        <p class="lead">No solo hago pantallas bonitas — diseño interfaces que respetan al usuario: legibles bajo luz solar, usables con el pulgar, consistentes en actualizaciones y honestas sobre lo que pueden hacer.</p>
+        <div class="tag-row">
+          <span class="tag-lg">30+ Apps</span><span class="tag-lg alt">Mobile UI</span><span class="tag-lg">Consola</span><span class="tag-lg alt">Design Systems</span><span class="tag-lg">Accesibilidad</span>
+        </div>
+        <div class="cta-row">
+          <a class="btn btn-ghost" href="#depth"><span>Ver trabajo en profundidad</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          <a class="btn btn-ghost" href="#ergonomics"><span>Ver criterios de ergonomía</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+      <div aria-hidden="true" style="display:grid;place-items:center">
+        <div class="hero-grid-art">
+          <div class="hero-cell c1"></div>
+          <div class="hero-cell c2"></div>
+          <div class="hero-cell c3"></div>
+          <div class="hero-cell c4"></div>
+          <div class="hero-cell c5"></div>
+          <div class="hero-cell c6"></div>
+          <div class="hero-cell c7"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 CIFRAS -->
+    <section class="panel compact" id="stats">
+      <div class="section-head"><div><div class="section-kicker"><span class="badge">01</span><span>En números</span></div><h2>Lo que significa trabajar en 30+ productos reales</h2></div></div>
+      <div class="stat-strip">
+        <div class="stat"><span class="num">30+</span><p>Apps publicadas en App Store y Google Play, además de proyectos de consola y web.</p></div>
+        <div class="stat"><span class="num">3</span><p>Plataformas distintas con requisitos de UI muy diferentes: mobile, consola (Switch/PS) y web.</p></div>
+        <div class="stat"><span class="num">∞</span><p>Iteraciones. Cada app es un ciclo de diseño → prueba → aprendizaje → rediseño.</p></div>
+        <div class="stat"><span class="num">1</span><p>Principio que no cambia: la interfaz trabaja para el usuario, no al revés.</p></div>
+      </div>
+    </section>
+
+    <!-- 02 PROFUNDIDAD: POCOYÓ SPACE ADVENTURE -->
+    <section class="panel compact" id="depth">
+      <div class="section-head"><div><div class="section-kicker"><span class="badge">02</span><span>Profundidad · Caso ejemplo</span></div><h2>Pocoyó Space Adventure — UI para audiencia 3-8 años</h2></div></div>
+      <div class="depth-block">
+        <div class="depth-main">
+          <div class="eyebrow">Ejemplo en profundidad</div>
+          <h3>Diseñar para quienes no saben leer todavía</h3>
+          <p>Una UI para niños de 3-8 años elimina los supuestos de diseño más básicos: no hay texto en los botones de acción, no hay flujos de más de 2 pasos, no hay asunciones sobre la direccionalidad de lectura. El diseño de la interfaz tiene que funcionar sin instrucciones.</p>
+          <p style="margin-top:14px">Los targets de toque son el doble del mínimo recomendado en HIG/Material. El feedback visual es exagerado — una respuesta débil es una respuesta que no existe para un niño de 4 años. La paleta está diseñada para funcionar incluso con deficiencias visuales comunes en esa franja de edad.</p>
+          <p style="margin-top:14px">Los iconos son el único lenguaje. Cada icono se valida en aislamiento: si el significado no es obvio sin contexto, se redibuja.</p>
+        </div>
+        <div class="depth-side">
+          <article class="card"><h4>Sin texto en acciones</h4><p>Los botones de acción principal no contienen texto — solo icon + color + forma. La acción tiene que ser evidente sin leer.</p></article>
+          <article class="card"><h4>Feedback exagerado</h4><p>Cada interacción tiene respuesta visual Y sonora. Si el feedback puede ignorarse, no cuenta como feedback.</p></article>
+          <article class="card"><h4>Flujos de un toque</h4><p>Cualquier tarea del usuario se completa en máximo 2 toques. Más es demasiado para la audiencia objetivo.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 ERGONOMÍA -->
+    <section class="panel compact" id="ergonomics">
+      <div class="section-head"><div><div class="section-kicker"><span class="badge">03</span><span>Criterios de ergonomía</span></div><h2>Principios que aplico en todos los proyectos, sin excepción</h2></div></div>
+      <p class="lead" style="margin-top:0">Ergonomía no es solo el tamaño del botón — es el conjunto de decisiones que hacen que una interfaz funcione bien en las condiciones reales del uso, no en las ideales del diseñador.</p>
+      <div class="ergonomics-grid">
+        <div class="erg">
+          <div class="label">Mobile</div>
+          <h4>Zona de pulgar</h4>
+          <p>Las acciones principales viven en la mitad inferior de la pantalla. Nada crítico en las esquinas superiores. El diseño funciona a una mano.</p>
+        </div>
+        <div class="erg">
+          <div class="label">Mobile</div>
+          <h4>Legibilidad exterior</h4>
+          <p>Contraste mínimo WCAG AA en todos los textos. La interfaz tiene que ser legible bajo luz solar directa sin bajar el brillo.</p>
+        </div>
+        <div class="erg">
+          <div class="label">Consola</div>
+          <h4>Navegación con mando</h4>
+          <p>Focus state visible y claro. El orden de navegación con D-pad es lógico. Nada que requiera precisión de puntero.</p>
+        </div>
+        <div class="erg">
+          <div class="label">Consola</div>
+          <h4>Distancia de visualización</h4>
+          <p>Tipografía y elementos UI escalados para lectura a 2-3 metros en TV. El tamaño mínimo de texto es significativamente mayor que en mobile.</p>
+        </div>
+        <div class="erg">
+          <div class="label">Universal</div>
+          <h4>Feedback de estado</h4>
+          <p>El usuario siempre sabe dónde está, qué puede hacer a continuación y si su última acción tuvo efecto.</p>
+        </div>
+        <div class="erg">
+          <div class="label">Universal</div>
+          <h4>Recuperación de error</h4>
+          <p>Los errores tienen mensajes claros y una acción de recuperación evidente. Nunca se termina en un estado sin salida.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 BREADTH: TIPOS DE APPS -->
+    <section class="panel compact" id="breadth">
+      <div class="section-head"><div><div class="section-kicker"><span class="badge">04</span><span>Amplitud · Tipos de producto</span></div><h2>Interfaces diferentes, criterios consistentes</h2></div></div>
+      <p class="lead" style="margin-top:0">30+ apps no son 30 versiones del mismo producto. Son contextos radicalmente diferentes con restricciones distintas — y eso fuerza a desarrollar criterios de diseño que escalen más allá de un estilo visual concreto.</p>
+      <div class="breadth-strip">
+        <div class="breadth-item"><div class="b-icon">🎮</div><span>Juegos mobile</span></div>
+        <div class="breadth-item"><div class="b-icon">📱</div><span>Apps interactivas</span></div>
+        <div class="breadth-item"><div class="b-icon">🎲</div><span>Consola (Switch/PS)</span></div>
+        <div class="breadth-item"><div class="b-icon">🧒</div><span>Audiencia infantil</span></div>
+        <div class="breadth-item"><div class="b-icon">🤖</div><span>Productos con IA</span></div>
+        <div class="breadth-item"><div class="b-icon">🌐</div><span>Web / PWA</span></div>
+      </div>
+      <div class="grid-3" style="margin-top:18px">
+        <article class="card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0 1 10 10v4a6 6 0 0 1-6 6H8a6 6 0 0 1-6-6v-4A10 10 0 0 1 12 2z"/><path d="M8 11h.01M12 11h.01M16 11h.01"/></svg></div><h4>Interfaces conversacionales</h4><p>UI para LLMs y asistentes: gestión de expectativas, feedback de latencia y presentación de incertidumbre sin romper la experiencia.</p></article>
+        <article class="card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 20h12M12 4v16M8 8h8"/></svg></div><h4>Monetización y tiendas</h4><p>Shop UX, reward moments, paywalls transparentes. Monetización sin dark patterns: el jugador entiende el intercambio antes de hacerlo.</p></article>
+        <article class="card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg></div><h4>Sistemas de diseño</h4><p>Componentes reutilizables que escalan con el producto. Tokens de color, tipografía y espaciado consistentes en cada update.</p></article>
+      </div>
+    </section>
+
+    <!-- GALERÍA -->
+    <section class="panel compact" id="gallery">
+      <div class="section-head"><div><div class="section-kicker"><span class="badge">05</span><span>Gallery</span></div><h2>Trabajo seleccionado de distintos proyectos</h2></div></div>
+      <div class="gallery">
+        <div class="gallery-shot"><img src="assets/images/ux-design/gallery-1.avif" alt="UI Design" onerror="this.style.display='none'"></div>
+        <div class="gallery-shot"><img src="assets/images/ux-design/gallery-2.avif" alt="UI Design" onerror="this.style.display='none'"></div>
+        <div class="gallery-shot"><img src="assets/images/ux-design/gallery-3.jpg" alt="UI Design" onerror="this.style.display='none'"></div>
+        <div class="gallery-shot"><img src="assets/images/ux-design/gallery-4.png" alt="UI Design" onerror="this.style.display='none'"></div>
+        <div class="gallery-shot"><img src="assets/images/ux-design/gallery-5.jpg" alt="UI Design" onerror="this.style.display='none'"></div>
+        <div class="gallery-shot"><img src="assets/images/ux-design/gallery-6.jpg" alt="UI Design" onerror="this.style.display='none'"></div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="pad"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></div>
+      <div><h3>¿Necesitas UI que funcione en las condiciones reales del usuario?</h3><p>Interfaces que respetan el contexto de uso: mobile, consola, audiencia infantil o productos con IA.</p></div>
+      <a class="btn btn-primary" href="mailto:river.3D@proton.me"><span>Contactar</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+    </section>
+    <footer class="footer">
+      <span>© 2026 Rayco González. Portfolio personal.</span>
+      <span>UI Design · UX · Mobile · Consola · 30+ Apps</span>
+    </footer>
+  </main>
+</div>
+<script>
+const links=[...document.querySelectorAll(".nav a")];
+const sections=links.map(l=>document.querySelector(l.getAttribute("href"))).filter(Boolean);
+function onScroll(){const y=window.scrollY+200;let cur=sections[0]?.id;sections.forEach(s=>{if(s.offsetTop<=y)cur=s.id});links.forEach(l=>l.classList.toggle("active",l.getAttribute("href")==="#"+cur))}
+window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+</script>
+</body>
+</html>

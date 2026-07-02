@@ -3,21 +3,23 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Rayco González — Technical Artist · Unity · VFX · Shaders</title>
-<meta name="description" content="Rayco González — Technical Artist para juegos casual. Conecto arte y motor en Unity: materiales, VFX, iluminación, render y pipeline para móvil. Proyectos: Pocoyo Party, Talking Pocoyo 2, PawPal." />
+<title>Rayco González — Product &amp; UX Designer · Visual Art · Mobile · Games</title>
+<meta name="description" content="Product &amp; UX Designer con 10 años de experiencia y más de 50M de descargas. Diseño productos útiles, atractivos y que se sienten bien: mobile, games y más allá." />
 <meta name="author" content="Rayco González" />
 <link rel="canonical" href="https://raycogonzalez.com/" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 38 38'%3E%3Crect width='38' height='38' rx='11' fill='%23a78bfa'/%3E%3Ctext x='19' y='27' font-family='sans-serif' font-size='22' font-weight='900' fill='%230a0b1e' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E" />
 <!-- Open Graph / Twitter -->
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Rayco González — Technical Artist · Unity · VFX · Shaders" />
-<meta property="og:description" content="Technical Artist para juegos casual. Materiales, VFX, iluminación, render y pipeline en Unity para móvil." />
+<meta property="og:title" content="Rayco González — Product &amp; UX Designer · Visual Art · Mobile · Games" />
+<meta property="og:description" content="Product &amp; UX Designer con 10 años de experiencia y más de 50M de descargas. Diseño productos útiles, atractivos y que se sienten bien: mobile, games y más allá." />
 <meta property="og:url" content="https://raycogonzalez.com/" />
-<meta property="og:image" content="https://raycogonzalez.com/assets/images/hero-profile-placeholder.png" />
+<meta property="og:image" content="https://raycogonzalez.com/assets/images/hero-ux-1.png" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Rayco González — Technical Artist · Unity · VFX · Shaders" />
-<meta name="twitter:description" content="Technical Artist para juegos casual. Materiales, VFX, iluminación, render y pipeline en Unity para móvil." />
-<meta name="twitter:image" content="https://raycogonzalez.com/assets/images/hero-profile-placeholder.png" />
+<meta name="twitter:title" content="Rayco González — Product &amp; UX Designer · Visual Art · Mobile · Games" />
+<meta name="twitter:description" content="Product &amp; UX Designer con 10 años de experiencia y más de 50M de descargas. Diseño productos útiles, atractivos y que se sienten bien: mobile, games y más allá." />
+<meta name="twitter:image" content="https://raycogonzalez.com/assets/images/hero-ux-1.png" />
+<meta name="theme-color" content="#0a0b1e" />
+<link rel="preload" as="image" href="assets/images/hero-ux-1.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -753,6 +755,15 @@
     50%{transform:translateY(-8px) scale(1.06)}
   }
 
+  .thumb-bos{
+    background:
+      radial-gradient(circle at 30% 30%, rgba(94,234,212,.45) 0 12%, transparent 13%),
+      radial-gradient(circle at 70% 25%, rgba(96,165,250,.35) 0 10%, transparent 11%),
+      radial-gradient(circle at 20% 68%, rgba(167,139,250,.35) 0 12%, transparent 13%),
+      radial-gradient(circle at 72% 68%, rgba(199,242,74,.30) 0 10%, transparent 11%),
+      linear-gradient(135deg, #0f4c75, #1b6ca8, #1a5276);
+  }
+
   /* RESPONSIVE */
   @media (max-width:1100px){
     :root{--sidebar:0px}
@@ -799,6 +810,12 @@
           </span>
           <span class="lbl">Sobre mí</span>
         </a>
+        <a href="case-studies.html" data-i18n="nav_cases">
+          <span class="ico">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h11l5 5v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/><path d="M14 5v6h6"/><path d="M8 14h6M8 17h4"/></svg>
+          </span>
+          <span class="lbl">Case Studies</span>
+        </a>
         <a href="#games" data-i18n="nav_games">
           <span class="ico">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="12" rx="4"/><path d="M8 12h2M9 11v2"/><circle cx="15" cy="12" r="1"/><circle cx="17" cy="14" r="1"/></svg>
@@ -826,6 +843,7 @@
       </nav>
     </div>
     <div class="sidebar-bottom">
+    <a href="technical-artist.html" style="color:var(--muted);font-size:12px;font-weight:500;white-space:nowrap;text-decoration:none">Technical Artist profile →</a>
     <div class="lang-switch" role="group" aria-label="Idioma / Language">
       <button type="button" data-lang-btn="es">ES</button>
       <button type="button" data-lang-btn="en">EN</button>
@@ -847,20 +865,20 @@
       <div class="hero-left">
         <div class="greet"><span data-i18n="hello">¡Hola! Soy Rayco</span> <span class="wave">👋</span></div>
         <h1>
-          <span data-i18n="h1_a">Technical Artist</span><br/>
-          <span data-i18n="h1_b">para juegos casual</span><br/>
-          <span class="grad" data-i18n="h1_c">que enganchan</span><span class="accent-marks">´</span>
+          <span data-i18n="h1_a">Product &amp; UX Designer</span><br/>
+          <span data-i18n="h1_b">Visual Art · Mobile · Games</span><br/>
+          <span class="grad" data-i18n="h1_c">10 years · 50M+ downloads</span>
         </h1>
         <p class="hero-copy" data-i18n="hero_copy">
-          Conecto arte y motor en Unity: materiales, VFX, iluminación, render y pipeline que hacen que los juegos casual se vean bien y rindan en móvil.
+          Me importa crear productos útiles, atractivos y que se sientan bien. Da igual si es un juego, una app o una herramienta: quiero que la gente lo use, lo disfrute y vuelva. Llevo 10 años haciendo eso, con más de 50M de descargas reales.
         </p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="#games">
-            <span data-i18n="cta_primary">Ver mis juegos</span>
+          <a class="btn btn-primary" href="case-studies.html">
+            <span data-i18n="cta_primary">Ver proyectos</span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
           <a class="btn btn-ghost" href="#about">
-            <span data-i18n="cta_secondary">Conocer más sobre mí</span>
+            <span data-i18n="cta_secondary">Sobre mí</span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
         </div>
@@ -869,16 +887,16 @@
         <div class="hero-carousel-shell" data-hero-carousel>
           <div class="hero-carousel">
             <figure class="hero-slide is-active">
-              <img src="assets/images/hero-profile-placeholder.png" alt="Imagen principal destacada para la portada">
+              <img src="assets/images/hero-ux-1.png" alt="Imagen destacada UX portada 1" onerror="this.style.display='none'">
             </figure>
             <figure class="hero-slide">
-              <img src="assets/images/hero-slide-2.png" alt="Segunda imagen destacada de la portada">
+              <img src="assets/images/hero-ux-2.png" alt="Imagen destacada UX portada 2" onerror="this.style.display='none'">
             </figure>
             <figure class="hero-slide">
-              <img src="assets/images/hero-slide-3.png" alt="Tercera imagen destacada de la portada">
+              <img src="assets/images/hero-ux-3.png" alt="Imagen destacada UX portada 3" onerror="this.style.display='none'">
             </figure>
             <figure class="hero-slide">
-              <img src="assets/images/hero-slide-4.png" alt="Cuarta imagen destacada de la portada">
+              <img src="assets/images/hero-ux-4.png" alt="Imagen destacada UX portada 4" onerror="this.style.display='none'">
             </figure>
           </div>
           <div class="hero-dots" aria-label="Selector de imágenes destacadas">
@@ -900,15 +918,15 @@
             <span data-i18n="games_kicker">Proyectos destacados</span>
           </div>
         </div>
-        <a class="link" href="#games">
-          <span data-i18n="games_all">Ver todos los proyectos</span>
+        <a class="link" href="case-studies.html">
+          <span data-i18n="games_all">Ver case studies</span>
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
       </div>
-      <div class="games">
-        <a class="game-card" href="pawpal.html" style="display:block">
+      <div class="games" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+        <a class="game-card" href="pawpal-ux.html" style="display:block">
           <div class="thumb thumb-1">
-            <img src="assets/images/pawpal/pawpal-card.png" alt="Imagen de ejemplo del proyecto PawPal" onerror="this.style.display='none'">
+            <img src="assets/images/pawpal/pawpal-card.png" alt="Imagen de ejemplo del proyecto PawPal" loading="lazy" onerror="this.style.display='none'">
             <div class="star-counter">
               <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 14.5 9 22 10 16.5 14.5 18 22 12 18 6 22 7.5 14.5 2 10 9.5 9z"/></svg>
               <span>Main Project</span>
@@ -921,120 +939,94 @@
               </div>
               <div class="game-title">
                 <h3 data-i18n="g1_title">PawPal</h3>
-                <span class="tag" data-i18n="g1_tag">Virtual Pet</span>
+                <span class="tag" data-i18n="g1_tag">UX · Product</span>
               </div>
               <span class="arrow">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
               </span>
             </div>
-            <p data-i18n="g1_copy">Mascota virtual mobile con minijuegos arcade, personalización y sistemas de progresión orientados a retención.</p>
+            <p data-i18n="g1_copy">Onboarding, retención, sistemas de progresión y UX de monetización para un juego mobile de mascota virtual con minijuegos arcade.</p>
           </div>
         </a>
 
-        <a class="game-card" href="pocoyo-party.html" style="display:block">
-          <div class="thumb thumb-2">
-            <img src="assets/images/pocoyo-party/pocoyo-party-card.png" alt="Pocoyo Party project card" onerror="this.style.display='none'">
+        <a class="game-card" href="case-studies.html#book-of-sounds" style="display:block">
+          <div class="thumb thumb-bos">
+            <img src="assets/images/book-of-sounds/BookSounds-card.png" alt="The Book of Sounds project card" loading="lazy" onerror="this.style.display='none'">
+            <div class="star-counter">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 14.5 9 22 10 16.5 14.5 18 22 12 18 6 22 7.5 14.5 2 10 9.5 9z"/></svg>
+              <span data-i18n="g2_badge">Teacher Approved</span>
+            </div>
           </div>
           <div class="game-body">
             <div class="game-row">
               <div class="game-icon i2">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c-1 4-3 5-6 6 2 1 4 3 5 6h2c1-3 3-5 5-6-3-1-5-2-6-6h-0z"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
               </div>
               <div class="game-title">
-                <h3>Pocoyo Party</h3>
-                <span class="tag farm" data-i18n="g2_tag">3D / Tech Art</span>
+                <h3 data-i18n="g2_title">The Book of Sounds</h3>
+                <span class="tag farm" data-i18n="g2_tag">EdTech</span>
               </div>
               <span class="arrow">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
               </span>
             </div>
-            <p data-i18n="g2_copy">Juego educativo infantil basado en el universo Pocoyo. Arte 3D, integración en Unity, iluminación, materiales y soporte de VFX.</p>
+            <p data-i18n="g2_copy">App educativa gratuita para niños. Diseñada con proceso UX completo: research, wireframes, testing y decisiones de producto documentadas.</p>
+            <p style="margin-top:8px;font-size:12px;color:var(--muted);font-family:'JetBrains Mono',monospace">10K+ descargas · 700 usuarios activos</p>
           </div>
         </a>
 
-        <a class="game-card" href="talking-pocoyo-2.html" style="display:block">
-          <div class="thumb thumb-3">
-            <img src="assets/images/Talking2/talking-pocoyo-2-card.png" alt="Talking Pocoyo 2 project card" onerror="this.style.display='none'">
+        <a class="game-card" href="trampolin.html" style="display:block">
+          <div class="thumb" style="background:radial-gradient(circle at 30% 30%,rgba(94,234,212,.4) 0 12%,transparent 13%),radial-gradient(circle at 70% 25%,rgba(96,165,250,.3) 0 10%,transparent 11%),linear-gradient(135deg,#0f4c75,#1b6ca8,#1a5276)">
+            <img src="assets/images/trampolin/trampolin-card.png" alt="Trampolín AI-first product" loading="lazy" onerror="this.style.display='none'">
+            <div class="star-counter">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 14.5 9 22 10 16.5 14.5 18 22 12 18 6 22 7.5 14.5 2 10 9.5 9z"/></svg>
+              <span data-i18n="g3_badge">AI-first</span>
+            </div>
           </div>
           <div class="game-body">
             <div class="game-row">
               <div class="game-icon i3">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="4" y="4" width="16" height="4" rx="1"/><rect x="6" y="10" width="12" height="4" rx="1"/><rect x="4" y="16" width="16" height="4" rx="1"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 1 1 0 2h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 1 1 0-2h1a7 7 0 0 1 7-7h1V5.73A2 2 0 0 1 10 4a2 2 0 0 1 2-2z"/></svg>
               </div>
               <div class="game-title">
-                <h3>Talking Pocoyo 2</h3>
-                <span class="tag arcade" data-i18n="g3_tag">Animation / Tech Art</span>
+                <h3 data-i18n="g3_title">Trampolín</h3>
+                <span class="tag arcade" data-i18n="g3_tag">AI · Producto</span>
               </div>
               <span class="arrow">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
               </span>
             </div>
-            <p data-i18n="g3_copy">App de personaje licenciado donde coordiné las peticiones de animación, adapté contenido de animación y me encargué de la implementación de technical art en Unity: VFX, iluminación, cámara, UI y configuración de audio.</p>
+            <p data-i18n="g3_copy">Producto AI-first para orientar trámites de la Seguridad Social española. Búsqueda en lenguaje natural · API Anthropic · decisión de diseño = restricción legal.</p>
+          </div>
+        </a>
+
+        <a class="game-card" href="ux-design.html" style="display:block">
+          <div class="thumb" style="background:linear-gradient(180deg,rgba(96,165,250,.22),transparent),repeating-linear-gradient(180deg,rgba(255,255,255,.07) 0 18px,transparent 18px 36px),linear-gradient(135deg,rgba(30,64,175,.54),rgba(15,23,42,.3))">
+            <img src="assets/images/ux-design/ux-design-card.jpg" alt="UI Design 30+ apps" loading="lazy" onerror="this.style.display='none'">
+            <div class="star-counter">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 14.5 9 22 10 16.5 14.5 18 22 12 18 6 22 7.5 14.5 2 10 9.5 9z"/></svg>
+              <span>30+ apps</span>
+            </div>
+          </div>
+          <div class="game-body">
+            <div class="game-row">
+              <div class="game-icon" style="background:linear-gradient(135deg,#60a5fa,#a78bfa);width:42px;height:42px;border-radius:12px;display:grid;place-items:center;flex:none;color:#0a0b1e">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9" stroke="#0a0b1e" stroke-width="1.5" fill="none"/></svg>
+              </div>
+              <div class="game-title">
+                <h3 data-i18n="g4_title">UI Design</h3>
+                <span class="tag" style="background:rgba(96,165,250,.18);color:#93c5fd;border-color:rgba(96,165,250,.28)" data-i18n="g4_tag">30+ Apps</span>
+              </div>
+              <span class="arrow">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+              </span>
+            </div>
+            <p data-i18n="g4_copy">UI design para más de 30 apps y juegos infantiles. Ergonomía para toddlers, brand guidelines de IPs licenciadas y sistemas de componentes coherentes.</p>
           </div>
         </a>
       </div>
     </section>
 
-    <!-- ANIMATION -->
-    <section class="panel compact" id="animation-work">
-      <div class="section-head">
-        <div>
-          <div class="section-kicker">
-            <span class="badge">A</span>
-            <span data-i18n="anim_kicker">Animation Focus</span>
-          </div>
-        </div>
-      </div>
-      <div class="animation-section">
-        <div class="animation-copy">
-          <h2 data-i18n="anim_title">Animation & Character Work</h2>
-          <p data-i18n="anim_copy">Stylized character animation, creature behaviours and Unity-ready animation systems for mobile games and character-driven apps.</p>
-          <div class="animation-highlights">
-            <div class="animation-pill"><span class="dot"></span><span data-i18n="anim_h1">Stylized character animation</span></div>
-            <div class="animation-pill"><span class="dot"></span><span data-i18n="anim_h2">Pet and creature behaviours</span></div>
-            <div class="animation-pill"><span class="dot"></span><span data-i18n="anim_h3">Unity animation integration</span></div>
-            <div class="animation-pill"><span class="dot"></span><span data-i18n="anim_h4">Animation timing for gameplay</span></div>
-            <div class="animation-pill"><span class="dot"></span><span data-i18n="anim_h5">VFX and reward feedback</span></div>
-            <div class="animation-pill"><span class="dot"></span><span data-i18n="anim_h6">Character-driven mobile experiences</span></div>
-          </div>
-          <div class="animation-actions">
-            <a class="btn btn-primary" href="https://www.youtube.com/watch?v=wQGzyj0aMR4" target="_blank" rel="noopener noreferrer">
-              <span data-i18n="anim_btn_reel">Watch full reel</span>
-            </a>
-            <a class="btn btn-outline" href="https://rayco76.artstation.com/" target="_blank" rel="noopener noreferrer">
-              <span data-i18n="anim_btn_art">View ArtStation</span>
-            </a>
-          </div>
-        </div>
-        <div class="animation-preview" aria-hidden="true">
-          <div class="animation-preview-top">
-            <div class="animation-mini-label"><span class="dot"></span><span data-i18n="anim_preview_label">Character pipeline</span></div>
-            <div class="animation-badge" data-i18n="anim_preview_badge">Unity Ready</div>
-          </div>
-          <div class="animation-reel-card">
-            <div class="animation-play">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 6.5v11l9-5.5-9-5.5Z"/></svg>
-            </div>
-            <div class="animation-reel-body">
-              <h3 data-i18n="anim_core_t">Animation reel for expressive characters</h3>
-              <p data-i18n="anim_core_c">A focused look at stylized character work, pet interactions, gameplay timing and Unity-ready implementation.</p>
-            </div>
-            <div class="animation-reel-meta">
-              <span class="animation-meta-pill" data-i18n="anim_tag_1">Stylized motion</span>
-              <span class="animation-meta-pill" data-i18n="anim_tag_2">Gameplay timing</span>
-              <span class="animation-meta-pill" data-i18n="anim_tag_3">Reward feedback</span>
-            </div>
-            <div class="animation-preview-footer">
-              <p class="animation-preview-note" data-i18n="anim_preview_note">Built to support mobile characters that need personality, readability and production-ready animation setup.</p>
-              <div class="animation-preview-cta">
-                <span data-i18n="anim_preview_cta">Open full reel</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- SKILLS / TECH STACK -->
     <section class="panel compact" id="skills">
@@ -1044,69 +1036,58 @@
             <span class="badge">✦</span>
             <span data-i18n="skills_kicker">Stack técnico</span>
           </div>
-          <h2 data-i18n="skills_t">Lo que aporto como Technical Artist</h2>
+          <h2 data-i18n="skills_t">Lo que aporto</h2>
         </div>
       </div>
       <div class="skills">
         <div class="skill">
           <div class="ico">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18M3 12h18"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h5M17 12h5M12 2v5M12 17v5"/><circle cx="12" cy="12" r="4"/><path d="M4.9 4.9l3.2 3.2M15.9 15.9l3.2 3.2M19.1 4.9l-3.2 3.2M8.1 15.9l-3.2 3.2"/></svg>
           </div>
-          <h4 data-i18n="sk1_t">Shaders &amp; Materiales</h4>
-          <p data-i18n="sk1_c">Setup de materiales, look dev e iluminación consistente y legible en Unity.</p>
+          <h4 data-i18n="sk1_t">UX &amp; Product Design</h4>
+          <p data-i18n="sk1_c">Flujos de usuario, arquitectura de información, wireframes, onboarding y sistemas de retención en productos con millones de usuarios reales.</p>
         </div>
         <div class="skill">
           <div class="ico">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M12 16v6M2 12h6M16 12h6M5 5l4 4M15 15l4 4M5 19l4-4M15 9l4-4"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
           </div>
-          <h4 data-i18n="sk2_t">VFX &amp; Game Feel</h4>
-          <p data-i18n="sk2_c">Partículas, feedback visual e impacto que dan vida y peso a cada interacción.</p>
-        </div>
-        <div class="skill">
-          <div class="ico">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 1 1-14 0 7 7 0 0 1 14 0z"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
-          </div>
-          <h4 data-i18n="sk3_t">Unity &amp; Pipeline</h4>
-          <p data-i18n="sk3_c">Integración de assets, render, cámara, C# y optimización para móvil.</p>
+          <h4 data-i18n="sk2_t">UI &amp; Visual Design</h4>
+          <p data-i18n="sk2_c">Interfaces vectoriales, sistemas de componentes y lenguaje visual coherente. Illustrator, Affinity Designer y criterio estético propio.</p>
         </div>
         <div class="skill">
           <div class="ico">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5v10l-9 5-9-5V7z"/><path d="m12 12 9-5M12 12v10M12 12 3 7"/></svg>
           </div>
-          <h4 data-i18n="sk4_t">3D &amp; DCC</h4>
-          <p data-i18n="sk4_c">Modelado de props, cleanup de librerías y environment art listo para engine.</p>
+          <h4 data-i18n="sk3_t">Technical Art</h4>
+          <p data-i18n="sk3_c">Shaders, VFX, materiales e iluminación en Unity. La base técnica que hace que las decisiones de diseño sean implementables.</p>
+        </div>
+        <div class="skill">
+          <div class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M8 6h8M8 10h5M8 14h8"/><circle cx="12" cy="18" r="1"/></svg>
+          </div>
+          <h4 data-i18n="sk4_t">Mobile &amp; Performance</h4>
+          <p data-i18n="sk4_c">Pipeline de assets, optimización y render para móvil. Sé lo que cuesta en producción cada decisión de diseño.</p>
         </div>
       </div>
       <div class="stack-block">
         <div class="stack-group">
-          <span class="stack-label" data-i18n="ts_software">Software &amp; herramientas</span>
-          <div class="tech-stack" aria-label="Software y herramientas">
-            <span class="chip">Unity</span>
-            <span class="chip">C#</span>
-            <span class="chip">Shader Graph</span>
-            <span class="chip">HLSL</span>
-            <span class="chip">VFX Graph</span>
-            <span class="chip">Substance</span>
-            <span class="chip">ZBrush</span>
-            <span class="chip">Blender</span>
-            <span class="chip">Maya</span>
-            <span class="chip">Python</span>
-            <span class="chip">Git</span>
+          <span class="stack-label" data-i18n="ts_software">Design &amp; UX</span>
+          <div class="tech-stack" aria-label="Design y UX tools">
+            <span class="chip">Figma</span>
+            <span class="chip">Illustrator</span>
+            <span class="chip">Affinity Designer</span>
+            <span class="chip">Maze</span>
+            <span class="chip">Miro</span>
           </div>
         </div>
         <div class="stack-group">
-          <span class="stack-label" data-i18n="ts_areas">Áreas</span>
-          <div class="tech-stack" aria-label="Áreas de trabajo">
-            <span class="chip soft" data-i18n="st_materials">Materiales</span>
-            <span class="chip soft" data-i18n="st_lighting">Iluminación</span>
-            <span class="chip soft" data-i18n="st_vfx">VFX / Partículas</span>
-            <span class="chip soft" data-i18n="st_render">Render &amp; Cámara</span>
-            <span class="chip soft" data-i18n="st_assets">Integración de assets</span>
-            <span class="chip soft" data-i18n="st_opt">Optimización móvil</span>
-            <span class="chip soft" data-i18n="st_props">Modelado de props</span>
-            <span class="chip soft">Environment Art</span>
-            <span class="chip soft" data-i18n="st_anim">Animación en engine</span>
-            <span class="chip soft" data-i18n="st_ip">IP licenciada</span>
+          <span class="stack-label" data-i18n="ts_areas">Technical</span>
+          <div class="tech-stack" aria-label="Technical tools">
+            <span class="chip soft">Unity</span>
+            <span class="chip soft">Shader Graph</span>
+            <span class="chip soft">Blender</span>
+            <span class="chip soft">C#</span>
+            <span class="chip soft">Git</span>
           </div>
         </div>
       </div>
@@ -1127,20 +1108,20 @@
       <div class="visual-grid">
         <article class="visual-card" data-tone="characters">
           <div class="visual-media">
-            <img src="assets/images/visual-character-1.jpg" alt="Placeholder para personajes y criaturas" onerror="this.style.display='none'">
+            <img src="assets/images/pawpal/pawpal-retention-card.svg" alt="PawPal: tiempo medio de sesión duplicado tras rediseño del loop de retención" loading="lazy" onerror="this.style.display='none'">
             <div class="visual-stamp">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3.9 0 7 2.9 7 6.6 0 2.2-1.1 4.2-2.9 5.4V18a1 1 0 0 1-1.7.7l-1.8-1.8c-.2 0-.4.1-.6.1-3.9 0-7-2.9-7-6.4S8.1 3 12 3Z"/><circle cx="9.5" cy="10" r="1"/><circle cx="14.5" cy="10" r="1"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m4 14 4-4 4 4 8-8"/><path d="M20 10v6h-6"/></svg>
             </div>
           </div>
           <div class="visual-body">
-            <div class="visual-label"><span class="dot"></span><span>3D / Stylized</span></div>
-            <h4 data-i18n="visual_1_t">Personajes y criaturas</h4>
-            <p data-i18n="visual_1_c">Personajes stylized, mascotas y criaturas preparadas para gameplay, animación y rendimiento mobile.</p>
+            <div class="visual-label"><span class="dot"></span><span>AI · NLP → POLISH / FEEDBACK</span></div>
+            <h4 data-i18n="visual_1_t">De 3 a 6 minutos: rediseñando el loop de retención de PawPal</h4>
+            <p data-i18n="visual_1_c">Tras analizar por qué el loop base (comer/rascar) no generaba retorno, rediseñé la estructura de recompensas con Wardrobe (colección/personalización) y Daily Reward, sustituyendo el minijuego core. Resultado: el tiempo medio de sesión se duplicó de 3 a 6 minutos.</p>
           </div>
         </article>
         <article class="visual-card" data-tone="ui">
           <div class="visual-media">
-            <img src="assets/images/visual-ui-1.jpg" alt="Placeholder para UI y UX mobile" onerror="this.style.display='none'">
+            <img src="assets/images/visual-ui-1.jpg" alt="Placeholder para UI y UX mobile" loading="lazy" onerror="this.style.display='none'">
             <div class="visual-stamp">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M8 6h8M8 10h5M8 14h8"/><circle cx="12" cy="18" r="1"/></svg>
             </div>
@@ -1153,7 +1134,7 @@
         </article>
         <article class="visual-card" data-tone="anim">
           <div class="visual-media">
-            <img src="assets/images/visual-animation-1.jpg" alt="Placeholder para animación y game feel" onerror="this.style.display='none'">
+            <img src="assets/images/visual-animation-1.jpg" alt="Placeholder para animación y game feel" loading="lazy" onerror="this.style.display='none'">
             <div class="visual-stamp">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m4 14 4-4 4 4 8-8"/><path d="M20 10v6h-6"/></svg>
             </div>
@@ -1166,15 +1147,15 @@
         </article>
         <article class="visual-card" data-tone="tech">
           <div class="visual-media">
-            <img src="assets/images/visual-techart-1.jpg" alt="Placeholder para technical art" onerror="this.style.display='none'">
+            <img src="assets/images/trampolin/trampolin-card.png" alt="Trampolín AI product" loading="lazy" onerror="this.style.display='none'">
             <div class="visual-stamp">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.9 4.9l2.8 2.8"/><path d="m16.3 16.3 2.8 2.8"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="m4.9 19.1 2.8-2.8"/><path d="m16.3 7.7 2.8-2.8"/><circle cx="12" cy="12" r="3"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 1 1 0 2h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 1 1 0-2h1a7 7 0 0 1 7-7h1V5.73A2 2 0 0 1 10 4a2 2 0 0 1 2-2z"/></svg>
             </div>
           </div>
           <div class="visual-body">
-            <div class="visual-label"><span class="dot"></span><span>Unity / VFX</span></div>
-            <h4 data-i18n="visual_4_t">Tech Art</h4>
-            <p data-i18n="visual_4_c">Integración en Unity, VFX, partículas, materiales y sistemas visuales reutilizables.</p>
+            <div class="visual-label"><span class="dot"></span><span>AI · NLP</span></div>
+            <h4 data-i18n="visual_4_t">AI Product Pipeline</h4>
+            <p data-i18n="visual_4_c">Diseño conversacional, NLP UX y restricciones de producto derivadas de contexto legal y técnico.</p>
           </div>
         </article>
       </div>
@@ -1190,21 +1171,22 @@
           </div>
         </div>
       </div>
+      <p class="visual-intro" data-i18n="proc_intro">Prefiero que algo exista primero, y perfeccionarlo después. Iterar rápido sobre algo real enseña más que cualquier plan perfecto sobre el papel.</p>
       <div class="timeline">
         <div class="tl">
-          <div class="date" data-i18n="t1_date">01 — IDEA</div>
-          <h4 data-i18n="t1_t">Concepto y prototipo</h4>
-          <p data-i18n="t1_c">De una mecánica core a un prototipo jugable en días, con foco en lo divertido.</p>
+          <div class="date" data-i18n="t1_date">01 — RESEARCH</div>
+          <h4 data-i18n="t1_t">Discovery y research</h4>
+          <p data-i18n="t1_c">Entrevistas, análisis de datos, benchmark y definición del problema. Sin esto el diseño es decoración.</p>
         </div>
         <div class="tl">
-          <div class="date" data-i18n="t2_date">02 — BUILD</div>
-          <h4 data-i18n="t2_t">Sistemas y polish</h4>
-          <p data-i18n="t2_c">Arquitectura modular, feedback visual, animación y UI pensada para móvil.</p>
+          <div class="date" data-i18n="t2_date">02 — DESIGN</div>
+          <h4 data-i18n="t2_t">Flujos y prototipado</h4>
+          <p data-i18n="t2_c">Arquitectura de información, wireframes, componentes y prototipado para testear antes de construir.</p>
         </div>
         <div class="tl">
-          <div class="date" data-i18n="t3_date">03 — LAUNCH</div>
-          <h4 data-i18n="t3_t">Live ops y retención</h4>
-          <p data-i18n="t3_c">Daily rewards, ads, economía y telemetría para crecer sin romper la experiencia.</p>
+          <div class="date" data-i18n="t3_date">03 — ITERATE</div>
+          <h4 data-i18n="t3_t">Test y métricas</h4>
+          <p data-i18n="t3_c">Validación con usuarios reales, A/B testing y seguimiento de métricas para iterar con criterio.</p>
         </div>
       </div>
     </section>
@@ -1221,8 +1203,8 @@
       </div>
       <div class="about">
         <div class="about-card">
-          <h3 data-i18n="about_t">Technical Artist con perfil híbrido: arte + motor</h3>
-          <p data-i18n="about_c">Trabajo en el puente entre arte y programación: llevo materiales, iluminación, VFX y animación a Unity y los dejo listos para producción, optimizados y consistentes en móvil. Vengo del mundo del arte 3D, así que cuido tanto cómo se ve como cómo rinde.</p>
+          <h3 data-i18n="about_t">Designer con criterio de producto y base técnica sólida</h3>
+          <p data-i18n="about_c">Lo que me mueve es simple: crear cosas que la gente use, disfrute y en las que confíe. Si es un juego y los jugadores vuelven cada día, perfecto. Si es una app y los padres la recomiendan porque sus hijos la entienden solos, igual de bien.<br><br>Llevo 10 años en eso, principalmente en videojuegos mobile — un entorno donde el usuario te abandona en segundos si algo no funciona, y donde diseñar bien no es opcional. Aprendí UX con esos constraints encima, lo cual hace que el resto de contextos me resulten más manejables, no más difíciles.<br><br>Tengo base técnica sólida — sé cómo se construye lo que diseño — y dominio del lenguaje visual desde años trabajando con vector. Busco producto digital donde crear bien y crear rápido no sean cosas distintas.</p>
           <div class="stats">
             <div class="stat"><strong>+30</strong><span data-i18n="stat1">Apps publicadas</span></div>
             <div class="stat"><strong>+50M</strong><span data-i18n="stat2">Descargas combinadas</span></div>
@@ -1247,8 +1229,8 @@
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="12" rx="4"/><path d="M8 12h2M9 11v2"/><circle cx="15" cy="12" r="1"/><circle cx="17" cy="14" r="1"/></svg>
       </div>
       <div>
-        <h3 data-i18n="contact_t">¿Tienes una idea en mente?</h3>
-        <p data-i18n="contact_c">Hablemos y hagamos un juego increíble juntos.</p>
+        <h3 data-i18n="contact_t">¿Tienes un producto donde el diseño marque la diferencia?</h3>
+        <p data-i18n="contact_c">Hablemos.</p>
       </div>
       <a class="btn btn-primary" href="mailto:river.3D@proton.me">
         <span data-i18n="contact_btn">Contactar</span>
@@ -1258,7 +1240,7 @@
 
     <footer class="footer">
       <span>© 2026 Rayco González. Portfolio personal.</span>
-      <span>Technical Artist · Unity · VFX · Shaders · Mobile</span>
+      <span>Product &amp; UX Designer · Visual Art · Mobile · Games</span>
     </footer>
   </main>
 </div>
@@ -1266,13 +1248,13 @@
 <script>
 const I18N = {
   es: {
-    nav_home:"Inicio", nav_about:"Sobre mí", nav_games:"Juegos", nav_visual:"Visual", nav_process:"Proceso", nav_contact:"Contacto",
+    nav_home:"Inicio", nav_about:"Sobre mí", nav_cases:"Case Studies", nav_games:"Juegos", nav_visual:"Visual", nav_process:"Proceso", nav_contact:"Contacto",
     hello:"¡Hola! Soy Rayco",
-    h1_a:"Technical Artist", h1_b:"para juegos casual", h1_c:"que enganchan",
-    hero_copy:"Conecto arte y motor en Unity: materiales, VFX, iluminación, render y pipeline que hacen que los juegos casual se vean bien y rindan en móvil.",
-    cta_primary:"Ver mis juegos", cta_secondary:"Conocer más sobre mí",
-    quote:"Me apasionan los juegos casual: mecánicas simples, retos bien pensados y recompensas que generan enganche y satisfacción.",
-    games_kicker:"Proyectos destacados", games_all:"Ver todos los proyectos",
+    h1_a:"Product & UX Designer", h1_b:"Visual Art · Mobile · Games", h1_c:"10 years · 50M+ downloads",
+    hero_copy:"Me importa crear productos útiles, atractivos y que se sientan bien. Da igual si es un juego, una app o una herramienta: quiero que la gente lo use, lo disfrute y vuelva. Llevo 10 años haciendo eso, con más de 50M de descargas reales.",
+    cta_primary:"Ver proyectos", cta_secondary:"Sobre mí",
+    games_kicker:"Proyectos destacados", games_all:"Ver case studies",
+    g2_badge:"Teacher Approved", g2_title:"The Book of Sounds",
     anim_kicker:"Animation Focus",
     anim_title:"Animation & Character Work",
     anim_copy:"Animación stylized de personajes, comportamientos de criaturas y sistemas de animación listos para Unity para juegos mobile y apps centradas en personajes.",
@@ -1293,53 +1275,52 @@ const I18N = {
     anim_core_c:"Una mirada centrada en trabajo de personaje stylized, interacciones de mascotas, timing de gameplay e implementación lista para Unity.",
     anim_preview_note:"Pensado para personajes mobile con personalidad, legibilidad y una integración de animación preparada para producción.",
     anim_preview_cta:"Abrir reel completo",
-    g1_title:"PawPal", g1_tag:"Virtual Pet", g1_copy:"Mascota virtual mobile con minijuegos arcade, personalización y sistemas de progresión orientados a retención.",
-    g2_tag:"3D / Tech Art", g2_copy:"Juego educativo infantil basado en el universo Pocoyo. Arte 3D, integración en Unity, iluminación, materiales y soporte de VFX.",
-    g3_tag:"Animación / Tech Art", g3_copy:"App de personaje licenciado donde coordiné las peticiones de animación, adapté contenido de animación y me encargué de la implementación de technical art en Unity: VFX, iluminación, cámara, UI y configuración de audio.",
+    g1_title:"PawPal", g1_tag:"UX · Product", g1_copy:"Onboarding, retención, sistemas de progresión y UX de monetización para un juego mobile de mascota virtual con minijuegos arcade.",
+    g2_tag:"EdTech", g2_copy:"App educativa gratuita para niños. Diseñada con proceso UX completo: research, wireframes, testing y decisiones de producto documentadas.",
+    g3_badge:"AI-first", g3_title:"Trampolín", g3_tag:"AI · Producto", g3_copy:"Producto AI-first para orientar trámites de la Seguridad Social española. Búsqueda en lenguaje natural · API Anthropic · decisión de diseño = restricción legal.",
+    g4_title:"UI Design", g4_tag:"30+ Apps", g4_copy:"UI design para más de 30 apps y juegos infantiles. Ergonomía para toddlers, brand guidelines de IPs licenciadas y sistemas de componentes coherentes.",
     skills_kicker:"Stack técnico",
-    skills_t:"Lo que aporto como Technical Artist",
-    sk1_t:"Shaders & Materiales", sk1_c:"Setup de materiales, look dev e iluminación consistente y legible en Unity.",
-    sk2_t:"VFX & Game Feel", sk2_c:"Partículas, feedback visual e impacto que dan vida y peso a cada interacción.",
-    sk3_t:"Unity & Pipeline", sk3_c:"Integración de assets, render, cámara, C# y optimización para móvil.",
-    sk4_t:"3D & DCC", sk4_c:"Modelado de props, cleanup de librerías y environment art listo para engine.",
-    ts_software:"Software & herramientas", ts_areas:"Áreas",
-    st_materials:"Materiales", st_lighting:"Iluminación", st_vfx:"VFX / Partículas", st_render:"Render & Cámara",
-    st_assets:"Integración de assets", st_opt:"Optimización móvil", st_props:"Modelado de props",
-    st_anim:"Animación en engine", st_ip:"IP licenciada",
+    skills_t:"Lo que aporto",
+    sk1_t:"UX & Product Design", sk1_c:"Flujos de usuario, arquitectura de información, wireframes, onboarding y sistemas de retención en productos con millones de usuarios reales.",
+    sk2_t:"UI & Visual Design", sk2_c:"Interfaces vectoriales, sistemas de componentes y lenguaje visual coherente. Illustrator, Affinity Designer y criterio estético propio.",
+    sk3_t:"Technical Art", sk3_c:"Shaders, VFX, materiales e iluminación en Unity. La base técnica que hace que las decisiones de diseño sean implementables.",
+    sk4_t:"Mobile & Performance", sk4_c:"Pipeline de assets, optimización y render para móvil. Sé lo que cuesta en producción cada decisión de diseño.",
+    ts_software:"Design & UX", ts_areas:"Technical",
     visual_kicker:"Visual Craft",
     visual_t:"Personajes, UI y Tech Art",
     visual_intro:"Una parte importante de mi trabajo está en conectar gameplay, arte y feedback visual: personajes expresivos, interfaces claras y sistemas visuales que hacen que el juego se sienta mejor.",
-    visual_1_t:"Personajes y criaturas",
-    visual_1_c:"Personajes stylized, mascotas y criaturas preparadas para gameplay, animación y rendimiento mobile.",
+    visual_1_t:"De 3 a 6 minutos: rediseñando el loop de retención de PawPal",
+    visual_1_c:"Tras analizar por qué el loop base (comer/rascar) no generaba retorno, rediseñé la estructura de recompensas con Wardrobe (colección/personalización) y Daily Reward, sustituyendo el minijuego core. Resultado: el tiempo medio de sesión se duplicó de 3 a 6 minutos.",
     visual_2_t:"UI / UX Mobile",
     visual_2_c:"Pantallas de shop, recompensas, HUDs y flujos de interacción pensados para claridad, ritmo y retención.",
     visual_3_t:"Animación y game feel",
     visual_3_c:"Estados de personaje, polish de animación, feedback visual, timing de impacto y momentos de recompensa.",
-    visual_4_t:"Tech Art",
-    visual_4_c:"Integración en Unity, VFX, partículas, materiales y sistemas visuales reutilizables.",
+    visual_4_t:"AI Product Pipeline",
+    visual_4_c:"Diseño conversacional, NLP UX y restricciones de producto derivadas de contexto legal y técnico.",
     proc_kicker:"Mi proceso",
-    t1_date:"01 — IDEA", t1_t:"Concepto y prototipo", t1_c:"De una mecánica core a un prototipo jugable en días, con foco en lo divertido.",
-    t2_date:"02 — BUILD", t2_t:"Sistemas y polish", t2_c:"Arquitectura modular, feedback visual, animación y UI pensada para móvil.",
-    t3_date:"03 — LAUNCH", t3_t:"Live ops y retención", t3_c:"Daily rewards, ads, economía y telemetría para crecer sin romper la experiencia.",
+    proc_intro:"Prefiero que algo exista primero, y perfeccionarlo después. Iterar rápido sobre algo real enseña más que cualquier plan perfecto sobre el papel.",
+    t1_date:"01 — RESEARCH", t1_t:"Discovery y research", t1_c:"Entrevistas, análisis de datos, benchmark y definición del problema. Sin esto el diseño es decoración.",
+    t2_date:"02 — DESIGN", t2_t:"Flujos y prototipado", t2_c:"Arquitectura de información, wireframes, componentes y prototipado para testear antes de construir.",
+    t3_date:"03 — ITERATE", t3_t:"Test y métricas", t3_c:"Validación con usuarios reales, A/B testing y seguimiento de métricas para iterar con criterio.",
     about_kicker:"Sobre mí",
-    about_t:"Technical Artist con perfil híbrido: arte + motor",
-    about_c:"Trabajo en el puente entre arte y programación: llevo materiales, iluminación, VFX y animación a Unity y los dejo listos para producción, optimizados y consistentes en móvil. Vengo del mundo del arte 3D, así que cuido tanto cómo se ve como cómo rinde.",
+    about_t:"Designer con criterio de producto y base técnica sólida",
+    about_c:"Lo que me mueve es simple: crear cosas que la gente use, disfrute y en las que confíe. Si es un juego y los jugadores vuelven cada día, perfecto. Si es una app y los padres la recomiendan porque sus hijos la entienden solos, igual de bien.\n\nLlevo 10 años en eso, principalmente en videojuegos mobile — un entorno donde el usuario te abandona en segundos si algo no funciona, y donde diseñar bien no es opcional. Aprendí UX con esos constraints encima, lo cual hace que el resto de contextos me resulten más manejables, no más difíciles.\n\nTengo base técnica sólida — sé cómo se construye lo que diseño — y dominio del lenguaje visual desde años trabajando con vector. Busco producto digital donde crear bien y crear rápido no sean cosas distintas.",
     stat1:"Apps publicadas", stat2:"Descargas combinadas", stat3:"Juego en Switch / PlayStation", stat4:"Años en la industria",
     cv_t:"CV y disponibilidad",
-    cv_c:"Disponible para colaboraciones, freelance o posiciones relacionadas con Unity, casual games y mobile UX.",
+    cv_c:"Disponible para proyectos de producto digital, diseño UX/UI o posiciones relacionadas con mobile y games.",
     cv_btn:"Descargar CV", cv_btn2:"Escríbeme",
-    contact_t:"¿Tienes una idea en mente?",
-    contact_c:"Hablemos y hagamos un juego increíble juntos.",
+    contact_t:"¿Tienes un producto donde el diseño marque la diferencia?",
+    contact_c:"Hablemos.",
     contact_btn:"Contactar"
   },
   en: {
-    nav_home:"Home", nav_about:"About", nav_games:"Games", nav_visual:"Visual", nav_process:"Process", nav_contact:"Contact",
+    nav_home:"Home", nav_about:"About", nav_cases:"Case Studies", nav_games:"Games", nav_visual:"Visual", nav_process:"Process", nav_contact:"Contact",
     hello:"Hi! I'm Rayco",
-    h1_a:"Technical Artist", h1_b:"for casual games", h1_c:"that hook you",
-    hero_copy:"I connect art and engine in Unity: materials, VFX, lighting, render and pipeline that make casual games look great and run well on mobile.",
-    cta_primary:"See my games", cta_secondary:"More about me",
-    quote:"I love casual games: simple mechanics, well-thought challenges, and rewards that create engagement and satisfaction.",
-    games_kicker:"Featured projects", games_all:"View all projects",
+    h1_a:"Product & UX Designer", h1_b:"Visual Art · Mobile · Games", h1_c:"10 years · 50M+ downloads",
+    hero_copy:"I care about building products that are useful, attractive and feel right. Whether it's a game, an app or a tool — I want people to use it, enjoy it and come back. I've been doing that for 10 years, with over 50M real downloads.",
+    cta_primary:"View projects", cta_secondary:"About me",
+    games_kicker:"Featured projects", games_all:"View case studies",
+    g2_badge:"Teacher Approved", g2_title:"The Book of Sounds",
     anim_kicker:"Animation Focus",
     anim_title:"Animation & Character Work",
     anim_copy:"Stylized character animation, creature behaviours and Unity-ready animation systems for mobile games and character-driven apps.",
@@ -1360,50 +1341,49 @@ const I18N = {
     anim_core_c:"A focused look at stylized character work, pet interactions, gameplay timing and Unity-ready implementation.",
     anim_preview_note:"Built to support mobile characters that need personality, readability and production-ready animation setup.",
     anim_preview_cta:"Open full reel",
-    g1_title:"PawPal", g1_tag:"Virtual Pet", g1_copy:"Virtual pet mobile game with arcade mini-games, customization and progression systems designed for retention.",
-    g2_tag:"3D / Tech Art", g2_copy:"Educational kids game based on the Pocoyo universe. 3D art, Unity integration, lighting, materials and VFX support.",
-    g3_tag:"Animation / Tech Art", g3_copy:"Licensed character app where I coordinated animation requests, adapted animation content and handled Unity technical art implementation including VFX, lighting, camera, UI and audio setup.",
+    g1_title:"PawPal", g1_tag:"UX · Product", g1_copy:"Onboarding, retention, progression systems and monetisation UX for a virtual pet mobile game with arcade mini-games.",
+    g2_tag:"EdTech", g2_copy:"Free educational app for kids. Designed with a full UX process: research, wireframes, testing and documented product decisions.",
+    g3_badge:"AI-first", g3_title:"Trampolín", g3_tag:"AI · Product", g3_copy:"AI-first product to guide Spanish Social Security procedures. Natural language search · Anthropic API · design decision = legal constraint.",
+    g4_title:"UI Design", g4_tag:"30+ Apps", g4_copy:"UI design across 30+ children's apps and games. Toddler ergonomics, licensed IP brand guidelines and coherent component systems.",
     skills_kicker:"Tech stack",
-    skills_t:"What I bring as a Technical Artist",
-    sk1_t:"Shaders & Materials", sk1_c:"Material setup, look dev and consistent, readable lighting in Unity.",
-    sk2_t:"VFX & Game Feel", sk2_c:"Particles, visual feedback and impact that give life and weight to every interaction.",
-    sk3_t:"Unity & Pipeline", sk3_c:"Asset integration, render, camera, C# and mobile optimization.",
-    sk4_t:"3D & DCC", sk4_c:"Prop modelling, asset-library cleanup and engine-ready environment art.",
-    ts_software:"Software & tools", ts_areas:"Areas",
-    st_materials:"Materials", st_lighting:"Lighting", st_vfx:"VFX / Particles", st_render:"Render & Camera",
-    st_assets:"Asset Integration", st_opt:"Mobile Optimization", st_props:"Prop Modelling",
-    st_anim:"In-engine Animation", st_ip:"Licensed IP",
+    skills_t:"What I bring",
+    sk1_t:"UX & Product Design", sk1_c:"User flows, information architecture, wireframes, onboarding and retention systems in products with millions of real users.",
+    sk2_t:"UI & Visual Design", sk2_c:"Vector interfaces, component systems and coherent visual language. Illustrator, Affinity Designer and my own aesthetic judgment.",
+    sk3_t:"Technical Art", sk3_c:"Shaders, VFX, materials and lighting in Unity. The technical foundation that makes design decisions implementable.",
+    sk4_t:"Mobile & Performance", sk4_c:"Asset pipeline, optimisation and mobile rendering. I know what every design decision costs in production.",
+    ts_software:"Design & UX", ts_areas:"Technical",
     visual_kicker:"Visual Craft",
     visual_t:"Characters, UI and Tech Art",
     visual_intro:"A big part of my work is connecting gameplay, art and visual feedback: expressive characters, clear interfaces and visual systems that make the game feel better.",
-    visual_1_t:"Characters & Creatures",
-    visual_1_c:"Stylized characters, pets and creatures prepared for gameplay, animation and mobile performance.",
+    visual_1_t:"From 3 to 6 minutes: redesigning PawPal's retention loop",
+    visual_1_c:"After finding out why the base loop (feed/pet) wasn't driving return visits, I redesigned the reward structure around Wardrobe (collection/customization) and a Daily Reward, replacing the core minigame. Result: average session time doubled from 3 to 6 minutes.",
     visual_2_t:"UI / UX Mobile",
     visual_2_c:"Shop screens, reward panels, HUDs and mobile-first interaction flows focused on clarity and retention.",
     visual_3_t:"Animation & Game Feel",
     visual_3_c:"Character states, animation polish, visual feedback, impact timing and reward moments.",
-    visual_4_t:"Technical Art",
-    visual_4_c:"Unity integration, VFX, particles, shaders/material setup and reusable visual systems.",
+    visual_4_t:"AI Product Pipeline",
+    visual_4_c:"Conversational design, NLP UX and product constraints derived from legal and technical context.",
     proc_kicker:"My process",
-    t1_date:"01 — IDEA", t1_t:"Concept & prototype", t1_c:"From a core mechanic to a playable prototype in days, focused on what's fun.",
-    t2_date:"02 — BUILD", t2_t:"Systems & polish", t2_c:"Modular architecture, visual feedback, animation and mobile-first UI.",
-    t3_date:"03 — LAUNCH", t3_t:"Live ops & retention", t3_c:"Daily rewards, ads, economy and telemetry to grow without breaking UX.",
+    proc_intro:"I'd rather something exist first, and refine it after. Iterating fast on something real teaches more than any perfect plan on paper.",
+    t1_date:"01 — RESEARCH", t1_t:"Discovery & research", t1_c:"User interviews, data analysis, benchmarks and problem definition. Without this, design is decoration.",
+    t2_date:"02 — DESIGN", t2_t:"Flows & prototyping", t2_c:"Information architecture, wireframes, components and prototyping to validate before building.",
+    t3_date:"03 — ITERATE", t3_t:"Test & metrics", t3_c:"Real user validation, A/B testing and metric tracking to iterate with confidence.",
     about_kicker:"About me",
-    about_t:"Technical Artist with a hybrid profile: art + engine",
-    about_c:"I work at the bridge between art and programming: I bring materials, lighting, VFX and animation into Unity and make them production-ready, optimized and consistent on mobile. I come from a 3D art background, so I care as much about how it looks as how it performs.",
+    about_t:"Designer with product judgment and a solid technical foundation",
+    about_c:"What drives me is simple: building things people use, enjoy and trust. If it's a game and players come back every day, great. If it's an app and parents recommend it because their kids figure it out on their own, equally good.\n\nI've spent 10 years doing that, mostly in mobile video games — an environment where users drop off in seconds if something doesn't work, and where good design isn't optional. I learned UX under those constraints, which makes every other context feel more manageable, not harder.\n\nI have a solid technical foundation — I know how what I design gets built — and strong visual language skills from years working with vector. I'm looking for digital product work where creating well and creating fast aren't two different things.",
     stat1:"Apps shipped", stat2:"Combined downloads", stat3:"Switch / PlayStation game", stat4:"Years in the industry",
     cv_t:"CV & availability",
-    cv_c:"Available for collaborations, freelance or positions related to Unity, casual games and mobile UX.",
+    cv_c:"Available for digital product projects, UX/UI design or positions related to mobile and games.",
     cv_btn:"Download CV", cv_btn2:"Email me",
-    contact_t:"Got an idea in mind?",
-    contact_c:"Let's talk and make an incredible game together.",
+    contact_t:"Got a product where design makes the difference?",
+    contact_c:"Let's talk.",
     contact_btn:"Get in touch"
   }
 };
 
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "lang": "es",
-  "accent": "sunset"
+  "accent": "violet"
 }/*EDITMODE-END*/;
 
 function applyLang(lang){
