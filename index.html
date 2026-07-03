@@ -4,25 +4,25 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Rayco González — Product &amp; UX Designer · Visual Art · Mobile · Games</title>
-<meta name="description" content="Product &amp; UX Designer con 10 años de experiencia y más de 50M de descargas. Diseño productos útiles, atractivos y que se sienten bien: mobile, games y más allá." />
+<meta name="description" content="Product &amp; UX Designer con base visual y técnica en mobile, games y productos digitales. Diseño experiencias útiles, atractivas e implementables: UX, UI, visual systems, Unity y mobile." />
 <meta name="author" content="Rayco González" />
 <link rel="canonical" href="https://raycogonzalez.com/" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 38 38'%3E%3Crect width='38' height='38' rx='11' fill='%23a78bfa'/%3E%3Ctext x='19' y='27' font-family='sans-serif' font-size='22' font-weight='900' fill='%230a0b1e' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E" />
 <!-- Open Graph / Twitter -->
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Rayco González — Product &amp; UX Designer · Visual Art · Mobile · Games" />
-<meta property="og:description" content="Product &amp; UX Designer con 10 años de experiencia y más de 50M de descargas. Diseño productos útiles, atractivos y que se sienten bien: mobile, games y más allá." />
+<meta property="og:description" content="Product &amp; UX Designer con base visual y técnica en mobile, games y productos digitales. Diseño experiencias útiles, atractivas e implementables: UX, UI, visual systems, Unity y mobile." />
 <meta property="og:url" content="https://raycogonzalez.com/" />
 <meta property="og:image" content="https://raycogonzalez.com/assets/images/hero-ux-1.png" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Rayco González — Product &amp; UX Designer · Visual Art · Mobile · Games" />
-<meta name="twitter:description" content="Product &amp; UX Designer con 10 años de experiencia y más de 50M de descargas. Diseño productos útiles, atractivos y que se sienten bien: mobile, games y más allá." />
+<meta name="twitter:description" content="Product &amp; UX Designer con base visual y técnica en mobile, games y productos digitales. Diseño experiencias útiles, atractivas e implementables: UX, UI, visual systems, Unity y mobile." />
 <meta name="twitter:image" content="https://raycogonzalez.com/assets/images/hero-ux-1.png" />
 <meta name="theme-color" content="#0a0b1e" />
 <link rel="preload" as="image" href="assets/images/hero-ux-1.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#0a0b1e;
@@ -47,24 +47,23 @@
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{
-    font-family:"Sora",system-ui,sans-serif;
+    font-family:"Manrope",system-ui,sans-serif;
+    font-size:15.5px;
+    line-height:1.65;
     color:var(--text);
     background:
-      radial-gradient(900px 500px at 80% -10%, rgba(139,92,246,.18), transparent 60%),
-      radial-gradient(700px 400px at 20% 110%, rgba(255,92,168,.10), transparent 60%),
+      radial-gradient(900px 500px at 80% -10%, rgba(139,92,246,.14), transparent 60%),
       var(--bg);
     min-height:100vh;
     overflow-x:hidden;
   }
   body::before{
     content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
-    background-image:
-      radial-gradient(rgba(255,255,255,.5) 1px, transparent 1.2px),
-      radial-gradient(rgba(199,242,74,.35) 1px, transparent 1.2px);
-    background-size:90px 90px, 140px 140px;
-    background-position:0 0, 45px 60px;
-    opacity:.18;
-    mask-image:linear-gradient(to bottom, black, transparent 85%);
+    background-image:radial-gradient(rgba(255,255,255,.35) 1px, transparent 1.2px);
+    background-size:90px 90px;
+    background-position:0 0;
+    opacity:.12;
+    mask-image:linear-gradient(to bottom, black, transparent 70%);
   }
   a{color:inherit;text-decoration:none}
   img{max-width:100%;display:block}
@@ -109,73 +108,70 @@
   .lang-switch button.active{background:linear-gradient(180deg,rgba(139,92,246,.34),rgba(139,92,246,.18));color:var(--text);box-shadow:0 4px 12px rgba(139,92,246,.18)}
   .socials{display:flex;flex-direction:column;gap:14px;color:var(--muted)}
   .socials a{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;border:1px solid var(--line);transition:.2s}
-  .socials a:hover{color:var(--lime);border-color:rgba(199,242,74,.4)}
+  .socials a:hover{color:var(--violet-2);border-color:rgba(167,139,250,.4)}
 
   main{grid-column:2;padding:32px clamp(20px,3.5vw,46px) 60px;max-width:1480px}
 
   /* HERO PANEL */
   .panel{
     border:1px solid var(--line);
-    background:linear-gradient(180deg, rgba(22,24,54,.92), rgba(17,19,44,.92));
-    border-radius:28px;
+    background:rgba(255,255,255,.02);
+    border-radius:20px;
     padding:clamp(22px,3vw,38px);
-    box-shadow:0 30px 80px rgba(0,0,0,.35);
+    box-shadow:0 20px 50px rgba(0,0,0,.25);
     position:relative;
     overflow:hidden;
   }
   .panel.glow::before{
     content:"";position:absolute;inset:-1px;border-radius:inherit;pointer-events:none;
-    background:radial-gradient(600px 240px at 80% 0%, rgba(139,92,246,.18), transparent 60%);
+    background:radial-gradient(600px 240px at 80% 0%, rgba(139,92,246,.14), transparent 60%);
   }
 
   .hero{
     display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);
-    gap:30px;align-items:center;min-height:560px;
+    gap:30px;align-items:center;min-height:520px;
   }
   .hero-left{position:relative;z-index:2}
   .greet{
-    display:inline-flex;align-items:center;gap:10px;
-    color:var(--soft);font-size:14px;font-weight:500;
-    margin-bottom:18px;
+    display:inline-flex;align-items:center;gap:8px;
+    color:var(--soft);font-size:13px;font-weight:600;
+    margin-bottom:22px;
+    padding:8px 16px 8px 12px;border-radius:999px;
+    background:rgba(255,255,255,.04);border:1px solid var(--line);
   }
-  .greet .wave{font-size:18px}
+  .greet .wave{font-size:15px}
   h1{
-    font-size:clamp(50px,6.4vw,92px);
-    line-height:.95;letter-spacing:-.045em;font-weight:800;
-    max-width:680px;
+    font-size:clamp(38px,4.4vw,54px);
+    line-height:1.08;letter-spacing:-.03em;font-weight:700;
+    max-width:640px;
   }
   h1 .grad{
-    background:linear-gradient(90deg, var(--violet-2) 0%, var(--pink) 60%, var(--orange) 100%);
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-    position:relative;display:inline-block;
+    color:var(--violet-2);
   }
-  h1 .grad::after{
-    content:"";position:absolute;left:-6px;right:-6px;bottom:6px;height:10px;
-    background:linear-gradient(90deg, transparent, rgba(255,92,168,.35), transparent);
-    border-radius:999px;filter:blur(8px);z-index:-1;
-  }
-  .accent-marks{
-    display:inline-block;color:var(--yellow);font-weight:900;
-    transform:translateY(-8px);margin-left:6px;
+  h1 .sub{
+    display:block;font-size:.6em;font-weight:500;color:var(--soft);letter-spacing:-.01em;margin-top:6px;
   }
   .hero-copy{
-    color:var(--soft);font-size:16px;line-height:1.7;margin-top:22px;max-width:480px;
+    color:var(--muted);font-size:15.5px;line-height:1.7;margin-top:22px;max-width:460px;
   }
-  .cta-row{display:flex;gap:16px;margin-top:30px;align-items:center;flex-wrap:wrap}
+  .cta-row{display:flex;gap:14px;margin-top:30px;align-items:center;flex-wrap:wrap}
   .btn{
     display:inline-flex;align-items:center;gap:10px;
-    height:48px;padding:0 22px;border-radius:999px;
-    font-weight:700;font-size:14px;cursor:pointer;
-    border:1px solid transparent;transition:.22s ease;
+    height:46px;padding:0 22px;border-radius:12px;
+    font-weight:600;font-size:14px;cursor:pointer;
+    border:1px solid transparent;transition:.2s ease;
   }
   .btn-primary{
-    background:linear-gradient(135deg,#dcfa6c,#a8e62e);
+    background:#fff;
     color:#0a0b1e;
-    box-shadow:0 14px 36px rgba(199,242,74,.22);
+    box-shadow:0 10px 26px rgba(0,0,0,.18);
   }
-  .btn-primary:hover{transform:translateY(-2px);filter:brightness(1.05)}
-  .btn-ghost{color:var(--soft);background:transparent;border-bottom:1px dashed rgba(255,255,255,.25);border-radius:0;padding:0 0 4px;height:auto}
-  .btn-ghost:hover{color:var(--text)}
+  .btn-primary:hover{transform:translateY(-2px);background:#f1f0fb}
+  .btn-ghost{
+    color:var(--soft);background:transparent;
+    border:1px solid var(--line-2);
+  }
+  .btn-ghost:hover{color:var(--text);border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.03)}
 
   /* HERO ART */
   .hero-art{
@@ -193,12 +189,10 @@
     width:100%;
     aspect-ratio:1.02;
     overflow:hidden;
-    border-radius:30px;
+    border-radius:22px;
     border:1px solid var(--line-2);
-    background:
-      radial-gradient(520px 220px at 50% 0%, rgba(249,115,22,.18), transparent 70%),
-      linear-gradient(180deg, rgba(18,21,47,.96), rgba(10,12,30,.98));
-    box-shadow:0 30px 60px rgba(0,0,0,.35);
+    background:linear-gradient(180deg, rgba(18,21,47,.96), rgba(10,12,30,.98));
+    box-shadow:0 20px 50px rgba(0,0,0,.3);
   }
   .hero-slide{
     position:absolute;inset:0;
@@ -234,7 +228,7 @@
   .hero-dot:hover{transform:scale(1.08)}
   .hero-dot.is-active{
     width:28px;
-    background:linear-gradient(90deg,#dcfa6c,#fbbf24);
+    background:linear-gradient(90deg,var(--violet),var(--violet-2));
   }
 
   /* SECTIONS */
@@ -244,26 +238,29 @@
 
   .section-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:22px}
   .section-kicker{
-    display:inline-flex;align-items:center;gap:8px;color:var(--violet-2);
-    font-weight:600;font-size:14px;
+    display:inline-flex;align-items:center;color:var(--violet-2);
+    font-family:"JetBrains Mono",monospace;
+    font-weight:600;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;
+    margin-bottom:8px;
   }
-  .section-kicker .badge{
-    width:18px;height:18px;border-radius:5px;background:linear-gradient(135deg,var(--violet),var(--pink));
-    display:grid;place-items:center;color:#fff;font-size:10px;
-  }
+  .section-head h2{font-size:26px;font-weight:700;letter-spacing:-.02em}
   .section-head .link{color:var(--soft);font-size:14px;font-weight:500;display:inline-flex;align-items:center;gap:6px}
   .section-head .link:hover{color:var(--text)}
 
   /* GAMES GRID */
-  .games{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+  .games{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
   .game-card{
-    border-radius:20px;overflow:hidden;
-    background:linear-gradient(180deg, rgba(34,37,75,.7), rgba(22,24,54,.7));
+    display:flex;align-items:center;gap:16px;
+    padding:14px;border-radius:16px;overflow:hidden;
+    background:rgba(255,255,255,.025);
     border:1px solid var(--line);
-    transition:.25s ease;
+    transition:.2s ease;
   }
-  .game-card:hover{transform:translateY(-4px);border-color:rgba(167,139,250,.35);box-shadow:0 18px 40px rgba(139,92,246,.18)}
-  .thumb{aspect-ratio:16/9;position:relative;overflow:hidden;display:grid;place-items:center}
+  .game-card:hover{border-color:rgba(167,139,250,.35);background:rgba(255,255,255,.045)}
+  .thumb{
+    width:132px;height:104px;flex:none;border-radius:12px;
+    position:relative;overflow:hidden;display:grid;place-items:center;
+  }
   .thumb img{
     position:absolute;inset:0;
     width:100%;height:100%;
@@ -302,300 +299,57 @@
     border-radius:6px;
     box-shadow:0 6px 14px rgba(0,0,0,.25);
   }
-  .game-body{padding:18px 18px 20px}
-  .game-row{display:flex;align-items:center;gap:12px;margin-bottom:10px}
-  .game-icon{
-    width:42px;height:42px;border-radius:12px;display:grid;place-items:center;flex:none;
-    color:#0a0b1e;font-weight:900;font-size:18px;
+  .game-body{flex:1;min-width:0}
+  .game-body h3{font-size:16px;font-weight:700;letter-spacing:-.015em;margin-bottom:4px}
+  .game-card p{
+    color:var(--muted);font-size:12.5px;line-height:1.5;margin-top:2px;
+    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
   }
-  .game-icon.i1{background:linear-gradient(135deg,#ff5e7e,#ffd54a)}
-  .game-icon.i2{background:linear-gradient(135deg,#fb923c,#f59e0b)}
-  .game-icon.i3{background:linear-gradient(135deg,#fbbf24,#f97316)}
-  .game-title{display:flex;align-items:center;gap:10px;flex:1;min-width:0}
-  .game-title h3{font-size:17px;font-weight:700;letter-spacing:-.02em}
-  .tag{
-    font-size:11px;font-weight:700;padding:4px 9px;border-radius:999px;
-    background:rgba(167,139,250,.18);color:var(--violet-2);border:1px solid rgba(167,139,250,.25);
-  }
-  .tag.farm{background:rgba(132,204,22,.18);color:#bef264;border-color:rgba(132,204,22,.3)}
-  .tag.arcade{background:rgba(251,191,36,.18);color:#fcd34d;border-color:rgba(251,191,36,.3)}
-  .game-card p{color:var(--muted);font-size:13.5px;line-height:1.55;margin-top:4px}
-  .game-card .arrow{
-    width:36px;height:36px;border-radius:50%;border:1px solid var(--line-2);
-    display:grid;place-items:center;color:var(--text);flex:none;margin-left:auto;
-    transition:.22s;
-  }
-  .game-card:hover .arrow{background:var(--violet);border-color:var(--violet)}
-
-  .star-counter{
-    position:absolute;top:12px;left:12px;
-    display:inline-flex;align-items:center;gap:6px;
-    background:rgba(0,0,0,.45);backdrop-filter:blur(8px);
-    border:1px solid rgba(255,255,255,.18);
-    padding:5px 10px;border-radius:999px;
-    color:var(--yellow);font-weight:700;font-size:12px;
-  }
+  .game-meta{display:flex;align-items:center;gap:8px;margin-top:8px;font-size:11.5px;font-weight:600;font-family:"JetBrains Mono",monospace}
+  .game-badge{color:var(--muted)}
+  .game-tag{color:var(--violet-2)}
 
   /* SKILLS */
-  .skills{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+  .skills-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) minmax(220px,260px);gap:14px;align-items:stretch}
   .skill{
-    padding:18px;border-radius:18px;
-    background:linear-gradient(180deg, rgba(34,37,75,.6), rgba(22,24,54,.6));
+    padding:18px;border-radius:16px;
+    background:rgba(255,255,255,.025);
     border:1px solid var(--line);
-    transition:.22s;
+    transition:.2s;
   }
-  .skill:hover{border-color:rgba(167,139,250,.32);transform:translateY(-3px)}
+  .skill:hover{border-color:rgba(167,139,250,.28);background:rgba(255,255,255,.04)}
   .skill .ico{
-    width:44px;height:44px;border-radius:12px;display:grid;place-items:center;
-    background:rgba(139,92,246,.18);color:var(--violet-2);margin-bottom:14px;
+    width:38px;height:38px;border-radius:10px;display:grid;place-items:center;
+    background:rgba(139,92,246,.16);color:var(--violet-2);margin-bottom:14px;
   }
-  .skill h4{font-size:15px;font-weight:700;margin-bottom:6px;letter-spacing:-.01em}
-  .skill p{color:var(--muted);font-size:13px;line-height:1.55}
-  .tech-stack{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+  .skill h4{font-size:14.5px;font-weight:700;margin-bottom:10px;letter-spacing:-.01em}
+  .skill ul{list-style:none;display:grid;gap:7px}
+  .skill li{
+    color:var(--muted);font-size:12.5px;line-height:1.4;
+    padding-left:14px;position:relative;
+  }
+  .skill li::before{
+    content:"";position:absolute;left:0;top:6px;
+    width:5px;height:5px;border-radius:50%;background:var(--violet-2);
+  }
+  .stack-panel{
+    padding:18px;border-radius:16px;
+    background:rgba(255,255,255,.025);
+    border:1px solid var(--line);
+  }
+  .stack-label{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;display:block}
+  .tech-stack{display:flex;flex-wrap:wrap;gap:8px}
   .tech-stack .chip{
-    display:inline-flex;align-items:center;gap:8px;
-    padding:9px 14px;border-radius:999px;
+    display:inline-flex;align-items:center;gap:7px;
+    padding:7px 12px;border-radius:999px;
     background:rgba(255,255,255,.04);border:1px solid var(--line);
-    color:var(--soft);font-size:12.5px;font-weight:600;
+    color:var(--soft);font-size:12px;font-weight:600;
     font-family:"JetBrains Mono",monospace;
     transition:.2s ease;
   }
   .tech-stack .chip:hover{border-color:rgba(167,139,250,.32);color:var(--text)}
-  .tech-stack .chip::before{content:"";width:7px;height:7px;border-radius:50%;flex:none;background:linear-gradient(135deg,var(--violet),var(--pink))}
-  .stack-block{margin-top:22px;display:grid;gap:18px}
-  .stack-group{display:grid;gap:11px}
-  .stack-group .tech-stack{margin-top:0}
-  .stack-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-family:"JetBrains Mono",monospace}
-  .tech-stack .chip.soft::before{background:linear-gradient(135deg,var(--teal),var(--blue))}
-
-  /* ANIMATION */
-  .animation-section{
-    display:grid;
-    grid-template-columns:minmax(0,1.1fr) minmax(320px,.9fr);
-    gap:18px;
-    align-items:stretch;
-  }
-  .animation-copy{
-    padding:24px;
-    border-radius:22px;
-    background:linear-gradient(180deg, rgba(34,37,75,.58), rgba(22,24,54,.62));
-    border:1px solid var(--line);
-  }
-  .animation-copy h2{
-    font-size:clamp(28px,3.4vw,42px);
-    line-height:1.02;
-    letter-spacing:-.04em;
-    margin-bottom:14px;
-    max-width:12ch;
-  }
-  .animation-copy p{
-    color:var(--soft);
-    font-size:15px;
-    line-height:1.7;
-    max-width:58ch;
-  }
-  .animation-highlights{
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:12px;
-    margin-top:22px;
-  }
-  .animation-pill{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    padding:13px 14px;
-    border-radius:16px;
-    background:rgba(255,255,255,.035);
-    border:1px solid var(--line);
-    color:var(--soft);
-    font-size:13px;
-    line-height:1.45;
-  }
-  .animation-pill .dot{
-    width:9px;
-    height:9px;
-    border-radius:50%;
-    flex:0 0 auto;
-    background:linear-gradient(135deg, var(--orange), var(--yellow));
-    box-shadow:0 0 0 6px rgba(255,138,76,.08);
-  }
-  .animation-actions{
-    display:flex;
-    gap:14px;
-    flex-wrap:wrap;
-    margin-top:24px;
-  }
-  .btn-outline{
-    color:var(--soft);
-    border-color:rgba(255,255,255,.16);
-    background:rgba(255,255,255,.03);
-  }
-  .btn-outline:hover{
-    transform:translateY(-2px);
-    border-color:rgba(255,255,255,.28);
-    color:var(--text);
-  }
-  .animation-preview{
-    position:relative;
-    overflow:hidden;
-    border-radius:22px;
-    padding:24px;
-    border:1px solid var(--line);
-    background:
-      radial-gradient(220px 160px at 20% 20%, rgba(255,138,76,.18), transparent 60%),
-      radial-gradient(240px 180px at 82% 18%, rgba(94,234,212,.14), transparent 60%),
-      linear-gradient(180deg, rgba(24,27,58,.92), rgba(12,14,34,.96));
-    min-height:100%;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    box-shadow:0 24px 50px rgba(0,0,0,.26);
-  }
-  .animation-preview::after{
-    content:"";
-    position:absolute;
-    inset:auto -40px -70px auto;
-    width:190px;
-    height:190px;
-    border-radius:50%;
-    background:radial-gradient(circle, rgba(139,92,246,.24), transparent 68%);
-    pointer-events:none;
-  }
-  .animation-preview-top{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:14px;
-    margin-bottom:18px;
-  }
-  .animation-mini-label{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    font-size:11px;
-    font-weight:700;
-    letter-spacing:.08em;
-    text-transform:uppercase;
-    color:var(--teal);
-    font-family:"JetBrains Mono",monospace;
-  }
-  .animation-mini-label .dot{
-    width:7px;
-    height:7px;
-    border-radius:50%;
-    background:currentColor;
-    box-shadow:0 0 0 6px rgba(94,234,212,.08);
-  }
-  .animation-badge{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    padding:9px 12px;
-    border-radius:999px;
-    border:1px solid rgba(255,255,255,.12);
-    background:rgba(255,255,255,.04);
-    color:var(--soft);
-    font-size:12px;
-    font-weight:600;
-  }
-  .animation-reel-card{
-    position:relative;
-    overflow:hidden;
-    border-radius:24px;
-    padding:22px;
-    min-height:270px;
-    background:
-      linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)),
-      radial-gradient(240px 140px at 18% 24%, rgba(255,138,76,.20), transparent 60%),
-      radial-gradient(220px 140px at 82% 22%, rgba(94,234,212,.18), transparent 60%),
-      linear-gradient(145deg, rgba(91,33,182,.28), rgba(10,11,30,.24));
-    border:1px solid rgba(255,255,255,.09);
-  }
-  .animation-reel-card::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:
-      linear-gradient(135deg, rgba(255,255,255,.05) 0 1px, transparent 1px 36px),
-      linear-gradient(225deg, rgba(255,255,255,.04) 0 1px, transparent 1px 36px);
-    background-size:36px 36px;
-    opacity:.32;
-    pointer-events:none;
-  }
-  .animation-play{
-    position:relative;
-    z-index:1;
-    width:78px;
-    height:78px;
-    border-radius:24px;
-    display:grid;
-    place-items:center;
-    background:linear-gradient(135deg, rgba(199,242,74,.95), rgba(255,211,77,.92));
-    color:#0a0b1e;
-    box-shadow:0 18px 40px rgba(199,242,74,.18);
-  }
-  .animation-reel-body{
-    position:relative;
-    z-index:1;
-    margin-top:26px;
-    max-width:360px;
-  }
-  .animation-reel-body h3{
-    font-size:32px;
-    line-height:.98;
-    letter-spacing:-.045em;
-    margin-bottom:12px;
-  }
-  .animation-reel-body p{
-    color:var(--soft);
-    font-size:14px;
-    line-height:1.7;
-  }
-  .animation-reel-meta{
-    position:relative;
-    z-index:1;
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-    margin-top:18px;
-  }
-  .animation-meta-pill{
-    display:inline-flex;
-    align-items:center;
-    padding:9px 12px;
-    border-radius:999px;
-    border:1px solid rgba(255,255,255,.12);
-    background:rgba(10,11,30,.46);
-    color:var(--soft);
-    font-size:12px;
-    font-weight:600;
-    backdrop-filter:blur(8px);
-  }
-  .animation-preview-footer{
-    position:relative;
-    z-index:1;
-    display:flex;
-    align-items:end;
-    justify-content:space-between;
-    gap:16px;
-    margin-top:22px;
-  }
-  .animation-preview-note{
-    color:var(--muted);
-    font-size:12px;
-    line-height:1.6;
-    max-width:250px;
-  }
-  .animation-preview-cta{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    color:var(--text);
-    font-size:13px;
-    font-weight:700;
-  }
-  .animation-preview-cta svg{flex:0 0 auto}
+  .tech-stack .chip::before{content:"";width:6px;height:6px;border-radius:50%;flex:none;background:var(--violet-2)}
+  .tech-stack .chip.soft::before{background:var(--teal)}
 
   /* VISUAL */
   .visual-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
@@ -607,16 +361,17 @@
     margin:-6px 0 22px;
   }
   .visual-card{
+    display:block;
     position:relative;
-    border-radius:22px;
+    border-radius:16px;
     overflow:hidden;
-    background:linear-gradient(180deg, rgba(37,40,82,.72), rgba(20,22,50,.78));
+    background:rgba(255,255,255,.025);
     border:1px solid var(--line);
-    transition:.24s ease;
+    transition:.2s ease;
     min-height:280px;
   }
   .visual-card:hover{
-    transform:translateY(-4px);
+    transform:translateY(-3px);
     border-color:rgba(94,234,212,.28);
     box-shadow:0 22px 46px rgba(0,0,0,.28);
   }
@@ -688,39 +443,43 @@
   .visual-card h4{font-size:18px;font-weight:700;letter-spacing:-.02em;margin-bottom:8px}
   .visual-card p{color:var(--muted);font-size:13.5px;line-height:1.65}
 
-  /* TIMELINE */
-  .timeline{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-  .tl{
-    padding:20px;border-radius:18px;
-    background:linear-gradient(180deg, rgba(34,37,75,.55), rgba(22,24,54,.55));
-    border:1px solid var(--line);
+  /* PROCESS STEPS */
+  .process-steps{position:relative;display:flex;flex-wrap:wrap;gap:24px 14px}
+  .process-steps::before{
+    content:"";position:absolute;top:22px;left:6%;right:6%;height:0;
+    border-top:1px dashed var(--line-2);z-index:0;
   }
-  .tl .date{color:var(--teal);font-weight:700;font-size:12px;margin-bottom:8px;font-family:"JetBrains Mono",monospace}
-  .tl h4{font-size:16px;letter-spacing:-.01em;margin-bottom:8px}
-  .tl p{color:var(--muted);font-size:13px;line-height:1.55}
+  .step{position:relative;z-index:1;flex:1;min-width:150px;display:flex;flex-direction:column;gap:12px}
+  .step-icon{
+    width:44px;height:44px;border-radius:50%;flex:none;
+    display:grid;place-items:center;color:var(--violet-2);
+    background:var(--panel-2);border:1px solid var(--line-2);
+  }
+  .step .date{font-family:"JetBrains Mono",monospace;color:var(--violet-2);font-weight:600;font-size:11px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px}
+  .step h4{font-size:15px;letter-spacing:-.01em;margin-bottom:6px}
+  .step p{color:var(--muted);font-size:12.5px;line-height:1.5}
 
   /* ABOUT */
   .about{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
-  .about-card{padding:24px;border-radius:18px;background:linear-gradient(180deg, rgba(34,37,75,.55), rgba(22,24,54,.55));border:1px solid var(--line)}
-  .about-card h3{font-size:22px;letter-spacing:-.03em;margin-bottom:12px}
+  .about-card{padding:24px;border-radius:16px;background:rgba(255,255,255,.025);border:1px solid var(--line)}
+  .about-card h3{font-size:20px;letter-spacing:-.02em;margin-bottom:12px}
   .about-card p{color:var(--muted);font-size:14px;line-height:1.7}
   .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:20px}
-  .stat{padding:14px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid var(--line)}
-  .stat strong{display:block;font-size:22px;color:var(--yellow);letter-spacing:-.03em;font-weight:800}
+  .stat{padding:14px;border-radius:12px;background:rgba(255,255,255,.03);border:1px solid var(--line)}
+  .stat strong{display:block;font-size:20px;color:var(--violet-2);letter-spacing:-.02em;font-weight:700}
   .stat span{color:var(--muted);font-size:12px;font-weight:500}
 
   /* CONTACT STRIP */
   .contact{
     display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center;
-    padding:22px 26px;border-radius:24px;
-    background:linear-gradient(135deg, rgba(139,92,246,.16), rgba(255,92,168,.10));
-    border:1px solid rgba(167,139,250,.28);
+    padding:22px 26px;border-radius:16px;
+    background:rgba(139,92,246,.08);
+    border:1px solid rgba(167,139,250,.2);
   }
   .contact .pad{
-    width:54px;height:54px;border-radius:14px;
-    background:linear-gradient(135deg,#7c3aed,#5b21b6);
-    display:grid;place-items:center;color:#fff;font-size:24px;
-    box-shadow:0 10px 24px rgba(124,58,237,.35);
+    width:48px;height:48px;border-radius:12px;
+    background:rgba(139,92,246,.18);
+    display:grid;place-items:center;color:var(--violet-2);font-size:24px;
   }
   .contact h3{font-size:18px;font-weight:700;letter-spacing:-.01em}
   .contact p{color:var(--muted);font-size:13.5px;margin-top:2px}
@@ -729,30 +488,6 @@
     margin-top:28px;color:var(--muted);
     display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;
     padding:0 6px;
-  }
-
-  /* animations */
-  @keyframes float{
-    0%,100%{transform:translateX(-50%) translateY(0)}
-    50%{transform:translateX(-50%) translateY(-12px)}
-  }
-  .gem,.coin{animation-name:floatY}
-  @keyframes floatY{
-    0%,100%{transform:translateY(0) rotate(-12deg)}
-    50%{transform:translateY(-10px) rotate(-12deg)}
-  }
-  .coin{animation-name:floatYc}
-  @keyframes floatYc{
-    0%,100%{transform:translateY(0)}
-    50%{transform:translateY(-10px)}
-  }
-  @keyframes twinkle{
-    0%,100%{transform:scale(1) rotate(0)}
-    50%{transform:scale(1.15) rotate(10deg)}
-  }
-  @keyframes bounce{
-    0%,100%{transform:translateY(0) scale(1)}
-    50%{transform:translateY(-8px) scale(1.06)}
   }
 
   .thumb-bos{
@@ -767,25 +502,19 @@
   /* RESPONSIVE */
   @media (max-width:1100px){
     :root{--sidebar:0px}
-    .sidebar{position:relative;width:100%;height:auto;flex-direction:row;padding:14px 18px;border-right:none;border-bottom:1px solid var(--line)}
-    .nav{flex-direction:row;margin-top:0;gap:4px}
+    .sidebar{position:relative;width:100%;height:auto;flex-direction:row;flex-wrap:wrap;row-gap:12px;padding:14px 18px;border-right:none;border-bottom:1px solid var(--line)}
+    .nav{flex-direction:row;flex-wrap:wrap;margin-top:0;gap:4px}
     .nav a{padding:8px 12px;font-size:13px}
-    .sidebar-bottom{flex-direction:row;align-items:center;gap:12px}
+    .sidebar-bottom{flex-direction:row;flex-wrap:wrap;align-items:center;gap:12px}
     .socials{flex-direction:row}
     .page{grid-template-columns:1fr}
     main{grid-column:1;padding:20px}
     .hero{grid-template-columns:1fr;min-height:auto}
     .hero-art{min-height:420px}
-    .animation-section{grid-template-columns:1fr}
-    .games,.skills,.timeline,.about,.visual-grid{grid-template-columns:1fr}
+    .games,.skills-row,.timeline,.about,.visual-grid,.process-steps{grid-template-columns:1fr}
+    .process-steps::before{display:none}
+    .process-steps{display:grid}
     .contact{grid-template-columns:1fr}
-  }
-  @media (max-width:720px){
-    .animation-highlights{grid-template-columns:1fr}
-    .animation-copy,.animation-preview{padding:20px}
-    .animation-reel-card{min-height:240px;padding:18px}
-    .animation-reel-body h3{font-size:28px}
-    .animation-preview-footer{align-items:start;flex-direction:column}
   }
 </style>
 </head>
@@ -820,7 +549,7 @@
           <span class="ico">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="12" rx="4"/><path d="M8 12h2M9 11v2"/><circle cx="15" cy="12" r="1"/><circle cx="17" cy="14" r="1"/></svg>
           </span>
-          <span class="lbl">Juegos</span>
+          <span class="lbl">Proyectos</span>
         </a>
         <a href="#visual" data-i18n="nav_visual">
           <span class="ico">
@@ -866,15 +595,15 @@
         <div class="greet"><span data-i18n="hello">¡Hola! Soy Rayco</span> <span class="wave">👋</span></div>
         <h1>
           <span data-i18n="h1_a">Product &amp; UX Designer</span><br/>
-          <span data-i18n="h1_b">Visual Art · Mobile · Games</span><br/>
-          <span class="grad" data-i18n="h1_c">10 years · 50M+ downloads</span>
+          <span class="grad" data-i18n="h1_b">Visual Art · Mobile · Games</span>
+          <span class="sub" data-i18n="h1_c">10 years · 50M+ downloads</span>
         </h1>
         <p class="hero-copy" data-i18n="hero_copy">
-          Me importa crear productos útiles, atractivos y que se sientan bien. Da igual si es un juego, una app o una herramienta: quiero que la gente lo use, lo disfrute y vuelva. Llevo 10 años haciendo eso, con más de 50M de descargas reales.
+          Me importa crear productos útiles, atractivos y que se sientan bien. Da igual si es un juego, una app o una herramienta: quiero que la gente lo use, lo disfrute y vuelva. Llevo 10 años haciendo eso, con productos publicados y experiencia en mobile, UX, visual design y Unity.
         </p>
         <div class="cta-row">
           <a class="btn btn-primary" href="case-studies.html">
-            <span data-i18n="cta_primary">Ver proyectos</span>
+            <span data-i18n="cta_primary">Ver case studies</span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
           <a class="btn btn-ghost" href="#about">
@@ -914,114 +643,69 @@
       <div class="section-head">
         <div>
           <div class="section-kicker">
-            <span class="badge">★</span>
             <span data-i18n="games_kicker">Proyectos destacados</span>
           </div>
+          <h2 data-i18n="games_t">Trabajo seleccionado</h2>
         </div>
         <a class="link" href="case-studies.html">
           <span data-i18n="games_all">Ver case studies</span>
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
       </div>
-      <div class="games" style="grid-template-columns:repeat(2,minmax(0,1fr))">
-        <a class="game-card" href="pawpal-ux.html" style="display:block">
-          <div class="thumb thumb-1">
-            <img src="assets/images/pawpal/pawpal-card.png" alt="Imagen de ejemplo del proyecto PawPal" loading="lazy" onerror="this.style.display='none'">
-            <div class="star-counter">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 14.5 9 22 10 16.5 14.5 18 22 12 18 6 22 7.5 14.5 2 10 9.5 9z"/></svg>
-              <span>Main Project</span>
-            </div>
-          </div>
-          <div class="game-body">
-            <div class="game-row">
-              <div class="game-icon i1">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4" fill="#0a0b1e"/></svg>
-              </div>
-              <div class="game-title">
-                <h3 data-i18n="g1_title">PawPal</h3>
-                <span class="tag" data-i18n="g1_tag">UX · Product</span>
-              </div>
-              <span class="arrow">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-              </span>
-            </div>
-            <p data-i18n="g1_copy">Onboarding, retención, sistemas de progresión y UX de monetización para un juego mobile de mascota virtual con minijuegos arcade.</p>
-          </div>
-        </a>
-
-        <a class="game-card" href="case-studies.html#book-of-sounds" style="display:block">
-          <div class="thumb thumb-bos">
-            <img src="assets/images/book-of-sounds/BookSounds-card.png" alt="The Book of Sounds project card" loading="lazy" onerror="this.style.display='none'">
-            <div class="star-counter">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 14.5 9 22 10 16.5 14.5 18 22 12 18 6 22 7.5 14.5 2 10 9.5 9z"/></svg>
-              <span data-i18n="g2_badge">Teacher Approved</span>
-            </div>
-          </div>
-          <div class="game-body">
-            <div class="game-row">
-              <div class="game-icon i2">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-              </div>
-              <div class="game-title">
-                <h3 data-i18n="g2_title">The Book of Sounds</h3>
-                <span class="tag farm" data-i18n="g2_tag">EdTech</span>
-              </div>
-              <span class="arrow">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-              </span>
-            </div>
-            <p data-i18n="g2_copy">App educativa gratuita para niños. Diseñada con proceso UX completo: research, wireframes, testing y decisiones de producto documentadas.</p>
-            <p style="margin-top:8px;font-size:12px;color:var(--muted);font-family:'JetBrains Mono',monospace">10K+ descargas · 700 usuarios activos</p>
-          </div>
-        </a>
-
-        <a class="game-card" href="trampolin.html" style="display:block">
+      <div class="games">
+        <a class="game-card" href="trampolin.html">
           <div class="thumb" style="background:radial-gradient(circle at 30% 30%,rgba(94,234,212,.4) 0 12%,transparent 13%),radial-gradient(circle at 70% 25%,rgba(96,165,250,.3) 0 10%,transparent 11%),linear-gradient(135deg,#0f4c75,#1b6ca8,#1a5276)">
             <img src="assets/images/trampolin/trampolin-card.png" alt="Trampolín AI-first product" loading="lazy" onerror="this.style.display='none'">
-            <div class="star-counter">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 14.5 9 22 10 16.5 14.5 18 22 12 18 6 22 7.5 14.5 2 10 9.5 9z"/></svg>
-              <span data-i18n="g3_badge">AI-first</span>
-            </div>
           </div>
           <div class="game-body">
-            <div class="game-row">
-              <div class="game-icon i3">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 1 1 0 2h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 1 1 0-2h1a7 7 0 0 1 7-7h1V5.73A2 2 0 0 1 10 4a2 2 0 0 1 2-2z"/></svg>
-              </div>
-              <div class="game-title">
-                <h3 data-i18n="g3_title">Trampolín</h3>
-                <span class="tag arcade" data-i18n="g3_tag">AI · Producto</span>
-              </div>
-              <span class="arrow">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-              </span>
-            </div>
+            <h3 data-i18n="g3_title">Trampolín</h3>
             <p data-i18n="g3_copy">Producto AI-first para orientar trámites de la Seguridad Social española. Búsqueda en lenguaje natural · API Anthropic · decisión de diseño = restricción legal.</p>
+            <div class="game-meta">
+              <span class="game-badge" data-i18n="g3_badge">AI-first</span>
+              <span class="game-tag" data-i18n="g3_tag">AI · Producto</span>
+            </div>
           </div>
         </a>
 
-        <a class="game-card" href="ux-design.html" style="display:block">
-          <div class="thumb" style="background:linear-gradient(180deg,rgba(96,165,250,.22),transparent),repeating-linear-gradient(180deg,rgba(255,255,255,.07) 0 18px,transparent 18px 36px),linear-gradient(135deg,rgba(30,64,175,.54),rgba(15,23,42,.3))">
-            <img src="assets/images/ux-design/ux-design-card.jpg" alt="UI Design 30+ apps" loading="lazy" onerror="this.style.display='none'">
-            <div class="star-counter">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 14.5 9 22 10 16.5 14.5 18 22 12 18 6 22 7.5 14.5 2 10 9.5 9z"/></svg>
-              <span>30+ apps</span>
-            </div>
+        <a class="game-card" href="pawpal-ux.html">
+          <div class="thumb thumb-1">
+            <img src="assets/images/pawpal/pawpal-card.png" alt="Imagen de ejemplo del proyecto PawPal" loading="lazy" onerror="this.style.display='none'">
           </div>
           <div class="game-body">
-            <div class="game-row">
-              <div class="game-icon" style="background:linear-gradient(135deg,#60a5fa,#a78bfa);width:42px;height:42px;border-radius:12px;display:grid;place-items:center;flex:none;color:#0a0b1e">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9" stroke="#0a0b1e" stroke-width="1.5" fill="none"/></svg>
-              </div>
-              <div class="game-title">
-                <h3 data-i18n="g4_title">UI Design</h3>
-                <span class="tag" style="background:rgba(96,165,250,.18);color:#93c5fd;border-color:rgba(96,165,250,.28)" data-i18n="g4_tag">30+ Apps</span>
-              </div>
-              <span class="arrow">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-              </span>
+            <h3 data-i18n="g1_title">PawPal</h3>
+            <p data-i18n="g1_copy">Onboarding, retención, sistemas de progresión y UX de monetización para un juego mobile de mascota virtual con minijuegos arcade.</p>
+            <div class="game-meta">
+              <span class="game-badge" data-i18n="g1_badge">Main Project</span>
+              <span class="game-tag" data-i18n="g1_tag">UX · Product</span>
             </div>
+          </div>
+        </a>
+
+        <a class="game-card" href="case-studies.html#book-of-sounds">
+          <div class="thumb thumb-bos">
+            <img src="assets/images/book-of-sounds/BookSounds-card.png" alt="The Book of Sounds project card" loading="lazy" onerror="this.style.display='none'">
+          </div>
+          <div class="game-body">
+            <h3 data-i18n="g2_title">The Book of Sounds</h3>
+            <p data-i18n="g2_copy">App educativa gratuita para niños. Diseñada con proceso UX completo: research, wireframes, testing y decisiones de producto documentadas.</p>
+            <div class="game-meta">
+              <span class="game-badge" data-i18n="g2_badge">Teacher Approved</span>
+              <span class="game-tag" data-i18n="g2_tag">EdTech</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="game-card" href="ux-design.html">
+          <div class="thumb" style="background:linear-gradient(180deg,rgba(96,165,250,.22),transparent),repeating-linear-gradient(180deg,rgba(255,255,255,.07) 0 18px,transparent 18px 36px),linear-gradient(135deg,rgba(30,64,175,.54),rgba(15,23,42,.3))">
+            <img src="assets/images/ux-design/ux-design-card.jpg" alt="UI Design 30+ apps" loading="lazy" onerror="this.style.display='none'">
+          </div>
+          <div class="game-body">
+            <h3 data-i18n="g4_title">UI Design</h3>
             <p data-i18n="g4_copy">UI design para más de 30 apps y juegos infantiles. Ergonomía para toddlers, brand guidelines de IPs licenciadas y sistemas de componentes coherentes.</p>
+            <div class="game-meta">
+              <span class="game-badge" data-i18n="g4_badge">30+ apps</span>
+              <span class="game-tag" data-i18n="g4_tag">30+ Apps</span>
+            </div>
           </div>
         </a>
       </div>
@@ -1033,56 +717,64 @@
       <div class="section-head">
         <div>
           <div class="section-kicker">
-            <span class="badge">✦</span>
             <span data-i18n="skills_kicker">Stack técnico</span>
           </div>
           <h2 data-i18n="skills_t">Lo que aporto</h2>
         </div>
       </div>
-      <div class="skills">
+      <div class="skills-row">
         <div class="skill">
           <div class="ico">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h5M17 12h5M12 2v5M12 17v5"/><circle cx="12" cy="12" r="4"/><path d="M4.9 4.9l3.2 3.2M15.9 15.9l3.2 3.2M19.1 4.9l-3.2 3.2M8.1 15.9l-3.2 3.2"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h5M17 12h5M12 2v5M12 17v5"/><circle cx="12" cy="12" r="4"/><path d="M4.9 4.9l3.2 3.2M15.9 15.9l3.2 3.2M19.1 4.9l-3.2 3.2M8.1 15.9l-3.2 3.2"/></svg>
           </div>
           <h4 data-i18n="sk1_t">UX &amp; Product Design</h4>
-          <p data-i18n="sk1_c">Flujos de usuario, arquitectura de información, wireframes, onboarding y sistemas de retención en productos con millones de usuarios reales.</p>
+          <ul>
+            <li data-i18n="sk1_i1">Flujos de usuario</li>
+            <li data-i18n="sk1_i2">Arquitectura de información</li>
+            <li data-i18n="sk1_i3">Onboarding y retención</li>
+          </ul>
         </div>
         <div class="skill">
           <div class="ico">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
           </div>
           <h4 data-i18n="sk2_t">UI &amp; Visual Design</h4>
-          <p data-i18n="sk2_c">Interfaces vectoriales, sistemas de componentes y lenguaje visual coherente. Illustrator, Affinity Designer y criterio estético propio.</p>
+          <ul>
+            <li data-i18n="sk2_i1">Interfaces vectoriales</li>
+            <li data-i18n="sk2_i2">Sistemas de componentes</li>
+            <li data-i18n="sk2_i3">Figma, Illustrator, Affinity</li>
+          </ul>
         </div>
         <div class="skill">
           <div class="ico">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5v10l-9 5-9-5V7z"/><path d="m12 12 9-5M12 12v10M12 12 3 7"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5v10l-9 5-9-5V7z"/><path d="m12 12 9-5M12 12v10M12 12 3 7"/></svg>
           </div>
           <h4 data-i18n="sk3_t">Technical Art</h4>
-          <p data-i18n="sk3_c">Shaders, VFX, materiales e iluminación en Unity. La base técnica que hace que las decisiones de diseño sean implementables.</p>
+          <ul>
+            <li data-i18n="sk3_i1">Shaders y VFX</li>
+            <li data-i18n="sk3_i2">Materiales e iluminación</li>
+            <li data-i18n="sk3_i3">Integración en Unity</li>
+          </ul>
         </div>
         <div class="skill">
           <div class="ico">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M8 6h8M8 10h5M8 14h8"/><circle cx="12" cy="18" r="1"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M8 6h8M8 10h5M8 14h8"/><circle cx="12" cy="18" r="1"/></svg>
           </div>
           <h4 data-i18n="sk4_t">Mobile &amp; Performance</h4>
-          <p data-i18n="sk4_c">Pipeline de assets, optimización y render para móvil. Sé lo que cuesta en producción cada decisión de diseño.</p>
+          <ul>
+            <li data-i18n="sk4_i1">Pipeline de assets</li>
+            <li data-i18n="sk4_i2">Optimización mobile</li>
+            <li data-i18n="sk4_i3">Coste real en producción</li>
+          </ul>
         </div>
-      </div>
-      <div class="stack-block">
-        <div class="stack-group">
-          <span class="stack-label" data-i18n="ts_software">Design &amp; UX</span>
-          <div class="tech-stack" aria-label="Design y UX tools">
+        <div class="stack-panel">
+          <span class="stack-label" data-i18n="ts_label">Herramientas</span>
+          <div class="tech-stack" aria-label="Herramientas">
             <span class="chip">Figma</span>
             <span class="chip">Illustrator</span>
             <span class="chip">Affinity Designer</span>
             <span class="chip">Maze</span>
             <span class="chip">Miro</span>
-          </div>
-        </div>
-        <div class="stack-group">
-          <span class="stack-label" data-i18n="ts_areas">Technical</span>
-          <div class="tech-stack" aria-label="Technical tools">
             <span class="chip soft">Unity</span>
             <span class="chip soft">Shader Graph</span>
             <span class="chip soft">Blender</span>
@@ -1098,66 +790,65 @@
       <div class="section-head">
         <div>
           <div class="section-kicker">
-            <span class="badge">V</span>
-            <span data-i18n="visual_kicker">Visual Craft</span>
+            <span data-i18n="visual_kicker">UX / Interaction</span>
           </div>
-          <h2 data-i18n="visual_t">Personajes, UI y Tech Art</h2>
+          <h2 data-i18n="visual_t">UX aplicada a productos reales</h2>
         </div>
       </div>
-      <p class="visual-intro" data-i18n="visual_intro">Una parte importante de mi trabajo está en conectar gameplay, arte y feedback visual: personajes expresivos, interfaces claras y sistemas visuales que hacen que el juego se sienta mejor.</p>
+      <p class="visual-intro" data-i18n="visual_intro">No separo UX, visual design e implementación. Me interesa detectar qué necesita entender el usuario, qué le motiva a seguir, cómo reducir fricción y cómo convertir esas decisiones en interfaces reales, medibles e implementables.</p>
       <div class="visual-grid">
-        <article class="visual-card" data-tone="characters">
+        <a class="visual-card" data-tone="characters" href="pawpal-ux.html">
           <div class="visual-media">
-            <img src="assets/images/pawpal/pawpal-retention-card.svg" alt="PawPal: tiempo medio de sesión duplicado tras rediseño del loop de retención" loading="lazy" onerror="this.style.display='none'">
+            <img src="assets/images/pawpal/pawpal-retention-card.svg" alt="PawPal retention loop redesign" loading="lazy" onerror="this.style.display='none'">
             <div class="visual-stamp">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m4 14 4-4 4 4 8-8"/><path d="M20 10v6h-6"/></svg>
             </div>
           </div>
           <div class="visual-body">
-            <div class="visual-label"><span class="dot"></span><span>AI · NLP → POLISH / FEEDBACK</span></div>
-            <h4 data-i18n="visual_1_t">De 3 a 6 minutos: rediseñando el loop de retención de PawPal</h4>
-            <p data-i18n="visual_1_c">Tras analizar por qué el loop base (comer/rascar) no generaba retorno, rediseñé la estructura de recompensas con Wardrobe (colección/personalización) y Daily Reward, sustituyendo el minijuego core. Resultado: el tiempo medio de sesión se duplicó de 3 a 6 minutos.</p>
+            <div class="visual-label"><span class="dot"></span><span data-i18n="visual_1_label">PAWPAL · RETENTION</span></div>
+            <h4 data-i18n="visual_1_t">PawPal — Retention loop redesign</h4>
+            <p data-i18n="visual_1_c">Rediseño del loop principal para mejorar retorno, motivación diaria y progresión visible mediante recompensas, wardrobe y sistemas de engagement.</p>
           </div>
-        </article>
-        <article class="visual-card" data-tone="ui">
+        </a>
+        <a class="visual-card" data-tone="tech" href="trampolin.html">
           <div class="visual-media">
-            <img src="assets/images/visual-ui-1.jpg" alt="Placeholder para UI y UX mobile" loading="lazy" onerror="this.style.display='none'">
+            <img src="assets/images/trampolin/trampolin-card.png" alt="Trampolín guided UX for a complex service" loading="lazy" onerror="this.style.display='none'">
             <div class="visual-stamp">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M8 6h8M8 10h5M8 14h8"/><circle cx="12" cy="18" r="1"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
             </div>
           </div>
           <div class="visual-body">
-            <div class="visual-label"><span class="dot"></span><span>HUD / Flows</span></div>
-            <h4 data-i18n="visual_2_t">UI / UX Mobile</h4>
-            <p data-i18n="visual_2_c">Pantallas de shop, recompensas, HUDs y flujos de interacción pensados para claridad, ritmo y retención.</p>
+            <div class="visual-label"><span class="dot"></span><span data-i18n="visual_2_label">TRAMPOLÍN · COMPLEX UX</span></div>
+            <h4 data-i18n="visual_2_t">Trampolín — Guided UX for a complex service</h4>
+            <p data-i18n="visual_2_c">Experiencia orientada a claridad y confianza en un producto AI-first, ayudando al usuario a navegar decisiones complejas con una interfaz comprensible.</p>
           </div>
-        </article>
-        <article class="visual-card" data-tone="anim">
+        </a>
+        <a class="visual-card" data-tone="anim" href="case-studies.html#book-of-sounds">
           <div class="visual-media">
-            <img src="assets/images/visual-animation-1.jpg" alt="Placeholder para animación y game feel" loading="lazy" onerror="this.style.display='none'">
+            <img src="assets/images/book-of-sounds/BookSounds-card.png" alt="The Book of Sounds UX for toddlers" loading="lazy" onerror="this.style.display='none'">
             <div class="visual-stamp">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m4 14 4-4 4 4 8-8"/><path d="M20 10v6h-6"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2.5"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
             </div>
           </div>
           <div class="visual-body">
-            <div class="visual-label"><span class="dot"></span><span>Polish / Feedback</span></div>
-            <h4 data-i18n="visual_3_t">Animación y game feel</h4>
-            <p data-i18n="visual_3_c">Estados de personaje, polish de animación, feedback visual, timing de impacto y momentos de recompensa.</p>
+            <div class="visual-label"><span class="dot"></span><span data-i18n="visual_3_label">BOOK OF SOUNDS · TODDLERS</span></div>
+            <h4 data-i18n="visual_3_t">The Book of Sounds — UX for toddlers</h4>
+            <p data-i18n="visual_3_c">Diseño de interacción para usuarios muy pequeños: accesibilidad cognitiva, feedback inmediato y simplicidad como criterio principal.</p>
           </div>
-        </article>
-        <article class="visual-card" data-tone="tech">
+        </a>
+        <a class="visual-card" data-tone="ui" href="ux-design.html">
           <div class="visual-media">
-            <img src="assets/images/trampolin/trampolin-card.png" alt="Trampolín AI product" loading="lazy" onerror="this.style.display='none'">
+            <img src="assets/images/ux-design/ux-design-card.jpg" alt="UI Design scalable interface systems" loading="lazy" onerror="this.style.display='none'">
             <div class="visual-stamp">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 1 1 0 2h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 1 1 0-2h1a7 7 0 0 1 7-7h1V5.73A2 2 0 0 1 10 4a2 2 0 0 1 2-2z"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
             </div>
           </div>
           <div class="visual-body">
-            <div class="visual-label"><span class="dot"></span><span>AI · NLP</span></div>
-            <h4 data-i18n="visual_4_t">AI Product Pipeline</h4>
-            <p data-i18n="visual_4_c">Diseño conversacional, NLP UX y restricciones de producto derivadas de contexto legal y técnico.</p>
+            <div class="visual-label"><span class="dot"></span><span data-i18n="visual_4_label">UI DESIGN · SYSTEMS</span></div>
+            <h4 data-i18n="visual_4_t">UI Design — Scalable interface systems</h4>
+            <p data-i18n="visual_4_c">Trabajo de UI para decenas de apps y juegos, con foco en componentes, consistencia visual y patrones reutilizables.</p>
           </div>
-        </article>
+        </a>
       </div>
     </section>
 
@@ -1166,27 +857,52 @@
       <div class="section-head">
         <div>
           <div class="section-kicker">
-            <span class="badge">▣</span>
-            <span data-i18n="proc_kicker">Mi proceso</span>
+            <span data-i18n="proc_kicker">Proceso</span>
           </div>
+          <h2 data-i18n="proc_t">Diseño con criterio visual, técnico y de producto</h2>
         </div>
       </div>
       <p class="visual-intro" data-i18n="proc_intro">Prefiero que algo exista primero, y perfeccionarlo después. Iterar rápido sobre algo real enseña más que cualquier plan perfecto sobre el papel.</p>
-      <div class="timeline">
-        <div class="tl">
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          </div>
           <div class="date" data-i18n="t1_date">01 — RESEARCH</div>
-          <h4 data-i18n="t1_t">Discovery y research</h4>
-          <p data-i18n="t1_c">Entrevistas, análisis de datos, benchmark y definición del problema. Sin esto el diseño es decoración.</p>
+          <h4 data-i18n="t1_t">Research &amp; framing</h4>
+          <p data-i18n="t1_c">Entender usuarios, contexto, restricciones de negocio y límites técnicos antes de diseñar pantallas.</p>
         </div>
-        <div class="tl">
+        <div class="step">
+          <div class="step-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h9M4 12h6M4 18h11"/><circle cx="19" cy="6" r="2"/><circle cx="17" cy="18" r="2"/></svg>
+          </div>
           <div class="date" data-i18n="t2_date">02 — DESIGN</div>
-          <h4 data-i18n="t2_t">Flujos y prototipado</h4>
-          <p data-i18n="t2_c">Arquitectura de información, wireframes, componentes y prototipado para testear antes de construir.</p>
+          <h4 data-i18n="t2_t">UX flows &amp; prototypes</h4>
+          <p data-i18n="t2_c">Convertir problemas en flujos, wireframes y prototipos claros para validar dirección rápido.</p>
         </div>
-        <div class="tl">
-          <div class="date" data-i18n="t3_date">03 — ITERATE</div>
-          <h4 data-i18n="t3_t">Test y métricas</h4>
-          <p data-i18n="t3_c">Validación con usuarios reales, A/B testing y seguimiento de métricas para iterar con criterio.</p>
+        <div class="step">
+          <div class="step-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5"/></svg>
+          </div>
+          <div class="date" data-i18n="t3_date">03 — VISUAL SYSTEMS</div>
+          <h4 data-i18n="t3_t">Visual systems</h4>
+          <p data-i18n="t3_c">Construir una capa visual coherente: UI, componentes, feedback, personajes y tono de producto.</p>
+        </div>
+        <div class="step">
+          <div class="step-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5v10l-9 5-9-5V7z"/><path d="m12 12 9-5M12 12v10M12 12 3 7"/></svg>
+          </div>
+          <div class="date" data-i18n="t4_date">04 — IMPLEMENTATION</div>
+          <h4 data-i18n="t4_t">Implementation-aware design</h4>
+          <p data-i18n="t4_c">Diseñar pensando en Unity, mobile, assets, performance y handoff real a producción.</p>
+        </div>
+        <div class="step">
+          <div class="step-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg>
+          </div>
+          <div class="date" data-i18n="t5_date">05 — ITERATE</div>
+          <h4 data-i18n="t5_t">Measure &amp; iterate</h4>
+          <p data-i18n="t5_c">Revisar métricas, feedback y comportamiento para ajustar onboarding, retención y experiencia.</p>
         </div>
       </div>
     </section>
@@ -1196,25 +912,24 @@
       <div class="section-head">
         <div>
           <div class="section-kicker">
-            <span class="badge">☻</span>
             <span data-i18n="about_kicker">Sobre mí</span>
           </div>
         </div>
       </div>
       <div class="about">
         <div class="about-card">
-          <h3 data-i18n="about_t">Designer con criterio de producto y base técnica sólida</h3>
-          <p data-i18n="about_c">Lo que me mueve es simple: crear cosas que la gente use, disfrute y en las que confíe. Si es un juego y los jugadores vuelven cada día, perfecto. Si es una app y los padres la recomiendan porque sus hijos la entienden solos, igual de bien.<br><br>Llevo 10 años en eso, principalmente en videojuegos mobile — un entorno donde el usuario te abandona en segundos si algo no funciona, y donde diseñar bien no es opcional. Aprendí UX con esos constraints encima, lo cual hace que el resto de contextos me resulten más manejables, no más difíciles.<br><br>Tengo base técnica sólida — sé cómo se construye lo que diseño — y dominio del lenguaje visual desde años trabajando con vector. Busco producto digital donde crear bien y crear rápido no sean cosas distintas.</p>
+          <h3 data-i18n="about_t">Perfil híbrido entre UX, arte visual y tecnología</h3>
+          <p data-i18n="about_c">Soy Rayco González, Product &amp; UX Designer con background en visual art, mobile games y technical art. He trabajado en productos publicados para audiencias masivas, especialmente en mobile, juegos y experiencias infantiles, combinando criterio visual, diseño de interacción e implementación técnica.<br><br>No diseño pensando solo en pantallas bonitas: pienso en comportamiento, claridad, feedback, producción y en cómo se siente usar el producto. Mi experiencia con Unity, arte 3D/2D, UI y sistemas de juego me permite hablar el idioma de diseño, arte y desarrollo.</p>
           <div class="stats">
-            <div class="stat"><strong>+30</strong><span data-i18n="stat1">Apps publicadas</span></div>
-            <div class="stat"><strong>+50M</strong><span data-i18n="stat2">Descargas combinadas</span></div>
-            <div class="stat"><strong>1</strong><span data-i18n="stat3">Juego en Switch / PlayStation</span></div>
-            <div class="stat"><strong>10</strong><span data-i18n="stat4">Años en la industria</span></div>
+            <div class="stat"><strong>10+</strong><span data-i18n="stat1">Años de experiencia</span></div>
+            <div class="stat"><strong>50M+</strong><span data-i18n="stat2">Descargas en productos publicados</span></div>
+            <div class="stat" style="grid-column:1/-1"><strong>30+</strong><span data-i18n="stat3">Apps/juegos con trabajo UI/visual</span></div>
           </div>
+          <p style="margin-top:12px;font-size:12px;color:var(--muted);font-family:'JetBrains Mono',monospace" data-i18n="stat4">Mobile · Games · Kids · UX</p>
         </div>
         <div class="about-card">
           <h3 data-i18n="cv_t">CV y disponibilidad</h3>
-          <p data-i18n="cv_c">Disponible para colaboraciones, freelance o posiciones relacionadas con Unity, casual games y mobile UX.</p>
+          <p data-i18n="cv_c">Disponible para proyectos de producto digital, diseño UX/UI o posiciones relacionadas con mobile y games.</p>
           <div class="cta-row" style="margin-top:18px">
             <a class="btn btn-primary" href="assets/docs/CV_RaycoGonzalez_2026.pdf" download="CV_RaycoGonzalez_2026.pdf" target="_blank" rel="noopener"><span data-i18n="cv_btn">Descargar CV</span></a>
             <a class="btn btn-ghost" href="#contact"><span data-i18n="cv_btn2">Escríbeme</span></a>
@@ -1248,64 +963,51 @@
 <script>
 const I18N = {
   es: {
-    nav_home:"Inicio", nav_about:"Sobre mí", nav_cases:"Case Studies", nav_games:"Juegos", nav_visual:"Visual", nav_process:"Proceso", nav_contact:"Contacto",
+    nav_home:"Inicio", nav_about:"Sobre mí", nav_cases:"Case Studies", nav_games:"Proyectos", nav_visual:"Visual", nav_process:"Proceso", nav_contact:"Contacto",
     hello:"¡Hola! Soy Rayco",
     h1_a:"Product & UX Designer", h1_b:"Visual Art · Mobile · Games", h1_c:"10 years · 50M+ downloads",
-    hero_copy:"Me importa crear productos útiles, atractivos y que se sientan bien. Da igual si es un juego, una app o una herramienta: quiero que la gente lo use, lo disfrute y vuelva. Llevo 10 años haciendo eso, con más de 50M de descargas reales.",
-    cta_primary:"Ver proyectos", cta_secondary:"Sobre mí",
-    games_kicker:"Proyectos destacados", games_all:"Ver case studies",
-    g2_badge:"Teacher Approved", g2_title:"The Book of Sounds",
-    anim_kicker:"Animation Focus",
-    anim_title:"Animation & Character Work",
-    anim_copy:"Animación stylized de personajes, comportamientos de criaturas y sistemas de animación listos para Unity para juegos mobile y apps centradas en personajes.",
-    anim_h1:"Animación stylized de personajes",
-    anim_h2:"Comportamientos de mascotas y criaturas",
-    anim_h3:"Integración de animación en Unity",
-    anim_h4:"Timing de animación para gameplay",
-    anim_h5:"VFX y feedback de recompensa",
-    anim_h6:"Experiencias mobile centradas en personajes",
-    anim_btn_reel:"Ver reel completo",
-    anim_btn_art:"Ver ArtStation",
-    anim_preview_label:"Pipeline de personaje",
-    anim_preview_badge:"Preparado para Unity",
-    anim_tag_1:"Movimiento stylized",
-    anim_tag_2:"Timing de gameplay",
-    anim_tag_3:"Feedback de recompensa",
-    anim_core_t:"Reel de animación para personajes expresivos",
-    anim_core_c:"Una mirada centrada en trabajo de personaje stylized, interacciones de mascotas, timing de gameplay e implementación lista para Unity.",
-    anim_preview_note:"Pensado para personajes mobile con personalidad, legibilidad y una integración de animación preparada para producción.",
-    anim_preview_cta:"Abrir reel completo",
+    hero_copy:"Me importa crear productos útiles, atractivos y que se sientan bien. Da igual si es un juego, una app o una herramienta: quiero que la gente lo use, lo disfrute y vuelva. Llevo 10 años haciendo eso, con productos publicados y experiencia en mobile, UX, visual design y Unity.",
+    cta_primary:"Ver case studies", cta_secondary:"Sobre mí",
+    games_kicker:"Proyectos destacados", games_t:"Trabajo seleccionado", games_all:"Ver case studies",
+    g1_badge:"Main Project", g2_badge:"Teacher Approved", g4_badge:"30+ apps", g2_title:"The Book of Sounds",
     g1_title:"PawPal", g1_tag:"UX · Product", g1_copy:"Onboarding, retención, sistemas de progresión y UX de monetización para un juego mobile de mascota virtual con minijuegos arcade.",
     g2_tag:"EdTech", g2_copy:"App educativa gratuita para niños. Diseñada con proceso UX completo: research, wireframes, testing y decisiones de producto documentadas.",
     g3_badge:"AI-first", g3_title:"Trampolín", g3_tag:"AI · Producto", g3_copy:"Producto AI-first para orientar trámites de la Seguridad Social española. Búsqueda en lenguaje natural · API Anthropic · decisión de diseño = restricción legal.",
     g4_title:"UI Design", g4_tag:"30+ Apps", g4_copy:"UI design para más de 30 apps y juegos infantiles. Ergonomía para toddlers, brand guidelines de IPs licenciadas y sistemas de componentes coherentes.",
     skills_kicker:"Stack técnico",
     skills_t:"Lo que aporto",
-    sk1_t:"UX & Product Design", sk1_c:"Flujos de usuario, arquitectura de información, wireframes, onboarding y sistemas de retención en productos con millones de usuarios reales.",
-    sk2_t:"UI & Visual Design", sk2_c:"Interfaces vectoriales, sistemas de componentes y lenguaje visual coherente. Illustrator, Affinity Designer y criterio estético propio.",
-    sk3_t:"Technical Art", sk3_c:"Shaders, VFX, materiales e iluminación en Unity. La base técnica que hace que las decisiones de diseño sean implementables.",
-    sk4_t:"Mobile & Performance", sk4_c:"Pipeline de assets, optimización y render para móvil. Sé lo que cuesta en producción cada decisión de diseño.",
-    ts_software:"Design & UX", ts_areas:"Technical",
-    visual_kicker:"Visual Craft",
-    visual_t:"Personajes, UI y Tech Art",
-    visual_intro:"Una parte importante de mi trabajo está en conectar gameplay, arte y feedback visual: personajes expresivos, interfaces claras y sistemas visuales que hacen que el juego se sienta mejor.",
-    visual_1_t:"De 3 a 6 minutos: rediseñando el loop de retención de PawPal",
-    visual_1_c:"Tras analizar por qué el loop base (comer/rascar) no generaba retorno, rediseñé la estructura de recompensas con Wardrobe (colección/personalización) y Daily Reward, sustituyendo el minijuego core. Resultado: el tiempo medio de sesión se duplicó de 3 a 6 minutos.",
-    visual_2_t:"UI / UX Mobile",
-    visual_2_c:"Pantallas de shop, recompensas, HUDs y flujos de interacción pensados para claridad, ritmo y retención.",
-    visual_3_t:"Animación y game feel",
-    visual_3_c:"Estados de personaje, polish de animación, feedback visual, timing de impacto y momentos de recompensa.",
-    visual_4_t:"AI Product Pipeline",
-    visual_4_c:"Diseño conversacional, NLP UX y restricciones de producto derivadas de contexto legal y técnico.",
-    proc_kicker:"Mi proceso",
+    sk1_t:"UX & Product Design", sk1_i1:"Flujos de usuario", sk1_i2:"Arquitectura de información", sk1_i3:"Onboarding y retención",
+    sk2_t:"UI & Visual Design", sk2_i1:"Interfaces vectoriales", sk2_i2:"Sistemas de componentes", sk2_i3:"Figma, Illustrator, Affinity",
+    sk3_t:"Technical Art", sk3_i1:"Shaders y VFX", sk3_i2:"Materiales e iluminación", sk3_i3:"Integración en Unity",
+    sk4_t:"Mobile & Performance", sk4_i1:"Pipeline de assets", sk4_i2:"Optimización mobile", sk4_i3:"Coste real en producción",
+    ts_label:"Herramientas",
+    visual_kicker:"UX / Interaction",
+    visual_t:"UX aplicada a productos reales",
+    visual_intro:"No separo UX, visual design e implementación. Me interesa detectar qué necesita entender el usuario, qué le motiva a seguir, cómo reducir fricción y cómo convertir esas decisiones en interfaces reales, medibles e implementables.",
+    visual_1_label:"PAWPAL · RETENTION",
+    visual_1_t:"PawPal — Retention loop redesign",
+    visual_1_c:"Rediseño del loop principal para mejorar retorno, motivación diaria y progresión visible mediante recompensas, wardrobe y sistemas de engagement.",
+    visual_2_label:"TRAMPOLÍN · COMPLEX UX",
+    visual_2_t:"Trampolín — Guided UX for a complex service",
+    visual_2_c:"Experiencia orientada a claridad y confianza en un producto AI-first, ayudando al usuario a navegar decisiones complejas con una interfaz comprensible.",
+    visual_3_label:"BOOK OF SOUNDS · TODDLERS",
+    visual_3_t:"The Book of Sounds — UX for toddlers",
+    visual_3_c:"Diseño de interacción para usuarios muy pequeños: accesibilidad cognitiva, feedback inmediato y simplicidad como criterio principal.",
+    visual_4_label:"UI DESIGN · SYSTEMS",
+    visual_4_t:"UI Design — Scalable interface systems",
+    visual_4_c:"Trabajo de UI para decenas de apps y juegos, con foco en componentes, consistencia visual y patrones reutilizables.",
+    proc_kicker:"Proceso",
+    proc_t:"Diseño con criterio visual, técnico y de producto",
     proc_intro:"Prefiero que algo exista primero, y perfeccionarlo después. Iterar rápido sobre algo real enseña más que cualquier plan perfecto sobre el papel.",
-    t1_date:"01 — RESEARCH", t1_t:"Discovery y research", t1_c:"Entrevistas, análisis de datos, benchmark y definición del problema. Sin esto el diseño es decoración.",
-    t2_date:"02 — DESIGN", t2_t:"Flujos y prototipado", t2_c:"Arquitectura de información, wireframes, componentes y prototipado para testear antes de construir.",
-    t3_date:"03 — ITERATE", t3_t:"Test y métricas", t3_c:"Validación con usuarios reales, A/B testing y seguimiento de métricas para iterar con criterio.",
+    t1_date:"01 — RESEARCH", t1_t:"Research & framing", t1_c:"Entender usuarios, contexto, restricciones de negocio y límites técnicos antes de diseñar pantallas.",
+    t2_date:"02 — DESIGN", t2_t:"UX flows & prototypes", t2_c:"Convertir problemas en flujos, wireframes y prototipos claros para validar dirección rápido.",
+    t3_date:"03 — VISUAL SYSTEMS", t3_t:"Visual systems", t3_c:"Construir una capa visual coherente: UI, componentes, feedback, personajes y tono de producto.",
+    t4_date:"04 — IMPLEMENTATION", t4_t:"Implementation-aware design", t4_c:"Diseñar pensando en Unity, mobile, assets, performance y handoff real a producción.",
+    t5_date:"05 — ITERATE", t5_t:"Measure & iterate", t5_c:"Revisar métricas, feedback y comportamiento para ajustar onboarding, retención y experiencia.",
     about_kicker:"Sobre mí",
-    about_t:"Designer con criterio de producto y base técnica sólida",
-    about_c:"Lo que me mueve es simple: crear cosas que la gente use, disfrute y en las que confíe. Si es un juego y los jugadores vuelven cada día, perfecto. Si es una app y los padres la recomiendan porque sus hijos la entienden solos, igual de bien.\n\nLlevo 10 años en eso, principalmente en videojuegos mobile — un entorno donde el usuario te abandona en segundos si algo no funciona, y donde diseñar bien no es opcional. Aprendí UX con esos constraints encima, lo cual hace que el resto de contextos me resulten más manejables, no más difíciles.\n\nTengo base técnica sólida — sé cómo se construye lo que diseño — y dominio del lenguaje visual desde años trabajando con vector. Busco producto digital donde crear bien y crear rápido no sean cosas distintas.",
-    stat1:"Apps publicadas", stat2:"Descargas combinadas", stat3:"Juego en Switch / PlayStation", stat4:"Años en la industria",
+    about_t:"Perfil híbrido entre UX, arte visual y tecnología",
+    about_c:"Soy Rayco González, Product & UX Designer con background en visual art, mobile games y technical art. He trabajado en productos publicados para audiencias masivas, especialmente en mobile, juegos y experiencias infantiles, combinando criterio visual, diseño de interacción e implementación técnica.\n\nNo diseño pensando solo en pantallas bonitas: pienso en comportamiento, claridad, feedback, producción y en cómo se siente usar el producto. Mi experiencia con Unity, arte 3D/2D, UI y sistemas de juego me permite hablar el idioma de diseño, arte y desarrollo.",
+    stat1:"Años de experiencia", stat2:"Descargas en productos publicados", stat3:"Apps/juegos con trabajo UI/visual", stat4:"Mobile · Games · Kids · UX",
     cv_t:"CV y disponibilidad",
     cv_c:"Disponible para proyectos de producto digital, diseño UX/UI o posiciones relacionadas con mobile y games.",
     cv_btn:"Descargar CV", cv_btn2:"Escríbeme",
@@ -1314,64 +1016,51 @@ const I18N = {
     contact_btn:"Contactar"
   },
   en: {
-    nav_home:"Home", nav_about:"About", nav_cases:"Case Studies", nav_games:"Games", nav_visual:"Visual", nav_process:"Process", nav_contact:"Contact",
+    nav_home:"Home", nav_about:"About", nav_cases:"Case Studies", nav_games:"Projects", nav_visual:"Visual", nav_process:"Process", nav_contact:"Contact",
     hello:"Hi! I'm Rayco",
     h1_a:"Product & UX Designer", h1_b:"Visual Art · Mobile · Games", h1_c:"10 years · 50M+ downloads",
-    hero_copy:"I care about building products that are useful, attractive and feel right. Whether it's a game, an app or a tool — I want people to use it, enjoy it and come back. I've been doing that for 10 years, with over 50M real downloads.",
-    cta_primary:"View projects", cta_secondary:"About me",
-    games_kicker:"Featured projects", games_all:"View case studies",
-    g2_badge:"Teacher Approved", g2_title:"The Book of Sounds",
-    anim_kicker:"Animation Focus",
-    anim_title:"Animation & Character Work",
-    anim_copy:"Stylized character animation, creature behaviours and Unity-ready animation systems for mobile games and character-driven apps.",
-    anim_h1:"Stylized character animation",
-    anim_h2:"Pet and creature behaviours",
-    anim_h3:"Unity animation integration",
-    anim_h4:"Animation timing for gameplay",
-    anim_h5:"VFX and reward feedback",
-    anim_h6:"Character-driven mobile experiences",
-    anim_btn_reel:"Watch full reel",
-    anim_btn_art:"View ArtStation",
-    anim_preview_label:"Character pipeline",
-    anim_preview_badge:"Unity Ready",
-    anim_tag_1:"Stylized motion",
-    anim_tag_2:"Gameplay timing",
-    anim_tag_3:"Reward feedback",
-    anim_core_t:"Animation reel for expressive characters",
-    anim_core_c:"A focused look at stylized character work, pet interactions, gameplay timing and Unity-ready implementation.",
-    anim_preview_note:"Built to support mobile characters that need personality, readability and production-ready animation setup.",
-    anim_preview_cta:"Open full reel",
+    hero_copy:"I care about building products that are useful, attractive and feel right. Whether it's a game, an app or a tool — I want people to use it, enjoy it and come back. I've been doing that for 10 years, with published products and experience across mobile, UX, visual design and Unity.",
+    cta_primary:"View case studies", cta_secondary:"About me",
+    games_kicker:"Featured projects", games_t:"Selected work", games_all:"View case studies",
+    g1_badge:"Main Project", g2_badge:"Teacher Approved", g4_badge:"30+ apps", g2_title:"The Book of Sounds",
     g1_title:"PawPal", g1_tag:"UX · Product", g1_copy:"Onboarding, retention, progression systems and monetisation UX for a virtual pet mobile game with arcade mini-games.",
     g2_tag:"EdTech", g2_copy:"Free educational app for kids. Designed with a full UX process: research, wireframes, testing and documented product decisions.",
     g3_badge:"AI-first", g3_title:"Trampolín", g3_tag:"AI · Product", g3_copy:"AI-first product to guide Spanish Social Security procedures. Natural language search · Anthropic API · design decision = legal constraint.",
     g4_title:"UI Design", g4_tag:"30+ Apps", g4_copy:"UI design across 30+ children's apps and games. Toddler ergonomics, licensed IP brand guidelines and coherent component systems.",
     skills_kicker:"Tech stack",
     skills_t:"What I bring",
-    sk1_t:"UX & Product Design", sk1_c:"User flows, information architecture, wireframes, onboarding and retention systems in products with millions of real users.",
-    sk2_t:"UI & Visual Design", sk2_c:"Vector interfaces, component systems and coherent visual language. Illustrator, Affinity Designer and my own aesthetic judgment.",
-    sk3_t:"Technical Art", sk3_c:"Shaders, VFX, materials and lighting in Unity. The technical foundation that makes design decisions implementable.",
-    sk4_t:"Mobile & Performance", sk4_c:"Asset pipeline, optimisation and mobile rendering. I know what every design decision costs in production.",
-    ts_software:"Design & UX", ts_areas:"Technical",
-    visual_kicker:"Visual Craft",
-    visual_t:"Characters, UI and Tech Art",
-    visual_intro:"A big part of my work is connecting gameplay, art and visual feedback: expressive characters, clear interfaces and visual systems that make the game feel better.",
-    visual_1_t:"From 3 to 6 minutes: redesigning PawPal's retention loop",
-    visual_1_c:"After finding out why the base loop (feed/pet) wasn't driving return visits, I redesigned the reward structure around Wardrobe (collection/customization) and a Daily Reward, replacing the core minigame. Result: average session time doubled from 3 to 6 minutes.",
-    visual_2_t:"UI / UX Mobile",
-    visual_2_c:"Shop screens, reward panels, HUDs and mobile-first interaction flows focused on clarity and retention.",
-    visual_3_t:"Animation & Game Feel",
-    visual_3_c:"Character states, animation polish, visual feedback, impact timing and reward moments.",
-    visual_4_t:"AI Product Pipeline",
-    visual_4_c:"Conversational design, NLP UX and product constraints derived from legal and technical context.",
-    proc_kicker:"My process",
+    sk1_t:"UX & Product Design", sk1_i1:"User flows", sk1_i2:"Information architecture", sk1_i3:"Onboarding & retention",
+    sk2_t:"UI & Visual Design", sk2_i1:"Vector interfaces", sk2_i2:"Component systems", sk2_i3:"Figma, Illustrator, Affinity",
+    sk3_t:"Technical Art", sk3_i1:"Shaders & VFX", sk3_i2:"Materials & lighting", sk3_i3:"Unity integration",
+    sk4_t:"Mobile & Performance", sk4_i1:"Asset pipeline", sk4_i2:"Mobile optimisation", sk4_i3:"Real production cost",
+    ts_label:"Tools",
+    visual_kicker:"UX / Interaction",
+    visual_t:"UX applied to real products",
+    visual_intro:"I do not separate UX, visual design and implementation. I focus on what users need to understand, what motivates them to continue, how to reduce friction and how to turn those decisions into real, measurable and implementable interfaces.",
+    visual_1_label:"PAWPAL · RETENTION",
+    visual_1_t:"PawPal — Retention loop redesign",
+    visual_1_c:"Redesigning the core loop to improve return motivation, daily engagement and visible progression through rewards, wardrobe and engagement systems.",
+    visual_2_label:"TRAMPOLÍN · COMPLEX UX",
+    visual_2_t:"Trampolín — Guided UX for a complex service",
+    visual_2_c:"A clarity- and trust-driven experience for an AI-first product, helping users navigate complex decisions through an understandable interface.",
+    visual_3_label:"BOOK OF SOUNDS · TODDLERS",
+    visual_3_t:"The Book of Sounds — UX for toddlers",
+    visual_3_c:"Interaction design for very young users: cognitive accessibility, immediate feedback and simplicity as the main design principle.",
+    visual_4_label:"UI DESIGN · SYSTEMS",
+    visual_4_t:"UI Design — Scalable interface systems",
+    visual_4_c:"UI work across dozens of apps and games, focused on components, visual consistency and reusable patterns.",
+    proc_kicker:"Process",
+    proc_t:"Designing with visual, technical and product judgment",
     proc_intro:"I'd rather something exist first, and refine it after. Iterating fast on something real teaches more than any perfect plan on paper.",
-    t1_date:"01 — RESEARCH", t1_t:"Discovery & research", t1_c:"User interviews, data analysis, benchmarks and problem definition. Without this, design is decoration.",
-    t2_date:"02 — DESIGN", t2_t:"Flows & prototyping", t2_c:"Information architecture, wireframes, components and prototyping to validate before building.",
-    t3_date:"03 — ITERATE", t3_t:"Test & metrics", t3_c:"Real user validation, A/B testing and metric tracking to iterate with confidence.",
+    t1_date:"01 — RESEARCH", t1_t:"Research & framing", t1_c:"Understanding users, context, business constraints and technical limits before designing screens.",
+    t2_date:"02 — DESIGN", t2_t:"UX flows & prototypes", t2_c:"Turning problems into flows, wireframes and clear prototypes to validate direction fast.",
+    t3_date:"03 — VISUAL SYSTEMS", t3_t:"Visual systems", t3_c:"Building a coherent visual layer: UI, components, feedback, characters and product tone.",
+    t4_date:"04 — IMPLEMENTATION", t4_t:"Implementation-aware design", t4_c:"Designing with Unity, mobile, assets, performance and real production handoff in mind.",
+    t5_date:"05 — ITERATE", t5_t:"Measure & iterate", t5_c:"Reviewing metrics, feedback and behaviour to tune onboarding, retention and experience.",
     about_kicker:"About me",
-    about_t:"Designer with product judgment and a solid technical foundation",
-    about_c:"What drives me is simple: building things people use, enjoy and trust. If it's a game and players come back every day, great. If it's an app and parents recommend it because their kids figure it out on their own, equally good.\n\nI've spent 10 years doing that, mostly in mobile video games — an environment where users drop off in seconds if something doesn't work, and where good design isn't optional. I learned UX under those constraints, which makes every other context feel more manageable, not harder.\n\nI have a solid technical foundation — I know how what I design gets built — and strong visual language skills from years working with vector. I'm looking for digital product work where creating well and creating fast aren't two different things.",
-    stat1:"Apps shipped", stat2:"Combined downloads", stat3:"Switch / PlayStation game", stat4:"Years in the industry",
+    about_t:"A hybrid profile across UX, visual art and technology",
+    about_c:"I'm Rayco González, a Product & UX Designer with a background in visual art, mobile games and technical art. I've worked on products published for mass audiences, especially in mobile, games and children's experiences, combining visual judgment, interaction design and technical implementation.\n\nI don't design thinking only about pretty screens: I think about behaviour, clarity, feedback, production and how it feels to use the product. My experience with Unity, 3D/2D art, UI and game systems lets me speak the language of design, art and development.",
+    stat1:"Years of experience", stat2:"Downloads in published products", stat3:"Apps/games with UI/visual work", stat4:"Mobile · Games · Kids · UX",
     cv_t:"CV & availability",
     cv_c:"Available for digital product projects, UX/UI design or positions related to mobile and games.",
     cv_btn:"Download CV", cv_btn2:"Email me",
@@ -1501,7 +1190,7 @@ function renderPanel(){
     p.style.cssText = `position:fixed;right:18px;bottom:18px;z-index:9999;width:240px;
       background:rgba(15,17,40,.95);backdrop-filter:blur(16px);
       border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:16px;
-      color:#f4f3ff;font-family:Sora,system-ui;box-shadow:0 20px 60px rgba(0,0,0,.5)`;
+      color:#f4f3ff;font-family:Manrope,system-ui;box-shadow:0 20px 60px rgba(0,0,0,.5)`;
     document.body.appendChild(p);
   }
   p.innerHTML = `
