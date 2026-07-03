@@ -20,7 +20,7 @@
 <meta name="twitter:image" content="https://raycogonzalez.com/assets/images/hero-profile-placeholder.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#0a0b1e;
@@ -45,24 +45,23 @@
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{
-    font-family:"Sora",system-ui,sans-serif;
+    font-family:"Manrope",system-ui,sans-serif;
+    font-size:15.5px;
+    line-height:1.65;
     color:var(--text);
     background:
-      radial-gradient(900px 500px at 80% -10%, rgba(139,92,246,.18), transparent 60%),
-      radial-gradient(700px 400px at 20% 110%, rgba(255,92,168,.10), transparent 60%),
+      radial-gradient(900px 500px at 80% -10%, rgba(139,92,246,.14), transparent 60%),
       var(--bg);
     min-height:100vh;
     overflow-x:hidden;
   }
   body::before{
     content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
-    background-image:
-      radial-gradient(rgba(255,255,255,.5) 1px, transparent 1.2px),
-      radial-gradient(rgba(199,242,74,.35) 1px, transparent 1.2px);
-    background-size:90px 90px, 140px 140px;
-    background-position:0 0, 45px 60px;
-    opacity:.18;
-    mask-image:linear-gradient(to bottom, black, transparent 85%);
+    background-image:radial-gradient(rgba(255,255,255,.35) 1px, transparent 1.2px);
+    background-size:90px 90px;
+    background-position:0 0;
+    opacity:.12;
+    mask-image:linear-gradient(to bottom, black, transparent 70%);
   }
   a{color:inherit;text-decoration:none}
   img{max-width:100%;display:block}
@@ -102,7 +101,7 @@
   .nav a.active .ico{color:var(--violet-2)}
   .socials{display:flex;flex-direction:column;gap:14px;color:var(--muted)}
   .socials a{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;border:1px solid var(--line);transition:.2s}
-  .socials a:hover{color:var(--lime);border-color:rgba(199,242,74,.4)}
+  .socials a:hover{color:var(--violet-2);border-color:rgba(167,139,250,.4)}
 
   main{grid-column:2;padding:32px clamp(20px,3.5vw,46px) 60px;max-width:1480px}
 
@@ -117,17 +116,17 @@
   /* PANEL */
   .panel{
     border:1px solid var(--line);
-    background:linear-gradient(180deg, rgba(22,24,54,.92), rgba(17,19,44,.92));
-    border-radius:28px;
+    background:rgba(255,255,255,.02);
+    border-radius:20px;
     padding:clamp(22px,3vw,38px);
-    box-shadow:0 30px 80px rgba(0,0,0,.35);
+    box-shadow:0 20px 50px rgba(0,0,0,.25);
     position:relative;
     overflow:hidden;
   }
   .panel.compact{padding:clamp(18px,2.4vw,28px)}
   .panel.glow::before{
     content:"";position:absolute;inset:-1px;border-radius:inherit;pointer-events:none;
-    background:radial-gradient(600px 240px at 80% 0%, rgba(139,92,246,.18), transparent 60%);
+    background:radial-gradient(600px 240px at 80% 0%, rgba(139,92,246,.14), transparent 60%);
   }
   section + section{margin-top:24px}
 
@@ -144,69 +143,64 @@
   }
   .hero-left{position:relative;z-index:2}
   .kicker{
-    display:inline-flex;align-items:center;gap:8px;color:var(--violet-2);
-    font-weight:600;font-size:14px;margin-bottom:16px;
-  }
-  .kicker .badge{
-    width:18px;height:18px;border-radius:5px;background:linear-gradient(135deg,var(--violet),var(--pink));
-    display:grid;place-items:center;color:#fff;font-size:10px;
+    display:inline-flex;align-items:center;color:var(--violet-2);
+    font-family:"JetBrains Mono",monospace;
+    font-weight:600;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;
+    margin-bottom:16px;
   }
   h1{
-    font-size:clamp(40px,5.4vw,76px);
-    line-height:.96;letter-spacing:-.045em;font-weight:800;
+    font-size:clamp(38px,4.6vw,58px);
+    line-height:1.05;letter-spacing:-.03em;font-weight:700;
     max-width:680px;
   }
   h1 .grad{
-    background:linear-gradient(90deg, var(--violet-2) 0%, var(--pink) 60%, var(--orange) 100%);
-    -webkit-background-clip:text;background-clip:text;color:transparent;
+    color:var(--violet-2);
   }
   .hero-sub{color:var(--soft);font-size:clamp(16px,1.6vw,19px);font-weight:600;line-height:1.5;margin-top:18px;max-width:520px}
   .hero-copy{color:var(--muted);font-size:15px;line-height:1.7;margin-top:14px;max-width:520px}
   .tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
   .tag-lg{
-    font-size:12px;font-weight:700;padding:7px 13px;border-radius:999px;
-    background:rgba(167,139,250,.16);color:var(--violet-2);border:1px solid rgba(167,139,250,.26);
+    font-family:"JetBrains Mono",monospace;
+    font-size:11.5px;font-weight:600;padding:7px 13px;border-radius:999px;
+    background:rgba(167,139,250,.14);color:var(--violet-2);border:1px solid rgba(167,139,250,.24);
   }
-  .tag-lg.alt{background:rgba(94,234,212,.14);color:var(--teal);border-color:rgba(94,234,212,.26)}
+  .tag-lg.alt{background:rgba(94,234,212,.12);color:var(--teal);border-color:rgba(94,234,212,.24)}
   .cta-row{display:flex;gap:14px;margin-top:28px;align-items:center;flex-wrap:wrap}
   .btn{
     display:inline-flex;align-items:center;gap:10px;
-    height:48px;padding:0 22px;border-radius:999px;
-    font-weight:700;font-size:14px;cursor:pointer;
-    border:1px solid transparent;transition:.22s ease;
+    height:46px;padding:0 22px;border-radius:12px;
+    font-weight:600;font-size:14px;cursor:pointer;
+    border:1px solid transparent;transition:.2s ease;
   }
   .btn-primary{
-    background:linear-gradient(135deg,#dcfa6c,#a8e62e);
+    background:#fff;
     color:#0a0b1e;
-    box-shadow:0 14px 36px rgba(199,242,74,.22);
+    box-shadow:0 10px 26px rgba(0,0,0,.18);
   }
-  .btn-primary:hover{transform:translateY(-2px);filter:brightness(1.05)}
+  .btn-primary:hover{transform:translateY(-2px);background:#f1f0fb}
   .btn-soft{
     color:var(--text);
-    background:linear-gradient(135deg, rgba(139,92,246,.28), rgba(255,92,168,.18));
-    border-color:rgba(167,139,250,.3);
+    background:rgba(139,92,246,.14);
+    border-color:rgba(167,139,250,.26);
   }
-  .btn-soft:hover{transform:translateY(-2px);border-color:rgba(167,139,250,.5)}
+  .btn-soft:hover{transform:translateY(-2px);border-color:rgba(167,139,250,.4)}
   .btn-outline{
     color:var(--soft);
-    border-color:rgba(255,255,255,.16);
-    background:rgba(255,255,255,.03);
+    border-color:var(--line-2);
+    background:transparent;
   }
   .btn-outline:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.28);color:var(--text)}
-  .btn-ghost{color:var(--soft);background:transparent;border-bottom:1px dashed rgba(255,255,255,.25);border-radius:0;padding:0 0 4px;height:auto}
-  .btn-ghost:hover{color:var(--text)}
+  .btn-ghost{color:var(--soft);background:transparent;border-color:var(--line-2)}
+  .btn-ghost:hover{color:var(--text);background:rgba(255,255,255,.03);border-color:rgba(255,255,255,.3)}
 
   /* HERO ART */
   .hero-art{
     position:relative;
-    border-radius:28px;
+    border-radius:20px;
     overflow:hidden;
     min-height:360px;
     border:1px solid var(--line-2);
-    background:
-      radial-gradient(420px 200px at 30% 10%, rgba(139,92,246,.30), transparent 70%),
-      radial-gradient(420px 220px at 80% 90%, rgba(255,92,168,.22), transparent 70%),
-      linear-gradient(180deg, rgba(18,21,47,.96), rgba(10,12,30,.98));
+    background:linear-gradient(180deg, rgba(18,21,47,.96), rgba(10,12,30,.98));
     display:grid;place-items:center;
   }
   .hero-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -222,22 +216,19 @@
 
   /* SECTION HEADS */
   .section-kicker{
-    display:inline-flex;align-items:center;gap:8px;color:var(--violet-2);
-    font-weight:600;font-size:14px;
+    display:inline-flex;align-items:center;color:var(--violet-2);
+    font-family:"JetBrains Mono",monospace;
+    font-weight:600;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;
   }
-  .section-kicker .badge{
-    width:18px;height:18px;border-radius:5px;background:linear-gradient(135deg,var(--violet),var(--pink));
-    display:grid;place-items:center;color:#fff;font-size:10px;
-  }
-  .section-title{font-size:clamp(26px,3vw,38px);line-height:1.05;letter-spacing:-.035em;margin:14px 0 12px;max-width:20ch}
+  .section-title{font-size:clamp(24px,2.6vw,32px);font-weight:700;line-height:1.15;letter-spacing:-.02em;margin:12px 0 12px;max-width:24ch}
   .section-sub{color:var(--soft);font-size:15px;line-height:1.7;max-width:70ch}
 
   /* INTRO / POSITIONING CARDS */
   .pos-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:24px}
   .pos-card{
-    padding:20px;border-radius:18px;
-    background:linear-gradient(180deg, rgba(34,37,75,.6), rgba(22,24,54,.6));
-    border:1px solid var(--line);transition:.22s;
+    padding:20px;border-radius:16px;
+    background:rgba(255,255,255,.025);
+    border:1px solid var(--line);transition:.2s;
   }
   .pos-card:hover{border-color:rgba(167,139,250,.32);transform:translateY(-3px)}
   .pos-card .ico{
@@ -251,14 +242,14 @@
   .cases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
   .case-card{
     display:flex;flex-direction:column;
-    border-radius:24px;overflow:hidden;
-    background:linear-gradient(180deg, rgba(34,37,75,.7), rgba(22,24,54,.7));
+    border-radius:16px;overflow:hidden;
+    background:rgba(255,255,255,.025);
     border:1px solid var(--line);
-    transition:.25s ease;
+    transition:.2s ease;
   }
   .case-card:hover{transform:translateY(-4px);border-color:rgba(167,139,250,.35);box-shadow:0 22px 48px rgba(139,92,246,.18)}
   .case-media{position:relative;aspect-ratio:16/10;overflow:hidden;display:grid;place-items:center}
-  .case-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .case-media img{position:absolute;inset:0;z-index:1;width:100%;height:100%;object-fit:cover}
   .case-media .fallback{
     position:relative;z-index:0;display:grid;place-items:center;width:100%;height:100%;
     color:#0a0b1e;font-weight:900;font-size:30px;letter-spacing:-.04em;
@@ -281,15 +272,17 @@
     background:rgba(0,0,0,.45);backdrop-filter:blur(8px);
     border:1px solid rgba(255,255,255,.18);
     padding:5px 11px;border-radius:999px;
-    color:var(--yellow);font-weight:700;font-size:11px;
+    font-family:"JetBrains Mono",monospace;
+    color:var(--yellow);font-weight:600;font-size:10.5px;
   }
   .case-body{padding:20px 20px 22px;display:flex;flex-direction:column;flex:1}
   .case-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
   .case-tags .t{
-    font-size:10.5px;font-weight:700;padding:4px 9px;border-radius:999px;
-    background:rgba(167,139,250,.16);color:var(--violet-2);border:1px solid rgba(167,139,250,.22);
+    font-family:"JetBrains Mono",monospace;
+    font-size:10px;font-weight:600;padding:4px 9px;border-radius:999px;
+    background:rgba(167,139,250,.14);color:var(--violet-2);border:1px solid rgba(167,139,250,.2);
   }
-  .case-body h3{font-size:21px;font-weight:800;letter-spacing:-.02em;margin-bottom:8px}
+  .case-body h3{font-size:19px;font-weight:700;letter-spacing:-.015em;margin-bottom:8px}
   .case-desc{color:var(--soft);font-size:13.5px;line-height:1.6}
   .case-block{margin-top:16px}
   .case-block .label{
@@ -308,14 +301,14 @@
   .detail-head{margin-bottom:24px}
   .detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
   .detail-card{
-    padding:24px;border-radius:20px;
-    background:linear-gradient(180deg, rgba(34,37,75,.55), rgba(22,24,54,.55));
+    padding:24px;border-radius:16px;
+    background:rgba(255,255,255,.025);
     border:1px solid var(--line);
   }
-  .detail-card h4{font-size:17px;letter-spacing:-.02em;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+  .detail-card h4{font-size:16px;font-weight:700;letter-spacing:-.01em;margin-bottom:12px;display:flex;align-items:center;gap:10px}
   .detail-card h4 .n{
     width:26px;height:26px;border-radius:8px;flex:none;display:grid;place-items:center;
-    background:rgba(139,92,246,.2);color:var(--violet-2);font-size:12px;font-weight:800;
+    background:rgba(139,92,246,.2);color:var(--violet-2);font-size:12px;font-weight:700;
     font-family:"JetBrains Mono",monospace;
   }
   .detail-card p{color:var(--muted);font-size:13.5px;line-height:1.7}
@@ -346,8 +339,8 @@
   .signal{
     display:flex;gap:14px;align-items:flex-start;
     padding:18px;border-radius:16px;
-    background:linear-gradient(180deg, rgba(34,37,75,.55), rgba(22,24,54,.55));
-    border:1px solid var(--line);transition:.22s;
+    background:rgba(255,255,255,.025);
+    border:1px solid var(--line);transition:.2s;
   }
   .signal:hover{border-color:rgba(94,234,212,.3);transform:translateY(-3px)}
   .signal .check{
@@ -359,11 +352,11 @@
   /* FOOTER CTA */
   .footer-cta{
     display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;
-    padding:30px clamp(22px,3vw,40px);border-radius:28px;
-    background:linear-gradient(135deg, rgba(139,92,246,.18), rgba(255,92,168,.12));
-    border:1px solid rgba(167,139,250,.28);
+    padding:26px clamp(22px,3vw,36px);border-radius:16px;
+    background:rgba(139,92,246,.08);
+    border:1px solid rgba(167,139,250,.2);
   }
-  .footer-cta h3{font-size:clamp(22px,2.6vw,30px);letter-spacing:-.03em;margin-bottom:10px;max-width:18ch}
+  .footer-cta h3{font-size:clamp(20px,2.2vw,26px);font-weight:700;letter-spacing:-.02em;margin-bottom:10px;max-width:18ch}
   .footer-cta p{color:var(--soft);font-size:14.5px;line-height:1.65;max-width:54ch}
 
   .footer{
@@ -452,7 +445,7 @@
     <section class="panel glow hero" id="home">
       <div class="hero-left">
         <div class="crumbs"><a href="index.html#home">Home</a><span class="sep">/</span><span class="now">Case Studies</span></div>
-        <div class="kicker"><span class="badge">★</span><span>Selected work</span></div>
+        <div class="kicker"><span>Selected work</span></div>
         <h1>Selected <span class="grad">Case Studies</span></h1>
         <p class="hero-sub">Mobile games, UX research and character-driven experiences for kids and casual audiences.</p>
         <p class="hero-copy">A curated selection of projects that connect product thinking, Unity development, visual craft, UX design and playful experiences for children, families and casual players.</p>
@@ -486,7 +479,7 @@
 
     <!-- 2. INTRO / POSITIONING -->
     <section class="panel compact" id="positioning">
-      <div class="section-kicker"><span class="badge">◆</span><span>Positioning</span></div>
+      <div class="section-kicker"><span>Positioning</span></div>
       <h2 class="section-title">A hybrid profile across product, gameplay and visual craft</h2>
       <p class="section-sub">I design and build playful mobile experiences from both a product and production perspective: defining the user problem, designing the interaction, creating visual feedback, integrating characters and systems in Unity, and preparing products for real users and stores.</p>
       <div class="pos-grid">
@@ -515,7 +508,7 @@
 
     <!-- 3. CASE STUDY GRID -->
     <section class="panel compact" id="case-grid">
-      <div class="section-kicker"><span class="badge">▣</span><span>Case studies</span></div>
+      <div class="section-kicker"><span>Case studies</span></div>
       <h2 class="section-title">Three projects, one hybrid story</h2>
       <div class="cases">
 
@@ -623,7 +616,7 @@
     <!-- 4. DETAILED SECTION — THE BOOK OF SOUNDS -->
     <section class="panel compact" id="book-of-sounds">
       <div class="detail-head">
-        <div class="section-kicker"><span class="badge">B</span><span>Deep dive</span></div>
+        <div class="section-kicker"><span>Deep dive</span></div>
         <h2 class="section-title">The Book of Sounds — UX case study for toddlers</h2>
         <p class="section-sub">Designing a safe, simple and character-focused sound discovery app for very young children.</p>
       </div>
@@ -705,7 +698,7 @@
 
     <!-- 5. WHAT THIS SHOWS / HIRING SIGNAL -->
     <section class="panel compact" id="pocoyo-work">
-      <div class="section-kicker"><span class="badge">✦</span><span>Hiring signal</span></div>
+      <div class="section-kicker"><span>Hiring signal</span></div>
       <h2 class="section-title">What these projects show</h2>
       <div class="signal-grid">
         <div class="signal"><span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><p>I can define a product from user needs.</p></div>
