@@ -179,7 +179,7 @@
     display:grid;place-items:center;
   }
   .hero-carousel-shell{
-    width:min(560px,100%);
+    width:min(640px,100%);
     display:grid;
     gap:18px;
     justify-items:center;
@@ -187,12 +187,34 @@
   .hero-carousel{
     position:relative;
     width:100%;
-    aspect-ratio:1.02;
-    overflow:hidden;
-    border-radius:22px;
+    aspect-ratio:16/9;
+    padding:26px 64px;
+    border-radius:38px;
+    background:linear-gradient(155deg, #1c1f3d, #0a0b1e 70%);
     border:1px solid var(--line-2);
-    background:linear-gradient(180deg, rgba(18,21,47,.96), rgba(10,12,30,.98));
-    box-shadow:0 20px 50px rgba(0,0,0,.3);
+    box-shadow:0 20px 50px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.05);
+  }
+  .hero-carousel::before,
+  .hero-carousel::after{
+    content:"";
+    position:absolute;
+    background:rgba(255,255,255,.14);
+    border-radius:999px;
+  }
+  .hero-carousel::before{
+    left:9px;top:50%;width:3px;height:56px;transform:translateY(-50%);
+  }
+  .hero-carousel::after{
+    right:26px;top:50%;width:8px;height:8px;transform:translateY(-50%);
+    background:rgba(255,255,255,.22);
+    box-shadow:0 0 0 3px rgba(255,255,255,.05);
+  }
+  .hero-screen{
+    position:relative;
+    width:100%;height:100%;
+    overflow:hidden;
+    border-radius:14px;
+    background:#05060f;
   }
   .hero-slide{
     position:absolute;inset:0;
@@ -615,18 +637,20 @@
       <div class="hero-art">
         <div class="hero-carousel-shell" data-hero-carousel>
           <div class="hero-carousel">
-            <figure class="hero-slide is-active">
-              <img src="assets/images/hero-ux-1.png" alt="Imagen destacada UX portada 1" onerror="this.style.display='none'">
-            </figure>
-            <figure class="hero-slide">
-              <img src="assets/images/hero-ux-2.png" alt="Imagen destacada UX portada 2" onerror="this.style.display='none'">
-            </figure>
-            <figure class="hero-slide">
-              <img src="assets/images/hero-ux-3.png" alt="Imagen destacada UX portada 3" onerror="this.style.display='none'">
-            </figure>
-            <figure class="hero-slide">
-              <img src="assets/images/hero-ux-4.png" alt="Imagen destacada UX portada 4" onerror="this.style.display='none'">
-            </figure>
+            <div class="hero-screen">
+              <figure class="hero-slide is-active">
+                <img src="assets/images/hero-ux-1.png" alt="Imagen destacada UX portada 1" onerror="this.style.display='none'">
+              </figure>
+              <figure class="hero-slide">
+                <img src="assets/images/hero-ux-2.png" alt="Imagen destacada UX portada 2" onerror="this.style.display='none'">
+              </figure>
+              <figure class="hero-slide">
+                <img src="assets/images/hero-ux-3.png" alt="Imagen destacada UX portada 3" onerror="this.style.display='none'">
+              </figure>
+              <figure class="hero-slide">
+                <img src="assets/images/hero-ux-4.png" alt="Imagen destacada UX portada 4" onerror="this.style.display='none'">
+              </figure>
+            </div>
           </div>
           <div class="hero-dots" aria-label="Selector de imágenes destacadas">
             <button class="hero-dot is-active" type="button" aria-label="Ver imagen 1" aria-current="true"></button>
