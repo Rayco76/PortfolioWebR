@@ -266,6 +266,10 @@
   .case-media.tone-pocoyo .fallback{background:
     radial-gradient(circle at 50% 32%, rgba(255,255,255,.4) 0 12%, transparent 13%),
     linear-gradient(135deg, #f59e0b, #fb923c)}
+  .case-media.tone-trampolin .fallback{background:
+    radial-gradient(circle at 28% 30%, #5eead4 0 13%, transparent 14%),
+    radial-gradient(circle at 72% 66%, #60a5fa 0 11%, transparent 12%),
+    linear-gradient(135deg, #0e7490, #2563eb)}
   .case-media .pill{
     position:absolute;top:12px;left:12px;z-index:2;
     display:inline-flex;align-items:center;gap:6px;
@@ -515,7 +519,7 @@
     <!-- 3. CASE STUDY GRID -->
     <section class="panel compact" id="case-grid">
       <div class="section-kicker"><span>Case studies</span></div>
-      <h2 class="section-title">Three projects, one hybrid story</h2>
+      <h2 class="section-title">Four projects, one hybrid story</h2>
       <div class="cases">
 
         <!-- CARD 1 — PawPal -->
@@ -550,7 +554,40 @@
           </div>
         </article>
 
-        <!-- CARD 2 — The Book of Sounds -->
+        <!-- CARD 2 — Trampolín -->
+        <article class="case-card">
+          <div class="case-media tone-trampolin">
+            <img src="assets/images/trampolin/trampolin-card.png" alt="Trampolín — AI-first legal orientation product" onerror="this.style.display='none'">
+            <div class="fallback">Trampolín</div>
+            <span class="pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 14.5 9 22 10 16.5 14.5 18 22 12 18 6 22 7.5 14.5 2 10 9.5 9z"/></svg>Live Product</span>
+          </div>
+          <div class="case-body">
+            <div class="case-tags">
+              <span class="t">AI-first Product</span><span class="t">UX</span><span class="t">Anthropic API</span><span class="t">Live Product</span>
+            </div>
+            <h3>Trampolín</h3>
+            <p class="case-desc">An AI-first product that turns Spain's Social Security electronic office into a conversational orientation layer — natural-language questions, verified answers, no scraping.</p>
+            <div class="case-block">
+              <div class="label">Impact</div>
+              <ul class="impact">
+                <li>Live product on Vercel since July 2026</li>
+                <li>13 procedures verified as a curated knowledge base</li>
+                <li>AI grounding + web search fallback, no scraping</li>
+                <li>Low-cost serverless infrastructure, donation-based</li>
+              </ul>
+            </div>
+            <div class="case-block">
+              <div class="label role-label">My role</div>
+              <p class="case-role">Product definition, UX design, prompt &amp; AI product design, information architecture and end-to-end build and shipping.</p>
+            </div>
+            <div class="case-actions">
+              <a class="btn btn-primary" href="#trampolin"><span>View full case study</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+              <a class="btn btn-soft" href="https://trampolin-psi.vercel.app/" target="_blank" rel="noopener noreferrer"><span>View live demo</span></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CARD 3 — The Book of Sounds -->
         <article class="case-card">
           <div class="case-media tone-sounds">
             <img src="assets/images/book-of-sounds/BookSounds-card.png" alt="The Book of Sounds — educational app for toddlers" onerror="this.style.display='none'">
@@ -584,7 +621,7 @@
           </div>
         </article>
 
-        <!-- CARD 3 — Pocoyó / Kids Games & Character Work -->
+        <!-- CARD 4 — Pocoyó / Kids Games & Character Work -->
         <article class="case-card">
           <div class="case-media tone-pocoyo">
             <img src="assets/images/pocoyo/pocoyo-card.png" alt="Pocoyó — kids games and character work" onerror="this.style.display='none'">
@@ -619,7 +656,81 @@
       </div>
     </section>
 
-    <!-- 4. DETAILED SECTION — THE BOOK OF SOUNDS -->
+    <!-- 4. DETAILED SECTION — TRAMPOLÍN -->
+    <section class="panel compact" id="trampolin">
+      <div class="detail-head">
+        <div class="section-kicker"><span>Deep dive</span></div>
+        <h2 class="section-title">Trampolín — AI-first product &amp; UX case study</h2>
+        <p class="section-sub">Turning a fragmented government service into a conversational orientation layer, without scraping and without pretending to be a lawyer.</p>
+      </div>
+
+      <div class="detail-grid">
+        <!-- A) Problem -->
+        <div class="detail-card">
+          <h4><span class="n">A</span>Problem</h4>
+          <p>Spain's Social Security electronic office holds complete, public information about labor rights, deadlines and procedures — but it is fragmented across thousands of pages, written in dense legal language, and never answers a question the way a person actually asks it. People with legitimate rights don't know they have them, or get lost before finding the right answer.</p>
+        </div>
+
+        <!-- B) Decisions -->
+        <div class="detail-card">
+          <h4><span class="n">B</span>Decisions</h4>
+          <ul>
+            <li>Ship an orientation layer, not an automation layer: help people understand what applies to them, not file the paperwork for them.</li>
+            <li>No scraping of the official site — build a manually curated knowledge base instead, for accuracy and accountability.</li>
+            <li>Ground every AI answer in the curated base, with live web search only as a fallback outside its coverage.</li>
+            <li>Make the legal-orientation disclaimer part of the product's tone, not fine print.</li>
+          </ul>
+        </div>
+
+        <!-- C) Process -->
+        <div class="detail-card span-2">
+          <h4><span class="n">C</span>Process</h4>
+          <div class="ux-steps">
+            <div class="ux-step"><div class="num">01</div><h5>Problem Framing</h5></div>
+            <div class="ux-step"><div class="num">02</div><h5>Legal &amp; Scope Constraints</h5></div>
+            <div class="ux-step"><div class="num">03</div><h5>Knowledge Base Curation</h5></div>
+            <div class="ux-step"><div class="num">04</div><h5>Prompt &amp; AI Design</h5></div>
+            <div class="ux-step"><div class="num">05</div><h5>Build &amp; Ship</h5></div>
+            <div class="ux-step"><div class="num">06</div><h5>Live Iteration</h5></div>
+          </div>
+        </div>
+
+        <!-- D) Testing -->
+        <div class="detail-card">
+          <h4><span class="n">D</span>Testing &amp; Learnings</h4>
+          <p>Trampolín has been in public validation since July 2026, with a phased roadmap that only advances to the next phase once the current one is validated with real usage. Early use confirmed the core bet — people will ask plain-language questions instead of hunting for the right form — and shaped the disclaimer and next-step prompts on every answer.</p>
+        </div>
+
+        <!-- E) Outcome -->
+        <div class="detail-card">
+          <h4><span class="n">E</span>Outcome</h4>
+          <p>A live, production AI-first product deployed on Vercel with a custom domain: 13 procedures verified by hand as a knowledge base, Claude with a <code>web_search</code> fallback for anything outside that coverage, and a low-cost serverless stack sustained through Ko-fi donations. It stands as the strongest signal in this portfolio of AI-first product design — where the prompt, the interface and the trust model are designed as one problem.</p>
+        </div>
+
+        <!-- Screens -->
+        <div class="detail-card span-2">
+          <h4><span class="n">★</span>Selected screens</h4>
+          <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:6px">
+            <div class="case-media tone-trampolin" style="border-radius:14px;aspect-ratio:16/9;min-height:0;border:1px solid var(--line)">
+              <img src="assets/images/trampolin/trampolin-card.png" alt="Trampolín — conversational orientation interface" onerror="this.style.display='none'">
+              <div class="fallback" style="font-size:16px">Interface</div>
+            </div>
+            <div class="case-media tone-trampolin" style="border-radius:14px;aspect-ratio:16/9;min-height:0;border:1px solid var(--line)">
+              <img src="assets/images/trampolin/trampolin-2up-pensiones.png" alt="Trampolín — pension procedure walkthrough" onerror="this.style.display='none'">
+              <div class="fallback" style="font-size:16px">Walkthrough</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://trampolin-psi.vercel.app/" target="_blank" rel="noopener noreferrer"><span>View live demo</span></a>
+        <a class="btn btn-soft" href="assets/docs/trampolin-case-study.pdf" download="Trampolin_CaseStudy_RaycoGonzalez.pdf"><span>Download case study PDF</span></a>
+        <a class="btn btn-outline" href="trampolin.html"><span>Full project page</span></a>
+      </div>
+    </section>
+
+    <!-- 5. DETAILED SECTION — THE BOOK OF SOUNDS -->
     <section class="panel compact" id="book-of-sounds">
       <div class="detail-head">
         <div class="section-kicker"><span>Deep dive</span></div>
@@ -702,7 +813,7 @@
       </div>
     </section>
 
-    <!-- 5. WHAT THIS SHOWS / HIRING SIGNAL -->
+    <!-- 6. WHAT THIS SHOWS / HIRING SIGNAL -->
     <section class="panel compact" id="pocoyo-work">
       <div class="section-kicker"><span>Hiring signal</span></div>
       <h2 class="section-title">What these projects show</h2>
