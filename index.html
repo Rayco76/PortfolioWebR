@@ -331,6 +331,28 @@
   .game-badge{color:var(--muted)}
   .game-tag{color:var(--violet-2)}
 
+  /* FEATURED PROJECT */
+  .featured-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,360px);gap:32px;align-items:center}
+  .featured-sub{color:var(--soft);font-size:16px;line-height:1.6;margin:10px 0 22px;max-width:520px}
+  .highlight-row{display:flex;flex-direction:column;gap:10px;margin-bottom:28px;list-style:none}
+  .highlight-row li{
+    display:flex;align-items:flex-start;gap:10px;
+    color:var(--soft);font-size:13.5px;line-height:1.5;
+    padding:10px 14px;border-radius:12px;
+    background:rgba(255,255,255,.03);border:1px solid var(--line);
+  }
+  .highlight-row li::before{content:"✓";flex:none;color:var(--teal);font-weight:700}
+  .featured-art{display:grid;place-items:center}
+  .featured-thumb{width:100%;aspect-ratio:4/3;border-radius:18px;position:relative;overflow:hidden;box-shadow:0 20px 44px rgba(0,0,0,.3)}
+  .featured-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+  /* BACKGROUND (deemphasized) */
+  .bg-copy{color:var(--muted);font-size:14px;line-height:1.6;max-width:600px;margin:-8px 0 20px}
+  .games-single{grid-template-columns:minmax(0,1fr)}
+  .game-card.muted{padding:10px;background:rgba(255,255,255,.015)}
+  .game-card.muted .game-badge{display:none}
+  .game-card.muted .thumb{width:100px;height:78px}
+
   /* SKILLS */
   .skills-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) minmax(220px,260px);gap:14px;align-items:stretch}
   .skill{
@@ -533,7 +555,7 @@
     main{grid-column:1;padding:20px}
     .hero{grid-template-columns:1fr;min-height:auto}
     .hero-art{min-height:420px}
-    .games,.skills-row,.timeline,.about,.visual-grid,.process-steps{grid-template-columns:1fr}
+    .games,.skills-row,.timeline,.about,.visual-grid,.process-steps,.featured-grid{grid-template-columns:1fr}
     .process-steps::before{display:none}
     .process-steps{display:grid}
     .contact{grid-template-columns:1fr}
@@ -662,14 +684,44 @@
       </div>
 
     </section>
-    <!-- GAMES -->
-    <section class="panel compact" id="games">
+    <!-- FEATURED PROJECT: TRAMPOLÍN -->
+    <section class="panel glow featured" id="games">
+      <div class="featured-grid">
+        <div class="featured-body">
+          <div class="section-kicker">
+            <span data-i18n="featured_kicker">Proyecto destacado</span>
+          </div>
+          <h2 data-i18n="featured_t">Trampolín</h2>
+          <p class="featured-sub" data-i18n="featured_sub">Orientación con IA para trámites de la Seguridad Social española</p>
+          <ul class="highlight-row">
+            <li data-i18n="feat_h1">Producto real en producción — validado con Ko-fi antes de construir</li>
+            <li data-i18n="feat_h2">Diseño end-to-end: research, arquitectura de prompt, UX y decisiones técnicas, en solitario</li>
+            <li data-i18n="feat_h3">IA como producto, no como proceso — el motor conversacional es el core</li>
+            <li data-i18n="feat_h4">Iterando activamente — Fase 2 (extensión de navegador) ya en diseño</li>
+          </ul>
+          <div class="cta-row" style="margin-top:0">
+            <a class="btn btn-primary" href="trampolin.html">
+              <span data-i18n="feat_cta">Ver case study completo</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="featured-art">
+          <div class="featured-thumb" style="background:radial-gradient(circle at 30% 30%,rgba(94,234,212,.4) 0 12%,transparent 13%),radial-gradient(circle at 70% 25%,rgba(96,165,250,.3) 0 10%,transparent 11%),linear-gradient(135deg,#0f4c75,#1b6ca8,#1a5276)">
+            <img src="assets/images/trampolin/trampolin-card.png" alt="Trampolín AI-first product" loading="lazy" onerror="this.style.display='none'">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LAUNCHED PROJECTS -->
+    <section class="panel compact" id="launched-projects">
       <div class="section-head">
         <div>
           <div class="section-kicker">
-            <span data-i18n="games_kicker">Proyectos destacados</span>
+            <span data-i18n="launched_kicker">Proyectos lanzados</span>
           </div>
-          <h2 data-i18n="games_t">Trabajo seleccionado</h2>
+          <h2 data-i18n="launched_t">Case studies</h2>
         </div>
         <a class="link" href="case-studies.html">
           <span data-i18n="games_all">Ver case studies</span>
@@ -677,20 +729,6 @@
         </a>
       </div>
       <div class="games">
-        <a class="game-card" href="trampolin.html">
-          <div class="thumb" style="background:radial-gradient(circle at 30% 30%,rgba(94,234,212,.4) 0 12%,transparent 13%),radial-gradient(circle at 70% 25%,rgba(96,165,250,.3) 0 10%,transparent 11%),linear-gradient(135deg,#0f4c75,#1b6ca8,#1a5276)">
-            <img src="assets/images/trampolin/trampolin-card.png" alt="Trampolín AI-first product" loading="lazy" onerror="this.style.display='none'">
-          </div>
-          <div class="game-body">
-            <h3 data-i18n="g3_title">Trampolín</h3>
-            <p data-i18n="g3_copy">Producto AI-first para orientar trámites de la Seguridad Social española. Búsqueda en lenguaje natural · API Anthropic · decisión de diseño = restricción legal.</p>
-            <div class="game-meta">
-              <span class="game-badge" data-i18n="g3_badge">AI-first</span>
-              <span class="game-tag" data-i18n="g3_tag">AI · Producto</span>
-            </div>
-          </div>
-        </a>
-
         <a class="game-card" href="pawpal-ux.html">
           <div class="thumb thumb-1">
             <img src="assets/images/pawpal/pawpal-card.png" alt="Imagen de ejemplo del proyecto PawPal" loading="lazy" onerror="this.style.display='none'">
@@ -718,8 +756,22 @@
             </div>
           </div>
         </a>
+      </div>
+    </section>
 
-        <a class="game-card" href="ux-design.html">
+    <!-- BACKGROUND -->
+    <section class="panel compact" id="background">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">
+            <span data-i18n="bg_kicker">De dónde vengo</span>
+          </div>
+          <h2 data-i18n="bg_t">UX/UI design para juegos</h2>
+        </div>
+      </div>
+      <p class="bg-copy" data-i18n="bg_copy">10 años diseñando para mobile y juegos infantiles antes de dar el salto a producto puro.</p>
+      <div class="games games-single">
+        <a class="game-card muted" href="ux-design.html">
           <div class="thumb" style="background:linear-gradient(180deg,rgba(96,165,250,.22),transparent),repeating-linear-gradient(180deg,rgba(255,255,255,.07) 0 18px,transparent 18px 36px),linear-gradient(135deg,rgba(30,64,175,.54),rgba(15,23,42,.3))">
             <img src="assets/images/ux-design/ux-design-card.jpg" alt="UI Design 30+ apps" loading="lazy" onerror="this.style.display='none'">
           </div>
@@ -727,7 +779,6 @@
             <h3 data-i18n="g4_title">UI Design</h3>
             <p data-i18n="g4_copy">UI design para más de 30 apps y juegos infantiles. Ergonomía para toddlers, brand guidelines de IPs licenciadas y sistemas de componentes coherentes.</p>
             <div class="game-meta">
-              <span class="game-badge" data-i18n="g4_badge">30+ apps</span>
               <span class="game-tag" data-i18n="g4_tag">30+ Apps</span>
             </div>
           </div>
@@ -991,6 +1042,15 @@ const I18N = {
     hero_copy:"Me importa crear productos útiles, atractivos y que se sientan bien. Da igual si es un juego, una app o una herramienta: quiero que la gente lo use, lo disfrute y vuelva. Llevo 10 años haciendo eso, con productos publicados y experiencia en mobile, UX, visual design y Unity.",
     cta_primary:"Ver case studies", cta_secondary:"Sobre mí",
     games_kicker:"Proyectos destacados", games_t:"Trabajo seleccionado", games_all:"Ver case studies",
+    featured_kicker:"Proyecto destacado", featured_t:"Trampolín", featured_sub:"Orientación con IA para trámites de la Seguridad Social española",
+    feat_h1:"Producto real en producción — validado con Ko-fi antes de construir",
+    feat_h2:"Diseño end-to-end: research, arquitectura de prompt, UX y decisiones técnicas, en solitario",
+    feat_h3:"IA como producto, no como proceso — el motor conversacional es el core",
+    feat_h4:"Iterando activamente — Fase 2 (extensión de navegador) ya en diseño",
+    feat_cta:"Ver case study completo",
+    launched_kicker:"Proyectos lanzados", launched_t:"Case studies",
+    bg_kicker:"De dónde vengo", bg_t:"UX/UI design para juegos",
+    bg_copy:"10 años diseñando para mobile y juegos infantiles antes de dar el salto a producto puro.",
     g1_badge:"Main Project", g2_badge:"Teacher Approved", g4_badge:"30+ apps", g2_title:"The Book of Sounds",
     g1_title:"PawPal", g1_tag:"UX · Product", g1_copy:"Onboarding, retención, sistemas de progresión y UX de monetización para un juego mobile de mascota virtual con minijuegos arcade.",
     g2_tag:"EdTech", g2_copy:"App educativa gratuita para niños. Diseñada con proceso UX completo: research, wireframes, testing y decisiones de producto documentadas.",
@@ -1044,6 +1104,15 @@ const I18N = {
     hero_copy:"I care about building products that are useful, attractive and feel right. Whether it's a game, an app or a tool — I want people to use it, enjoy it and come back. I've been doing that for 10 years, with published products and experience across mobile, UX, visual design and Unity.",
     cta_primary:"View case studies", cta_secondary:"About me",
     games_kicker:"Featured projects", games_t:"Selected work", games_all:"View case studies",
+    featured_kicker:"Featured project", featured_t:"Trampolín", featured_sub:"AI-powered guidance for Spanish Social Security procedures",
+    feat_h1:"Live product in production — validated on Ko-fi before building",
+    feat_h2:"End-to-end design: research, prompt architecture, UX and technical decisions, solo",
+    feat_h3:"AI as the product, not just the process — the conversational engine is the core",
+    feat_h4:"Actively iterating — Phase 2 (browser extension) already in design",
+    feat_cta:"View full case study",
+    launched_kicker:"Shipped projects", launched_t:"Case studies",
+    bg_kicker:"Background", bg_t:"UX/UI design for games",
+    bg_copy:"10 years designing for mobile and kids' games before moving into pure product design.",
     g1_badge:"Main Project", g2_badge:"Teacher Approved", g4_badge:"30+ apps", g2_title:"The Book of Sounds",
     g1_title:"PawPal", g1_tag:"UX · Product", g1_copy:"Onboarding, retention, progression systems and monetisation UX for a virtual pet mobile game with arcade mini-games.",
     g2_tag:"EdTech", g2_copy:"Free educational app for kids. Designed with a full UX process: research, wireframes, testing and documented product decisions.",

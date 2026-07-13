@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Rayco González — Technical Artist · Unity · VFX · Shaders</title>
-<meta name="description" content="Rayco González — Technical Artist para juegos casual. Conecto arte y motor en Unity: materiales, VFX, iluminación, render y pipeline para móvil. Proyectos: Pocoyo Party, Talking Pocoyo 2, PawPal." />
+<title>Rayco González — Game Art Generalist · Personajes · UI · Animación</title>
+<meta name="description" content="Rayco González — Game Art Generalist para juegos casual: personajes, UI, animación, hard surface y pipeline en Unity para móvil y consola. Proyectos: Pocoyo Party, Talking Pocoyo 2, PawPal." />
 <meta name="author" content="Rayco González" />
 <link rel="canonical" href="https://raycogonzalez.com/technical-artist.html" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 38 38'%3E%3Crect width='38' height='38' rx='11' fill='%23a78bfa'/%3E%3Ctext x='19' y='27' font-family='sans-serif' font-size='22' font-weight='900' fill='%230a0b1e' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E" />
 <!-- Open Graph / Twitter -->
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Rayco González — Technical Artist · Unity · VFX · Shaders" />
-<meta property="og:description" content="Technical Artist para juegos casual. Materiales, VFX, iluminación, render y pipeline en Unity para móvil." />
+<meta property="og:title" content="Rayco González — Game Art Generalist · Personajes · UI · Animación" />
+<meta property="og:description" content="Game Art Generalist para juegos casual: personajes, UI, animación, hard surface y pipeline en Unity para móvil y consola." />
 <meta property="og:url" content="https://raycogonzalez.com/technical-artist.html" />
 <meta property="og:image" content="https://raycogonzalez.com/assets/images/hero-techart-1.png" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Rayco González — Technical Artist · Unity · VFX · Shaders" />
-<meta name="twitter:description" content="Technical Artist para juegos casual. Materiales, VFX, iluminación, render y pipeline en Unity para móvil." />
+<meta name="twitter:title" content="Rayco González — Game Art Generalist · Personajes · UI · Animación" />
+<meta name="twitter:description" content="Game Art Generalist para juegos casual: personajes, UI, animación, hard surface y pipeline en Unity para móvil y consola." />
 <meta name="twitter:image" content="https://raycogonzalez.com/assets/images/hero-techart-1.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -521,6 +521,15 @@
     opacity:.32;
     pointer-events:none;
   }
+  .animation-reel-gif{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:.4;
+    z-index:0;
+  }
   .animation-play{
     position:relative;
     z-index:1;
@@ -662,6 +671,23 @@
       linear-gradient(180deg, rgba(94,234,212,.14) 0 1px, transparent 1px 32px),
       linear-gradient(135deg, rgba(8,145,178,.34), rgba(15,23,42,.34));
     background-size:32px 32px, 32px 32px, auto;
+  }
+  .visual-card[data-tone="hardsurface"] .visual-media{
+    background:
+      linear-gradient(90deg, rgba(96,165,250,.16) 0 1px, transparent 1px 28px),
+      linear-gradient(180deg, rgba(96,165,250,.16) 0 1px, transparent 1px 28px),
+      linear-gradient(135deg, rgba(30,41,59,.62), rgba(15,23,42,.4));
+    background-size:28px 28px, 28px 28px, auto;
+  }
+  .visual-card[data-tone="exploring"]{
+    border-style:dashed;
+    border-color:rgba(255,255,255,.18);
+  }
+  .visual-card[data-tone="exploring"] .visual-media{
+    background:
+      radial-gradient(circle at 26% 30%, rgba(255,211,77,.22) 0 14%, transparent 15%),
+      radial-gradient(circle at 70% 60%, rgba(255,92,168,.2) 0 12%, transparent 13%),
+      linear-gradient(135deg, rgba(124,58,237,.24), rgba(17,19,44,.3));
   }
   .visual-stamp{
     position:absolute;left:16px;top:16px;z-index:2;
@@ -1027,6 +1053,7 @@
             <div class="animation-badge" data-i18n="anim_preview_badge">Unity Ready</div>
           </div>
           <div class="animation-reel-card">
+            <img class="animation-reel-gif" src="assets/images/animation/animation-preview.gif" alt="Preview animado del reel de animación" onerror="this.style.display='none'">
             <a class="animation-play" href="https://www.youtube.com/watch?v=ldr6JnGce1M" target="_blank" rel="noopener noreferrer" aria-label="Ver reel de animación completo">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 6.5v11l9-5.5-9-5.5Z"/></svg>
             </a>
@@ -1059,7 +1086,7 @@
             <span class="badge">✦</span>
             <span data-i18n="skills_kicker">Stack técnico</span>
           </div>
-          <h2 data-i18n="skills_t">Lo que aporto como Technical Artist</h2>
+          <h2 data-i18n="skills_t">Lo que aporto como Game Art Generalist</h2>
         </div>
       </div>
       <div class="skills">
@@ -1140,7 +1167,7 @@
       </div>
       <p class="visual-intro" data-i18n="visual_intro">Una parte importante de mi trabajo está en conectar gameplay, arte y feedback visual: personajes expresivos, interfaces claras y sistemas visuales que hacen que el juego se sienta mejor.</p>
       <div class="visual-grid">
-        <article class="visual-card" data-tone="characters">
+        <a class="visual-card" data-tone="characters" href="tech-art.html#characters">
           <div class="visual-media">
             <img src="assets/images/visual-character-1.jpg" alt="Placeholder para personajes y criaturas" onerror="this.style.display='none'">
             <div class="visual-stamp">
@@ -1152,8 +1179,8 @@
             <h4 data-i18n="visual_1_t">Personajes y criaturas</h4>
             <p data-i18n="visual_1_c">Personajes stylized, mascotas y criaturas preparadas para gameplay, animación y rendimiento mobile.</p>
           </div>
-        </article>
-        <article class="visual-card" data-tone="ui">
+        </a>
+        <a class="visual-card" data-tone="ui" href="tech-art.html#ui">
           <div class="visual-media">
             <img src="assets/images/visual-ui-1.jpg" alt="Placeholder para UI y UX mobile" onerror="this.style.display='none'">
             <div class="visual-stamp">
@@ -1165,8 +1192,8 @@
             <h4 data-i18n="visual_2_t">UI / UX Mobile</h4>
             <p data-i18n="visual_2_c">Pantallas de shop, recompensas, HUDs y flujos de interacción pensados para claridad, ritmo y retención.</p>
           </div>
-        </article>
-        <article class="visual-card" data-tone="anim">
+        </a>
+        <a class="visual-card" data-tone="anim" href="tech-art.html#animation">
           <div class="visual-media">
             <img src="assets/images/visual-animation-1.jpg" alt="Placeholder para animación y game feel" onerror="this.style.display='none'">
             <div class="visual-stamp">
@@ -1178,20 +1205,33 @@
             <h4 data-i18n="visual_3_t">Animación y game feel</h4>
             <p data-i18n="visual_3_c">Estados de personaje, polish de animación, feedback visual, timing de impacto y momentos de recompensa.</p>
           </div>
-        </article>
-        <article class="visual-card" data-tone="tech">
+        </a>
+        <a class="visual-card" data-tone="hardsurface" href="tech-art.html#hardsurface">
           <div class="visual-media">
-            <img src="assets/images/visual-techart-1.jpg" alt="Placeholder para technical art" onerror="this.style.display='none'">
+            <img src="assets/images/visual-hardsurface-1.jpg" alt="Placeholder para hard surface" onerror="this.style.display='none'">
             <div class="visual-stamp">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.9 4.9l2.8 2.8"/><path d="m16.3 16.3 2.8 2.8"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="m4.9 19.1 2.8-2.8"/><path d="m16.3 7.7 2.8-2.8"/><circle cx="12" cy="12" r="3"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7 12 3l9 4-9 4-9-4Z"/><path d="M3 12l9 4 9-4M3 17l9 4 9-4"/></svg>
             </div>
           </div>
           <div class="visual-body">
-            <div class="visual-label"><span class="dot"></span><span>Unity / VFX</span></div>
-            <h4 data-i18n="visual_4_t">Tech Art</h4>
-            <p data-i18n="visual_4_c">Integración en Unity, VFX, partículas, materiales y sistemas visuales reutilizables.</p>
+            <div class="visual-label"><span class="dot"></span><span>Props / Hard Surface</span></div>
+            <h4 data-i18n="visual_4_t">Hard Surface</h4>
+            <p data-i18n="visual_4_c">Props, vehículos y elementos mecánicos modelados con precisión y listos para engine.</p>
           </div>
-        </article>
+        </a>
+        <a class="visual-card" data-tone="exploring" href="tech-art.html#exploring">
+          <div class="visual-media">
+            <img src="assets/images/visual-exploring-1.jpg" alt="Placeholder para disciplinas en exploración" onerror="this.style.display='none'">
+            <div class="visual-stamp">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m14.5 9.5-2 5-5 2 2-5 5-2Z"/></svg>
+            </div>
+          </div>
+          <div class="visual-body">
+            <div class="visual-label"><span class="dot"></span><span>WIP / Personal</span></div>
+            <h4 data-i18n="visual_5_t">Explorando</h4>
+            <p data-i18n="visual_5_c">Otras disciplinas que exploro fuera del día a día: ilustración, level design y lo que venga después.</p>
+          </div>
+        </a>
       </div>
     </section>
 
@@ -1236,7 +1276,7 @@
       </div>
       <div class="about">
         <div class="about-card">
-          <h3 data-i18n="about_t">Technical Artist con perfil híbrido: arte + motor</h3>
+          <h3 data-i18n="about_t">Game Art Generalist con perfil híbrido: arte + motor</h3>
           <p data-i18n="about_c">Trabajo en el puente entre arte y programación: llevo materiales, iluminación, VFX y animación a Unity y los dejo listos para producción, optimizados y consistentes en móvil. Vengo del mundo del arte 3D, así que cuido tanto cómo se ve como cómo rinde.</p>
           <div class="stats">
             <div class="stat"><strong>+30</strong><span data-i18n="stat1">Apps publicadas</span></div>
@@ -1273,7 +1313,7 @@
 
     <footer class="footer">
       <span>© 2026 Rayco González. Portfolio personal.</span>
-      <span>Technical Artist · Unity · VFX · Shaders · Mobile</span>
+      <span>Game Art Generalist · Personajes · UI · Animación · Hard Surface</span>
     </footer>
   </main>
 </div>
@@ -1283,8 +1323,8 @@ const I18N = {
   es: {
     nav_home:"Inicio", nav_about:"Sobre mí", nav_cases:"Case Studies", nav_games:"Juegos", nav_visual:"Visual", nav_process:"Proceso", nav_contact:"Contacto",
     hello:"¡Hola! Soy Rayco",
-    h1_a:"Technical Artist", h1_b:"para juegos casual", h1_c:"que enganchan",
-    hero_copy:"Conecto arte y motor en Unity: materiales, VFX, iluminación, render y pipeline que hacen que los juegos casual se vean bien y rindan en móvil.",
+    h1_a:"Game Art Generalist", h1_b:"para juegos que", h1_c:"cobran vida",
+    hero_copy:"Personajes, UI, animación, hard surface y pipeline: cubro todo el espectro de producción artística para que un juego se vea bien, se sienta bien y rinda en cualquier plataforma.",
     cta_primary:"Ver mis juegos", cta_secondary:"Conocer más sobre mí",
     quote:"Me apasionan los juegos casual: mecánicas simples, retos bien pensados y recompensas que generan enganche y satisfacción.",
     games_kicker:"Proyectos destacados", games_all:"Ver case studies",
@@ -1311,8 +1351,8 @@ const I18N = {
     g1_title:"PawPal", g1_tag:"Virtual Pet", g1_copy:"Mascota virtual mobile con minijuegos arcade, personalización y sistemas de progresión orientados a retención.",
     g2_tag:"3D / Tech Art", g2_copy:"Juego educativo infantil basado en el universo Pocoyo. Arte 3D, integración en Unity, iluminación, materiales y soporte de VFX.",
     g3_tag:"Animación / Tech Art", g3_copy:"App de personaje licenciado donde coordiné las peticiones de animación, adapté contenido de animación y me encargué de la implementación de technical art en Unity: VFX, iluminación, cámara, UI y configuración de audio.",
-    skills_kicker:"Stack técnico",
-    skills_t:"Lo que aporto como Technical Artist",
+    skills_kicker:"Disciplinas & stack",
+    skills_t:"Lo que aporto como Game Art Generalist",
     sk1_t:"Shaders & Materiales", sk1_c:"Setup de materiales, look dev e iluminación consistente y legible en Unity.",
     sk2_t:"VFX & Game Feel", sk2_c:"Partículas, feedback visual e impacto que dan vida y peso a cada interacción.",
     sk3_t:"Unity & Pipeline", sk3_c:"Integración de assets, render, cámara, C# y optimización para móvil.",
@@ -1322,7 +1362,7 @@ const I18N = {
     st_assets:"Integración de assets", st_opt:"Optimización móvil", st_props:"Modelado de props",
     st_anim:"Animación en engine", st_ip:"IP licenciada",
     visual_kicker:"Visual Craft",
-    visual_t:"Personajes, UI y Tech Art",
+    visual_t:"Personajes, UI y producción visual",
     visual_intro:"Una parte importante de mi trabajo está en conectar gameplay, arte y feedback visual: personajes expresivos, interfaces claras y sistemas visuales que hacen que el juego se sienta mejor.",
     visual_1_t:"Personajes y criaturas",
     visual_1_c:"Personajes stylized, mascotas y criaturas preparadas para gameplay, animación y rendimiento mobile.",
@@ -1330,14 +1370,16 @@ const I18N = {
     visual_2_c:"Pantallas de shop, recompensas, HUDs y flujos de interacción pensados para claridad, ritmo y retención.",
     visual_3_t:"Animación y game feel",
     visual_3_c:"Estados de personaje, polish de animación, feedback visual, timing de impacto y momentos de recompensa.",
-    visual_4_t:"Tech Art",
-    visual_4_c:"Integración en Unity, VFX, partículas, materiales y sistemas visuales reutilizables.",
+    visual_4_t:"Hard Surface",
+    visual_4_c:"Props, vehículos y elementos mecánicos modelados con precisión y listos para engine.",
+    visual_5_t:"Explorando",
+    visual_5_c:"Otras disciplinas que exploro fuera del día a día: ilustración, level design y lo que venga después.",
     proc_kicker:"Mi proceso",
     t1_date:"01 — IDEA", t1_t:"Concepto y prototipo", t1_c:"De una mecánica core a un prototipo jugable en días, con foco en lo divertido.",
     t2_date:"02 — BUILD", t2_t:"Sistemas y polish", t2_c:"Arquitectura modular, feedback visual, animación y UI pensada para móvil.",
     t3_date:"03 — LAUNCH", t3_t:"Live ops y retención", t3_c:"Daily rewards, ads, economía y telemetría para crecer sin romper la experiencia.",
     about_kicker:"Sobre mí",
-    about_t:"Technical Artist con perfil híbrido: arte + motor",
+    about_t:"Game Art Generalist con perfil híbrido: arte + motor",
     about_c:"Trabajo en el puente entre arte y programación: llevo materiales, iluminación, VFX y animación a Unity y los dejo listos para producción, optimizados y consistentes en móvil. Vengo del mundo del arte 3D, así que cuido tanto cómo se ve como cómo rinde.",
     stat1:"Apps publicadas", stat2:"Descargas combinadas", stat3:"Juego en Switch / PlayStation", stat4:"Años en la industria",
     cv_t:"CV y disponibilidad",
@@ -1350,8 +1392,8 @@ const I18N = {
   en: {
     nav_home:"Home", nav_about:"About", nav_cases:"Case Studies", nav_games:"Games", nav_visual:"Visual", nav_process:"Process", nav_contact:"Contact",
     hello:"Hi! I'm Rayco",
-    h1_a:"Technical Artist", h1_b:"for casual games", h1_c:"that hook you",
-    hero_copy:"I connect art and engine in Unity: materials, VFX, lighting, render and pipeline that make casual games look great and run well on mobile.",
+    h1_a:"Game Art Generalist", h1_b:"for games that", h1_c:"come alive",
+    hero_copy:"Characters, UI, animation, hard surface and pipeline — I cover the full art production spectrum so a game looks great, feels great and performs on any platform.",
     cta_primary:"See my games", cta_secondary:"More about me",
     quote:"I love casual games: simple mechanics, well-thought challenges, and rewards that create engagement and satisfaction.",
     games_kicker:"Featured projects", games_all:"View case studies",
@@ -1378,8 +1420,8 @@ const I18N = {
     g1_title:"PawPal", g1_tag:"Virtual Pet", g1_copy:"Virtual pet mobile game with arcade mini-games, customization and progression systems designed for retention.",
     g2_tag:"3D / Tech Art", g2_copy:"Educational kids game based on the Pocoyo universe. 3D art, Unity integration, lighting, materials and VFX support.",
     g3_tag:"Animation / Tech Art", g3_copy:"Licensed character app where I coordinated animation requests, adapted animation content and handled Unity technical art implementation including VFX, lighting, camera, UI and audio setup.",
-    skills_kicker:"Tech stack",
-    skills_t:"What I bring as a Technical Artist",
+    skills_kicker:"Disciplines & stack",
+    skills_t:"What I bring as a Game Art Generalist",
     sk1_t:"Shaders & Materials", sk1_c:"Material setup, look dev and consistent, readable lighting in Unity.",
     sk2_t:"VFX & Game Feel", sk2_c:"Particles, visual feedback and impact that give life and weight to every interaction.",
     sk3_t:"Unity & Pipeline", sk3_c:"Asset integration, render, camera, C# and mobile optimization.",
@@ -1389,7 +1431,7 @@ const I18N = {
     st_assets:"Asset Integration", st_opt:"Mobile Optimization", st_props:"Prop Modelling",
     st_anim:"In-engine Animation", st_ip:"Licensed IP",
     visual_kicker:"Visual Craft",
-    visual_t:"Characters, UI and Tech Art",
+    visual_t:"Characters, UI and visual production",
     visual_intro:"A big part of my work is connecting gameplay, art and visual feedback: expressive characters, clear interfaces and visual systems that make the game feel better.",
     visual_1_t:"Characters & Creatures",
     visual_1_c:"Stylized characters, pets and creatures prepared for gameplay, animation and mobile performance.",
@@ -1397,14 +1439,16 @@ const I18N = {
     visual_2_c:"Shop screens, reward panels, HUDs and mobile-first interaction flows focused on clarity and retention.",
     visual_3_t:"Animation & Game Feel",
     visual_3_c:"Character states, animation polish, visual feedback, impact timing and reward moments.",
-    visual_4_t:"Technical Art",
-    visual_4_c:"Unity integration, VFX, particles, shaders/material setup and reusable visual systems.",
+    visual_4_t:"Hard Surface",
+    visual_4_c:"Props, vehicles and mechanical elements modeled with precision and ready for engine.",
+    visual_5_t:"Exploring",
+    visual_5_c:"Other disciplines I explore outside the day-to-day: illustration, level design and whatever comes next.",
     proc_kicker:"My process",
     t1_date:"01 — IDEA", t1_t:"Concept & prototype", t1_c:"From a core mechanic to a playable prototype in days, focused on what's fun.",
     t2_date:"02 — BUILD", t2_t:"Systems & polish", t2_c:"Modular architecture, visual feedback, animation and mobile-first UI.",
     t3_date:"03 — LAUNCH", t3_t:"Live ops & retention", t3_c:"Daily rewards, ads, economy and telemetry to grow without breaking UX.",
     about_kicker:"About me",
-    about_t:"Technical Artist with a hybrid profile: art + engine",
+    about_t:"Game Art Generalist with a hybrid profile: art + engine",
     about_c:"I work at the bridge between art and programming: I bring materials, lighting, VFX and animation into Unity and make them production-ready, optimized and consistent on mobile. I come from a 3D art background, so I care as much about how it looks as how it performs.",
     stat1:"Apps shipped", stat2:"Combined downloads", stat3:"Switch / PlayStation game", stat4:"Years in the industry",
     cv_t:"CV & availability",

@@ -365,6 +365,25 @@
       margin-top: 28px
     }
 
+    .pull-quote {
+      margin: 24px 0;
+      padding: 4px 0 4px 22px;
+      border-left: 3px solid var(--violet-2);
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.4;
+      max-width: 720px
+    }
+
+    .pull-quote span {
+      display: block;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.6
+    }
+
     .btn {
       display: inline-flex;
       align-items: center;
@@ -402,14 +421,31 @@
       border-color: rgba(255, 255, 255, .3)
     }
 
-    .btn-teal {
+    .btn-outline-strong {
       color: var(--text);
-      background: rgba(94, 234, 212, .1);
-      border-color: rgba(94, 234, 212, .22)
+      background: rgba(255, 255, 255, .06);
+      border: 1.5px solid rgba(255, 255, 255, .55);
+      font-weight: 700
+    }
+
+    .btn-outline-strong:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, .12);
+      border-color: #fff
+    }
+
+    .btn-teal {
+      color: #06231d;
+      background: var(--teal);
+      border-color: var(--teal);
+      font-weight: 700;
+      box-shadow: 0 10px 30px rgba(94, 234, 212, .28)
     }
 
     .btn-teal:hover {
-      background: rgba(94, 234, 212, .18)
+      transform: translateY(-2px);
+      background: #7ff2df;
+      box-shadow: 0 14px 34px rgba(94, 234, 212, .38)
     }
 
     .hero-split {
@@ -1000,7 +1036,7 @@
                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M5 12h14M13 5l7 7-7 7" />
               </svg></a>
-            <a class="btn btn-ghost" href="assets/docs/trampolin-case-study.pdf" download="Trampolin_CaseStudy_RaycoGonzalez.pdf"><span>Descargar case study (PDF)</span><svg width="14" height="14"
+            <a class="btn btn-outline-strong" href="assets/docs/trampolin-case-study.pdf" download="Trampolin_CaseStudy_RaycoGonzalez.pdf"><span>Descargar case study (PDF)</span><svg width="14" height="14"
                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M12 3v12m0 0-4-4m4 4 4-4" />
                 <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" />
@@ -1324,6 +1360,61 @@
               Diseñado desde el inicio con control de coste variable (prompt caching, límites de uso por sesión).</p>
           </article>
         </div>
+      </section>
+
+      <section class="panel compact" id="phase2">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker"><span>08b — Fase 2 en detalle</span></div>
+            <h2>Diseñando la extensión: mismo principio, nuevo contexto</h2>
+          </div>
+        </div>
+
+        <p class="lead" style="margin-top:0">Sin scraping en el buscador, sin credenciales en la extensión — mismo
+          principio de diseño aplicado a un contexto nuevo.</p>
+
+        <article class="card">
+          <h4>Por qué esta fase importa</h4>
+          <p>GovEasy, el competidor más directo, ofrece un "Portal Bridge" que reutiliza datos entre sedes, asistente
+            IA y marketplace de gestores humanos vía suscripción + comisión. ISSA, el chatbot oficial de la
+            Seguridad Social, resuelve consultas genéricas pero no orienta sobre qué portal corresponde a cada
+            trámite. Trampolín se diferencia por ser gratis, sin cuenta y sin venta de gestión — nace de una
+            experiencia personal real, no de un producto pensado para monetizar la confusión del usuario.</p>
+        </article>
+
+        <blockquote class="pull-quote">
+          "El usuario siempre tiene que tener una salida."
+          <span>— mi lema desde mi etapa de atención al cliente, aplicado literalmente: cuando el spotlight no
+            encuentra un campo, el chat sigue disponible como vía de escape en vez de fallar en silencio.</span>
+        </blockquote>
+
+        <div class="grid-3">
+          <article class="card">
+            <span class="status-pill">Estado 1</span>
+            <h4 style="margin-top:12px">Trámite y campo detectados</h4>
+            <p>Banda general + spotlight con tip concreto sobre el campo real de la Sede.</p>
+          </article>
+          <article class="card">
+            <span class="status-pill alt">Estado 2</span>
+            <h4 style="margin-top:12px">Trámite en KB, campo no detectado</h4>
+            <p>Banda general + aviso de que el paso puntual no se localizó. El chat queda como salida.</p>
+          </article>
+          <article class="card">
+            <span class="tag-lg alt">Estado 3</span>
+            <h4 style="margin-top:12px">Trámite fuera de KB</h4>
+            <p>Aviso discreto, sin IA automática. El usuario puede preguntar igualmente o pedir aviso cuando se
+              añada — señal real de demanda para priorizar qué mapear después.</p>
+          </article>
+        </div>
+
+        <article class="card">
+          <h4>Arquitectura, en una pieza</h4>
+          <p>Content script inyectado solo en los dominios oficiales declarados (nunca <code>&lt;all_urls&gt;</code>),
+            leyendo el DOM ya renderizado dentro de la sesión autenticada del usuario — el mismo principio que un
+            gestor de contraseñas. Un service worker es el único punto de contacto con el backend en Vercel
+            (reutilizado del producto web), que sirve la knowledge base en runtime en vez de empaquetada en la
+            extensión, para poder corregir errores sin esperar revisión de la Chrome Web Store.</p>
+        </article>
       </section>
 
       <!-- GALERÍA -->

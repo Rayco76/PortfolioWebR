@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Technical Art &amp; 3D production across 30+ titles · Rayco González</title>
-<meta name="description" content="30+ títulos publicados — Technical Art y producción 3D para Nintendo Switch, PlayStation, iOS y Android: pipeline, VFX, Unity, animación y consola. Rayco González." />
+<title>Game Art Generalist — Personajes, UI, Animación &amp; Hard Surface · Rayco González</title>
+<meta name="description" content="Game Art Generalist: personajes, UI, animación, modelado hard surface y pipeline para juegos en Nintendo Switch, PlayStation, iOS y Android. Rayco González." />
 <meta name="author" content="Rayco González" />
 <link rel="canonical" href="https://raycogonzalez.com/tech-art.html" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Technical Art &amp; 3D production across 30+ titles · Rayco González" />
-<meta property="og:description" content="Technical Artist con 30+ títulos publicados en Switch, PlayStation, iOS y Android. Unity, 3D, VFX, pipeline." />
+<meta property="og:title" content="Game Art Generalist — Personajes, UI, Animación &amp; Hard Surface · Rayco González" />
+<meta property="og:description" content="Game Art Generalist con más de una década de producción: personajes, UI, animación, hard surface y pipeline en Switch, PlayStation, iOS y Android." />
 <meta property="og:url" content="https://raycogonzalez.com/tech-art.html" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 38 38'%3E%3Crect width='38' height='38' rx='11' fill='%23a78bfa'/%3E%3Ctext x='19' y='27' font-family='sans-serif' font-size='22' font-weight='900' fill='%230a0b1e' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,11 +32,11 @@
   .logo{display:flex;align-items:center;gap:6px}
   .logo .mark{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(135deg,#fff,#dcd6ff);color:#0a0b1e;font-weight:900;font-size:18px}
   .logo .dot{width:10px;height:10px;border-radius:50%;background:var(--orange);margin-top:14px}
-  .nav{display:flex;flex-direction:column;gap:6px;margin-top:38px}
-  .nav a{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:14px;color:var(--muted);font-weight:600;font-size:15px;transition:.2s ease;border:1px solid transparent}
+  .nav{display:flex;flex-direction:column;gap:4px;margin-top:30px;max-height:calc(100vh - 220px);overflow-y:auto}
+  .nav a{display:flex;align-items:center;gap:12px;padding:9px 14px;border-radius:14px;color:var(--muted);font-weight:600;font-size:14px;transition:.2s ease;border:1px solid transparent}
   .nav a:hover{color:var(--text);background:rgba(255,255,255,.04)}
   .nav a.active{color:var(--text);background:linear-gradient(180deg,rgba(255,138,76,.26),rgba(139,92,246,.18));border-color:rgba(255,138,76,.26)}
-  .nav a .ico{width:18px;height:18px;display:grid;place-items:center;color:inherit}
+  .nav a .ico{width:18px;height:18px;display:grid;place-items:center;color:inherit;flex:none}
   .socials{display:flex;flex-direction:column;gap:14px;color:var(--muted)}
   .socials a{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;border:1px solid var(--line);transition:.2s}
   .socials a:hover{color:var(--lime);border-color:rgba(199,242,74,.4)}
@@ -85,17 +85,18 @@
   .plat-card.mob .plat-label{color:var(--orange)}
   .plat-card strong{display:block;font-size:18px;font-weight:800;letter-spacing:-.02em;margin-bottom:4px}
   .plat-card span{font-size:12px;color:var(--muted)}
-  .grid-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
-  .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-  .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-  .card{padding:20px;border-radius:20px;background:linear-gradient(180deg,rgba(34,37,75,.58),rgba(22,24,54,.58));border:1px solid var(--line);transition:.22s}
-  .card:hover{transform:translateY(-3px);border-color:rgba(255,138,76,.24)}
-  .card .ico{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:rgba(255,138,76,.16);color:var(--orange);margin-bottom:14px}
-  .card h3,.card h4{font-size:17px;font-weight:700;letter-spacing:-.02em;margin-bottom:8px}
-  .card p{color:var(--muted);font-size:13.5px;line-height:1.6}
-  .list{display:grid;gap:8px;margin-top:12px}
-  .list span{color:var(--soft);font-size:12.5px;line-height:1.5;padding:8px 10px;border-radius:12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05)}
-  .disc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+  .hero-art{min-height:520px;display:grid;place-items:center}
+  .hero-carousel-shell{width:min(560px,100%);display:grid;gap:18px;justify-items:center}
+  .hero-carousel{position:relative;width:100%;aspect-ratio:1.02;overflow:hidden;border-radius:30px;border:1px solid var(--line-2);background:radial-gradient(520px 220px at 50% 0%, rgba(255,138,76,.18), transparent 70%),linear-gradient(180deg, rgba(18,21,47,.96), rgba(10,12,30,.98));box-shadow:0 30px 60px rgba(0,0,0,.35)}
+  .hero-slide{position:absolute;inset:0;opacity:0;transform:scale(1.03);transition:opacity .45s ease, transform .7s ease;pointer-events:none}
+  .hero-slide.is-active{opacity:1;transform:scale(1)}
+  .hero-slide img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+  .hero-slide::after{content:"";position:absolute;inset:auto 0 0 0;height:32%;background:linear-gradient(180deg, transparent, rgba(10,12,30,.42) 60%, rgba(10,12,30,.72))}
+  .hero-dots{display:flex;align-items:center;justify-content:center;gap:10px}
+  .hero-dot{width:10px;height:10px;border-radius:999px;border:none;padding:0;cursor:pointer;background:rgba(255,255,255,.22);transition:transform .2s ease, background .2s ease, width .2s ease}
+  .hero-dot:hover{transform:scale(1.08)}
+  .hero-dot.is-active{width:28px;background:linear-gradient(90deg,#dcfa6c,#fbbf24)}
+  .disc-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
   .disc-card{padding:22px;border-radius:22px;border:1px solid var(--line);background:rgba(255,255,255,.03);position:relative;overflow:hidden}
   .disc-card::before{content:"";position:absolute;top:0;left:0;bottom:0;width:3px;border-radius:22px 0 0 22px}
   .disc-card.orange::before{background:var(--orange)}
@@ -106,12 +107,12 @@
   .disc-card.pink::before{background:var(--pink)}
   .disc-card h4{font-size:16px;font-weight:700;margin-bottom:8px;margin-left:10px}
   .disc-card p{color:var(--muted);font-size:13px;line-height:1.6;margin-left:10px}
-  .example-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
   .example{padding:22px;border-radius:22px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(34,37,75,.64),rgba(22,24,54,.64))}
   .example .eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--orange);font-family:"JetBrains Mono",monospace;margin-bottom:12px}
   .example h4{font-size:18px;font-weight:700;letter-spacing:-.02em;margin-bottom:12px}
   .example p{color:var(--muted);font-size:13.5px;line-height:1.6}
   .example a{display:inline-flex;align-items:center;gap:6px;color:var(--teal);font-size:13px;font-weight:600;margin-top:14px}
+  .example a.btn{color:#0a0b1e;font-size:14px}
   .stat-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
   .stat{padding:22px;border-radius:20px;border:1px solid var(--line);background:rgba(255,255,255,.03)}
   .stat .num{font-size:36px;font-weight:900;letter-spacing:-.06em;color:var(--orange);display:block;margin-bottom:4px}
@@ -119,29 +120,44 @@
   .gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
   .gallery-shot{aspect-ratio:16/9;border-radius:16px;overflow:hidden;position:relative;border:1px solid var(--line);background:radial-gradient(circle at 30% 30%,rgba(255,138,76,.2) 0 8%,transparent 9%),radial-gradient(circle at 70% 70%,rgba(94,234,212,.14) 0 10%,transparent 11%),linear-gradient(135deg,rgba(180,83,9,.42),rgba(6,78,59,.3))}
   .gallery-shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .explore-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+  .explore-card{padding:18px;border-radius:18px;border:1.5px dashed rgba(255,255,255,.22);background:rgba(255,255,255,.02);transition:.22s ease}
+  .explore-card:nth-child(odd){transform:rotate(-1.1deg)}
+  .explore-card:nth-child(even){transform:rotate(1.1deg)}
+  .explore-card:hover{transform:rotate(0deg) translateY(-3px);border-color:rgba(255,211,77,.4)}
+  .explore-card .tag-mini{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--yellow);font-family:"JetBrains Mono",monospace;margin-bottom:10px;display:inline-block}
+  .explore-card .shot{aspect-ratio:4/3;border-radius:12px;overflow:hidden;margin-bottom:10px;background:rgba(255,255,255,.03);position:relative}
+  .explore-card .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .explore-card p{color:var(--muted);font-size:12.5px;line-height:1.5}
+  .explore-card.empty{display:flex;align-items:center;justify-content:center;min-height:150px;color:var(--muted);font-size:12.5px;text-align:center;opacity:.55}
   .contact{display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center;padding:24px 28px;border-radius:24px;background:linear-gradient(135deg,rgba(255,138,76,.16),rgba(199,242,74,.10));border:1px solid rgba(255,138,76,.28)}
   .contact .pad{width:54px;height:54px;border-radius:14px;background:linear-gradient(135deg,var(--orange),var(--yellow));display:grid;place-items:center;color:#0a0b1e;box-shadow:0 10px 24px rgba(255,138,76,.3)}
   .contact h3{font-size:20px;font-weight:800;letter-spacing:-.02em}
   .contact p{color:var(--muted);font-size:13.5px;margin-top:4px}
   .footer{margin-top:28px;color:var(--muted);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;padding:0 6px}
-  @media(max-width:1180px){.hero-split,.grid-2{grid-template-columns:1fr}.grid-4,.stat-strip,.disc-grid,.example-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-  @media(max-width:1100px){:root{--sidebar:0px}.sidebar{position:relative;width:100%;height:auto;flex-direction:row;padding:14px 18px;border-right:none;border-bottom:1px solid var(--line)}.nav{flex-direction:row;margin-top:0;gap:4px;flex-wrap:wrap}.nav a{padding:8px 12px;font-size:13px}.socials{flex-direction:row}.page{grid-template-columns:1fr}main{grid-column:1;padding:20px}.hero-split{min-height:auto}}
-  @media(max-width:760px){.grid-4,.grid-3,.disc-grid,.example-grid,.gallery,.stat-strip{grid-template-columns:1fr}.contact{grid-template-columns:1fr}.plat-row{flex-direction:column}}
+  @media(max-width:1180px){.hero-split{grid-template-columns:1fr}.stat-strip{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:1100px){:root{--sidebar:0px}.sidebar{position:relative;width:100%;height:auto;flex-direction:row;padding:14px 18px;border-right:none;border-bottom:1px solid var(--line)}.nav{flex-direction:row;margin-top:0;gap:4px;flex-wrap:wrap;max-height:none;overflow-y:visible}.nav a{padding:8px 12px;font-size:13px}.socials{flex-direction:row}.page{grid-template-columns:1fr}main{grid-column:1;padding:20px}.hero-split{min-height:auto}}
+  @media(max-width:760px){.disc-grid,.gallery,.stat-strip,.explore-grid{grid-template-columns:1fr}.contact{grid-template-columns:1fr}.plat-row{flex-direction:column}}
 </style>
 </head>
 <body>
 <div class="page">
   <aside class="sidebar">
     <div>
-      <a href="technical-artist.html" class="logo" aria-label="Inicio Technical Artist">
+      <a href="technical-artist.html" class="logo" aria-label="Inicio Game Art Generalist">
         <div class="mark">R</div>
         <span class="dot"></span>
       </a>
       <nav class="nav" aria-label="Tech Art sections">
         <a href="#home" class="active"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12 12 4l9 8"/><path d="M5 10v10h14V10"/></svg></span><span>Inicio</span></a>
         <a href="#stats"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18V9l5-4 4 3 5-5v15"/></svg></span><span>Cifras</span></a>
-        <a href="#disciplines"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6M12 16v6M2 12h6M16 12h6"/></svg></span><span>Disciplinas</span></a>
-        <a href="#examples"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg></span><span>Ejemplos</span></a>
+        <a href="#pawpal"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="15" r="4"/><circle cx="6" cy="8" r="1.6"/><circle cx="18" cy="8" r="1.6"/><circle cx="9.5" cy="5.5" r="1.6"/><circle cx="14.5" cy="5.5" r="1.6"/></svg></span><span>PawPal</span></a>
+        <a href="#animation"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m4 14 4-4 4 4 8-8"/><path d="M20 10v6h-6"/></svg></span><span>Animación</span></a>
+        <a href="#ui"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M8 6h8M8 10h5M8 14h8"/><circle cx="12" cy="18" r="1"/></svg></span><span>UI</span></a>
+        <a href="#characters"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3c3.9 0 7 2.9 7 6.6 0 2.2-1.1 4.2-2.9 5.4V18a1 1 0 0 1-1.7.7l-1.8-1.8c-.2 0-.4.1-.6.1-3.9 0-7-2.9-7-6.4S8.1 3 12 3Z"/></svg></span><span>Modelado personajes</span></a>
+        <a href="#hardsurface"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7 12 3l9 4-9 4-9-4Z"/><path d="M3 12l9 4 9-4M3 17l9 4 9-4"/></svg></span><span>Hard Surface</span></a>
+        <a href="#disciplines"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6M12 16v6M2 12h6M16 12h6"/></svg></span><span>Otras disciplinas</span></a>
+        <a href="#exploring"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="m14.5 9.5-2 5-5 2 2-5 5-2Z"/></svg></span><span>Explorando</span></a>
         <a href="#gallery"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></span><span>Galería</span></a>
         <a href="#contact"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></span><span>Contacto</span></a>
       </nav>
@@ -153,7 +169,7 @@
   </aside>
 
   <main>
-    <a href="technical-artist.html#games" class="back">
+    <a href="technical-artist.html#visual" class="back">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
       <span>Volver al portfolio</span>
     </a>
@@ -161,41 +177,44 @@
     <!-- HERO -->
     <section class="panel hero-split" id="home" style="background:radial-gradient(600px 280px at 78% 0%,rgba(255,138,76,.18),transparent 60%),radial-gradient(520px 240px at 16% 100%,rgba(94,234,212,.12),transparent 60%),linear-gradient(180deg,rgba(22,24,54,.96),rgba(17,19,44,.96))">
       <div>
-        <div class="crumbs"><a href="technical-artist.html#games">Proyectos</a><span class="sep">/</span><span class="now">Tech Art · 30+ títulos</span></div>
+        <div class="crumbs"><a href="technical-artist.html#visual">Perfil</a><span class="sep">/</span><span class="now">Game Art Generalist</span></div>
         <div class="status-row">
           <span class="status-pill">30+ títulos publicados</span>
           <span class="status-pill sw">Nintendo Switch</span>
           <span class="status-pill alt">PlayStation</span>
         </div>
-        <h1><span class="grad">Tech Art</span></h1>
-        <h2 style="margin-top:10px;font-size:clamp(18px,2vw,26px);color:var(--soft);font-weight:600">30+ títulos · Switch · PlayStation · Mobile</h2>
-        <p class="lead">Producción 3D y Technical Art a escala industrial: pipeline de assets, personajes, VFX, animación y trabajo en Unity para proyectos que llegan a Switch, PlayStation, iOS y Android.</p>
+        <h1><span class="grad">Game Art Generalist</span></h1>
+        <h2 style="margin-top:10px;font-size:clamp(18px,2vw,26px);color:var(--soft);font-weight:600">Animación · UI · Modelado · Game Feel · Pipeline</h2>
+        <p class="lead">Cubro el espectro completo de producción artística para juegos: personajes, UI, animación, modelado hard surface y el pipeline que conecta todo eso con Unity, para proyectos que llegan a Switch, PlayStation, iOS y Android.</p>
         <div class="tag-row">
-          <span class="tag-lg">Unity · VFX · 3D</span><span class="tag-lg alt">Switch · PS</span><span class="tag-lg lime">Pipeline</span><span class="tag-lg">Animación</span><span class="tag-lg alt">Shader Graph</span>
+          <span class="tag-lg">Animación</span><span class="tag-lg alt">UI</span><span class="tag-lg lime">Modelado</span><span class="tag-lg">Game Feel</span><span class="tag-lg alt">Pipeline</span>
         </div>
         <div class="cta-row">
-          <a class="btn btn-lime" href="#disciplines"><span>Ver disciplinas</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          <a class="btn btn-lime" href="#pawpal"><span>Ver proyecto principal</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
           <a class="btn btn-ghost" href="https://www.artstation.com/rayco76" target="_blank" rel="noopener noreferrer"><span>ArtStation</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg></a>
         </div>
       </div>
-      <div style="display:grid;place-items:center">
-        <div class="platforms-art">
-          <div class="plat-row">
-            <div class="plat-card sw">
-              <div class="plat-label">Nintendo Switch</div>
-              <strong>Consola portátil</strong>
-              <span>Pocoyo Party · Pocoyo Racing</span>
-            </div>
-            <div class="plat-card ps">
-              <div class="plat-label">PlayStation</div>
-              <strong>Consola hogar</strong>
-              <span>Talking Pocoyo 1 &amp; 2</span>
-            </div>
+      <div class="hero-art">
+        <div class="hero-carousel-shell" data-hero-carousel>
+          <div class="hero-carousel">
+            <figure class="hero-slide is-active">
+              <img src="assets/images/tech-art/hero-1.png" alt="Game Art Generalist — showcase 1" onerror="this.style.display='none'">
+            </figure>
+            <figure class="hero-slide">
+              <img src="assets/images/tech-art/hero-2.gif" alt="Game Art Generalist — showcase 2" onerror="this.style.display='none'">
+            </figure>
+            <figure class="hero-slide">
+              <img src="assets/images/tech-art/hero-3.png" alt="Game Art Generalist — showcase 3" onerror="this.style.display='none'">
+            </figure>
+            <figure class="hero-slide">
+              <img src="assets/images/tech-art/hero-4.gif" alt="Game Art Generalist — showcase 4" onerror="this.style.display='none'">
+            </figure>
           </div>
-          <div class="plat-card mob" style="padding:18px">
-            <div class="plat-label">iOS · Android</div>
-            <strong>Mobile — 30+ apps publicadas</strong>
-            <span>Talking Pocoyo · PawPal · Apps educativas · Juegos arcade</span>
+          <div class="hero-dots" aria-label="Selector de imágenes destacadas">
+            <button class="hero-dot is-active" type="button" aria-label="Ver imagen 1" aria-current="true"></button>
+            <button class="hero-dot" type="button" aria-label="Ver imagen 2" aria-current="false"></button>
+            <button class="hero-dot" type="button" aria-label="Ver imagen 3" aria-current="false"></button>
+            <button class="hero-dot" type="button" aria-label="Ver imagen 4" aria-current="false"></button>
           </div>
         </div>
       </div>
@@ -210,20 +229,95 @@
         <div class="stat"><span class="num">0</span><p>Assets rechazados en certificación de plataforma. El pipeline de validación técnica se diseñó para ello.</p></div>
         <div class="stat"><span class="num">∞</span><p>Iteraciones de pipeline. Cada proyecto mejora los specs del siguiente.</p></div>
       </div>
+      <div class="platforms-art" style="width:100%;margin-top:14px">
+        <div class="plat-row">
+          <div class="plat-card sw">
+            <div class="plat-label">Nintendo Switch</div>
+            <strong>Consola portátil</strong>
+            <span>Pocoyo Party · Pocoyo Racing</span>
+          </div>
+          <div class="plat-card ps">
+            <div class="plat-label">PlayStation</div>
+            <strong>Consola hogar</strong>
+            <span>Talking Pocoyo 1 &amp; 2</span>
+          </div>
+        </div>
+        <div class="plat-card mob" style="padding:18px">
+          <div class="plat-label">iOS · Android</div>
+          <strong>Mobile — 30+ apps publicadas</strong>
+          <span>Talking Pocoyo · PawPal · Apps educativas · Juegos arcade</span>
+        </div>
+      </div>
     </section>
 
-    <!-- 02 DISCIPLINAS -->
+    <!-- 02 PAWPAL -->
+    <section class="panel compact" id="pawpal">
+      <div class="section-head"><div><div class="section-kicker"><span class="badge">02</span><span>Proyecto principal</span></div><h2>PawPal — mascota virtual mobile</h2></div></div>
+      <div class="example">
+        <div class="eyebrow">Mobile · Live Game</div>
+        <h4>PawPal</h4>
+        <p>Mascota virtual 3D con sistema de wardrobe de cosméticos, minijuegos arcade y VFX de reward. Producción artística completa: rigging, animación, shading y sistema de equipables escalable pensado para live ops.</p>
+        <div style="margin-top:16px;border-radius:16px;overflow:hidden;border:1px solid var(--line);aspect-ratio:16/9;max-width:640px">
+          <img src="assets/images/pawpal/pawpal-preview.gif" alt="Preview animado de PawPal" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'">
+        </div>
+        <p style="margin-top:16px"><a href="pawpal-tech.html">Ver caso técnico completo →</a></p>
+      </div>
+    </section>
+
+    <!-- 03 ANIMACIÓN -->
+    <section class="panel compact" id="animation">
+      <div class="section-head"><div><div class="section-kicker"><span class="badge">03</span><span>Animación</span></div><h2>Animación de personajes y criaturas</h2></div></div>
+      <div class="example">
+        <div class="eyebrow">Character Animation</div>
+        <h4>Reel de animación</h4>
+        <p>Animación stylized de personajes, comportamientos de mascotas y timing de gameplay, implementados directamente en Unity.</p>
+        <div style="margin-top:16px;border-radius:16px;overflow:hidden;border:1px solid var(--line);aspect-ratio:16/9;max-width:640px">
+          <img src="assets/images/tech-art/animation-reel.gif" alt="Preview animado del reel de animación" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'">
+        </div>
+        <p style="margin-top:18px">
+          <a class="btn btn-lime" href="https://www.youtube.com/watch?v=ldr6JnGce1M" target="_blank" rel="noopener noreferrer" style="margin-top:0"><span>Ver reel completo en YouTube</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+        </p>
+      </div>
+    </section>
+
+    <!-- 04 UI -->
+    <section class="panel compact" id="ui">
+      <div class="section-head"><div><div class="section-kicker"><span class="badge">04</span><span>UI</span></div><h2>UI para el universo Pocoyó</h2></div></div>
+      <div style="border-radius:20px;overflow:hidden;border:1px solid var(--line);aspect-ratio:21/9;margin-bottom:18px">
+        <img src="assets/images/tech-art/ui/ui-pocoyo-hero.gif" alt="UI Pocoyó" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'">
+      </div>
+      <div class="gallery">
+        <div class="gallery-shot"><img src="assets/images/tech-art/ui/ui-pocoyo-1.png" alt="UI Pocoyó" onerror="this.style.display='none'"></div>
+        <div class="gallery-shot"><img src="assets/images/tech-art/ui/ui-pocoyo-2.png" alt="UI Pocoyó" onerror="this.style.display='none'"></div>
+        <div class="gallery-shot"><img src="assets/images/tech-art/ui/ui-pocoyo-3.png" alt="UI Pocoyó" onerror="this.style.display='none'"></div>
+        <div class="gallery-shot"><img src="assets/images/tech-art/ui/ui-pocoyo-4.png" alt="UI Pocoyó" onerror="this.style.display='none'"></div>
+      </div>
+    </section>
+
+    <!-- 05 MODELADO PERSONAJES -->
+    <section class="panel compact" id="characters">
+      <div class="section-head"><div><div class="section-kicker"><span class="badge">05</span><span>Modelado personajes</span></div><h2>Turntables y modelado de personajes</h2></div></div>
+      <div class="gallery">
+        <div class="gallery-shot"><img src="assets/images/tech-art/characters/alien-turntable.gif" alt="Turntable alien" onerror="this.style.display='none'"></div>
+        <div class="gallery-shot"><img src="assets/images/tech-art/characters/hooded-warrior-turntable.gif" alt="Turntable hooded warrior" onerror="this.style.display='none'"></div>
+        <div class="gallery-shot"><img src="assets/images/tech-art/characters/character-3.png" alt="Modelado de personajes" onerror="this.style.display='none'"></div>
+      </div>
+    </section>
+
+    <!-- 06 HARD SURFACE -->
+    <section class="panel compact" id="hardsurface">
+      <div class="section-head"><div><div class="section-kicker"><span class="badge">06</span><span>Hard Surface</span></div><h2>Props y modelado hard surface</h2></div></div>
+      <div class="gallery">
+        <div class="gallery-shot"><img src="assets/images/tech-art/hardsurface/hardsurface-1.png" alt="Hard Surface" onerror="this.style.display='none'"></div>
+        <div class="gallery-shot"><img src="assets/images/tech-art/hardsurface/hardsurface-2.png" alt="Hard Surface" onerror="this.style.display='none'"></div>
+        <div class="gallery-shot"><img src="assets/images/tech-art/hardsurface/hardsurface-3.png" alt="Hard Surface" onerror="this.style.display='none'"></div>
+      </div>
+    </section>
+
+    <!-- 07 OTRAS DISCIPLINAS -->
     <section class="panel compact" id="disciplines">
-      <div class="section-head"><div><div class="section-kicker"><span class="badge">02</span><span>Disciplinas</span></div><h2>Lo que cubro como Technical Artist</h2></div></div>
+      <div class="section-head"><div><div class="section-kicker"><span class="badge">07</span><span>Otras disciplinas</span></div><h2>Disciplinas que completan el pipeline</h2></div></div>
       <div class="disc-grid">
-        <div class="disc-card orange">
-          <h4>Producción 3D</h4>
-          <p>Modelado, UV unwrap, bake, retopología. Assets que llegan a producción sin deuda técnica: nomenclatura correcta, pivots en origen, escala de mundo definida.</p>
-        </div>
-        <div class="disc-card teal">
-          <h4>Rigging &amp; Animación</h4>
-          <p>Rigs funcionales para motor de juego con presupuesto de bones controlado. Blend shapes para expresiones. Animaciones estado por estado según el Animator Controller.</p>
-        </div>
         <div class="disc-card lime">
           <h4>VFX &amp; Partículas</h4>
           <p>Sistemas de partículas en Unity con presupuesto de GPU calibrado para cada plataforma. Efectos de reward, impacto, ambiente y feedback de gameplay.</p>
@@ -234,7 +328,7 @@
         </div>
         <div class="disc-card yellow">
           <h4>Pipeline &amp; Tools</h4>
-          <p>Scripts de validación de assets, specs de importación, nomenclatura y configuraciones de Unity. El pipeline se construye para que el siguiente title tarde menos en producción.</p>
+          <p>Scripts de validación de assets, specs de importación, nomenclatura y configuraciones de Unity. El pipeline se construye para que el siguiente título tarde menos en producción.</p>
         </div>
         <div class="disc-card pink">
           <h4>Optimización de plataforma</h4>
@@ -243,45 +337,29 @@
       </div>
     </section>
 
-    <!-- 03 EJEMPLOS EN PROFUNDIDAD -->
-    <section class="panel compact" id="examples">
-      <div class="section-head"><div><div class="section-kicker"><span class="badge">03</span><span>Proyectos en profundidad</span></div><h2>Casos que ilustran el trabajo técnico real</h2></div></div>
-      <div class="example-grid">
-        <div class="example">
-          <div class="eyebrow">Switch · Plataforma</div>
-          <h4>Pocoyo Party</h4>
-          <p>Juego de fiesta para 4 jugadores en Switch. El reto técnico: mantener 30fps estables en modo portátil con 4 personajes 3D en pantalla simultáneamente, escenarios dinámicos y efectos de gameplay.</p>
-          <p style="margin-top:10px;color:var(--muted);font-size:13px">Pipeline de LOD por personaje, atlas de texturas unificado para la sesión y presupuesto de partículas por minijuego.</p>
+    <!-- 08 EXPLORANDO -->
+    <section class="panel compact" id="exploring">
+      <div class="section-head"><div><div class="section-kicker"><span class="badge">08</span><span>Explorando</span></div><h2>Cosas que exploro fuera del día a día</h2></div></div>
+      <p class="lead" style="font-size:14px;max-width:600px;margin:0 0 18px">Sin el nivel de proceso documentado de PawPal o Book of Sounds — simplemente disciplinas que voy probando por curiosidad.</p>
+      <div class="explore-grid">
+        <div class="explore-card">
+          <span class="tag-mini">Ilustración</span>
+          <div class="shot"><img src="assets/images/tech-art/exploring/illustration-1.png" alt="Ilustración — exploración personal" onerror="this.style.display='none'"></div>
+          <p>Piezas sueltas, sin pipeline de producción detrás.</p>
         </div>
-        <div class="example">
-          <div class="eyebrow">Mobile · Live Game</div>
-          <h4>PawPal</h4>
-          <p>Juego mobile con mascota 3D, sistema de wardrobe de cosméticos y VFX de reward. Technical Art completo: rigging, animación, Shader Graph y sistema de equipables escalable.</p>
-          <p style="margin-top:10px"><a href="pawpal-tech.html">Ver caso técnico completo →</a></p>
+        <div class="explore-card">
+          <span class="tag-mini">Level Design</span>
+          <div class="shot"><img src="assets/images/tech-art/exploring/leveldesign-1.png" alt="Level Design — exploración personal" onerror="this.style.display='none'"></div>
+          <p>Layouts y bloqueos de espacios jugables.</p>
         </div>
-        <div class="example">
-          <div class="eyebrow">Switch · PS · Mobile</div>
-          <h4>Universo Pocoyó</h4>
-          <p>Franquicia con identidad visual fuerte y múltiples plataformas. Personajes, escenarios y pipelines de assets que mantienen el look de la IP mientras respetan los presupuestos de cada plataforma.</p>
-          <p style="margin-top:10px"><a href="pocoyo.html">Ver caso Pocoyó completo →</a></p>
-        </div>
+        <div class="explore-card empty">Próximamente</div>
+        <div class="explore-card empty">Próximamente</div>
       </div>
     </section>
 
-    <!-- 04 UNITY EN PROFUNDIDAD -->
-    <section class="panel compact" id="unity">
-      <div class="section-head"><div><div class="section-kicker"><span class="badge">04</span><span>Unity en producción</span></div><h2>Motor principal en todos los proyectos de consola y mobile</h2></div></div>
-      <div class="grid-4">
-        <article class="card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="3"/></svg></div><h4>Animator Controllers</h4><p>Árboles de estado complejos con blend trees, transiciones con exit time y parametrización para gameplay dinámico.</p></article>
-        <article class="card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6M12 16v6M2 12h6M16 12h6M5 5l4 4M15 15l4 4M5 19l4-4M15 9l4-4"/></svg></div><h4>Shader Graph</h4><p>Shaders personalizados sin HLSL: toon shading, outlines, efectos de dissolve, materiales de UI animados y look de franquicia.</p></article>
-        <article class="card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg></div><h4>ScriptableObjects</h4><p>Configuración de sistemas de juego — cosméticos, economía, parámetros de gameplay — en assets editables sin tocar código.</p></article>
-        <article class="card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M7 12h10M9 18h6"/></svg></div><h4>Build pipelines</h4><p>Configuraciones de build por plataforma: Switch, PlayStation, Android, iOS. Optimizaciones de textura, compresión y entrega para certificación.</p></article>
-      </div>
-    </section>
-
-    <!-- GALERÍA -->
+    <!-- 09 GALERÍA -->
     <section class="panel compact" id="gallery">
-      <div class="section-head"><div><div class="section-kicker"><span class="badge">05</span><span>Gallery</span></div><h2>Assets, plataformas y producción</h2></div></div>
+      <div class="section-head"><div><div class="section-kicker"><span class="badge">09</span><span>Gallery</span></div><h2>Assets, plataformas y producción</h2></div></div>
       <div class="gallery">
         <div class="gallery-shot"><img src="assets/images/tech-art/gallery-1.png" alt="Tech Art" onerror="this.style.display='none'"></div>
         <div class="gallery-shot"><img src="assets/images/tech-art/gallery-2.png" alt="Tech Art" onerror="this.style.display='none'"></div>
@@ -294,16 +372,59 @@
 
     <section class="contact" id="contact">
       <div class="pad"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></div>
-      <div><h3>¿Tu proyecto necesita Technical Art con experiencia en consola?</h3><p>30+ títulos publicados, pipeline probado, certificación en Switch y PlayStation.</p></div>
+      <div><h3>¿Tu proyecto necesita un Game Art Generalist?</h3><p>30+ títulos publicados, pipeline probado: de personajes a hard surface, en Switch, PlayStation y mobile.</p></div>
       <a class="btn btn-primary" href="mailto:river.3D@proton.me"><span>Contactar</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
     </section>
     <footer class="footer">
       <span>© 2026 Rayco González. Portfolio personal.</span>
-      <span>Technical Art · 3D · Unity · Switch · PlayStation · Mobile</span>
+      <span>Game Art Generalist · Personajes · UI · Animación · Hard Surface · Pipeline</span>
     </footer>
   </main>
 </div>
 <script>
+const heroCarousel = document.querySelector("[data-hero-carousel]");
+if(heroCarousel){
+  const slides = [...heroCarousel.querySelectorAll(".hero-slide")];
+  const dots = [...heroCarousel.querySelectorAll(".hero-dot")];
+  let activeIndex = 0;
+  let autoplayId = null;
+
+  function showHeroSlide(nextIndex){
+    activeIndex = (nextIndex + slides.length) % slides.length;
+    slides.forEach((slide, index)=> slide.classList.toggle("is-active", index === activeIndex));
+    dots.forEach((dot, index)=>{
+      const isActive = index === activeIndex;
+      dot.classList.toggle("is-active", isActive);
+      dot.setAttribute("aria-current", String(isActive));
+    });
+  }
+
+  function stopHeroAutoplay(){
+    window.clearInterval(autoplayId);
+  }
+
+  function startHeroAutoplay(){
+    if(slides.length < 2) return;
+    stopHeroAutoplay();
+    autoplayId = window.setInterval(()=> showHeroSlide(activeIndex + 1), 4500);
+  }
+
+  dots.forEach((dot, index)=>{
+    dot.addEventListener("click", ()=>{
+      showHeroSlide(index);
+      startHeroAutoplay();
+    });
+  });
+
+  heroCarousel.addEventListener("mouseenter", stopHeroAutoplay);
+  heroCarousel.addEventListener("mouseleave", startHeroAutoplay);
+  heroCarousel.addEventListener("focusin", stopHeroAutoplay);
+  heroCarousel.addEventListener("focusout", startHeroAutoplay);
+
+  showHeroSlide(0);
+  startHeroAutoplay();
+}
+
 const links=[...document.querySelectorAll(".nav a")];
 const sections=links.map(l=>document.querySelector(l.getAttribute("href"))).filter(Boolean);
 function onScroll(){const y=window.scrollY+200;let cur=sections[0]?.id;sections.forEach(s=>{if(s.offsetTop<=y)cur=s.id});links.forEach(l=>l.classList.toggle("active",l.getAttribute("href")==="#"+cur))}
