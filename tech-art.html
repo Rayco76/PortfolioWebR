@@ -76,12 +76,10 @@
   .plat-row{display:flex;gap:12px}
   .plat-card{flex:1;padding:18px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid var(--line);position:relative;overflow:hidden}
   .plat-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px}
-  .plat-card.sw::before{background:#e4000f}
-  .plat-card.ps::before{background:#0070cc}
+  .plat-card.consoles::before{background:linear-gradient(90deg,#e4000f,#0070cc)}
   .plat-card.mob::before{background:linear-gradient(90deg,var(--orange),var(--teal))}
   .plat-card .plat-label{font-size:11px;font-weight:700;font-family:"JetBrains Mono",monospace;margin-bottom:8px;color:var(--muted)}
-  .plat-card.sw .plat-label{color:#ff6b70}
-  .plat-card.ps .plat-label{color:#69b2ff}
+  .plat-card.consoles .plat-label{color:#ff6b70}
   .plat-card.mob .plat-label{color:var(--orange)}
   .plat-card strong{display:block;font-size:18px;font-weight:800;letter-spacing:-.02em;margin-bottom:4px}
   .plat-card span{font-size:12px;color:var(--muted)}
@@ -90,7 +88,7 @@
   .hero-carousel{position:relative;width:100%;aspect-ratio:1.02;overflow:hidden;border-radius:30px;border:1px solid var(--line-2);background:radial-gradient(520px 220px at 50% 0%, rgba(255,138,76,.18), transparent 70%),linear-gradient(180deg, rgba(18,21,47,.96), rgba(10,12,30,.98));box-shadow:0 30px 60px rgba(0,0,0,.35)}
   .hero-slide{position:absolute;inset:0;opacity:0;transform:scale(1.03);transition:opacity .45s ease, transform .7s ease;pointer-events:none}
   .hero-slide.is-active{opacity:1;transform:scale(1)}
-  .hero-slide img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+  .hero-slide img,.hero-slide video{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
   .hero-slide::after{content:"";position:absolute;inset:auto 0 0 0;height:32%;background:linear-gradient(180deg, transparent, rgba(10,12,30,.42) 60%, rgba(10,12,30,.72))}
   .hero-dots{display:flex;align-items:center;justify-content:center;gap:10px}
   .hero-dot{width:10px;height:10px;border-radius:999px;border:none;padding:0;cursor:pointer;background:rgba(255,255,255,.22);transition:transform .2s ease, background .2s ease, width .2s ease}
@@ -119,7 +117,16 @@
   .stat p{color:var(--muted);font-size:13px;line-height:1.5}
   .gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
   .gallery-shot{aspect-ratio:16/9;border-radius:16px;overflow:hidden;position:relative;border:1px solid var(--line);background:radial-gradient(circle at 30% 30%,rgba(255,138,76,.2) 0 8%,transparent 9%),radial-gradient(circle at 70% 70%,rgba(94,234,212,.14) 0 10%,transparent 11%),linear-gradient(135deg,rgba(180,83,9,.42),rgba(6,78,59,.3))}
-  .gallery-shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .gallery-shot img,.gallery-shot video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .gallery-shot-link{display:block;border-radius:16px}
+  .gallery-shot-link .gallery-shot{transition:transform .3s ease}
+  .gallery-shot-link:hover .gallery-shot,.gallery-shot-link:focus-visible .gallery-shot{transform:scale(1.03)}
+  .gallery-overlay{position:absolute;inset:0;display:flex;align-items:flex-end;gap:6px;padding:14px;background:linear-gradient(180deg,transparent 45%,rgba(6,8,20,.88));color:#fff;font-size:13px;font-weight:700;opacity:0;transition:opacity .25s ease}
+  .gallery-shot-link:hover .gallery-overlay,.gallery-shot-link:focus-visible .gallery-overlay{opacity:1}
+  .gallery-overlay svg{width:14px;height:14px;flex-shrink:0}
+  .gallery-masonry{column-count:3;column-gap:12px}
+  .gallery-masonry .gallery-shot{aspect-ratio:auto;break-inside:avoid;margin:0 0 12px}
+  .gallery-masonry .gallery-shot img{position:static;width:100%;height:auto;object-fit:initial}
   .explore-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
   .explore-card{padding:18px;border-radius:18px;border:1.5px dashed rgba(255,255,255,.22);background:rgba(255,255,255,.02);transition:.22s ease}
   .explore-card:nth-child(odd){transform:rotate(-1.1deg)}
@@ -137,7 +144,7 @@
   .footer{margin-top:28px;color:var(--muted);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;padding:0 6px}
   @media(max-width:1180px){.hero-split{grid-template-columns:1fr}.stat-strip{grid-template-columns:repeat(2,minmax(0,1fr))}}
   @media(max-width:1100px){:root{--sidebar:0px}.sidebar{position:relative;width:100%;height:auto;flex-direction:row;padding:14px 18px;border-right:none;border-bottom:1px solid var(--line)}.nav{flex-direction:row;margin-top:0;gap:4px;flex-wrap:wrap;max-height:none;overflow-y:visible}.nav a{padding:8px 12px;font-size:13px}.socials{flex-direction:row}.page{grid-template-columns:1fr}main{grid-column:1;padding:20px}.hero-split{min-height:auto}}
-  @media(max-width:760px){.disc-grid,.gallery,.stat-strip,.explore-grid{grid-template-columns:1fr}.contact{grid-template-columns:1fr}.plat-row{flex-direction:column}}
+  @media(max-width:760px){.disc-grid,.gallery,.stat-strip,.explore-grid{grid-template-columns:1fr}.contact{grid-template-columns:1fr}.gallery-masonry{column-count:2}}
 </style>
 </head>
 <body>
@@ -201,13 +208,13 @@
               <img src="assets/images/tech-art/hero-1.png" alt="Game Art Generalist — showcase 1" onerror="this.style.display='none'">
             </figure>
             <figure class="hero-slide">
-              <img src="assets/images/tech-art/hero-2.gif" alt="Game Art Generalist — showcase 2" onerror="this.style.display='none'">
+              <video src="assets/images/tech-art/hero-2.mp4" muted loop playsinline preload="metadata" aria-label="Game Art Generalist — showcase 2"></video>
             </figure>
             <figure class="hero-slide">
               <img src="assets/images/tech-art/hero-3.png" alt="Game Art Generalist — showcase 3" onerror="this.style.display='none'">
             </figure>
             <figure class="hero-slide">
-              <img src="assets/images/tech-art/hero-4.gif" alt="Game Art Generalist — showcase 4" onerror="this.style.display='none'">
+              <video src="assets/images/tech-art/hero-4.mp4" muted loop playsinline preload="metadata" aria-label="Game Art Generalist — showcase 4"></video>
             </figure>
           </div>
           <div class="hero-dots" aria-label="Selector de imágenes destacadas">
@@ -230,17 +237,10 @@
         <div class="stat"><span class="num">∞</span><p>Iteraciones de pipeline. Cada proyecto mejora los specs del siguiente.</p></div>
       </div>
       <div class="platforms-art" style="width:100%;margin-top:14px">
-        <div class="plat-row">
-          <div class="plat-card sw">
-            <div class="plat-label">Nintendo Switch</div>
-            <strong>Consola portátil</strong>
-            <span>Pocoyo Party · Pocoyo Racing</span>
-          </div>
-          <div class="plat-card ps">
-            <div class="plat-label">PlayStation</div>
-            <strong>Consola hogar</strong>
-            <span>Talking Pocoyo 1 &amp; 2</span>
-          </div>
+        <div class="plat-card consoles" style="padding:18px">
+          <div class="plat-label">Nintendo Switch · PlayStation</div>
+          <strong>Consola</strong>
+          <span>Pocoyo Party</span>
         </div>
         <div class="plat-card mob" style="padding:18px">
           <div class="plat-label">iOS · Android</div>
@@ -258,7 +258,7 @@
         <h4>PawPal</h4>
         <p>Mascota virtual 3D con sistema de wardrobe de cosméticos, minijuegos arcade y VFX de reward. Producción artística completa: rigging, animación, shading y sistema de equipables escalable pensado para live ops.</p>
         <div style="margin-top:16px;border-radius:16px;overflow:hidden;border:1px solid var(--line);aspect-ratio:16/9;max-width:640px">
-          <img src="assets/images/pawpal/pawpal-preview.gif" alt="Preview animado de PawPal" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'">
+          <img src="assets/images/pawpal/pawpal-screen-main.png" alt="Preview de PawPal" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'">
         </div>
         <p style="margin-top:16px"><a href="pawpal-tech.html">Ver caso técnico completo →</a></p>
       </div>
@@ -272,7 +272,7 @@
         <h4>Reel de animación</h4>
         <p>Animación stylized de personajes, comportamientos de mascotas y timing de gameplay, implementados directamente en Unity.</p>
         <div style="margin-top:16px;border-radius:16px;overflow:hidden;border:1px solid var(--line);aspect-ratio:16/9;max-width:640px">
-          <img src="assets/images/tech-art/animation-reel.gif" alt="Preview animado del reel de animación" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'">
+          <video src="assets/images/tech-art/animation-reel.mp4" autoplay muted loop playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover" aria-label="Preview del reel de animación"></video>
         </div>
         <p style="margin-top:18px">
           <a class="btn btn-lime" href="https://www.youtube.com/watch?v=ldr6JnGce1M" target="_blank" rel="noopener noreferrer" style="margin-top:0"><span>Ver reel completo en YouTube</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
@@ -284,13 +284,14 @@
     <section class="panel compact" id="ui">
       <div class="section-head"><div><div class="section-kicker"><span class="badge">04</span><span>UI</span></div><h2>UI para el universo Pocoyó</h2></div></div>
       <div style="border-radius:20px;overflow:hidden;border:1px solid var(--line);aspect-ratio:21/9;margin-bottom:18px">
-        <img src="assets/images/tech-art/ui/ui-pocoyo-hero.gif" alt="UI Pocoyó" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'">
+        <img src="assets/images/ux-design/gallery-6.jpg" alt="UI Pocoyó" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'">
       </div>
-      <div class="gallery">
-        <div class="gallery-shot"><img src="assets/images/tech-art/ui/ui-pocoyo-1.png" alt="UI Pocoyó" onerror="this.style.display='none'"></div>
-        <div class="gallery-shot"><img src="assets/images/tech-art/ui/ui-pocoyo-2.png" alt="UI Pocoyó" onerror="this.style.display='none'"></div>
-        <div class="gallery-shot"><img src="assets/images/tech-art/ui/ui-pocoyo-3.png" alt="UI Pocoyó" onerror="this.style.display='none'"></div>
-        <div class="gallery-shot"><img src="assets/images/tech-art/ui/ui-pocoyo-4.png" alt="UI Pocoyó" onerror="this.style.display='none'"></div>
+      <div class="gallery gallery-masonry">
+        <div class="gallery-shot"><img src="assets/images/ux-design/gallery-1.avif" alt="UI Pocoyó" onerror="this.style.display='none'"></div>
+        <div class="gallery-shot"><img src="assets/images/ux-design/gallery-3.jpg" alt="UI Pocoyó" onerror="this.style.display='none'"></div>
+        <div class="gallery-shot"><img src="assets/images/ux-design/gallery-2.avif" alt="UI Pocoyó" onerror="this.style.display='none'"></div>
+        <div class="gallery-shot"><img src="assets/images/ux-design/gallery-5.jpg" alt="UI Pocoyó" onerror="this.style.display='none'"></div>
+        <div class="gallery-shot"><img src="assets/images/ux-design/gallery-4.png" alt="UI Pocoyó" onerror="this.style.display='none'"></div>
       </div>
     </section>
 
@@ -298,9 +299,24 @@
     <section class="panel compact" id="characters">
       <div class="section-head"><div><div class="section-kicker"><span class="badge">05</span><span>Modelado personajes</span></div><h2>Turntables y modelado de personajes</h2></div></div>
       <div class="gallery">
-        <div class="gallery-shot"><img src="assets/images/tech-art/characters/alien-turntable.gif" alt="Turntable alien" onerror="this.style.display='none'"></div>
-        <div class="gallery-shot"><img src="assets/images/tech-art/characters/hooded-warrior-turntable.gif" alt="Turntable hooded warrior" onerror="this.style.display='none'"></div>
-        <div class="gallery-shot"><img src="assets/images/tech-art/characters/character-3.png" alt="Modelado de personajes" onerror="this.style.display='none'"></div>
+        <a class="gallery-shot-link" href="https://www.artstation.com/rayco76" target="_blank" rel="noopener noreferrer">
+          <div class="gallery-shot">
+            <video src="assets/images/tech-art/characters/alien-turntable.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Turntable alien"></video>
+            <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M0 17.7l2.3 4a1.6 1.6 0 0 0 1.4.8h12.9l-2.8-4.8H0zM24 17.7c0-.3-.1-.6-.2-.9L17.3 5.4a1.6 1.6 0 0 0-1.4-.8h-4.6l9.9 17.1 2.4-4.1c.3-.4.4-.6.4-.9zM13.5 14.4L8.9 6.5 4.3 14.4h9.2z"/></svg><span>Ver en ArtStation</span></div>
+          </div>
+        </a>
+        <a class="gallery-shot-link" href="https://www.artstation.com/rayco76" target="_blank" rel="noopener noreferrer">
+          <div class="gallery-shot">
+            <video src="assets/images/tech-art/characters/hooded-warrior-turntable.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Turntable hooded warrior"></video>
+            <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M0 17.7l2.3 4a1.6 1.6 0 0 0 1.4.8h12.9l-2.8-4.8H0zM24 17.7c0-.3-.1-.6-.2-.9L17.3 5.4a1.6 1.6 0 0 0-1.4-.8h-4.6l9.9 17.1 2.4-4.1c.3-.4.4-.6.4-.9zM13.5 14.4L8.9 6.5 4.3 14.4h9.2z"/></svg><span>Ver en ArtStation</span></div>
+          </div>
+        </a>
+        <a class="gallery-shot-link" href="https://www.artstation.com/rayco76" target="_blank" rel="noopener noreferrer">
+          <div class="gallery-shot">
+            <img src="assets/images/tech-art/characters/character-3.png" alt="Modelado de personajes" onerror="this.style.display='none'">
+            <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M0 17.7l2.3 4a1.6 1.6 0 0 0 1.4.8h12.9l-2.8-4.8H0zM24 17.7c0-.3-.1-.6-.2-.9L17.3 5.4a1.6 1.6 0 0 0-1.4-.8h-4.6l9.9 17.1 2.4-4.1c.3-.4.4-.6.4-.9zM13.5 14.4L8.9 6.5 4.3 14.4h9.2z"/></svg><span>Ver en ArtStation</span></div>
+          </div>
+        </a>
       </div>
     </section>
 
@@ -308,9 +324,24 @@
     <section class="panel compact" id="hardsurface">
       <div class="section-head"><div><div class="section-kicker"><span class="badge">06</span><span>Hard Surface</span></div><h2>Props y modelado hard surface</h2></div></div>
       <div class="gallery">
-        <div class="gallery-shot"><img src="assets/images/tech-art/hardsurface/hardsurface-1.png" alt="Hard Surface" onerror="this.style.display='none'"></div>
-        <div class="gallery-shot"><img src="assets/images/tech-art/hardsurface/hardsurface-2.png" alt="Hard Surface" onerror="this.style.display='none'"></div>
-        <div class="gallery-shot"><img src="assets/images/tech-art/hardsurface/hardsurface-3.png" alt="Hard Surface" onerror="this.style.display='none'"></div>
+        <a class="gallery-shot-link" href="https://www.artstation.com/rayco76" target="_blank" rel="noopener noreferrer">
+          <div class="gallery-shot">
+            <img src="assets/images/tech-art/hardsurface/hardsurface-1.png" alt="Hard Surface" onerror="this.style.display='none'">
+            <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M0 17.7l2.3 4a1.6 1.6 0 0 0 1.4.8h12.9l-2.8-4.8H0zM24 17.7c0-.3-.1-.6-.2-.9L17.3 5.4a1.6 1.6 0 0 0-1.4-.8h-4.6l9.9 17.1 2.4-4.1c.3-.4.4-.6.4-.9zM13.5 14.4L8.9 6.5 4.3 14.4h9.2z"/></svg><span>Ver en ArtStation</span></div>
+          </div>
+        </a>
+        <a class="gallery-shot-link" href="https://www.artstation.com/rayco76" target="_blank" rel="noopener noreferrer">
+          <div class="gallery-shot">
+            <img src="assets/images/tech-art/hardsurface/hardsurface-2.png" alt="Hard Surface" onerror="this.style.display='none'">
+            <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M0 17.7l2.3 4a1.6 1.6 0 0 0 1.4.8h12.9l-2.8-4.8H0zM24 17.7c0-.3-.1-.6-.2-.9L17.3 5.4a1.6 1.6 0 0 0-1.4-.8h-4.6l9.9 17.1 2.4-4.1c.3-.4.4-.6.4-.9zM13.5 14.4L8.9 6.5 4.3 14.4h9.2z"/></svg><span>Ver en ArtStation</span></div>
+          </div>
+        </a>
+        <a class="gallery-shot-link" href="https://www.artstation.com/rayco76" target="_blank" rel="noopener noreferrer">
+          <div class="gallery-shot">
+            <img src="assets/images/tech-art/hardsurface/hardsurface-3.png" alt="Hard Surface" onerror="this.style.display='none'">
+            <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M0 17.7l2.3 4a1.6 1.6 0 0 0 1.4.8h12.9l-2.8-4.8H0zM24 17.7c0-.3-.1-.6-.2-.9L17.3 5.4a1.6 1.6 0 0 0-1.4-.8h-4.6l9.9 17.1 2.4-4.1c.3-.4.4-.6.4-.9zM13.5 14.4L8.9 6.5 4.3 14.4h9.2z"/></svg><span>Ver en ArtStation</span></div>
+          </div>
+        </a>
       </div>
     </section>
 
@@ -391,7 +422,19 @@ if(heroCarousel){
 
   function showHeroSlide(nextIndex){
     activeIndex = (nextIndex + slides.length) % slides.length;
-    slides.forEach((slide, index)=> slide.classList.toggle("is-active", index === activeIndex));
+    slides.forEach((slide, index)=>{
+      const isActive = index === activeIndex;
+      slide.classList.toggle("is-active", isActive);
+      const video = slide.querySelector("video");
+      if(video){
+        if(isActive){
+          video.currentTime = 0;
+          video.play().catch(()=>{});
+        } else {
+          video.pause();
+        }
+      }
+    });
     dots.forEach((dot, index)=>{
       const isActive = index === activeIndex;
       dot.classList.toggle("is-active", isActive);
