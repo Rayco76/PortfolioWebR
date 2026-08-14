@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Rayco González — Game Art Generalist · Personajes · UI · Animación</title>
-<meta name="description" content="Rayco González — Game Art Generalist para juegos casual: personajes, UI, animación, hard surface y pipeline en Unity para móvil y consola. Proyectos: Pocoyo Party, Talking Pocoyo 2, PawPal." />
+<title>Rayco González — Game Art Generalist</title>
+<meta name="description" content="Rayco González — Game Art Generalist con 10+ años de experiencia en 3D, animación, Unity, VFX y producción de videojuegos para móvil y consola. Ideal para equipos indie pequeños." />
 <meta name="author" content="Rayco González" />
 <link rel="canonical" href="https://raycogonzalez.com/technical-artist.html" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 38 38'%3E%3Crect width='38' height='38' rx='11' fill='%23a78bfa'/%3E%3Ctext x='19' y='27' font-family='sans-serif' font-size='22' font-weight='900' fill='%230a0b1e' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E" />
 <!-- Open Graph / Twitter -->
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Rayco González — Game Art Generalist · Personajes · UI · Animación" />
-<meta property="og:description" content="Game Art Generalist para juegos casual: personajes, UI, animación, hard surface y pipeline en Unity para móvil y consola." />
+<meta property="og:title" content="Rayco González — Game Art Generalist" />
+<meta property="og:description" content="Game Art Generalist con 10+ años de experiencia en 3D, animación, Unity, VFX y producción de videojuegos. Experiencia en mobile y consola." />
 <meta property="og:url" content="https://raycogonzalez.com/technical-artist.html" />
 <meta property="og:image" content="https://raycogonzalez.com/assets/images/hero-techart-1.png" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Rayco González — Game Art Generalist · Personajes · UI · Animación" />
-<meta name="twitter:description" content="Game Art Generalist para juegos casual: personajes, UI, animación, hard surface y pipeline en Unity para móvil y consola." />
+<meta name="twitter:title" content="Rayco González — Game Art Generalist" />
+<meta name="twitter:description" content="Game Art Generalist con 10+ años de experiencia en 3D, animación, Unity, VFX y producción de videojuegos. Experiencia en mobile y consola." />
 <meta name="twitter:image" content="https://raycogonzalez.com/assets/images/hero-techart-1.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -174,6 +174,40 @@
   .btn-primary:hover{transform:translateY(-2px);filter:brightness(1.05)}
   .btn-ghost{color:var(--soft);background:transparent;border-bottom:1px dashed rgba(255,255,255,.25);border-radius:0;padding:0 0 4px;height:auto}
   .btn-ghost:hover{color:var(--text)}
+
+  .hero-sub{
+    margin-top:14px;
+    color:var(--soft);
+    font-family:"JetBrains Mono",monospace;
+    font-size:clamp(14px,1.6vw,17px);
+    font-weight:600;
+    letter-spacing:.03em;
+  }
+  .hero-value{
+    display:flex;flex-direction:column;gap:8px;align-items:flex-start;
+    margin-top:22px;max-width:480px;
+    padding:14px 16px;border-radius:16px;
+    background:rgba(199,242,74,.06);
+    border:1px solid rgba(199,242,74,.22);
+  }
+  .hero-value .tag-mini{
+    display:inline-flex;align-items:center;
+    padding:4px 10px;border-radius:999px;
+    background:rgba(199,242,74,.18);color:var(--lime);
+    font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+  }
+  .hero-value p{color:var(--soft);font-size:13.5px;line-height:1.6}
+  .hero-value p strong{color:var(--text)}
+
+  .hero-metrics{
+    grid-column:1/-1;
+    display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;
+    margin-top:8px;padding-top:26px;
+    border-top:1px solid var(--line);
+  }
+  .hero-metric{display:flex;flex-direction:column;gap:4px}
+  .hero-metric strong{font-size:20px;font-weight:800;letter-spacing:-.02em;color:var(--text)}
+  .hero-metric span{color:var(--muted);font-size:12px;font-weight:500}
 
   /* HERO ART */
   .hero-art{
@@ -770,6 +804,7 @@
     .contact{grid-template-columns:1fr}
   }
   @media (max-width:720px){
+    .hero-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}
     .animation-highlights{grid-template-columns:1fr}
     .animation-copy,.animation-preview{padding:20px}
     .animation-reel-card{min-height:240px;padding:18px}
@@ -854,20 +889,23 @@
       <div class="hero-left">
         <div class="greet"><span data-i18n="hello">¡Hola! Soy Rayco</span> <span class="wave">👋</span></div>
         <h1>
-          <span data-i18n="h1_a">Technical Artist</span><br/>
-          <span data-i18n="h1_b">para juegos casual</span><br/>
-          <span class="grad" data-i18n="h1_c">que enganchan</span><span class="accent-marks">´</span>
+          <span class="grad" data-i18n="h1_a">Game Art Generalist</span><span class="accent-marks">´</span>
         </h1>
+        <div class="hero-sub" data-i18n="h1_sub">3D · Animación · Unity · VFX</div>
         <p class="hero-copy" data-i18n="hero_copy">
-          Conecto arte y motor en Unity: materiales, VFX, iluminación, render y pipeline que hacen que los juegos casual se vean bien y rindan en móvil.
+          Creo arte listo para juego y lo llevo hasta Unity: desde personajes 3D y animación hasta integración, VFX y polish.
         </p>
+        <div class="hero-value">
+          <span class="tag-mini" data-i18n="indie_badge">Hecho para equipos pequeños</span>
+          <p><strong data-i18n="indie_headline">Arte de juego versátil para equipos pequeños.</strong> <span data-i18n="indie_copy">Puedo moverme entre disciplinas, hacerme cargo de una feature y ayudar a llevarla desde el asset hasta el resultado jugable.</span></p>
+        </div>
         <div class="cta-row">
           <a class="btn btn-primary" href="#games">
-            <span data-i18n="cta_primary">Ver mis juegos</span>
+            <span data-i18n="cta_primary">Ver trabajo seleccionado</span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
-          <a class="btn btn-ghost" href="#about">
-            <span data-i18n="cta_secondary">Conocer más sobre mí</span>
+          <a class="btn btn-ghost" href="#contact">
+            <span data-i18n="cta_secondary">Hablemos</span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
         </div>
@@ -897,6 +935,12 @@
         </div>
       </div>
 
+      <div class="hero-metrics">
+        <div class="hero-metric"><strong data-i18n="hero_m1_val">10+ años</strong><span data-i18n="hero_m1_lbl">Experiencia en juegos / mobile</span></div>
+        <div class="hero-metric"><strong data-i18n="hero_m2_val">30+ apps</strong><span data-i18n="hero_m2_lbl">Shipeadas</span></div>
+        <div class="hero-metric"><strong data-i18n="hero_m3_val">50M+</strong><span data-i18n="hero_m3_lbl">Descargas combinadas</span></div>
+        <div class="hero-metric"><strong data-i18n="hero_m4_val">Mobile + Console</strong><span data-i18n="hero_m4_lbl">Plataformas</span></div>
+      </div>
     </section>
     <!-- GAMES -->
     <section class="panel compact" id="games">
@@ -1057,31 +1101,31 @@
       <div class="skills">
         <div class="skill">
           <div class="ico">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18M3 12h18"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5v10l-9 5-9-5V7z"/><path d="m12 12 9-5M12 12v10M12 12 3 7"/></svg>
           </div>
-          <h4 data-i18n="sk1_t">Shaders &amp; Materiales</h4>
-          <p data-i18n="sk1_c">Setup de materiales, look dev e iluminación consistente y legible en Unity.</p>
+          <h4 data-i18n="sk1_t">3D &amp; Personajes</h4>
+          <p data-i18n="sk1_c">Personajes, criaturas, props y entornos modelados y listos para engine.</p>
         </div>
         <div class="skill">
           <div class="ico">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M12 16v6M2 12h6M16 12h6M5 5l4 4M15 15l4 4M5 19l4-4M15 9l4-4"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m4 14 4-4 4 4 8-8"/><path d="M20 10v6h-6"/></svg>
           </div>
-          <h4 data-i18n="sk2_t">VFX &amp; Game Feel</h4>
-          <p data-i18n="sk2_c">Partículas, feedback visual e impacto que dan vida y peso a cada interacción.</p>
+          <h4 data-i18n="sk2_t">Animación &amp; Game Feel</h4>
+          <p data-i18n="sk2_c">Animación de personajes, feedback y timing que dan vida y peso a cada interacción.</p>
         </div>
         <div class="skill">
           <div class="ico">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 1 1-14 0 7 7 0 0 1 14 0z"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
           </div>
-          <h4 data-i18n="sk3_t">Unity &amp; Pipeline</h4>
-          <p data-i18n="sk3_c">Integración de assets, render, cámara, C# y optimización para móvil.</p>
+          <h4 data-i18n="sk3_t">Unity &amp; Tech Art</h4>
+          <p data-i18n="sk3_c">Integración en Unity, materiales, shaders, VFX y optimización para producción real.</p>
         </div>
         <div class="skill">
           <div class="ico">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5v10l-9 5-9-5V7z"/><path d="m12 12 9-5M12 12v10M12 12 3 7"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M8 6h8M8 10h5M8 14h8"/><circle cx="12" cy="18" r="1"/></svg>
           </div>
-          <h4 data-i18n="sk4_t">3D &amp; DCC</h4>
-          <p data-i18n="sk4_c">Modelado de props, cleanup de librerías y environment art listo para engine.</p>
+          <h4 data-i18n="sk4_t">UI &amp; Integración</h4>
+          <p data-i18n="sk4_c">HUDs, flujos y UI de juego que conectan arte y gameplay en el producto final.</p>
         </div>
       </div>
       <div class="stack-block">
@@ -1264,8 +1308,8 @@
     </section>
 
     <footer class="footer">
-      <span>© 2026 Rayco González. Portfolio personal.</span>
-      <span>Game Art Generalist · Personajes · UI · Animación · Hard Surface</span>
+      <span data-i18n="footer_copy">© 2026 Rayco González. Portfolio personal.</span>
+      <span data-i18n="footer_tags">Game Art · 3D · Animación · Unity · Tech Art</span>
     </footer>
   </main>
 </div>
@@ -1275,9 +1319,17 @@ const I18N = {
   es: {
     nav_home:"Inicio", nav_about:"Sobre mí", nav_cases:"Case Studies", nav_games:"Juegos", nav_visual:"Visual", nav_process:"Proceso", nav_contact:"Contacto",
     hello:"¡Hola! Soy Rayco",
-    h1_a:"Game Art Generalist", h1_b:"para juegos que", h1_c:"cobran vida",
-    hero_copy:"Personajes, UI, animación, hard surface y pipeline: cubro todo el espectro de producción artística para que un juego se vea bien, se sienta bien y rinda en cualquier plataforma.",
-    cta_primary:"Ver mis juegos", cta_secondary:"Conocer más sobre mí",
+    h1_a:"Game Art Generalist",
+    h1_sub:"3D · Animación · Unity · VFX",
+    hero_copy:"Creo arte listo para juego y lo llevo hasta Unity: desde personajes 3D y animación hasta integración, VFX y polish.",
+    indie_badge:"Hecho para equipos pequeños",
+    indie_headline:"Arte de juego versátil para equipos pequeños.",
+    indie_copy:"Puedo moverme entre disciplinas, hacerme cargo de una feature y ayudar a llevarla desde el asset hasta el resultado jugable.",
+    cta_primary:"Ver trabajo seleccionado", cta_secondary:"Hablemos",
+    hero_m1_val:"10+ años", hero_m1_lbl:"Experiencia en juegos / mobile",
+    hero_m2_val:"30+ apps", hero_m2_lbl:"Shipeadas",
+    hero_m3_val:"50M+", hero_m3_lbl:"Descargas combinadas",
+    hero_m4_val:"Mobile + Console", hero_m4_lbl:"Plataformas",
     quote:"Me apasionan los juegos casual: mecánicas simples, retos bien pensados y recompensas que generan enganche y satisfacción.",
     games_kicker:"Proyectos destacados", games_all:"Ver case studies",
     anim_kicker:"Animation Focus",
@@ -1300,10 +1352,10 @@ const I18N = {
     g3_tag:"Animación / Tech Art", g3_tag2:"UI", g3_copy:"App de personaje licenciado donde coordiné las peticiones de animación, adapté contenido de animación y me encargué de la implementación de technical art en Unity: VFX, iluminación, cámara, UI y configuración de audio.",
     skills_kicker:"Disciplinas & stack",
     skills_t:"Lo que aporto como Game Art Generalist",
-    sk1_t:"Shaders & Materiales", sk1_c:"Setup de materiales, look dev e iluminación consistente y legible en Unity.",
-    sk2_t:"VFX & Game Feel", sk2_c:"Partículas, feedback visual e impacto que dan vida y peso a cada interacción.",
-    sk3_t:"Unity & Pipeline", sk3_c:"Integración de assets, render, cámara, C# y optimización para móvil.",
-    sk4_t:"3D & DCC", sk4_c:"Modelado de props, cleanup de librerías y environment art listo para engine.",
+    sk1_t:"3D & Personajes", sk1_c:"Personajes, criaturas, props y entornos modelados y listos para engine.",
+    sk2_t:"Animación & Game Feel", sk2_c:"Animación de personajes, feedback y timing que dan vida y peso a cada interacción.",
+    sk3_t:"Unity & Tech Art", sk3_c:"Integración en Unity, materiales, shaders, VFX y optimización para producción real.",
+    sk4_t:"UI & Integración", sk4_c:"HUDs, flujos y UI de juego que conectan arte y gameplay en el producto final.",
     ts_software:"Software & herramientas", ts_areas:"Áreas",
     st_materials:"Materiales", st_lighting:"Iluminación", st_vfx:"VFX / Partículas", st_render:"Render & Cámara",
     st_assets:"Integración de assets", st_opt:"Optimización móvil", st_props:"Modelado de props",
@@ -1332,14 +1384,24 @@ const I18N = {
     cv_btn:"Descargar CV", cv_btn2:"Escríbeme",
     contact_t:"¿Tienes una idea en mente?",
     contact_c:"Hablemos y hagamos un juego increíble juntos.",
-    contact_btn:"Contactar"
+    contact_btn:"Contactar",
+    footer_copy:"© 2026 Rayco González. Portfolio personal.",
+    footer_tags:"Game Art · 3D · Animación · Unity · Tech Art"
   },
   en: {
     nav_home:"Home", nav_about:"About", nav_cases:"Case Studies", nav_games:"Games", nav_visual:"Visual", nav_process:"Process", nav_contact:"Contact",
     hello:"Hi! I'm Rayco",
-    h1_a:"Game Art Generalist", h1_b:"for games that", h1_c:"come alive",
-    hero_copy:"Characters, UI, animation, hard surface and pipeline — I cover the full art production spectrum so a game looks great, feels great and performs on any platform.",
-    cta_primary:"See my games", cta_secondary:"More about me",
+    h1_a:"Game Art Generalist",
+    h1_sub:"3D · Animation · Unity · VFX",
+    hero_copy:"I create game-ready art and bring it into the game — from 3D characters and animation to Unity integration, VFX and polish.",
+    indie_badge:"Built for small teams",
+    indie_headline:"Versatile game art for small teams.",
+    indie_copy:"I can move between disciplines, take ownership of a feature and help take it from asset to playable result.",
+    cta_primary:"View selected work", cta_secondary:"Let's talk",
+    hero_m1_val:"10+ years", hero_m1_lbl:"Game / Mobile Experience",
+    hero_m2_val:"30+ apps", hero_m2_lbl:"Shipped",
+    hero_m3_val:"50M+", hero_m3_lbl:"Combined Downloads",
+    hero_m4_val:"Mobile + Console", hero_m4_lbl:"Platforms",
     quote:"I love casual games: simple mechanics, well-thought challenges, and rewards that create engagement and satisfaction.",
     games_kicker:"Featured projects", games_all:"View case studies",
     anim_kicker:"Animation Focus",
@@ -1362,10 +1424,10 @@ const I18N = {
     g3_tag:"Animation / Tech Art", g3_tag2:"UI", g3_copy:"Licensed character app where I coordinated animation requests, adapted animation content and handled Unity technical art implementation including VFX, lighting, camera, UI and audio setup.",
     skills_kicker:"Disciplines & stack",
     skills_t:"What I bring as a Game Art Generalist",
-    sk1_t:"Shaders & Materials", sk1_c:"Material setup, look dev and consistent, readable lighting in Unity.",
-    sk2_t:"VFX & Game Feel", sk2_c:"Particles, visual feedback and impact that give life and weight to every interaction.",
-    sk3_t:"Unity & Pipeline", sk3_c:"Asset integration, render, camera, C# and mobile optimization.",
-    sk4_t:"3D & DCC", sk4_c:"Prop modelling, asset-library cleanup and engine-ready environment art.",
+    sk1_t:"3D & Characters", sk1_c:"Characters, creatures, props and environments modeled and engine-ready.",
+    sk2_t:"Animation & Game Feel", sk2_c:"Character animation, feedback and timing that give life and weight to every interaction.",
+    sk3_t:"Unity & Tech Art", sk3_c:"Unity integration, materials, shaders, VFX and optimization for real production.",
+    sk4_t:"UI & Integration", sk4_c:"HUDs, flows and game UI that connect art and gameplay in the final product.",
     ts_software:"Software & tools", ts_areas:"Areas",
     st_materials:"Materials", st_lighting:"Lighting", st_vfx:"VFX / Particles", st_render:"Render & Camera",
     st_assets:"Asset Integration", st_opt:"Mobile Optimization", st_props:"Prop Modelling",
@@ -1394,7 +1456,9 @@ const I18N = {
     cv_btn:"Download CV", cv_btn2:"Email me",
     contact_t:"Got an idea in mind?",
     contact_c:"Let's talk and make an incredible game together.",
-    contact_btn:"Get in touch"
+    contact_btn:"Get in touch",
+    footer_copy:"© 2026 Rayco González. Personal portfolio.",
+    footer_tags:"Game Art · 3D · Animation · Unity · Tech Art"
   }
 };
 
