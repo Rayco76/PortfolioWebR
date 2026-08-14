@@ -124,7 +124,7 @@
   .gallery-overlay{position:absolute;inset:0;display:flex;align-items:flex-end;gap:6px;padding:14px;background:linear-gradient(180deg,transparent 45%,rgba(6,8,20,.88));color:#fff;font-size:13px;font-weight:700;opacity:0;transition:opacity .25s ease}
   .gallery-shot-link:hover .gallery-overlay,.gallery-shot-link:focus-visible .gallery-overlay{opacity:1}
   .gallery-overlay svg{width:14px;height:14px;flex-shrink:0}
-  .gallery-masonry{column-count:3;column-gap:12px}
+  .gallery-masonry{display:block;column-count:3;column-gap:12px}
   .gallery-masonry .gallery-shot{aspect-ratio:auto;break-inside:avoid;margin:0 0 12px}
   .gallery-masonry .gallery-shot img{position:static;width:100%;height:auto;object-fit:initial}
   .explore-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
@@ -205,16 +205,16 @@
         <div class="hero-carousel-shell" data-hero-carousel>
           <div class="hero-carousel">
             <figure class="hero-slide is-active">
-              <img src="assets/images/tech-art/hero-1.png" alt="Game Art Generalist — showcase 1" onerror="this.style.display='none'">
+              <img src="assets/images/tech-art/AlienSquare.png" alt="Game Art Generalist — showcase 1" onerror="this.style.display='none'">
             </figure>
             <figure class="hero-slide">
-              <video src="assets/images/tech-art/hero-2.mp4" muted loop playsinline preload="metadata" aria-label="Game Art Generalist — showcase 2"></video>
+              <video src="assets/Videos/DogHappy_Teaser.mp4" muted loop playsinline preload="metadata" aria-label="Game Art Generalist — showcase 2"></video>
             </figure>
             <figure class="hero-slide">
-              <img src="assets/images/tech-art/hero-3.png" alt="Game Art Generalist — showcase 3" onerror="this.style.display='none'">
+              <video src="assets/Videos/DrizztTurntable.mp4" muted loop playsinline preload="metadata" aria-label="Game Art Generalist — showcase 3"></video>
             </figure>
             <figure class="hero-slide">
-              <video src="assets/images/tech-art/hero-4.mp4" muted loop playsinline preload="metadata" aria-label="Game Art Generalist — showcase 4"></video>
+              <img src="assets/images/tech-art/StylizedKid.jpg" alt="Game Art Generalist — showcase 4" onerror="this.style.display='none'">
             </figure>
           </div>
           <div class="hero-dots" aria-label="Selector de imágenes destacadas">
@@ -272,7 +272,7 @@
         <h4>Reel de animación</h4>
         <p>Animación stylized de personajes, comportamientos de mascotas y timing de gameplay, implementados directamente en Unity.</p>
         <div style="margin-top:16px;border-radius:16px;overflow:hidden;border:1px solid var(--line);aspect-ratio:16/9;max-width:640px">
-          <video src="assets/images/tech-art/animation-reel.mp4" autoplay muted loop playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover" aria-label="Preview del reel de animación"></video>
+          <video data-lazy-video data-src="assets/Videos/MiniReelAnim.mp4" muted loop playsinline preload="none" style="width:100%;height:100%;object-fit:cover" aria-label="Preview del reel de animación"></video>
         </div>
         <p style="margin-top:18px">
           <a class="btn btn-lime" href="https://www.youtube.com/watch?v=ldr6JnGce1M" target="_blank" rel="noopener noreferrer" style="margin-top:0"><span>Ver reel completo en YouTube</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
@@ -324,21 +324,21 @@
     <section class="panel compact" id="hardsurface">
       <div class="section-head"><div><div class="section-kicker"><span class="badge">06</span><span>Hard Surface</span></div><h2>Props y modelado hard surface</h2></div></div>
       <div class="gallery">
-        <a class="gallery-shot-link" href="https://www.artstation.com/rayco76" target="_blank" rel="noopener noreferrer">
+        <a class="gallery-shot-link" href="https://rayco76.artstation.com/projects/8b9b1G?album_id=15102354" target="_blank" rel="noopener noreferrer">
           <div class="gallery-shot">
-            <img src="assets/images/tech-art/hardsurface/hardsurface-1.png" alt="Hard Surface" onerror="this.style.display='none'">
+            <img src="assets/images/hero-techart-2.png" alt="Hard Surface" onerror="this.style.display='none'">
             <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M0 17.7l2.3 4a1.6 1.6 0 0 0 1.4.8h12.9l-2.8-4.8H0zM24 17.7c0-.3-.1-.6-.2-.9L17.3 5.4a1.6 1.6 0 0 0-1.4-.8h-4.6l9.9 17.1 2.4-4.1c.3-.4.4-.6.4-.9zM13.5 14.4L8.9 6.5 4.3 14.4h9.2z"/></svg><span>Ver en ArtStation</span></div>
           </div>
         </a>
-        <a class="gallery-shot-link" href="https://www.artstation.com/rayco76" target="_blank" rel="noopener noreferrer">
+        <a class="gallery-shot-link" href="https://rayco76.artstation.com/projects/18BVBq?album_id=15102354" target="_blank" rel="noopener noreferrer">
           <div class="gallery-shot">
-            <img src="assets/images/tech-art/hardsurface/hardsurface-2.png" alt="Hard Surface" onerror="this.style.display='none'">
+            <img src="assets/images/tech-art/gotrekaxe.png" alt="Hard Surface" onerror="this.style.display='none'">
             <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M0 17.7l2.3 4a1.6 1.6 0 0 0 1.4.8h12.9l-2.8-4.8H0zM24 17.7c0-.3-.1-.6-.2-.9L17.3 5.4a1.6 1.6 0 0 0-1.4-.8h-4.6l9.9 17.1 2.4-4.1c.3-.4.4-.6.4-.9zM13.5 14.4L8.9 6.5 4.3 14.4h9.2z"/></svg><span>Ver en ArtStation</span></div>
           </div>
         </a>
-        <a class="gallery-shot-link" href="https://www.artstation.com/rayco76" target="_blank" rel="noopener noreferrer">
+        <a class="gallery-shot-link" href="https://rayco76.artstation.com/projects/Jv496n?album_id=15102354" target="_blank" rel="noopener noreferrer">
           <div class="gallery-shot">
-            <img src="assets/images/tech-art/hardsurface/hardsurface-3.png" alt="Hard Surface" onerror="this.style.display='none'">
+            <img src="assets/images/tech-art/shotgunHD.png" alt="Hard Surface" onerror="this.style.display='none'">
             <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M0 17.7l2.3 4a1.6 1.6 0 0 0 1.4.8h12.9l-2.8-4.8H0zM24 17.7c0-.3-.1-.6-.2-.9L17.3 5.4a1.6 1.6 0 0 0-1.4-.8h-4.6l9.9 17.1 2.4-4.1c.3-.4.4-.6.4-.9zM13.5 14.4L8.9 6.5 4.3 14.4h9.2z"/></svg><span>Ver en ArtStation</span></div>
           </div>
         </a>
@@ -466,6 +466,21 @@ if(heroCarousel){
 
   showHeroSlide(0);
   startHeroAutoplay();
+}
+
+const lazyVideos = [...document.querySelectorAll("[data-lazy-video]")];
+if(lazyVideos.length){
+  const lazyVideoObserver = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(!entry.isIntersecting) return;
+      const video = entry.target;
+      video.src = video.dataset.src;
+      video.load();
+      video.play().catch(()=>{});
+      lazyVideoObserver.unobserve(video);
+    });
+  }, { rootMargin: "200px" });
+  lazyVideos.forEach(video => lazyVideoObserver.observe(video));
 }
 
 const links=[...document.querySelectorAll(".nav a")];

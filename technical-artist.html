@@ -209,7 +209,7 @@
     opacity:1;
     transform:scale(1);
   }
-  .hero-slide img{
+  .hero-slide img,.hero-slide video{
     width:100%;height:100%;
     object-fit:cover;
     object-position:center;
@@ -317,6 +317,7 @@
   }
   .tag.farm{background:rgba(132,204,22,.18);color:#bef264;border-color:rgba(132,204,22,.3)}
   .tag.arcade{background:rgba(251,191,36,.18);color:#fcd34d;border-color:rgba(251,191,36,.3)}
+  .tag.owner{background:rgba(255,138,76,.18);color:var(--orange, #ff8a4c);border-color:rgba(255,138,76,.3)}
   .game-card p{color:var(--muted);font-size:13.5px;line-height:1.55;margin-top:4px}
   .game-card .arrow{
     width:36px;height:36px;border-radius:50%;border:1px solid var(--line-2);
@@ -503,12 +504,20 @@
     border-radius:24px;
     padding:22px;
     min-height:270px;
+    display:block;
+    text-decoration:none;
+    color:inherit;
     background:
       linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)),
       radial-gradient(240px 140px at 18% 24%, rgba(255,138,76,.20), transparent 60%),
       radial-gradient(220px 140px at 82% 22%, rgba(94,234,212,.18), transparent 60%),
       linear-gradient(145deg, rgba(91,33,182,.28), rgba(10,11,30,.24));
     border:1px solid rgba(255,255,255,.09);
+    transition:transform .25s ease, border-color .25s ease;
+  }
+  .animation-reel-card:hover,.animation-reel-card:focus-visible{
+    transform:translateY(-3px);
+    border-color:rgba(199,242,74,.32);
   }
   .animation-reel-card::before{
     content:"";
@@ -520,19 +529,28 @@
     background-size:36px 36px;
     opacity:.32;
     pointer-events:none;
+    z-index:1;
   }
-  .animation-reel-gif{
+  .animation-reel-card::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, rgba(10,11,30,.15) 0%, rgba(10,11,30,.4) 55%, rgba(10,11,30,.88) 100%);
+    pointer-events:none;
+    z-index:1;
+  }
+  .animation-reel-media{
     position:absolute;
     inset:0;
     width:100%;
     height:100%;
     object-fit:cover;
-    opacity:.4;
+    opacity:.65;
     z-index:0;
   }
   .animation-play{
     position:relative;
-    z-index:1;
+    z-index:2;
     width:78px;
     height:78px;
     border-radius:24px;
@@ -544,7 +562,7 @@
   }
   .animation-reel-body{
     position:relative;
-    z-index:1;
+    z-index:2;
     margin-top:26px;
     max-width:360px;
   }
@@ -559,50 +577,6 @@
     font-size:14px;
     line-height:1.7;
   }
-  .animation-reel-meta{
-    position:relative;
-    z-index:1;
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-    margin-top:18px;
-  }
-  .animation-meta-pill{
-    display:inline-flex;
-    align-items:center;
-    padding:9px 12px;
-    border-radius:999px;
-    border:1px solid rgba(255,255,255,.12);
-    background:rgba(10,11,30,.46);
-    color:var(--soft);
-    font-size:12px;
-    font-weight:600;
-    backdrop-filter:blur(8px);
-  }
-  .animation-preview-footer{
-    position:relative;
-    z-index:1;
-    display:flex;
-    align-items:end;
-    justify-content:space-between;
-    gap:16px;
-    margin-top:22px;
-  }
-  .animation-preview-note{
-    color:var(--muted);
-    font-size:12px;
-    line-height:1.6;
-    max-width:250px;
-  }
-  .animation-preview-cta{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    color:var(--text);
-    font-size:13px;
-    font-weight:700;
-  }
-  .animation-preview-cta svg{flex:0 0 auto}
 
   /* VISUAL */
   .visual-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
@@ -902,16 +876,16 @@
         <div class="hero-carousel-shell" data-hero-carousel>
           <div class="hero-carousel">
             <figure class="hero-slide is-active">
-              <img src="assets/images/hero-techart-1.png" alt="Imagen destacada Tech Art portada 1" onerror="this.style.display='none'">
+              <img src="assets/images/tech-art/AlienSquare.png" alt="Imagen destacada Tech Art portada 1" onerror="this.style.display='none'">
             </figure>
             <figure class="hero-slide">
-              <img src="assets/images/hero-techart-2.png" alt="Imagen destacada Tech Art portada 2" onerror="this.style.display='none'">
+              <video src="assets/Videos/DogHappy_Teaser.mp4" muted loop playsinline preload="metadata" aria-label="Imagen destacada Tech Art portada 2"></video>
             </figure>
             <figure class="hero-slide">
-              <img src="assets/images/hero-techart-3.png" alt="Imagen destacada Tech Art portada 3" onerror="this.style.display='none'">
+              <video src="assets/Videos/DrizztTurntable.mp4" muted loop playsinline preload="metadata" aria-label="Imagen destacada Tech Art portada 3"></video>
             </figure>
             <figure class="hero-slide">
-              <img src="assets/images/hero-techart-4.png" alt="Imagen destacada Tech Art portada 4" onerror="this.style.display='none'">
+              <img src="assets/images/tech-art/StylizedKid.jpg" alt="Imagen destacada Tech Art portada 4" onerror="this.style.display='none'">
             </figure>
           </div>
           <div class="hero-dots" aria-label="Selector de imágenes destacadas">
@@ -941,10 +915,10 @@
       <div class="games">
         <a class="game-card" href="pawpal-tech.html" style="display:block">
           <div class="thumb thumb-1">
-            <img src="assets/images/pawpal/pawpal-card.png" alt="Imagen de ejemplo del proyecto PawPal" onerror="this.style.display='none'">
+            <img src="assets/images/pawpal/pawpal-screen-wardrobe.png" alt="Imagen de ejemplo del proyecto PawPal" onerror="this.style.display='none'">
             <div class="star-counter">
               <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 14.5 9 22 10 16.5 14.5 18 22 12 18 6 22 7.5 14.5 2 10 9.5 9z"/></svg>
-              <span>Main Project</span>
+              <span>AI-Assisted Dev</span>
             </div>
           </div>
           <div class="game-body">
@@ -955,6 +929,7 @@
               <div class="game-title">
                 <h3 data-i18n="g1_title">PawPal</h3>
                 <span class="tag" data-i18n="g1_tag">Tech Art</span>
+                <span class="tag owner" data-i18n="g1_tag2">Creator</span>
               </div>
               <span class="arrow">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
@@ -969,7 +944,7 @@
             <img src="assets/images/tech-art/tech-art-card.png" alt="Tech Art 30+ títulos" onerror="this.style.display='none'">
             <div class="star-counter">
               <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 14.5 9 22 10 16.5 14.5 18 22 12 18 6 22 7.5 14.5 2 10 9.5 9z"/></svg>
-              <span>30+ títulos</span>
+              <span>Full pipeline</span>
             </div>
           </div>
           <div class="game-body">
@@ -978,14 +953,15 @@
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8m8.5 8.5 2.8 2.8M2 12h4m14 0h4M4.9 19.1l2.8-2.8m8.5-8.5 2.8-2.8"/><circle cx="12" cy="12" r="3"/></svg>
               </div>
               <div class="game-title">
-                <h3 data-i18n="g2_title">Technical Art</h3>
+                <h3 data-i18n="g2_title">Game Art</h3>
                 <span class="tag farm" data-i18n="g2_tag">Unity · VFX · 3D</span>
+                <span class="tag" data-i18n="g2_tag2">Animation</span>
               </div>
               <span class="arrow">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
               </span>
             </div>
-            <p data-i18n="g2_copy">Materiales, shaders, VFX, iluminación, animación y pipeline de assets en Unity. 30+ títulos, IPs licenciadas, Switch y PlayStation.</p>
+            <p data-i18n="g2_copy">Personajes, UI, animación, hard surface y pipeline con Unity: el espectro completo de producción artística para Switch, PlayStation, iOS y Android.</p>
           </div>
         </a>
 
@@ -994,7 +970,7 @@
             <img src="assets/images/pocoyo/pocoyo-card.png" alt="Pocoyó Switch y PlayStation" onerror="this.style.display='none'">
             <div class="star-counter">
               <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 14.5 9 22 10 16.5 14.5 18 22 12 18 6 22 7.5 14.5 2 10 9.5 9z"/></svg>
-              <span>Switch · PS</span>
+              <span>30+ títulos · Switch · PS</span>
             </div>
           </div>
           <div class="game-body">
@@ -1005,6 +981,7 @@
               <div class="game-title">
                 <h3 data-i18n="g3_title">Pocoyó</h3>
                 <span class="tag arcade" data-i18n="g3_tag">3D · Tech Art · Switch/PS</span>
+                <span class="tag" data-i18n="g3_tag2">UI</span>
               </div>
               <span class="arrow">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
@@ -1052,28 +1029,16 @@
             <div class="animation-mini-label"><span class="dot"></span><span data-i18n="anim_preview_label">Character pipeline</span></div>
             <div class="animation-badge" data-i18n="anim_preview_badge">Unity Ready</div>
           </div>
-          <div class="animation-reel-card">
-            <img class="animation-reel-gif" src="assets/images/animation/animation-preview.gif" alt="Preview animado del reel de animación" onerror="this.style.display='none'">
-            <a class="animation-play" href="https://www.youtube.com/watch?v=ldr6JnGce1M" target="_blank" rel="noopener noreferrer" aria-label="Ver reel de animación completo">
+          <a class="animation-reel-card" href="https://www.youtube.com/watch?v=ldr6JnGce1M" target="_blank" rel="noopener noreferrer" aria-label="Ver reel de animación completo en YouTube">
+            <video class="animation-reel-media" data-lazy-video data-src="assets/Videos/ScratchAnim.mp4" poster="assets/images/animation/animation-preview.gif" muted loop playsinline preload="none"></video>
+            <span class="animation-play">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 6.5v11l9-5.5-9-5.5Z"/></svg>
-            </a>
+            </span>
             <div class="animation-reel-body">
               <h3 data-i18n="anim_core_t">Animation reel for expressive characters</h3>
               <p data-i18n="anim_core_c">A focused look at stylized character work, pet interactions, gameplay timing and Unity-ready implementation.</p>
             </div>
-            <div class="animation-reel-meta">
-              <span class="animation-meta-pill" data-i18n="anim_tag_1">Stylized motion</span>
-              <span class="animation-meta-pill" data-i18n="anim_tag_2">Gameplay timing</span>
-              <span class="animation-meta-pill" data-i18n="anim_tag_3">Reward feedback</span>
-            </div>
-            <div class="animation-preview-footer">
-              <p class="animation-preview-note" data-i18n="anim_preview_note">Built to support mobile characters that need personality, readability and production-ready animation setup.</p>
-              <div class="animation-preview-cta">
-                <span data-i18n="anim_preview_cta">Open full reel</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-              </div>
-            </div>
-          </div>
+          </a>
         </div>
       </div>
     </section>
@@ -1208,7 +1173,7 @@
         </a>
         <a class="visual-card" data-tone="hardsurface" href="tech-art.html#hardsurface">
           <div class="visual-media">
-            <img src="assets/images/visual-hardsurface-1.jpg" alt="Placeholder para hard surface" onerror="this.style.display='none'">
+            <img src="assets/images/tech-art/visual-hardsurface-1.png" alt="Placeholder para hard surface" onerror="this.style.display='none'">
             <div class="visual-stamp">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7 12 3l9 4-9 4-9-4Z"/><path d="M3 12l9 4 9-4M3 17l9 4 9-4"/></svg>
             </div>
@@ -1341,16 +1306,11 @@ const I18N = {
     anim_btn_art:"Ver ArtStation",
     anim_preview_label:"Pipeline de personaje",
     anim_preview_badge:"Preparado para Unity",
-    anim_tag_1:"Movimiento stylized",
-    anim_tag_2:"Timing de gameplay",
-    anim_tag_3:"Feedback de recompensa",
     anim_core_t:"Reel de animación para personajes expresivos",
     anim_core_c:"Una mirada centrada en trabajo de personaje stylized, interacciones de mascotas, timing de gameplay e implementación lista para Unity.",
-    anim_preview_note:"Pensado para personajes mobile con personalidad, legibilidad y una integración de animación preparada para producción.",
-    anim_preview_cta:"Abrir reel completo",
-    g1_title:"PawPal", g1_tag:"Virtual Pet", g1_copy:"Mascota virtual mobile con minijuegos arcade, personalización y sistemas de progresión orientados a retención.",
-    g2_tag:"3D / Tech Art", g2_copy:"Juego educativo infantil basado en el universo Pocoyo. Arte 3D, integración en Unity, iluminación, materiales y soporte de VFX.",
-    g3_tag:"Animación / Tech Art", g3_copy:"App de personaje licenciado donde coordiné las peticiones de animación, adapté contenido de animación y me encargué de la implementación de technical art en Unity: VFX, iluminación, cámara, UI y configuración de audio.",
+    g1_title:"PawPal", g1_tag:"Virtual Pet", g1_tag2:"Creator", g1_copy:"Mascota virtual mobile con minijuegos arcade, personalización y sistemas de progresión orientados a retención.",
+    g2_tag:"3D / Tech Art", g2_tag2:"Animation", g2_copy:"Personajes, UI, animación, hard surface y pipeline con Unity: el espectro completo de producción artística para Switch, PlayStation, iOS y Android.",
+    g3_tag:"Animación / Tech Art", g3_tag2:"UI", g3_copy:"App de personaje licenciado donde coordiné las peticiones de animación, adapté contenido de animación y me encargué de la implementación de technical art en Unity: VFX, iluminación, cámara, UI y configuración de audio.",
     skills_kicker:"Disciplinas & stack",
     skills_t:"Lo que aporto como Game Art Generalist",
     sk1_t:"Shaders & Materiales", sk1_c:"Setup de materiales, look dev e iluminación consistente y legible en Unity.",
@@ -1410,16 +1370,11 @@ const I18N = {
     anim_btn_art:"View ArtStation",
     anim_preview_label:"Character pipeline",
     anim_preview_badge:"Unity Ready",
-    anim_tag_1:"Stylized motion",
-    anim_tag_2:"Gameplay timing",
-    anim_tag_3:"Reward feedback",
     anim_core_t:"Animation reel for expressive characters",
     anim_core_c:"A focused look at stylized character work, pet interactions, gameplay timing and Unity-ready implementation.",
-    anim_preview_note:"Built to support mobile characters that need personality, readability and production-ready animation setup.",
-    anim_preview_cta:"Open full reel",
-    g1_title:"PawPal", g1_tag:"Virtual Pet", g1_copy:"Virtual pet mobile game with arcade mini-games, customization and progression systems designed for retention.",
-    g2_tag:"3D / Tech Art", g2_copy:"Educational kids game based on the Pocoyo universe. 3D art, Unity integration, lighting, materials and VFX support.",
-    g3_tag:"Animation / Tech Art", g3_copy:"Licensed character app where I coordinated animation requests, adapted animation content and handled Unity technical art implementation including VFX, lighting, camera, UI and audio setup.",
+    g1_title:"PawPal", g1_tag:"Virtual Pet", g1_tag2:"Creator", g1_copy:"Virtual pet mobile game with arcade mini-games, customization and progression systems designed for retention.",
+    g2_tag:"3D / Tech Art", g2_tag2:"Animation", g2_copy:"Characters, UI, animation, hard surface modeling and Unity pipeline — full-spectrum game art production for Switch, PlayStation, iOS and Android.",
+    g3_tag:"Animation / Tech Art", g3_tag2:"UI", g3_copy:"Licensed character app where I coordinated animation requests, adapted animation content and handled Unity technical art implementation including VFX, lighting, camera, UI and audio setup.",
     skills_kicker:"Disciplines & stack",
     skills_t:"What I bring as a Game Art Generalist",
     sk1_t:"Shaders & Materials", sk1_c:"Material setup, look dev and consistent, readable lighting in Unity.",
@@ -1508,7 +1463,19 @@ if(heroCarousel){
 
   function showHeroSlide(nextIndex){
     activeIndex = (nextIndex + slides.length) % slides.length;
-    slides.forEach((slide, index)=> slide.classList.toggle("is-active", index === activeIndex));
+    slides.forEach((slide, index)=>{
+      const isActive = index === activeIndex;
+      slide.classList.toggle("is-active", isActive);
+      const video = slide.querySelector("video");
+      if(video){
+        if(isActive){
+          video.currentTime = 0;
+          video.play().catch(()=>{});
+        } else {
+          video.pause();
+        }
+      }
+    });
     dots.forEach((dot, index)=>{
       const isActive = index === activeIndex;
       dot.classList.toggle("is-active", isActive);
@@ -1540,6 +1507,21 @@ if(heroCarousel){
 
   showHeroSlide(0);
   startHeroAutoplay();
+}
+
+const lazyVideos = [...document.querySelectorAll("[data-lazy-video]")];
+if(lazyVideos.length){
+  const lazyVideoObserver = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(!entry.isIntersecting) return;
+      const video = entry.target;
+      video.src = video.dataset.src;
+      video.load();
+      video.play().catch(()=>{});
+      lazyVideoObserver.unobserve(video);
+    });
+  }, { rootMargin: "200px" });
+  lazyVideos.forEach(video => lazyVideoObserver.observe(video));
 }
 
 // active nav on scroll
